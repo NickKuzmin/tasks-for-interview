@@ -8,6 +8,8 @@
 
 - http://a4academics.com/interview-questions/52-dot-net-interview-questions/417-c-oops-interview-questions-and-answers
 
+- https://www.softwaretestinghelp.com/c-sharp-interview-questions/
+
 - https://tproger.ru/articles/problems/
 
 - https://cmsmagazine.ru/journal/items-80-problems-with-it-interviews/
