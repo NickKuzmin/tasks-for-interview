@@ -38,6 +38,8 @@
 
 - http://sqlcom.ru/helpful-and-interesting/top-10-questions/
 
+*React.js:*
+- https://proglib.io/p/react-digest/
 
 -----------------
 *C#:*
