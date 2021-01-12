@@ -41,6 +41,13 @@
 *React.js:*
 - https://proglib.io/p/react-digest/
 
+*Unit-testing:*
+
+- https://gist.github.com/vertigra/696e9d92dc72070584e556e2169e850d
+
+- https://habr.com/ru/post/116372/
+
+- https://www.maxshulga.ru/2012/03/mock-vs-stub.html
 -----------------
 *C#:*
 
