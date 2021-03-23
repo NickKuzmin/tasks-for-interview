@@ -18,6 +18,10 @@
 
 - https://habr.com/ru/post/351874/
 
+- Отличия IEnumerable & IQueryable:
+Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+Where<TSource>(this IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+
 *SQL:*
 
 - https://habr.com/ru/company/otus/blog/461067/
