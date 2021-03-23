@@ -19,9 +19,9 @@
 - https://habr.com/ru/post/351874/
 
 - Отличия IEnumerable & IQueryable:
-https://habr.com/ru/post/256821/
-Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
-Where<TSource>(this IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+> https://habr.com/ru/post/256821/
+> - Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+> - Where<TSource>(this IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
 
 *SQL:*
 
