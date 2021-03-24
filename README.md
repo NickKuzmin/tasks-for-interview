@@ -1,3 +1,8 @@
+1. DB (ключи, индексы, связи…)
+2. Entity Framework (жадная / ленивая загрузка)
+3. С# .NET (DI, garbage collector…)
+4. ASP.NET MVC (сессия, время сессии, где хранится…)
+
 *C#:*
 
 - https://metanit.com/sharp/interview/
