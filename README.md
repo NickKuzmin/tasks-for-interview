@@ -45,6 +45,8 @@
 
 - https://oracle-patches.com/oracle/prof/341-tablichnaya-selektivnost-indeksnaya-selektivnost-blochnaya-selektivnost
 
+- https://coderlessons.com/tutorials/bazy-dannykh/osnovy-subd/18-klasternyi-protiv-neklasterizovannogo-indeksa
+
 *React.js:*
 - https://proglib.io/p/react-digest/
 
