@@ -70,6 +70,7 @@
 - Mutex
 - EventWaitHandler
 - InterLocked
+- IValidatableObject
 
 *SQL:*
 - ACID
@@ -100,6 +101,11 @@
 - DataMapper/Repository patterns
 - HTTP - Stateless-протокол
 
+*REST WEB API:*
+- Swagger
+- [FromBody][FromQuery] атрибуты
+- HEAD/GET/POST/PUT/PATCH/DELETE
+- HttpRepl (A command-line tool for interacting with RESTful HTTP services)
 -----------------------------
 Табличная селективность или селективность строк – соотношение количества строк, возвращаемых запросом к общему количеству строк в таблице.
 
