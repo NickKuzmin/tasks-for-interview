@@ -71,6 +71,8 @@
 - EventWaitHandler
 - InterLocked
 - IValidatableObject
+- Records - тип
+- Policy.Handle
 
 *SQL:*
 - ACID
