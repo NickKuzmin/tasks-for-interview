@@ -117,6 +117,7 @@
 *JavaScript:*
 - Redux (dev-tools)
 - webpack
+- Parcel (parceljs.org)
 - Babel
 - EcmaScript https://github.com/lukehoban/es6features
 - Jest
