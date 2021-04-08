@@ -107,6 +107,7 @@
 - Redux (dev-tools)
 - webpack
 - Babel
+- EcmaScript https://github.com/lukehoban/es6features
 
 *REST WEB API:*
 - Swagger
