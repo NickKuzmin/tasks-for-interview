@@ -103,6 +103,9 @@
 - DataMapper/Repository patterns
 - HTTP - Stateless-протокол
 
+*JavaScript:*
+- Redux (dev-tools)
+
 *REST WEB API:*
 - Swagger
 - [FromBody][FromQuery] атрибуты
