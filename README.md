@@ -3,6 +3,14 @@
 3. С# .NET (DI, garbage collector…)
 4. ASP.NET MVC (сессия, время сессии, где хранится…)
 
+*Youtube:*
+- LevelUpTuts (https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg)
+- ITVDN (https://www.youtube.com/channel/UCzxRv9BtqrM946JmaMLtv_w)
+- dotNET (https://www.youtube.com/channel/UCvtT19MZW8dq5Wwfu6B0oxw)
+- Traversy Media (https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+- DotNext (https://www.youtube.com/channel/UCNPwMPudMEw-gnAT4zh_UZg)
+- Hitesh Choudhary (https://www.youtube.com/channel/UCXgGY0wkgOzynnHvSEVmE3A)
+
 *C#:*
 
 - https://metanit.com/sharp/interview/
@@ -108,6 +116,7 @@
 - webpack
 - Babel
 - EcmaScript https://github.com/lukehoban/es6features
+- CSS Grid
 
 *REST WEB API:*
 - Swagger
