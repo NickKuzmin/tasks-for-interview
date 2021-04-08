@@ -116,13 +116,21 @@
 - webpack
 - Babel
 - EcmaScript https://github.com/lukehoban/es6features
+- Jest
+- Apollo
+- React Native
+- VueJS
 - CSS Grid
+- Meteor
 
 *REST WEB API:*
 - Swagger
 - [FromBody][FromQuery] атрибуты
 - HEAD/GET/POST/PUT/PATCH/DELETE
 - HttpRepl (A command-line tool for interacting with RESTful HTTP services)
+
+*Other:*
+- Progressive Web App
 -----------------------------
 Табличная селективность или селективность строк – соотношение количества строк, возвращаемых запросом к общему количеству строк в таблице.
 
