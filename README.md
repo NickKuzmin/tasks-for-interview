@@ -10,6 +10,9 @@
 - Traversy Media (https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
 - DotNext (https://www.youtube.com/channel/UCNPwMPudMEw-gnAT4zh_UZg)
 - Hitesh Choudhary (https://www.youtube.com/channel/UCXgGY0wkgOzynnHvSEVmE3A)
+- Hussein Nasser (https://www.youtube.com/c/HusseinNasser-software-engineering/)
+- CODELLIGENT (https://www.youtube.com/channel/UC1sbu30ylZNM7ITdVxFF2ww)
+- .NET Interview Preparation videos (https://www.youtube.com/c/dnfvideo/featured)
 
 *C#:*
 
