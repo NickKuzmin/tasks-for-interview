@@ -122,6 +122,8 @@
 
 *JavaScript frameworks and etc:*
 - Redux (dev-tools)
+- Ember
+- Backbone.js
 - webpack
 - React Native
 - Babel
