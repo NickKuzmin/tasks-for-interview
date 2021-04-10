@@ -137,9 +137,11 @@
 
 *JavaScript:*
 - EcmaScript https://github.com/lukehoban/es6features
+- Prototype
+- Контекст this, bind, call, apply
+- Замыкание
 - Взаимодействие с DOM
 - Virtual DOM
-- Замыкание
 - Стрелочные функции
 - Promise
 - async/await
