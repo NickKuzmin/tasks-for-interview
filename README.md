@@ -115,15 +115,16 @@
 - HTTP - Stateless-протокол
 
 *JavaScript:*
+- EcmaScript https://github.com/lukehoban/es6features
 - Redux (dev-tools)
 - webpack
-- Parcel (parceljs.org)
+- React Native
 - Babel
-- EcmaScript https://github.com/lukehoban/es6features
+- VueJS
+- Parcel (parceljs.org)
 - Jest
 - Apollo
-- React Native
-- VueJS
+
 - CSS Grid
 - Meteor
 
