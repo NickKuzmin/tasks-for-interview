@@ -130,6 +130,7 @@
 *Performance:*
 - yslow (http://yslow.org/)
 - PageSpeed Insights (https://developers.google.com/speed/pagespeed/insights/)
+- Chrome Dev Tools Device View
 
 *REST WEB API:*
 - Swagger
