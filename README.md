@@ -132,6 +132,7 @@
 - PageSpeed Insights (https://developers.google.com/speed/pagespeed/insights/)
 - Chrome Dev Tools Device View
 - Chrome Dev Tools Network Tab 
+- Chrome Dev Tools Performance Tab (with screenshots and memery usage)
 
 *REST WEB API:*
 - Swagger
