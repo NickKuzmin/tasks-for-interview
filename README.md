@@ -157,6 +157,10 @@
 - Angular Universal
 - Sapper (Svelte)
 
+*NodeJS:*
+- path/fs/os/events/http
+- nodemon
+
 *CSS:*
 - CSS Grid
 - Селекторы
