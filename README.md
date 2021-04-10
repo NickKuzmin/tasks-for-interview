@@ -114,6 +114,12 @@
 - DataMapper/Repository patterns
 - HTTP - Stateless-протокол
 
+*Serverless:*
+- Firebase
+- AWS
+- JAMstack
+- Yandex Cloud
+
 *JavaScript frameworks and etc:*
 - Redux (dev-tools)
 - webpack
@@ -179,6 +185,9 @@
 - [FromBody][FromQuery] атрибуты
 - HEAD/GET/POST/PUT/PATCH/DELETE
 - HttpRepl (A command-line tool for interacting with RESTful HTTP services)
+
+*Тестирование:*
+- End 2 end
 
 *Other:*
 - Progressive Web App
