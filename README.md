@@ -121,12 +121,19 @@
 - React Native
 - Babel
 - VueJS
+- Meteor
 - Parcel (parceljs.org)
 - Jest
 - Apollo
 
+*CSS:*
 - CSS Grid
-- Meteor
+- Селекторы
+- Box model
+- Позиционирование
+- FlexBox
+- Псевдоэлементы
+- Медиа запросы
 
 *Performance:*
 - yslow (http://yslow.org/)
