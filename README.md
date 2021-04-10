@@ -114,8 +114,7 @@
 - DataMapper/Repository patterns
 - HTTP - Stateless-протокол
 
-*JavaScript:*
-- EcmaScript https://github.com/lukehoban/es6features
+*JavaScript frameworks and etc:*
 - Redux (dev-tools)
 - webpack
 - React Native
@@ -125,6 +124,20 @@
 - Parcel (parceljs.org)
 - Jest
 - Apollo
+
+*JavaScript:*
+- EcmaScript https://github.com/lukehoban/es6features
+- Взаимодействие с DOM
+- Virtual DOM
+- Замыкание
+- Стрелочные функции
+- Promise
+- async/await
+- Event Loop
+- Prototype
+- Методы массивов
+- Деструктуризация
+- Fetch
 
 *CSS:*
 - CSS Grid
