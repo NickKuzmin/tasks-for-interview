@@ -134,6 +134,9 @@
 - FlexBox
 - Псевдоэлементы
 - Медиа запросы
+- Препроцессоры (LESS/SASS)
+- Bootstrap / Materialize CSS
+- BEM
 
 *Performance:*
 - yslow (http://yslow.org/)
