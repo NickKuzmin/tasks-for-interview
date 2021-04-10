@@ -140,13 +140,12 @@
 - Prototype
 - Контекст this, bind, call, apply
 - Замыкание
-- Взаимодействие с DOM
-- Virtual DOM
 - Стрелочные функции
 - Promise
 - async/await
-- Event Loop
-- Prototype
+- Event Loop (http://latentflip.com/)
+- Взаимодействие с DOM
+- Virtual DOM
 - Методы массивов
 - Деструктуризация
 - Fetch 
