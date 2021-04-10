@@ -127,6 +127,10 @@
 - CSS Grid
 - Meteor
 
+*Performance:*
+- yslow (http://yslow.org/)
+- PageSpeed Insights (https://developers.google.com/speed/pagespeed/insights/)
+
 *REST WEB API:*
 - Swagger
 - [FromBody][FromQuery] атрибуты
