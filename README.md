@@ -122,6 +122,7 @@
 - VueJS
 - Meteor
 - Parcel (parceljs.org)
+- Yarn 
 - Jest
 - Apollo
 
