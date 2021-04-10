@@ -127,12 +127,6 @@
 - Jest
 - Apollo
 
-*SSR:*
-- Next.js (React)
-- Nuxt.js (Vue)
-- Angular Universal
-- Sapper (Svelte)
-
 *JavaScript:*
 - EcmaScript https://github.com/lukehoban/es6features
 - Взаимодействие с DOM
@@ -146,6 +140,16 @@
 - Методы массивов
 - Деструктуризация
 - Fetch 
+
+*Backend Javascript:*
+- NodeJS (Express, Nest, Koa, Loopback)
+- Deno
+
+*SSR:*
+- Next.js (React)
+- Nuxt.js (Vue)
+- Angular Universal
+- Sapper (Svelte)
 
 *CSS:*
 - CSS Grid
