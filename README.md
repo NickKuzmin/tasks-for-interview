@@ -136,6 +136,7 @@
 - gulp-imagemin
 - imageoptim
 - icomoon
+- picturefill
 
 *REST WEB API:*
 - Swagger
