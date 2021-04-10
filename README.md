@@ -162,6 +162,7 @@
 *NodeJS:*
 - path/fs/os/events/http
 - nodemon
+- package-lock
 
 *CSS:*
 - CSS Grid
