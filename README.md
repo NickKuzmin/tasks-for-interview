@@ -121,6 +121,7 @@
 - Babel
 - VueJS
 - Meteor
+- Svelte
 - Parcel (parceljs.org)
 - Yarn 
 - Jest
