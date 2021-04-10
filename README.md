@@ -133,6 +133,9 @@
 - Chrome Dev Tools Device View
 - Chrome Dev Tools Network Tab 
 - Chrome Dev Tools Performance Tab (with screenshots and memery usage)
+- gulp-imagemin
+- imageoptim
+- icomoon
 
 *REST WEB API:*
 - Swagger
