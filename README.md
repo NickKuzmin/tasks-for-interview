@@ -84,6 +84,8 @@
 - IValidatableObject
 - Records - тип
 - Policy.Handle
+- TPL (Task Parallel Library)
+- PLINQ (Parallel LINQ)
 
 *SQL:*
 - ACID
