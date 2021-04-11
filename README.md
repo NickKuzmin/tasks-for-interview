@@ -139,6 +139,8 @@
 - EcmaScript https://github.com/lukehoban/es6features
 - Prototype
 - Контекст this, bind, call, apply
+- Object.create (property descriptor). getters, setters
+- Proxy
 - Замыкание
 - Стрелочные функции
 - Promise
