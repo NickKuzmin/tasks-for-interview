@@ -147,6 +147,8 @@
 - Методы массивов
 - Деструктуризация
 - Fetch 
+- Генераторы-yield (Symbol iterator [Symbol.iterator], for of)
+- Методы массивов (forEach, map, filter, reduce, find, findIndex)
 
 *Backend Javascript:*
 - NodeJS (Express, Nest, Koa, Loopback)
