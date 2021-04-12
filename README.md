@@ -115,13 +115,7 @@
 - Порождающие события (event sourcing)
 - DataMapper/Repository patterns
 - HTTP - Stateless-протокол
-
-*Serverless:*
-- Firebase
-- AWS
-- JAMstack
-- Yandex Cloud
-
+- 
 *JavaScript frameworks and etc:*
 - Redux (dev-tools)
 - Ember
@@ -169,6 +163,19 @@
 - nodemon
 - package-lock
 - Gulp — это таск-менеджер для автоматического выполнения часто используемых задач (например, минификации, тестирования, объединения файлов)
+
+*JavaScript Unit-Testing:*
+- Jasmine
+- Ava
+- Tape
+- Mocha
+- Jest
+
+*Serverless:*
+- Firebase
+- AWS
+- JAMstack
+- Yandex Cloud
 
 *CSS:*
 - CSS Grid
