@@ -157,7 +157,7 @@ https://learn.javascript.ru/
 - Object.entries/Object.fromEntries
 - Spread, Rest
 - Деструктуризация
-- LocalStorage
+- LocalStorage (отличия LocalStorage от Cookies)
 
 *Backend Javascript:*
 - NodeJS (Express, Nest, Koa, Loopback)
