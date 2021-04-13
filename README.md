@@ -118,7 +118,10 @@ https://learn.javascript.ru/
 - Порождающие события (event sourcing)
 - DataMapper/Repository patterns
 - HTTP - Stateless-протокол
-- 
+
+*HTTP/SOAP/REST:*
+- X-Powered-By заголовок
+
 *JavaScript frameworks and etc:*
 - Redux (dev-tools)
 - Ember
