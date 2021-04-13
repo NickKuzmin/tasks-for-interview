@@ -34,11 +34,6 @@
 
 - https://habr.com/ru/post/351874/
 
-- Отличия IEnumerable & IQueryable:
-> https://habr.com/ru/post/256821/
-> - Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
-> - Where<TSource>(this IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
-
 *SQL:*
 
 - https://habr.com/ru/company/otus/blog/461067/
@@ -89,6 +84,9 @@ https://learn.javascript.ru/
 - Policy.Handle
 - TPL (Task Parallel Library)
 - PLINQ (Parallel LINQ)
+- Отличия IEnumerable & IQueryable (https://habr.com/ru/post/256821/):
+  Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+  Where<TSource>(this IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
 
 *SQL:*
 - ACID
@@ -157,6 +155,9 @@ https://learn.javascript.ru/
 - Методы массивов (forEach, map, filter, reduce, find, findIndex)
 - Map, Set, WeakMap, WeakSet
 - Object.entries/Object.fromEntries
+- Spread, Rest
+- Деструктуризация
+- LocalStorage
 
 *Backend Javascript:*
 - NodeJS (Express, Nest, Koa, Loopback)
