@@ -66,6 +66,9 @@
 *React.js:*
 - https://proglib.io/p/react-digest/
 
+*Java-Script:*
+https://learn.javascript.ru/
+
 *Unit-testing:*
 
 - https://gist.github.com/vertigra/696e9d92dc72070584e556e2169e850d
@@ -146,9 +149,11 @@
 - Virtual DOM
 - Методы массивов
 - Деструктуризация
-- Fetch 
+- Fetch, XMLHttpRequest (XHR), Ajax
 - Генераторы-yield (Symbol iterator [Symbol.iterator], for of)
 - Методы массивов (forEach, map, filter, reduce, find, findIndex)
+- Map, Set, WeakMap, WeakSet
+- Object.entries/Object.fromEntries
 
 *Backend Javascript:*
 - NodeJS (Express, Nest, Koa, Loopback)
