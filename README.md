@@ -156,8 +156,18 @@ https://learn.javascript.ru/
 - Map, Set, WeakMap, WeakSet
 - Object.entries/Object.fromEntries
 - Spread, Rest
-- Деструктуризация
+- Деструктуризация для массивов и объектов
 - LocalStorage (отличия LocalStorage от Cookies)
+- var/let/const/Hoisting/const для array и объектов
+- Возведение в степень **
+- Глобальный объект global и window
+- Параметры со значением по умолчанию (a = 10)
+- startWith/endsWith/include/repeat/trim/padStart/padEnd
+- Object.keys(this), Object.is, Object.assign, Object.entries, Object.values
+- Описание полей объекта в [cityField + Date()]
+- export модулей/import
+- Статические методы
+- Класс Symbol
 
 *Backend Javascript:*
 - NodeJS (Express, Nest, Koa, Loopback)
