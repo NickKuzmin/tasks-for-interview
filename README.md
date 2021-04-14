@@ -143,7 +143,7 @@ https://learn.javascript.ru/
 - Proxy
 - Замыкание
 - Стрелочные функции
-- Promise
+- Promise/then/catch/finally/Promise.all/Promise.race
 - async/await
 - Event Loop (http://latentflip.com/)
 - Взаимодействие с DOM
@@ -168,6 +168,8 @@ https://learn.javascript.ru/
 - export модулей/import
 - Статические методы
 - Класс Symbol
+- Reflect.construct/Reflect.apply/Reflect.ownKeys/Reflect.preventExtensions/Reflect.isExtensible
+- __proto__
 
 *Backend Javascript:*
 - NodeJS (Express, Nest, Koa, Loopback)
