@@ -169,7 +169,7 @@ https://learn.javascript.ru/
 - Статические методы
 - Класс Symbol
 - Reflect.construct/Reflect.apply/Reflect.ownKeys/Reflect.preventExtensions/Reflect.isExtensible
-- __proto__
+- `__proto__`
 
 *Backend Javascript:*
 - NodeJS (Express, Nest, Koa, Loopback)
