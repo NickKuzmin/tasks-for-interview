@@ -121,6 +121,7 @@ https://learn.javascript.ru/
 - X-Powered-By заголовок
 
 *JavaScript frameworks and etc:*
+- cypress
 - Redux (dev-tools)
 - Ember
 - Backbone.js
