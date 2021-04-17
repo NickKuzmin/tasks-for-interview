@@ -194,6 +194,8 @@ https://learn.javascript.ru/
 - Tape
 - Mocha
 - Jest
+- React Testing Library (https://github.com/testing-library/react-testing-library)
+- enzyme
 
 *Serverless:*
 - Firebase
