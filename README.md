@@ -169,6 +169,12 @@
 - Progressive Web App
 - FramerX/Figma
 -----------------------------
+*Git repositories:*
+
+- Jest Unit-testing:
+  https://github.com/leveluptuts/Level-Up-JavaScript-Testing-101
+
+-----------------------------
 *Youtube:*
 - LevelUpTuts (https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg)
 - ITVDN (https://www.youtube.com/channel/UCzxRv9BtqrM946JmaMLtv_w)
