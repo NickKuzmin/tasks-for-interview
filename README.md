@@ -65,6 +65,7 @@
 - Yarn 
 - Jest
 - Apollo
+- Dart
 
 *JavaScript:*
 - EcmaScript https://github.com/lukehoban/es6features
@@ -101,6 +102,7 @@
 - Класс Symbol
 - Reflect.construct/Reflect.apply/Reflect.ownKeys/Reflect.preventExtensions/Reflect.isExtensible
 - `__proto__`
+- V8 – в Chrome и Opera/SpiderMonkey – в Firefox
 
 *JavaScript Unit-Testing:*
 - Jasmine
