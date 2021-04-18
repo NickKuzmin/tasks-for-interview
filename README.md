@@ -1,77 +1,3 @@
-1. DB (ключи, индексы, связи…)
-2. Entity Framework (жадная / ленивая загрузка)
-3. С# .NET (DI, garbage collector…)
-4. ASP.NET MVC (сессия, время сессии, где хранится…)
-
-*Youtube:*
-- LevelUpTuts (https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg)
-- ITVDN (https://www.youtube.com/channel/UCzxRv9BtqrM946JmaMLtv_w)
-- dotNET (https://www.youtube.com/channel/UCvtT19MZW8dq5Wwfu6B0oxw)
-- Traversy Media (https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
-- DotNext (https://www.youtube.com/channel/UCNPwMPudMEw-gnAT4zh_UZg)
-- Hitesh Choudhary (https://www.youtube.com/channel/UCXgGY0wkgOzynnHvSEVmE3A)
-- Hussein Nasser (https://www.youtube.com/c/HusseinNasser-software-engineering/)
-- CODELLIGENT (https://www.youtube.com/channel/UC1sbu30ylZNM7ITdVxFF2ww)
-- .NET Interview Preparation videos (https://www.youtube.com/c/dnfvideo/featured)
-
-*C#:*
-
-- https://metanit.com/sharp/interview/
-
-- https://www.guru99.com/c-sharp-interview-questions.html
-
-- https://www.c-sharpcorner.com/UploadFile/puranindia/C-Sharp-interview-questions/
-
-- https://hackr.io/blog/c-sharp-interview-questions
-
-- http://a4academics.com/interview-questions/52-dot-net-interview-questions/417-c-oops-interview-questions-and-answers
-
-- https://www.softwaretestinghelp.com/c-sharp-interview-questions/
-
-- https://tproger.ru/articles/problems/
-
-- https://cmsmagazine.ru/journal/items-80-problems-with-it-interviews/
-
-- https://habr.com/ru/post/351874/
-
-*SQL:*
-
-- https://habr.com/ru/company/otus/blog/461067/
-
-- https://tproger.ru/articles/sql-interview-questions/
-
-- https://proglib.io/p/sql-questions/
-
-- https://techrocks.ru/2020/06/11/top-sql-interview-questions-1/
-
-- https://jsehelper.blogspot.com/2016/01/sql-1.html
-
-- https://vk.com/topic-51760813_34627260
-
-- https://temofeev.ru/info/articles/luchshie-voprosy-sredney-slozhnosti-po-sql-na-sobesedovanii-analitika-dannykh/
-
-- https://ru.bitdegree.org/rukovodstvo/sql-zadachi/
-
-- http://sqlcom.ru/helpful-and-interesting/top-10-questions/
-
-- https://oracle-patches.com/oracle/prof/341-tablichnaya-selektivnost-indeksnaya-selektivnost-blochnaya-selektivnost
-
-- https://coderlessons.com/tutorials/bazy-dannykh/osnovy-subd/18-klasternyi-protiv-neklasterizovannogo-indeksa
-
-*React.js:*
-- https://proglib.io/p/react-digest/
-
-*Java-Script:*
-https://learn.javascript.ru/
-
-*Unit-testing:*
-
-- https://gist.github.com/vertigra/696e9d92dc72070584e556e2169e850d
-
-- https://habr.com/ru/post/116372/
-
-- https://www.maxshulga.ru/2012/03/mock-vs-stub.html
------------------
 *C#:*
 
 - ReaderWriterLocker
@@ -87,6 +13,9 @@ https://learn.javascript.ru/
 - Отличия IEnumerable & IQueryable (https://habr.com/ru/post/256821/):
   Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
   Where<TSource>(this IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+- С# .NET (DI, garbage collector…)
+- ASP.NET MVC (сессия, время сессии, где хранится…)
+- Entity Framework (жадная / ленивая загрузка)  
 
 *SQL:*
 - ACID
@@ -116,6 +45,7 @@ https://learn.javascript.ru/
 - Порождающие события (event sourcing)
 - DataMapper/Repository patterns
 - HTTP - Stateless-протокол
+- DB (ключи, индексы, связи…)
 
 *HTTP/SOAP/REST:*
 - X-Powered-By заголовок
@@ -238,6 +168,75 @@ https://learn.javascript.ru/
 *Other:*
 - Progressive Web App
 - FramerX/Figma
+-----------------------------
+*Youtube:*
+- LevelUpTuts (https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg)
+- ITVDN (https://www.youtube.com/channel/UCzxRv9BtqrM946JmaMLtv_w)
+- dotNET (https://www.youtube.com/channel/UCvtT19MZW8dq5Wwfu6B0oxw)
+- Traversy Media (https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+- DotNext (https://www.youtube.com/channel/UCNPwMPudMEw-gnAT4zh_UZg)
+- Hitesh Choudhary (https://www.youtube.com/channel/UCXgGY0wkgOzynnHvSEVmE3A)
+- Hussein Nasser (https://www.youtube.com/c/HusseinNasser-software-engineering/)
+- CODELLIGENT (https://www.youtube.com/channel/UC1sbu30ylZNM7ITdVxFF2ww)
+- .NET Interview Preparation videos (https://www.youtube.com/c/dnfvideo/featured)
+
+*C#:*
+
+- https://metanit.com/sharp/interview/
+
+- https://www.guru99.com/c-sharp-interview-questions.html
+
+- https://www.c-sharpcorner.com/UploadFile/puranindia/C-Sharp-interview-questions/
+
+- https://hackr.io/blog/c-sharp-interview-questions
+
+- http://a4academics.com/interview-questions/52-dot-net-interview-questions/417-c-oops-interview-questions-and-answers
+
+- https://www.softwaretestinghelp.com/c-sharp-interview-questions/
+
+- https://tproger.ru/articles/problems/
+
+- https://cmsmagazine.ru/journal/items-80-problems-with-it-interviews/
+
+- https://habr.com/ru/post/351874/
+
+*SQL:*
+
+- https://habr.com/ru/company/otus/blog/461067/
+
+- https://tproger.ru/articles/sql-interview-questions/
+
+- https://proglib.io/p/sql-questions/
+
+- https://techrocks.ru/2020/06/11/top-sql-interview-questions-1/
+
+- https://jsehelper.blogspot.com/2016/01/sql-1.html
+
+- https://vk.com/topic-51760813_34627260
+
+- https://temofeev.ru/info/articles/luchshie-voprosy-sredney-slozhnosti-po-sql-na-sobesedovanii-analitika-dannykh/
+
+- https://ru.bitdegree.org/rukovodstvo/sql-zadachi/
+
+- http://sqlcom.ru/helpful-and-interesting/top-10-questions/
+
+- https://oracle-patches.com/oracle/prof/341-tablichnaya-selektivnost-indeksnaya-selektivnost-blochnaya-selektivnost
+
+- https://coderlessons.com/tutorials/bazy-dannykh/osnovy-subd/18-klasternyi-protiv-neklasterizovannogo-indeksa
+
+*React.js:*
+- https://proglib.io/p/react-digest/
+
+*Java-Script:*
+https://learn.javascript.ru/
+
+*Unit-testing:*
+
+- https://gist.github.com/vertigra/696e9d92dc72070584e556e2169e850d
+
+- https://habr.com/ru/post/116372/
+
+- https://www.maxshulga.ru/2012/03/mock-vs-stub.html
 -----------------------------
 Табличная селективность или селективность строк – соотношение количества строк, возвращаемых запросом к общему количеству строк в таблице.
 
