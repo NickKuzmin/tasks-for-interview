@@ -125,7 +125,10 @@
 - Не привязана к React.
 - Component/Action/Store/Reducer
 - dispatch/subscribe/getState
+- combineReducers
 - Middleware: Redux Thunk
+- Redux logger
+- Redux DevTools (Chrome)
 
 *SSR:*
 - Next.js (React)
