@@ -102,22 +102,6 @@
 - Reflect.construct/Reflect.apply/Reflect.ownKeys/Reflect.preventExtensions/Reflect.isExtensible
 - `__proto__`
 
-*Backend Javascript:*
-- NodeJS (Express, Nest, Koa, Loopback)
-- Deno
-
-*SSR:*
-- Next.js (React)
-- Nuxt.js (Vue)
-- Angular Universal
-- Sapper (Svelte)
-
-*NodeJS:*
-- path/fs/os/events/http
-- nodemon
-- package-lock
-- Gulp — это таск-менеджер для автоматического выполнения часто используемых задач (например, минификации, тестирования, объединения файлов)
-
 *JavaScript Unit-Testing:*
 - Jasmine
 - Ava
@@ -126,6 +110,28 @@
 - Jest
 - React Testing Library (https://github.com/testing-library/react-testing-library)
 - enzyme
+
+*NodeJS:*
+- path/fs/os/events/http
+- nodemon
+- package-lock
+- Gulp — это таск-менеджер для автоматического выполнения часто используемых задач (например, минификации, тестирования, объединения файлов)
+
+*Backend Javascript:*
+- NodeJS (Express, Nest, Koa, Loopback)
+- Deno
+
+*Redux:*
+- Не привязана к React.
+- Component/Action/Store/Reducer
+- dispatch/subscribe/getState
+- Middleware: Redux Thunk
+
+*SSR:*
+- Next.js (React)
+- Nuxt.js (Vue)
+- Angular Universal
+- Sapper (Svelte)
 
 *Serverless:*
 - Firebase
@@ -243,6 +249,9 @@ https://learn.javascript.ru/
 - https://habr.com/ru/post/116372/
 
 - https://www.maxshulga.ru/2012/03/mock-vs-stub.html
+
+*Redux:*
+- https://habr.com/ru/company/mailru/blog/303456/
 -----------------------------
 Табличная селективность или селективность строк – соотношение количества строк, возвращаемых запросом к общему количеству строк в таблице.
 
