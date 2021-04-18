@@ -116,10 +116,14 @@
 - nodemon
 - package-lock
 - Gulp — это таск-менеджер для автоматического выполнения часто используемых задач (например, минификации, тестирования, объединения файлов)
+- npx
 
 *Backend Javascript:*
 - NodeJS (Express, Nest, Koa, Loopback)
 - Deno
+
+*React.js:*
+- Библиотека Prop-types
 
 *Redux:*
 - Не привязана к React.
