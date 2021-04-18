@@ -124,6 +124,7 @@
 
 *React.js:*
 - Библиотека Prop-types
+- UseContext / UseEffect
 
 *Redux:*
 - Не привязана к React.
@@ -245,6 +246,7 @@
 
 *React.js:*
 - https://proglib.io/p/react-digest/
+- https://ru.reactjs.org/
 
 *Java-Script:*
 https://learn.javascript.ru/
