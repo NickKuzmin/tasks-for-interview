@@ -114,8 +114,18 @@
 - enzyme
 
 *TypeScript:*
-- ts.config (exclude, include, files, compiler options, target, source map, removeComments, noEmitOnError)
+- ts.config (exclude, include, files, compiler options, target, source map, removeComments, noEmitOnError, noUnusedLocals, noUnusedParameters)
 https://www.typescriptlang.org/docs/handbook/compiler-options.html
+- Generic Types
+function Sample<T extends object, R extends object>) : T & R
+function Sample<T extends object, R extends keyof T>) : T & R
+function Sample<T extends {new(..args)}>) : T & R
+- Partial<T>
+- entity as T
+- Readonly<Array<string>>
+- Декораторы
+- Namespaces
+- https://github.com/typestack/class-validator
 
 *NodeJS:*
 - path/fs/os/events/http
