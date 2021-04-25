@@ -113,6 +113,10 @@
 - React Testing Library (https://github.com/testing-library/react-testing-library)
 - enzyme
 
+*TypeScript:*
+- ts.config (exclude, include, files, compiler options, target, source map, removeComments, noEmitOnError)
+https://www.typescriptlang.org/docs/handbook/compiler-options.html
+
 *NodeJS:*
 - path/fs/os/events/http
 - nodemon
