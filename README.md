@@ -126,6 +126,7 @@ function Sample<T extends {new(..args)}>) : T & R
 - Декораторы
 - Namespaces
 - https://github.com/typestack/class-validator
+- https://github.com/bcherny/programming-typescript-answers
 
 *NodeJS:*
 - path/fs/os/events/http
