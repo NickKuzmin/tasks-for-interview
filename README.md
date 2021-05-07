@@ -216,6 +216,7 @@ function Sample<T extends {new(..args)}>) : T & R
 - Hussein Nasser (https://www.youtube.com/c/HusseinNasser-software-engineering/)
 - CODELLIGENT (https://www.youtube.com/channel/UC1sbu30ylZNM7ITdVxFF2ww)
 - .NET Interview Preparation videos (https://www.youtube.com/c/dnfvideo/featured)
+- DWDocumentary (https://www.youtube.com/c/DWDocumentary/videos)
 
 *C#:*
 
