@@ -220,6 +220,8 @@ function Sample<T extends {new(..args)}>) : T & R
 
 *C#:*
 
+- https://itvdn.com/ru/blog/article/150-questions-net-developer
+  
 - https://metanit.com/sharp/interview/
 
 - https://www.guru99.com/c-sharp-interview-questions.html
