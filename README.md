@@ -340,7 +340,8 @@ Webpack:
   
 Проверка совестимости:
 - https://caniuse.com/
-  
+- https://statcounter.com/
+
 Best Practice:
 - https://habr.com/ru/post/465685/
 
