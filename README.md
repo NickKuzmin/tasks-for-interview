@@ -339,6 +339,7 @@ package-lock - Lock-файл — это моментальный снимок в
 - Транспилеры (Babel, SWC)
 - Task Runner (Gulp, Grunt)
 - Линтеры (ESlint, JSlint, TSLint, Prettier)
+- Static Type Checker/Language (Flow, Typescript)
   
 Webpack:
 - Горячая загрузка
