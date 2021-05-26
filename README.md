@@ -334,6 +334,14 @@ Webpack:
 - Loader'ы
 - Плагины (ESLintPlugin)
   
+Visual Studio Code Plugins:
+- Auto Close Tag
+- Auto Rename Tag
+- Code Spell Checker
+- CSS Peek
+- Live Server
+- Path Autocomplete
+
 Сравнение JS Framework'ов:
 - https://habr.com/ru/post/476312/
 - https://www.npmtrends.com/
