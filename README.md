@@ -357,3 +357,7 @@ Best Practice:
 - https://habr.com/ru/post/465685/
 
 - https://github.com/cloudever/react-best-practices
+
+----------------
+ROAD MAPS:
+- https://frontend-science.com/Middle_RoadMap.pdf
