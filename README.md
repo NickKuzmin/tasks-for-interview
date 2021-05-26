@@ -177,6 +177,10 @@ function Sample<T extends {new(..args)}>) : T & R
 - Bootstrap / Materialize CSS
 - BEM
 
+*Package manager:*
+- npm
+- yarn
+  
 *Performance:*
 - yslow (http://yslow.org/)
 - PageSpeed Insights (https://developers.google.com/speed/pagespeed/insights/)
