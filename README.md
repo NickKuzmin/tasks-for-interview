@@ -340,7 +340,7 @@ package-lock - Lock-файл — это моментальный снимок в
 - Task Runner (Gulp, Grunt)
 - Линтеры (ESlint, JSlint, TSLint, Prettier)
 - Static Type Checker/Language (Flow, Typescript)
-- CSS-препроцессоры (PostCSS, SASS, LESS)
+- CSS-препроцессоры (PostCSS, SASS, LESS, Stylus)
   
 Webpack:
 - Горячая загрузка
