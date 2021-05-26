@@ -341,6 +341,7 @@ Webpack:
 Проверка совестимости:
 - https://caniuse.com/
 - https://statcounter.com/
+- https://www.browserstack.com/
 
 Best Practice:
 - https://habr.com/ru/post/465685/
