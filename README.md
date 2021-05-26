@@ -351,3 +351,10 @@ Webpack:
   
 Сравнение JS Framework'ов:
 https://habr.com/ru/post/476312/
+
+https://www.npmtrends.com/
+  
+Best Practice:
+https://habr.com/ru/post/465685/
+
+https://github.com/cloudever/react-best-practices
