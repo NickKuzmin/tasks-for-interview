@@ -201,6 +201,10 @@ function Sample<T extends {new(..args)}>) : T & R
 
 *Тестирование:*
 - End 2 end
+  
+*Design Patterns & Code Style:*
+- DDD
+- TDD
 
 *Other:*
 - Progressive Web App
@@ -332,3 +336,15 @@ package-lock - Lock-файл — это моментальный снимок в
 
 - Package manager (npm, yarn)
 - Bundler (Webpack, Rollup, Parcel, Browserify)
+- Транспилеры (Babel, SWC)
+- Task Runner (Gulp, Grunt)
+- Линтеры (ESlint, JSlint, TSLint, Prettier)
+  
+Webpack:
+- Горячая загрузка
+- Ленивая загрузка
+- Loader'ы
+- Плагины (ESLintPlugin)
+  
+Сравнение JS Framework'ов:
+https://habr.com/ru/post/476312/
