@@ -335,9 +335,11 @@ Webpack:
 - Плагины (ESLintPlugin)
   
 Сравнение JS Framework'ов:
-https://habr.com/ru/post/476312/
-
-https://www.npmtrends.com/
+- https://habr.com/ru/post/476312/
+- https://www.npmtrends.com/
+  
+Проверка совестимости:
+- https://caniuse.com/
   
 Best Practice:
 - https://habr.com/ru/post/465685/
