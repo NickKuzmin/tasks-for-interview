@@ -130,6 +130,7 @@ function Sample<T extends {new(..args)}>) : T & R
 - Code Style Conventions: https://github.com/akahan/typescript-style-guide
 
 *NodeJS:*
+- package.lock
 - path/fs/os/events/http
 - nodemon
 - package-lock
