@@ -341,6 +341,7 @@ package-lock - Lock-файл — это моментальный снимок в
 - Линтеры (ESlint, JSlint, TSLint, Prettier)
 - Static Type Checker/Language (Flow, Typescript)
 - CSS-препроцессоры (PostCSS, SASS, LESS, Stylus)
+- JS -> CSS (JSS, styled components)
   
 Webpack:
 - Горячая загрузка
