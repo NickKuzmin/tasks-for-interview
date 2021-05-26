@@ -327,6 +327,7 @@ package-lock - Lock-файл — это моментальный снимок в
 - Static Type Checker/Language (Flow, Typescript)
 - CSS-препроцессоры (PostCSS, SASS, LESS, Stylus)
 - JS -> CSS (JSS, styled components)
+- CSS Frameworks (MaterialUI, Bootstrap)
   
 Webpack:
 - Горячая загрузка
@@ -341,6 +342,7 @@ Visual Studio Code Plugins:
 - CSS Peek
 - Live Server
 - Path Autocomplete
+
 
 Сравнение JS Framework'ов:
 - https://habr.com/ru/post/476312/
