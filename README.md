@@ -216,6 +216,9 @@ function Sample<T extends {new(..args)}>) : T & R
 - DDD
 - TDD
 
+*Design:*
+- Figma
+  
 *Other:*
 - Progressive Web App
 - FramerX/Figma
