@@ -50,6 +50,10 @@
 *HTTP/SOAP/REST:*
 - X-Powered-By заголовок
 
+*VCS*:
+- Merge vs Rebase
+- Squash
+  
 *JavaScript frameworks and etc:*
 - cypress
 - Redux (dev-tools)
@@ -217,6 +221,7 @@ function Sample<T extends {new(..args)}>) : T & R
 
 -----------------------------
 *Youtube:*
+- Academind (https://www.youtube.com/c/Academind/)
 - LevelUpTuts (https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg)
 - ITVDN (https://www.youtube.com/channel/UCzxRv9BtqrM946JmaMLtv_w)
 - dotNET (https://www.youtube.com/channel/UCvtT19MZW8dq5Wwfu6B0oxw)
