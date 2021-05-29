@@ -57,6 +57,8 @@
 *Mobile development:*
 - Flutter
 - React Native
+- Ionic
+- Xamarin
   
 *JavaScript frameworks and etc:*
 - cypress
