@@ -218,6 +218,9 @@ function Sample<T extends {new(..args)}>) : T & R
 
 *Design:*
 - Figma
+
+*Network:*
+- DNS
   
 *Other:*
 - Progressive Web App
