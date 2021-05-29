@@ -54,6 +54,10 @@
 - Merge vs Rebase
 - Squash
   
+*Mobile development:*
+- Flutter
+- React Native
+  
 *JavaScript frameworks and etc:*
 - cypress
 - Redux (dev-tools)
