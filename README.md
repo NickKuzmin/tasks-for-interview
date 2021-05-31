@@ -208,6 +208,8 @@ function Sample<T extends {new(..args)}>) : T & R
 - [FromBody][FromQuery] атрибуты
 - HEAD/GET/POST/PUT/PATCH/DELETE
 - HttpRepl (A command-line tool for interacting with RESTful HTTP services)
+- ngrok.com
+- no-ip.com
 
 *Тестирование:*
 - End 2 end
