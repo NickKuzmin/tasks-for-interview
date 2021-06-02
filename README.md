@@ -214,6 +214,7 @@ function Sample<T extends {new(..args)}>) : T & R
 - picturefill
 
 *REST WEB API:*
+- XMLHttpRequest (XHR)
 - Swagger
 - [FromBody][FromQuery] атрибуты
 - HEAD/GET/POST/PUT/PATCH/DELETE
