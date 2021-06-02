@@ -187,6 +187,16 @@ function Sample<T extends {new(..args)}>) : T & R
 - Препроцессоры (LESS/SASS)
 - Bootstrap / Materialize CSS
 - BEM
+  
+*HTML5:*
+- HTML4 vs HTML5
+- Поддержка браузерами функциональности HTML5: http://html5test.com
+- Спецификация: https://www.w3.org/TR/html5
+- Валидность разметки: https://validator.w3.org
+- DOCTYPE (Разновидности синтаксиса HTML5: html/xml)
+- custom attributes
+- Элемент base
+- Элемент meta (application name/author/description/generator/keywords)
 
 *Package manager:*
 - npm
