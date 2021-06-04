@@ -18,6 +18,7 @@
 - Entity Framework (жадная / ленивая загрузка)
 - using/lock - разворачивание в try/finally (https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/lock-statement)
 - try-catch(Exception) и try-catch - отличия
+- Environment.FailFast("") 
   
 *SQL:*
 - ACID
