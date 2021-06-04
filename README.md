@@ -15,8 +15,9 @@
   Where<TSource>(this IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
 - С# .NET (DI, garbage collector…)
 - ASP.NET MVC (сессия, время сессии, где хранится…)
-- Entity Framework (жадная / ленивая загрузка)  
-
+- Entity Framework (жадная / ленивая загрузка)
+- using/lock - разворачивание в try/finally (https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/lock-statement)
+  
 *SQL:*
 - ACID
 - Нормальные формы
