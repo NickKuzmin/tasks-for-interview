@@ -17,7 +17,7 @@
 - ASP.NET MVC (сессия, время сессии, где хранится…)
 - Entity Framework (жадная / ленивая загрузка)
 - using/lock - разворачивание в try/finally (https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/lock-statement)
-- try-catch(Exception) и try-catch - отличия
+- try-catch(Exception) и try-catch - отличия (https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/code-quality/ca2102-catch-non-clscompliant-exceptions-in-general-handlers?view=vs-2015&redirectedfrom=MSDN)
 - Environment.FailFast("")
 - AppDomain.CurrentDomain.FirstChanceException
   
