@@ -1,10 +1,10 @@
 select * from INFORMATION_SCHEMA.COLUMNS 
-where COLUMN_NAME like '%Assessment%' 
+where COLUMN_NAME like '%COLUMN_NAME%' 
 order by TABLE_NAME
 --------------------------------------------
 SELECT *
 FROM INFORMATION_SCHEMA.TABLES 
-WHERE INFORMATION_SCHEMA.TABLES.TABLE_NAME like '%Assessment%'
+WHERE INFORMATION_SCHEMA.TABLES.TABLE_NAME like '%TABLE_NAME%'
 --------------------------------------------
 SELECT sys.schemas.name AS T2,
     t.NAME AS TableName,
@@ -15,7 +15,7 @@ INNER JOIN
     sys.partitions p ON t.object_id = p.OBJECT_ID 
 JOIN sys.schemas ON t.schema_id = sys.schemas.schema_id
 WHERE 
-    t.NAME LIKE '%fee%' 
+    t.NAME LIKE '%TABLE_NAME%' 
     AND t.is_ms_shipped = 0
     AND p.rows <> 0
 GROUP BY 
@@ -32,7 +32,7 @@ FROM    INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS C
                                                          AND C.CONSTRAINT_SCHEMA = K.CONSTRAINT_SCHEMA
                                                          AND C.CONSTRAINT_NAME = K.CONSTRAINT_NAME
 WHERE   C.CONSTRAINT_TYPE = 'PRIMARY KEY'
-        AND K.COLUMN_NAME = 'CandidateId';
+        AND K.COLUMN_NAME = 'COLUMN_NAME';
 --------------------------------------------
 DECLARE @xmltmp xml = (SELECT * FROM table FOR XML AUTO)
 PRINT CONVERT(NVARCHAR(MAX), @xmltmp)
