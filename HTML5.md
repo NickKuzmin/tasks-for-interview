@@ -28,7 +28,7 @@
 
 -------------
 - b/del/i/em/s/small/strong/sub/sup/u/ins/mark
-- <b> vs <strong> - разница
-- <del> vs <s> - разница
-- <ins> vs <u> - разница
-- <em> vs <i> - разница
+- b vs strong - разница
+- del vs s - разница
+- ins vs u - разница
+- em vs i - разница
