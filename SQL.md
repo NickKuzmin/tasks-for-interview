@@ -1,3 +1,15 @@
+Типы констрейнтов:
+
+Check constraint
+Default constraint
+Foreign key
+Primary key
+Unique clustered index
+Unique constraint
+Unique index
+
+https://dataedo.com/kb/query/sql-server/list-all-table-constraints
+--------------------------------------------
 > select * from INFORMATION_SCHEMA.COLUMNS 
 > where COLUMN_NAME like '%COLUMN_NAME%' 
 > order by TABLE_NAME
