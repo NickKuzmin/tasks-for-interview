@@ -20,7 +20,8 @@
 - try-catch(Exception) и try-catch - отличия (https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/code-quality/ca2102-catch-non-clscompliant-exceptions-in-general-handlers?view=vs-2015&redirectedfrom=MSDN)
 - Environment.FailFast("")
 - AppDomain.CurrentDomain.FirstChanceException
-- configuration/system.web/compilation в web.confi
+- configuration/system.web/compilation в web.config
+- Binding redirect for assemblies
   
 *SQL:*
 - ACID
