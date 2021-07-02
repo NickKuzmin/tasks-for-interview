@@ -265,7 +265,8 @@ function Sample<T extends {new(..args)}>) : T & R
 - DWDocumentary (https://www.youtube.com/c/DWDocumentary/videos)
 
 *C#:*
-
+- https://bool.dev/blog/detail/voprosy-na-sobesedovanii-dlya-senior-net-developer
+  
 - https://itvdn.com/ru/blog/article/150-questions-net-developer
   
 - https://metanit.com/sharp/interview/
