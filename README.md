@@ -251,6 +251,10 @@ function Sample<T extends {new(..args)}>) : T & R
   https://github.com/leveluptuts/Level-Up-JavaScript-Testing-101
 
 -----------------------------
+ *English:*
+ - https://www.theguardian.com/international
+ - https://www.nationalgeographic.com/
+  
 *Youtube:*
 - Academind (https://www.youtube.com/c/Academind/)
 - LevelUpTuts (https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg)
