@@ -254,6 +254,7 @@ function Sample<T extends {new(..args)}>) : T & R
  *English:*
  - https://www.theguardian.com/international
  - https://www.nationalgeographic.com/
+ - https://www.ted.com/talks/
   
 *Youtube:*
 - Academind (https://www.youtube.com/c/Academind/)
