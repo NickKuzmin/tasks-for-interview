@@ -68,12 +68,4 @@
 Данный элемент содержит элемент *summary*, который представляет заголовок для блока, и этот заголовок отображается в скрытом режиме.
 Пункты - *ul* и *li*
 
-<details>
-    <summary>Флагманы 2015</summary>
-    <ul>
-        <li>iPhone 6S Plus</li>
-        <li>Nexus 6P</li>
-        <li>Galaxy S6 Edge</li>
-        <li>Lumia 950 XL</li>
-    </ul>
-</details>
+-------------
