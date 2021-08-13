@@ -48,3 +48,21 @@
 --------------------------------------------
 > DECLARE @xmltmp xml = (SELECT * FROM table FOR XML AUTO)
 > PRINT CONVERT(NVARCHAR(MAX), @xmltmp)
+--------------------------------------------
+`CREATE TABLE A
+(
+ID INT IDENTITY(1,1) PRIMARY KEY,
+... Other Columns
+)
+
+CREATE TABLE B
+(
+ID UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+... Other Columns
+)
+
+CREATE TABLE C
+(
+ID UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() PRIMARY KEY,
+... Other Columns
+)`
