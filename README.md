@@ -1,3 +1,10 @@
+*Design Patterns:*
+
+- Saga, API Composition, CQRS, Event sourcing/Event-driven;
+- Системы балансировки
+- Брокеры сообщений, TCP, gRPC, стриминговые web протоколы: websocket / sse
+- serverless узлы
+
 *C#:*
 
 - ReaderWriterLocker
