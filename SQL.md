@@ -66,3 +66,6 @@ CREATE TABLE C
 ID UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() PRIMARY KEY,
 ... Other Columns
 )`
+--------------------------------------------
+How to Create Login, User & Assign Permissions in SQL Server
+https://www.guru99.com/sql-server-create-user.html
