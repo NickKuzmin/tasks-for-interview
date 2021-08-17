@@ -324,6 +324,15 @@ function Sample<T extends {new(..args)}>) : T & R
 
 - https://habr.com/ru/post/351874/
 
+*CRQS:*
+- https://habr.com/ru/post/146429/
+- https://habr.com/ru/company/arcadia/blog/509426/
+  
+*DDD:*
+- https://habr.com/ru/company/oleg-bunin/blog/551428/
+- https://habr.com/ru/company/redmadrobot/blog/542142/
+- https://habr.com/ru/post/61524/
+  
 *SQL:*
 
 - https://habr.com/ru/company/otus/blog/461067/
