@@ -5,6 +5,11 @@
 - Брокеры сообщений, TCP, gRPC, стриминговые web протоколы: websocket / sse
 - serverless узлы
 
+*Web development/Security:*
+- XSS
+- Sanitizing/While list/Black list
+- Html Agility Pack
+
 *C#:*
 
 - ReaderWriterLocker
