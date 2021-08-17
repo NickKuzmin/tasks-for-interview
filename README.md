@@ -54,6 +54,9 @@
 - AppDomain.CurrentDomain.FirstChanceException
 - configuration/system.web/compilation в web.config
 - Binding redirect for assemblies
+
+*C# FEATURES:*
+- Nullable Reference Types
   
 *SQL:*
 - ACID
@@ -323,6 +326,9 @@ function Sample<T extends {new(..args)}>) : T & R
 - https://cmsmagazine.ru/journal/items-80-problems-with-it-interviews/
 
 - https://habr.com/ru/post/351874/
+  
+*C# FEATURES:*
+- https://habr.com/ru/post/454446/
 
 *CRQS:*
 - https://habr.com/ru/post/146429/
