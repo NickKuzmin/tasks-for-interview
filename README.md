@@ -16,6 +16,10 @@
 - Clickjacking/Фрейминг
 - Использование HTTP-заголовка Content-Security-Policy
 - Использование HTTP-заголовка X-Frame-Options
+- Strict-Transport-Security/Referrer-policy/X-Frame-Options/X-XSS-Protection
+- Content Security Policy (CSP)
+- Управление пользовательской сессией (Значение идентификатора сессии должно быть случайным. Ротация идентификатора сессии. Избегать передачи незакодированного идентификатора сессии в URL.)
+- Man in the middle/content sniffing
 - https://habr.com/ru/company/arcadia/blog/572204/
 
 *C#:*
