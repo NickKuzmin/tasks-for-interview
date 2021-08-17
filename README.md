@@ -13,6 +13,9 @@
 - Использование атрибута SameSite для куки пользовательской сессии
 - Идемпотентность GET запроса
 - Валидация источника запроса (Проверка HTTP-заголовков Origin и/или Referer)
+- Clickjacking/Фрейминг
+- Использование HTTP-заголовка Content-Security-Policy
+- Использование HTTP-заголовка X-Frame-Options
 - https://habr.com/ru/company/arcadia/blog/572204/
 
 *C#:*
