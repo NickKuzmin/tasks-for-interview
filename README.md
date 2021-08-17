@@ -12,6 +12,7 @@
 - Html Agility Pack
 - Использование атрибута SameSite для куки пользовательской сессии
 - Идемпотентность GET запроса
+- Валидация источника запроса (Проверка HTTP-заголовков Origin и/или Referer)
 - https://habr.com/ru/company/arcadia/blog/572204/
 
 *C#:*
