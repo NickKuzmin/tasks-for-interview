@@ -6,9 +6,13 @@
 - serverless узлы
 
 *Web development/Security:*
-- XSS
+- XSS/CSRF
+- Antiforgery токены
 - Sanitizing/While list/Black list
 - Html Agility Pack
+- Использование атрибута SameSite для куки пользовательской сессии
+- Идемпотентность GET запроса
+- https://habr.com/ru/company/arcadia/blog/572204/
 
 *C#:*
 
