@@ -24,6 +24,12 @@
 - Man in the middle/content sniffing
 - https://habr.com/ru/company/arcadia/blog/572204/
 
+*System Administration:*
+- SMTP/POP3/IMAP - разница
+- POP3 (Порты: 110, 995)
+- POP3 (Порты: 143, 993)
+- SMTP (Порты: 25, 2525, 465)
+
 *C#:*
 
 - ReaderWriterLocker
