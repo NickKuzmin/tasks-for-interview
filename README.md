@@ -57,6 +57,9 @@
 
 *C# FEATURES:*
 - Nullable Reference Types
+- Индексы и Диапазоны
+- Default Interface Members
+- Pattern Matching
   
 *SQL:*
 - ACID
