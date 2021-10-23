@@ -270,7 +270,7 @@ function Sample<T extends {new(..args)}>) : T & R
 - no-ip.com
 
 *Тестирование:*
-- End 2 end
+- End-2-end тестирование (cypress and etc)
   
 *Design Patterns & Code Style:*
 - DDD
