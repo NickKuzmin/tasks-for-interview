@@ -293,11 +293,13 @@ function Sample<T extends {new(..args)}>) : T & R
 
 -----------------------------
  *English:*
+ - BBC Learning English https://www.youtube.com/channel/UCHaHD477h-FeBbVh9Sh7syA
  - https://www.theguardian.com/international
  - https://www.nationalgeographic.com/
  - https://www.ted.com/talks/
   
 *Youtube:*
+- Fireship (https://www.youtube.com/c/Fireship/videos)
 - Academind (https://www.youtube.com/c/Academind/)
 - LevelUpTuts (https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg)
 - ITVDN (https://www.youtube.com/channel/UCzxRv9BtqrM946JmaMLtv_w)
