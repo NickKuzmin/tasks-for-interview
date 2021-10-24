@@ -98,6 +98,10 @@
 - Merge vs Rebase
 - Squash
   
+*Stateless*:
+- Firebase
+- Azure Functions  
+  
 *Mobile development:*
 - Flutter
 - React Native
