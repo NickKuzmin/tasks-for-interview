@@ -1,0 +1,2 @@
+- console API methods (assert, count, dir, group, time, trace):
+https://developer.mozilla.org/en-US/docs/Web/API/Console
