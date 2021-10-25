@@ -222,10 +222,11 @@ function Sample<T extends {new(..args)}>) : T & R
 - Sapper (Svelte)
 
 *Serverless:*
-- Firebase
-- AWS
+- Azure Functions
+- AWS Lambda 
+- Yandex Cloud Functions
+- Firebase  
 - JAMstack
-- Yandex Cloud
 
 *CSS:*
 - CSS Grid
