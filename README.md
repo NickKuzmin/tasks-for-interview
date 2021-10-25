@@ -10,6 +10,7 @@
 - serverless узлы
 - PaaS, DBaaS, SaaS, MWaaS, IaaS, Faas
 https://habr.com/ru/company/kingservers/blog/310022/
+- OAuth 2.0, Auth0
 
 *Web development/Security:*
 - XSS/CSRF
