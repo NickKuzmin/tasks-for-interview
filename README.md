@@ -97,11 +97,7 @@
 *VCS*:
 - Merge vs Rebase
 - Squash
-  
-*Stateless*:
-- Firebase
-- Azure Functions  
-  
+
 *Mobile development:*
 - Flutter
 - React Native
@@ -225,7 +221,7 @@ function Sample<T extends {new(..args)}>) : T & R
 - Azure Functions
 - AWS Lambda 
 - Yandex Cloud Functions
-- Firebase  
+- Firebase Functions
 - JAMstack
 
 *CSS:*
