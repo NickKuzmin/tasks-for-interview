@@ -14,7 +14,7 @@ https://habr.com/ru/company/kingservers/blog/310022/
 
 *Web development/Security:*
 - OAuth 2.0, Auth0
-- SSL
+- SSL, TLS, HTTP, HTTPS
 - XSS/CSRF
 - Antiforgery токены
 - Sanitizing/While list/Black list
