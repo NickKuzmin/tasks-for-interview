@@ -8,3 +8,7 @@
 *Asynchronous vs Multithreading and Multiprocessing Programming:*
 - Asynchronous vs Multithreading and Multiprocessing Programming: https://www.youtube.com/watch?v=0vFgKr5bjWI
 - Distinguish Asynchronous And Multi-Threading: https://www.youtube.com/watch?v=Kfs84d7jaT8
+
+*Parallelism vs Concurrency:*
+- https://tproger.ru/explain/concurrency-vs-parallelism/
+- https://habr.com/ru/company/piter/blog/274569/
