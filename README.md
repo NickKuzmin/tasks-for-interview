@@ -1,11 +1,15 @@
-*Design Patterns:*
+*Design Patterns/:*
 
 - Saga, API Composition
 - Event sourcing/Event-driven (Самое главное в event sourcing: система хранит не данные, а историю их изменения, то есть события. Текущее состояние системы получается последовательным применением событий.)
 - CQRS (Command Query Responsibility Segregation): команды, изменяющие состояние системы, обрабатываются write-частью; запросы, не изменяющие состояние, обращаются к read-части.
+
+*Technology approach:*
 - Системы балансировки
 - Брокеры сообщений, TCP, gRPC, стриминговые web протоколы: websocket / sse
 - serverless узлы
+- PaaS, DBaaS, SaaS, MWaaS, IaaS, Faas
+https://habr.com/ru/company/kingservers/blog/310022/
 
 *Web development/Security:*
 - XSS/CSRF
