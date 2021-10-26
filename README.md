@@ -1,8 +1,9 @@
-*Design Patterns/:*
+*Design Patterns:*
 
 - Saga, API Composition
 - Event sourcing/Event-driven (Самое главное в event sourcing: система хранит не данные, а историю их изменения, то есть события. Текущее состояние системы получается последовательным применением событий.)
 - CQRS (Command Query Responsibility Segregation): команды, изменяющие состояние системы, обрабатываются write-частью; запросы, не изменяющие состояние, обращаются к read-части.
+- MediatR (Simple mediator implementation in .NET)
 
 *Technology approach:*
 - Системы балансировки
