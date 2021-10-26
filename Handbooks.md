@@ -14,6 +14,9 @@
 *Docker:*
 - https://github.com/ganny26/docker-handbook
 
+*DevOps:*
+- https://github.blog/2020-10-29-getting-started-with-devops-automation/
+
 *NGINX:*
 - https://github.com/trimstray/nginx-admins-handbook
 
