@@ -1,3 +1,6 @@
+*Common questions:*
+- https://github.com/DopplerHQ/awesome-interview-questions#
+
 *C#:*
 - https://github.com/mvonballmo/CSharpHandbook
 - https://github.com/andredarcie/csharp-quick-reference-guide
