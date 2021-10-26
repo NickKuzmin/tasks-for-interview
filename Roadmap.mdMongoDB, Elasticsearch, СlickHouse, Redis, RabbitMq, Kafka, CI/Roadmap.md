@@ -1,14 +1,14 @@
-Kibana
-Grafana
-Prometheus
+- Kibana
+- Grafana
+- Prometheus
 
-Elasticsearch
-СlickHouse
-Redis
-RabbitMq
-Kafka
-MongoDB
+- Elasticsearch
+- СlickHouse
+- Redis
+- RabbitMq
+- Kafka
+- MongoDB
 
-TeamCity
-Gitlab
-Youtrack
+- TeamCity
+- Gitlab
+- Youtrack
