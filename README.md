@@ -1,5 +1,6 @@
 *Design Patterns:*
 
+- MVC/MVVM/MVP/VIPER
 - Saga, API Composition
 - Event sourcing/Event-driven (Самое главное в event sourcing: система хранит не данные, а историю их изменения, то есть события. Текущее состояние системы получается последовательным применением событий.)
 - CQRS (Command Query Responsibility Segregation): команды, изменяющие состояние системы, обрабатываются write-частью; запросы, не изменяющие состояние, обращаются к read-части.
