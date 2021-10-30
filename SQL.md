@@ -1,4 +1,6 @@
-- The overview of Database Paradigms: https://tudip.com/blog-post/7-database-paradigms/
+- The overview of Database Paradigms:
+https://tudip.com/blog-post/7-database-paradigms/
+https://www.jigsawacademy.com/blogs/cloud-computing/database-sharding
 --------------------------------------------
 - mssql exection plan
 --------------------------------------------
