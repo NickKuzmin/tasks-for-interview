@@ -1,4 +1,6 @@
-mssql exection plan
+- The overview of Database Paradigms: https://tudip.com/blog-post/7-database-paradigms/
+--------------------------------------------
+- mssql exection plan
 --------------------------------------------
 *Типы констрейнтов:*
 
