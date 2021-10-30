@@ -405,6 +405,9 @@ https://learn.javascript.ru/
 - https://habr.com/ru/post/116372/
 
 - https://www.maxshulga.ru/2012/03/mock-vs-stub.html
+  
+*API:*
+- Swagger: https://habr.com/ru/company/microsoft/blog/325872/
 
 *Redux:*
 - https://habr.com/ru/company/mailru/blog/303456/
