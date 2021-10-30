@@ -14,6 +14,8 @@
 - PaaS, DBaaS, SaaS, MWaaS, IaaS, Faas
 https://habr.com/ru/company/kingservers/blog/310022/
 
+*Microservices:*
+- RabbitMQ: https://www.rabbitmq.com/getstarted.html
 
 *Web development/Security:*
 - OAuth 2.0, Auth0
