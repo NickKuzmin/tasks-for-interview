@@ -16,6 +16,7 @@ https://habr.com/ru/company/kingservers/blog/310022/
 
 *Microservices:*
 - RabbitMQ: https://www.rabbitmq.com/getstarted.html
+- MassTransit
 
 *Web development/Security:*
 - OAuth 2.0, Auth0
