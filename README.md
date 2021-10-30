@@ -18,6 +18,10 @@ https://habr.com/ru/company/kingservers/blog/310022/
 - RabbitMQ: https://www.rabbitmq.com/getstarted.html
 - MassTransit
 
+*Monitoring:*
+- Prometheus
+- Graphana
+
 *Web development/Security:*
 - OAuth 2.0, Auth0
 - SSL, TLS, HTTP, HTTPS
