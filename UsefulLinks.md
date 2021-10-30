@@ -1,3 +1,5 @@
 - Generating of git-ignore: https://www.toptal.com/developers/gitignore
 - Compatibility tables for features in HTML5, CSS3: https://caniuse.com/
 - Technology alternatives: https://alternativeto.net/
+- https://ngrok.com
+- https://no-ip.com
