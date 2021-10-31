@@ -1,1 +1,5 @@
+- Порождающие паттерны (creational patterns)
+- Структурные паттерны (structural patterns)
+- Поведенческие паттерны (behavioral patterns)
+------------
 - Null Object Pattern
