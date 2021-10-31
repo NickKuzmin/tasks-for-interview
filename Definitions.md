@@ -3,6 +3,7 @@
 - Babel Preset - a preset is a set of plugins used to support particular language features.
 ----------------
 - NodeJS - ...
+- EventLoop - ...
 ----------------
 - Hooks нацелены на решение всех этих проблем, позволяя вам писать функциональные компоненты, которые имеют доступ к state, context, методам жизненного цикла, ref и т. д., без написания классов.
 ----------------
