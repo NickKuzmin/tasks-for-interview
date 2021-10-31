@@ -15,3 +15,4 @@
 
 *NetCore:*
 - IServiceProvider, Startup.ConfigureService
+- DI: AddTransient/AddScoped/AddSingleton
