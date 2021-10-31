@@ -18,3 +18,6 @@
 ----------------
 - x86 - ...
 - x64 - ...
+
+----------------
+- NodeJS vs Javascript: https://www.educba.com/javascript-vs-node-js/
