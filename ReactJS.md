@@ -2,4 +2,4 @@
 -------------
 - Функциональные компоненты.
 - Children компоненты.
-- Hooks (Хуки): useState(), useEffect(), useContext(), useRef(), useMemo() & userCallback()
+- Hooks (Хуки): useState(), useEffect(), useContext(), useRef(), useMemo(), userCallback(), useReducer()
