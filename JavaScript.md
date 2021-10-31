@@ -6,3 +6,5 @@ https://developer.mozilla.org/en-US/docs/Web/API/Console
 
 *Node.js. Event Loop:*
 -https://habr.com/ru/post/479062/
+---------------------------
+- 16.000 methods - callstack overvflow
