@@ -5,6 +5,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/Console
 - https://habr.com/ru/company/ruvds/blog/326074/
 
 *Node.js. Event Loop:*
--https://habr.com/ru/post/479062/
+- https://habr.com/ru/post/479062/
+
 ---------------------------
+- Call Stack, Web APIs, Render Queue, Callback Queue
 - 16.000 methods - callstack overvflow
