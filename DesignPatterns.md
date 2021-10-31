@@ -1,1 +1,1 @@
-
+- Null Object Pattern
