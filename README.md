@@ -319,6 +319,7 @@ function Sample<T extends {new(..args)}>) : T & R
 *Youtube:*
 - Fireship (https://www.youtube.com/c/Fireship/videos)
 - R Class Tech (https://www.youtube.com/c/Rclass)
+- Platinum DEV (https://www.youtube.com/c/PlatinumTechTalks/videos)  
 - VK Team (https://www.youtube.com/c/TPMGTU)
 - Academind (https://www.youtube.com/c/Academind/)
 - LevelUpTuts (https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg)
