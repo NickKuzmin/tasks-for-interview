@@ -1,3 +1,6 @@
+- https://habr.com/ru/post/210288/
+- https://refactoring.guru/ru/design-patterns/catalog
+------------
 - Порождающие паттерны (creational patterns)
 - Структурные паттерны (structural patterns)
 - Поведенческие паттерны (behavioral patterns)
