@@ -12,3 +12,6 @@
 *Parallelism vs Concurrency:*
 - https://tproger.ru/explain/concurrency-vs-parallelism/
 - https://habr.com/ru/company/piter/blog/274569/
+
+*NetCore:*
+- IServiceProvider, Startup.ConfigureService
