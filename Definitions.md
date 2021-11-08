@@ -22,6 +22,14 @@
 ----------------
 - x86 - ...
 - x64 - ...
+----------------
+*5 видов тестовых двойников:*
+
+- Пустышка (dummy)
+- Стаб (stub)
+- Шпион (spy)
+- Мок (mock)
+- Фейк (fake)
 
 ----------------
 - NodeJS vs Javascript: https://www.educba.com/javascript-vs-node-js/
