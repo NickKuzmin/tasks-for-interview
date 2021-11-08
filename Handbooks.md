@@ -3,6 +3,11 @@
 
 *Algorithm Complexity:*
 - https://github.com/sf-wdi-31/algorithm-complexity-and-big-o
+- https://github.com/h64/algorithm-complexity
+
+*Algorithm animation:*
+- https://www.bigocheatsheet.com/
+- https://www.toptal.com/developers/sorting-algorithms
 
 *C#:*
 - https://github.com/mvonballmo/CSharpHandbook
