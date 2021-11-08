@@ -1,6 +1,7 @@
 *C#:*
 - https://devinterview.io/dev/cSharp-interview-questions
 - https://ankitsharmablogs.com/csharp-coding-questions-for-technical-interviews/
+- ASP .NET: https://www.wisdomjobs.com/e-university/asp-dot-net-interview-questions.html
 
 *JavaScript:*
 - https://github.com/sudheerj/javascript-interview-questions
