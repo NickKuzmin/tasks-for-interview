@@ -1,3 +1,8 @@
+*Algorithms:*
+- https://www.guru99.com/algorithm-interview-questions.html
+- https://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/
+- https://www.toptal.com/algorithms/interview-questions
+
 *C#:*
 - https://devinterview.io/dev/cSharp-interview-questions
 - https://ankitsharmablogs.com/csharp-coding-questions-for-technical-interviews/
