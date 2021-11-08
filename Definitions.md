@@ -50,10 +50,12 @@
 - Adjacent Sibling Combinator (+) - ... 
 
 *CSS vendor prefixes:*
+```
 -webkit-: Android, Chrome, iOS, and Safari
 -moz-: Mozilla Firefox
 -ms-: Internet Explorer
 -o-: Opera
+```
 
 - Responsive design - ...
 - Adaptive design - ...
