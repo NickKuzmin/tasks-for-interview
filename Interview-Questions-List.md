@@ -9,6 +9,7 @@
 - ASP .NET: https://www.wisdomjobs.com/e-university/asp-dot-net-interview-questions.html
 
 *JavaScript:*
+- https://github.com/lydiahallie/javascript-questions/tree/master/ru-RU
 - https://github.com/sudheerj/javascript-interview-questions
 - https://github.com/learning-zone/javascript-interview-questions
 - https://github.com/sudheerj/reactjs-interview-questions
