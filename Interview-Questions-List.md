@@ -25,7 +25,9 @@
 - https://www.wisdomjobs.com/e-university/html-5-interview-questions.html
 
 *CSS:*
+- https://github.com/learning-zone/css-interview-questions
 - https://www.wisdomjobs.com/e-university/bootstrap-4-interview-questions.html
+- https://github.com/h5bp/Front-end-Developer-Interview-Questions
 
 *DevOPS:*
 - https://www.wisdomjobs.com/e-university/devops-interview-questions-answers.html
