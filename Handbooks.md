@@ -4,6 +4,7 @@
 *Algorithm Complexity:*
 - https://github.com/sf-wdi-31/algorithm-complexity-and-big-o
 - https://github.com/h64/algorithm-complexity
+- https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation
 
 *Algorithm animation:*
 - https://www.bigocheatsheet.com/
