@@ -106,6 +106,15 @@ Mock:
 - Моки (Mock/Spy) -  помогают имитировать и изучать исходящие (outcoming) взаимодействия. То есть вызовы, совершаемые тестируемой системой (SUT) к ее зависимостям для изменения их состояния.
 - Стабы (Stub/Dummy/Fake) - помогают имитировать входящие (incoming) взаимодействия. То есть вызовы, совершаемые SUT к ее зависимостям для получения входных данных.
 ----------------
+This is a list of Automated Testing Frameworks for .NET related to methodologies and types of tests:
+
+- Test-Driven Development (TDD)
+- Behavior-Driven Development (BDD)
+- Specification by Example (SBE)
+- Acceptance Test-Driven Development (ATDD)
+- Property-Based Testing (PBT)
+- Unit / Integration / Acceptance / Specification / etc. Tests
+----------------
 - NodeJS vs Javascript: https://www.educba.com/javascript-vs-node-js/
 ----------------
 *Базовые принципы ООП:*
