@@ -3,5 +3,6 @@
 - Compatibility tables for features in HTML5, CSS3: https://caniuse.com/
 - Autoprefixer: for automatic vendor prefix insertion: https://autoprefixer.github.io/ru/
 - Technology alternatives: https://alternativeto.net/
+- https://www.npmtrends.com/
 - https://ngrok.com
 - https://no-ip.com
