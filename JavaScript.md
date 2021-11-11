@@ -7,6 +7,9 @@ https://developer.mozilla.org/en-US/docs/Web/API/Console
 *Node.js. Event Loop:*
 - https://habr.com/ru/post/479062/
 
+- Async library: https://caolan.github.io/async/v3/
+- Debounce/Throttling https://css-tricks.com/debouncing-throttling-explained-examples/
+
 ---------------------------
 - Call Stack, Web APIs, Render Queue, Callback Queue
 - 16.000 methods - callstack overvflow
