@@ -5,8 +5,18 @@
 - Thread Class should be used when you need the ability to cancel your asynchronous operation. [General Definition: Threading enables your C# program to perform concurrent processing so you can do more than one operation at a time.]
 
 - Thread Pool Class should be used when you need to schedule asynchronous operation and do not need return value or/and ability to cancel your operation [General Definition: A thread pool is a collection of threads that can be used to perform several tasks in the background. This leaves the primary thread free to perform other tasks asynchronously.]
-- 
+
 - Delegates (using BeginInvoke/EndInvoke) should be used when you need to achieve some return value from your asynchronous operation. [General Definition: A delegate is a type that references a method. Once a delegate is assigned a method, it behaves exactly like that method. The delegate method can be used like any other method, with parameters and a return value.]
+
+```
+Thread MyNewThread = new Thread (MyFunction); 
+MyNewThread.Start();
+```
+
+```
+System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(SomeLongTask)); 
+System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(AnotherLongTask));
+```
 -------------------------
 *Synchronization primitives:*
 - https://docs.microsoft.com/ru-ru/dotnet/standard/threading/overview-of-synchronization-primitives
