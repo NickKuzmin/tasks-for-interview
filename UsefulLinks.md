@@ -1,4 +1,5 @@
 - Event Loop: http://latentflip.com/loupe/
+- Test The Star Wars API: https://swapi.dev/
 - http://callbackhell.ru/
 - https://babeljs.io/repl
 - Generating of git-ignore: https://www.toptal.com/developers/gitignore
