@@ -18,6 +18,22 @@ System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(
 System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(AnotherLongTask));
 ```
 
+```
+Task.Factory.StartNew(CheckPrimeNumber);
+Task.Factory.StartNew(CheckParameterPrimeNumber, 1000000021);
+
+Task task = Task.Factory.StartNew(CheckParameterPrimeNumber, 1000000021);
+while (!task.IsCompleted)
+{ continue; }
+
+Action dlgt = CheckPrimeNumber;
+Task.Factory.FromAsync(dlgt.BeginInvoke, GetDividerFinished, null);
+
+Task task = new Task(GetCompressedDataFromWebService);
+task.ContinueWith(UncompressData).ContinueWith(UseUncompressedData);
+task.Start();
+```
+
 - Thread vs task vs background worker vs thread pool
 -------------------------
 *Synchronization primitives:*
