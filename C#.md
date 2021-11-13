@@ -3,6 +3,25 @@
 - https://github.com/vit-h/SynchronizationPrimitives
 - https://habr.com/ru/post/459514/
 - Thread Synchronization in C# .Net made easy! | Lock | Monitor | Mutex | Semaphore: https://www.youtube.com/watch?v=5Zv8fF-KPrE
+
+*Below are the list of Primitives:*
+
+- AutoResetEvent
+- ManualResetEvent
+- ManualResetEventSlim
+- Semaphore
+- SemaphoreSlim
+- Mutex
+- Monitor
+- Lock
+- CountdownEvent
+- Barrier
+- Interlocked
+- Volatile
+- ReaderWriterLock
+- ReaderWriterLockSlim
+- Concurrent Collections (ConcurrentQueue, ConcurrentStack, ConcurrentDictionary, ConcurrentBag)
+- 
 -------------------------
 В этой же версии .NET Framework появился мини-framework для кооперативной отмены асинхронных операций. Состоит он из всего трёх типов:
 
