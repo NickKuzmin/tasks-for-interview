@@ -17,6 +17,8 @@ MyNewThread.Start();
 System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(SomeLongTask)); 
 System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(AnotherLongTask));
 ```
+
+- Thread vs task vs background worker vs thread pool
 -------------------------
 *Synchronization primitives:*
 - https://docs.microsoft.com/ru-ru/dotnet/standard/threading/overview-of-synchronization-primitives
