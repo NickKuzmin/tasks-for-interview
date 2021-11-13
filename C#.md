@@ -1,6 +1,13 @@
 -------------------------
 - При запуске приложения операционная система создает для него отдельный *процесс, которому выделяется определённое адресное пространство в памяти и который изолирован от других процессов*. *Процесс может иметь несколько потоков*. Как минимум, процесс содержит один - главный поток. В приложении на C# точкой входа в программу является метод Main. Вызов этого метода автоматически создает главный поток. А из главного потока могут запускаться вторичные потоки.
 -------------------------
+
+- Thread Class should be used when you need the ability to cancel your asynchronous operation. [General Definition: Threading enables your C# program to perform concurrent processing so you can do more than one operation at a time.]
+
+- Thread Pool Class should be used when you need to schedule asynchronous operation and do not need return value or/and ability to cancel your operation [General Definition: A thread pool is a collection of threads that can be used to perform several tasks in the background. This leaves the primary thread free to perform other tasks asynchronously.]
+- 
+- Delegates (using BeginInvoke/EndInvoke) should be used when you need to achieve some return value from your asynchronous operation. [General Definition: A delegate is a type that references a method. Once a delegate is assigned a method, it behaves exactly like that method. The delegate method can be used like any other method, with parameters and a return value.]
+-------------------------
 *Synchronization primitives:*
 - https://docs.microsoft.com/ru-ru/dotnet/standard/threading/overview-of-synchronization-primitives
 - https://github.com/vit-h/SynchronizationPrimitives
