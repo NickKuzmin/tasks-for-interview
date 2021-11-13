@@ -1,3 +1,6 @@
+-------------------------
+- При запуске приложения операционная система создает для него отдельный *процесс, которому выделяется определённое адресное пространство в памяти и который изолирован от других процессов*. *Процесс может иметь несколько потоков*. Как минимум, процесс содержит один - главный поток. В приложении на C# точкой входа в программу является метод Main. Вызов этого метода автоматически создает главный поток. А из главного потока могут запускаться вторичные потоки.
+-------------------------
 *Synchronization primitives:*
 - https://docs.microsoft.com/ru-ru/dotnet/standard/threading/overview-of-synchronization-primitives
 - https://github.com/vit-h/SynchronizationPrimitives
@@ -106,4 +109,10 @@ dlgt.BeginInvoke(1000000021, null, null);
 private static long GetDivider(long checkNumber){…}
 
 Thread trd = new Thread(new ThreadStart(CheckPrimeNumber));
+trd.Start();
+```
+
+```
+Thread trd = new Thread(new ParameterizedThreadStart(CheckParameterPrimeNumber));
+trd.Start(1000000021);
 ```
