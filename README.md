@@ -317,6 +317,7 @@ function Sample<T extends {new(..args)}>) : T & R
  - https://www.ted.com/talks/
   
 *Youtube:*
+- Claudio Bernasconi (https://www.youtube.com/c/ClaudioBernasconi/videos) 
 - DotNetRu (https://www.youtube.com/channel/UCHFl23Ah_l4gEUTXYUStQdQ)
 - Fireship (https://www.youtube.com/c/Fireship/videos)
 - R Class Tech (https://www.youtube.com/c/Rclass)
