@@ -40,6 +40,8 @@ CancellationTokenSource ctSource = new CancellationTokenSource();
 CancellationToken token = ctSource.Token; 
 var task = Task.Factory.StartNew<long>(() => GetDivider(1000000021, token), token);
 ctSource.Cancel();
+
+Parallel.For((long)(1000000021 - 20), (long)(1000000021 + 20), CheckParameterPrimeNumber);
 ```
 
 - Thread vs task vs background worker vs thread pool
@@ -77,6 +79,13 @@ ctSource.Cancel();
 Monitor - позволяет синхронизировать доступ к области кода, вызывая и освобождая блокировку конкретного объекта путем вызова Monitor.Enter Monitor.TryEnter методов, и Monitor.Exit . Блокировки объектов предоставляют возможность ограничить доступ к блоку кода, обычно называемому критическим разделом. Пока поток владеет блокировкой объекта, другой поток не может получить эту блокировку.
 
 - *Атрибут [Synchronization]* - атрибут уровня класса эффективно блокирует весь код членов экземпляра объекта, обеспечивая безопасность в отношении потоков.
+-------------------------
+```
+private static object _locker = new object();
+
+lock (_locker)
+{ ... }
+```
 -------------------------
 *Возможные проблемы при работе в многопоточной среде:*
 
