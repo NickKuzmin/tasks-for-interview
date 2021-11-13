@@ -92,3 +92,18 @@ https://habr.com/ru/post/424873/
 - IDisposable - механизм для освобождения неуправляемых ресурсов
 - CancellationToken - ...
 - 
+-------------------------
+```
+private static long GetDivider(long checkNumber){…}
+
+private delegate void CheckPrimeNumberDelegate(long checkNumber);
+
+CheckPrimeNumberDelegate dlgt = new CheckPrimeNumberDelegate(CheckPrimeNumber);
+dlgt.BeginInvoke(1000000021, null, null);
+```
+
+```
+private static long GetDivider(long checkNumber){…}
+
+Thread trd = new Thread(new ThreadStart(CheckPrimeNumber));
+```
