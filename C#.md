@@ -32,6 +32,14 @@ Task.Factory.FromAsync(dlgt.BeginInvoke, GetDividerFinished, null);
 Task task = new Task(GetCompressedDataFromWebService);
 task.ContinueWith(UncompressData).ContinueWith(UseUncompressedData);
 task.Start();
+
+Task<long> task = Task.Factory.StartNew<long>(GetDivider, 1000000021);
+var result = task.Result;
+
+CancellationTokenSource ctSource = new CancellationTokenSource();
+CancellationToken token = ctSource.Token; 
+var task = Task.Factory.StartNew<long>(() => GetDivider(1000000021, token), token);
+ctSource.Cancel();
 ```
 
 - Thread vs task vs background worker vs thread pool
