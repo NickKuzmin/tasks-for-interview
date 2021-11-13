@@ -86,6 +86,37 @@ private static object _locker = new object();
 lock (_locker)
 { ... }
 ```
+
+```
+try
+{
+    locker.AcquireReaderLock(Timeout.Infinite);
+    if (m_Cache.ContainsKey(key))
+        Console.WriteLine( "For key {0} reader value is {1}.", key, m_Cache[key]);
+}
+finally
+{
+    locker.ReleaseReaderLock();
+}
+
+try
+{
+    locker.AcquireWriterLock(Timeout.Infinite);
+
+    if (m_Cache.ContainsKey(key))
+        Console.WriteLine("For key {0} reader value is {1}.", key, m_Cache[key]);
+    else
+    {
+        m_Cache[key] = key * key;
+        Console.WriteLine("For key {0} written value is {1}.", key, m_Cache[key]);
+    }
+}
+finally
+{
+    locker.ReleaseWriterLock();
+}
+
+```
 -------------------------
 *Возможные проблемы при работе в многопоточной среде:*
 
