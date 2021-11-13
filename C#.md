@@ -16,3 +16,5 @@
 *NetCore:*
 - IServiceProvider, Startup.ConfigureService
 - DI: AddTransient/AddScoped/AddSingleton
+
+- IDisposable - механизм для освобождения неуправляемых ресурсов
