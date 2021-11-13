@@ -16,7 +16,14 @@
 - IServiceProvider, Startup.ConfigureService
 - DI: AddTransient/AddScoped/AddSingleton
 -------------------------
-- HTTP Message Handlers in ASP.NET Web API: https://docs.microsoft.com/en-us/aspnet/web-api/overview/advanced/http-message-handlers
+```
+HTTP Message Handlers in ASP.NET Web API:
+```
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/advanced/http-message-handlers
+
+https://habr.com/ru/post/424873/
+
+
 -------------------------
 - IDisposable - механизм для освобождения неуправляемых ресурсов
 - CancellationToken - ...
