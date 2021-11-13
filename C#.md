@@ -23,6 +23,16 @@ https://docs.microsoft.com/en-us/aspnet/web-api/overview/advanced/http-message-h
 
 https://habr.com/ru/post/424873/
 
+-------------------------
+*Polly Library:* https://github.com/App-vNext/Polly
+- Retry
+- Circuit-breaker
+- Timeout
+- Bulkhead Isolation
+- Cache
+- Fallback
+- PolicyWrap
+
 
 -------------------------
 - IDisposable - механизм для освобождения неуправляемых ресурсов
