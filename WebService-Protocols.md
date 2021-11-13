@@ -1,0 +1,1 @@
+- REST vs SOAP: https://habr.com/ru/post/483204/
