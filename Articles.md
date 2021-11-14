@@ -1,0 +1,1 @@
+- Преодоление сложности в CQRS https://habr.com/ru/post/588803/
