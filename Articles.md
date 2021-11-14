@@ -1,2 +1,3 @@
 - Преодоление сложности в CQRS https://habr.com/ru/post/588803/
 - Продвинутое руководство по nullable reference types https://habr.com/ru/company/jugru/blog/571728/
+- Размеры CLR-объектов. Точное определение https://habr.com/ru/post/136609/
