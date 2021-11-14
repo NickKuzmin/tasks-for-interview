@@ -216,4 +216,8 @@ class Test
         }
     }
 }
+
+Или:
+
+private Lazy<Blob> _lazy = new Lazy<Blob>(() => new Blob());
 ```
