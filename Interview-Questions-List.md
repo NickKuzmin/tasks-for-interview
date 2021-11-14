@@ -57,8 +57,12 @@
 - https://github.com/jiajionline/LeetcodeSolutionWithMultipleLanguages
 
 ----------------------------
+**C#:**
+- Finalize vs Dispose
+- Task vs Thread
+----------------------------
 - Cloud vs Web-hosting
-
+----------------------------
 - Как работает браузер
 - Что такое DNS
 - Как летят запросы
