@@ -14,6 +14,7 @@
 - ASP .NET: https://www.wisdomjobs.com/e-university/asp-dot-net-interview-questions.html
 
 *JavaScript:*
+- https://habr.com/ru/post/486820/
 - https://github.com/lydiahallie/javascript-questions/tree/master/ru-RU
 - https://github.com/sudheerj/javascript-interview-questions
 - https://github.com/learning-zone/javascript-interview-questions
