@@ -199,3 +199,21 @@ trd.Start();
 Thread trd = new Thread(new ParameterizedThreadStart(CheckParameterPrimeNumber));
 trd.Start(1000000021);
 ```
+
+------------------------
+**Lazy:**
+
+```
+class Test
+{
+    private readonly Lazy<Blob> _lazy = new Lazy<Blob>();
+
+    public Blob BlobData
+    {
+        get
+        {
+            return _lazy.Value;
+        }
+    }
+}
+```
