@@ -1,8 +1,8 @@
 - https://habr.com/ru/post/210288/
 - https://refactoring.guru/ru/design-patterns/catalog
 ------------
-- Порождающие паттерны (creational patterns)
-- Структурные паттерны (structural patterns)
-- Поведенческие паттерны (behavioral patterns)
+- Порождающие паттерны (creational patterns) - эти паттерны решают проблемы обеспечения гибкости создания объектов
+- Структурные паттерны (structural patterns) - эти паттерны решают проблемы эффективного построения связей между объектами
+- Поведенческие паттерны (behavioral patterns) - эти паттерны решают проблемы эффективного взаимодействия между объектами
 ------------
 - Null Object Pattern
