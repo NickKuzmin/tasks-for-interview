@@ -164,6 +164,13 @@ finally
 - Thread-Starvation — проблема, при которой в программе слишком много одновременно работающих потоков.
 
 -------------------------
+**Concurrent collections:**
+- ConcurrentQueue<T>
+- ConcurrentStack<T>
+- ConcurrentBag<T>
+- ConcurrentDictionary<TKey, TValue>
+- BlockingCollection<T>
+------------------------
 В этой же версии .NET Framework появился мини-framework для кооперативной отмены асинхронных операций. Состоит он из всего трёх типов:
 
 - CancellationTokenSource — создаёт маркёры отмены (свойство Token) и обрабатывает запросы на отмену операции (перегруженные методы Cancel/CancelAfter).
