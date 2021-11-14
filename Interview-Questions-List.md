@@ -60,6 +60,9 @@
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
+- Event vs Delegate
+- System.Array.CopyTo() vs System.Array.Clone()
+- Throw ex vs Throw
 ----------------------------
 - Cloud vs Web-hosting
 ----------------------------
