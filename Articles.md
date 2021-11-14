@@ -2,3 +2,4 @@
 - Продвинутое руководство по nullable reference types https://habr.com/ru/company/jugru/blog/571728/
 - Размеры CLR-объектов. Точное определение https://habr.com/ru/post/136609/
 - https://itvdn.com/ru/blog/article/stack-and-heap
+- Сoncurrent collections за 10 минут https://habr.com/ru/post/473352/
