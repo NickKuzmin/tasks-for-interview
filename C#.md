@@ -220,4 +220,11 @@ class Test
 Или:
 
 private Lazy<Blob> _lazy = new Lazy<Blob>(() => new Blob());
+
+Или:
+class Test
+{
+    private Blob _blob;
+    public Blob BlobData => LazyInitializer.EnsureInitialized(ref _blob);
+}
 ```
