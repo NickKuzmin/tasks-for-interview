@@ -4,6 +4,11 @@
 - https://www.toptal.com/algorithms/interview-questions
 
 *C#:*
+- https://bool.dev/blog/detail/voprosy-na-sobesedovanii-po-c
+- https://habr.com/ru/post/541194/
+- https://metanit.com/sharp/interview/
+- https://ivinsky.livejournal.com/3266.html
+- https://itvdn.com/ru/blog/article/150-questions-net-developer
 - https://devinterview.io/dev/cSharp-interview-questions
 - https://ankitsharmablogs.com/csharp-coding-questions-for-technical-interviews/
 - ASP .NET: https://www.wisdomjobs.com/e-university/asp-dot-net-interview-questions.html
