@@ -18,9 +18,13 @@
 - https://github.com/lydiahallie/javascript-questions/tree/master/ru-RU
 - https://github.com/sudheerj/javascript-interview-questions
 - https://github.com/learning-zone/javascript-interview-questions
+
+*React:*
 - https://github.com/sudheerj/reactjs-interview-questions
 - ReactJS: https://www.wisdomjobs.com/e-university/reactjs-interview-questions.html
 - React 50 вопросов: https://t.me/js_by_vladilen/95
+
+*Angular:*
 - Angular: https://www.wisdomjobs.com/e-university/angular-4-interview-questions.html
 
 *Database:*
