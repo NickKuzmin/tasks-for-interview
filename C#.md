@@ -95,6 +95,37 @@ lock (_locker)
 ```
 
 ```
+public class LockDemo
+{
+    private static object _locker = new object();
+    private static bool _hasLock = false;
+ 
+    public void UseLock()
+    {
+        lock (_locker)
+        {
+            Console.WriteLine("Lock");
+        }
+    }
+ 
+    public void UseMonitor()
+    {
+        try
+        {
+            Monitor.Enter(_locker, ref _hasLock);
+ 
+            Console.WriteLine("Monitor");
+        }
+        finally
+        {
+            Monitor.Exit(_locker);
+            _hasLock = false;
+        }
+    }
+}
+```
+
+```
 try
 {
     locker.AcquireReaderLock(Timeout.Infinite);
