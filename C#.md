@@ -43,8 +43,15 @@ ctSource.Cancel();
 
 Parallel.For((long)(1000000021 - 20), (long)(1000000021 + 20), CheckParameterPrimeNumber);
 ```
-
+-------------------------
 - Thread vs task vs background worker vs thread pool
+- Monitor vs Lock
+```
+If you want more control to implement advanced multithreading solutions using TryEnter() Wait(), Pulse(), and PulseAll() methods, then the Monitor class is your option.
+C# Monitor.wait(): A thread wait for other threads to notify.
+Monitor.pulse(): A thread notify to another thread.
+Monitor.pulseAll(): A thread notifies all other threads within a process
+```
 -------------------------
 *Synchronization primitives:*
 - https://docs.microsoft.com/ru-ru/dotnet/standard/threading/overview-of-synchronization-primitives
