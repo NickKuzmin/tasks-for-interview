@@ -8,3 +8,4 @@
 - https://habr.com/ru/post/574304/
 - https://www.sql-ex.ru/blogs/?/Operatory_iteratory_plana_vypolneniJa_v_SQL_Server.html
 - https://infostart.ru/1c/articles/444987/
+- https://www.java67.com/2017/12/difference-between-table-scan-index.html
