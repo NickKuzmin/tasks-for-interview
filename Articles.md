@@ -4,3 +4,5 @@
 - https://itvdn.com/ru/blog/article/stack-and-heap
 - Сoncurrent collections за 10 минут https://habr.com/ru/post/473352/
 - О декораторах, сквозной функциональности, CQRS и слоеной архитектуре https://habr.com/ru/post/353258/
+- Операторы http://www.t-sql.ru/ebooks/eBOOK_SQLServerExecutionPlans_2Ed_G_Fritchey.pdf
+- https://habr.com/ru/post/574304/
