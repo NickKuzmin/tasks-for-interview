@@ -10,3 +10,5 @@
 - https://infostart.ru/1c/articles/444987/
 - https://www.java67.com/2017/12/difference-between-table-scan-index.html
 - https://vc.ru/newtechaudit/303853-kak-vliyayut-argumenty-poiska-na-proizvoditelnost-zaprosov-sql-server
+- Задачи, микрозадачи, очереди и планы https://habr.com/ru/post/264993/
+- Микро таски: https://learn.javascript.ru/event-loop
