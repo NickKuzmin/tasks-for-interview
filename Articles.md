@@ -6,3 +6,4 @@
 - О декораторах, сквозной функциональности, CQRS и слоеной архитектуре https://habr.com/ru/post/353258/
 - Операторы http://www.t-sql.ru/ebooks/eBOOK_SQLServerExecutionPlans_2Ed_G_Fritchey.pdf
 - https://habr.com/ru/post/574304/
+- https://www.sql-ex.ru/blogs/?/Operatory_iteratory_plana_vypolneniJa_v_SQL_Server.html
