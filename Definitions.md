@@ -126,6 +126,20 @@
 ----------------
 *Операторы (итераторы) плана выполнения в SQL Server:*
 
+- Select (Result)
+- Clustered Index Scan 
+- NonClustered Index Scan 
+- Clustered Index Seek
+- NonClustered Index Seek
+- Hash Match
+- Nested Loops
+- Merge Join
+- Sort
+- Key Lookup
+- Compute Scala
+- Constant Scan
+- Table Scan
+- RID Lookup
 ----------------
 - **Селективность** - число строк удовлетворяющих предикату/всего строк в таблице.
 - **Кардинальность** - это и есть предположительное число строк, которое вернёт запрос
