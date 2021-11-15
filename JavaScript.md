@@ -13,3 +13,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/Console
 ---------------------------
 - Call Stack, Web APIs, Render Queue, Callback Queue
 - 16.000 methods - callstack overvflow
+---------------------------
