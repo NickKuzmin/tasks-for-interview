@@ -3,6 +3,7 @@
 - http://callbackhell.ru/
 - https://babeljs.io/repl
 - Generating of git-ignore: https://www.toptal.com/developers/gitignore
+- Big-O Complexity Chart: https://www.bigocheatsheet.com/
 - Compatibility tables for features in HTML5, CSS3: https://caniuse.com/
 - Autoprefixer: for automatic vendor prefix insertion: https://autoprefixer.github.io/ru/
 - Technology alternatives: https://alternativeto.net/
