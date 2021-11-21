@@ -36,6 +36,8 @@
 - Docker. Зачем и как https://habr.com/ru/post/309556/
 - Полное практическое руководство по Docker: с нуля до кластера на AWS https://habr.com/ru/post/310460/
 - Изучаем Docker, часть 1: основы https://habr.com/ru/company/ruvds/blog/438796/
+- Современный CSS для динозавров https://habr.com/ru/post/348500/
+- CSS — это не чёрная магия https://habr.com/ru/company/ruvds/blog/333506/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
