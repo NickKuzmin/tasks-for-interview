@@ -52,6 +52,14 @@
 - https://habr.com/ru/company/nix/blog/260745/
 - https://habr.com/ru/post/263935/
 - https://habr.com/ru/post/313694/
+- https://habr.com/ru/post/498860/
+- https://habr.com/ru/company/vk/blog/303456/
+- https://habr.com/ru/post/269831/
+- https://habr.com/ru/post/439104/
+- https://habr.com/ru/company/manychat/blog/541794/
+- https://habr.com/ru/company/otus/blog/528692/
+- https://habr.com/ru/post/255463/
+- https://bool.dev/blog/detail/voprosy-na-sobesedovanii-dlya-senior-net-developer
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
