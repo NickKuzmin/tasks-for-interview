@@ -11,6 +11,31 @@ https://developer.mozilla.org/en-US/docs/Web/API/Console
 - Debounce/Throttling https://css-tricks.com/debouncing-throttling-explained-examples/
 
 ---------------------------
+**Библиотеки:**
+- Stampit: https://github.com/stampit-org/stampit
+---------------------------
 - Call Stack, Web APIs, Render Queue, Callback Queue
 - 16.000 methods - callstack overvflow
+---------------------------
+```
+function Vehicle(maxSpeed) {
+    this.maxSpeed = maxSpeed;
+}
+
+Vehicle.prototype.maxSpeed = function() {
+    return this.maxSpeed;
+}
+
+function Car(maxSpeed) {
+    Vehicle.call(this, maxSpeed);
+}
+
+Car.prototype = new Vehicle();
+```
+---------------------------
+```
+Object.seal
+Object.freeze
+Object.createProperty
+```
 ---------------------------
