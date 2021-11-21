@@ -20,6 +20,10 @@
 - Post & Pre Processing CSS https://habr.com/ru/post/434098/
 - Паттерн: Сага https://habr.com/ru/post/427705/
 - Разбираемся в redux-saga: От генераторов действий к сагам https://habr.com/ru/post/351168/
+- Краткая история JavaScript. Часть 1 https://habr.com/ru/company/livetyping/blog/324196/
+- Краткая история JavaScript. Часть 2 https://habr.com/ru/company/livetyping/blog/324506/
+- Краткая история JavaScript. Часть 3 https://habr.com/ru/company/livetyping/blog/324908/
+- ES6, ES8, ES2017: что такое ECMAScript и чем это отличается от JavaScript https://tproger.ru/translations/wtf-is-ecmascript/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
