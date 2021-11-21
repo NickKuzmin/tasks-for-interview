@@ -20,10 +20,25 @@
 - Post & Pre Processing CSS https://habr.com/ru/post/434098/
 - Паттерн: Сага https://habr.com/ru/post/427705/
 - Разбираемся в redux-saga: От генераторов действий к сагам https://habr.com/ru/post/351168/
-- Краткая история JavaScript. Часть 1 https://habr.com/ru/company/livetyping/blog/324196/
-- Краткая история JavaScript. Часть 2 https://habr.com/ru/company/livetyping/blog/324506/
-- Краткая история JavaScript. Часть 3 https://habr.com/ru/company/livetyping/blog/324908/
 - ES6, ES8, ES2017: что такое ECMAScript и чем это отличается от JavaScript https://tproger.ru/translations/wtf-is-ecmascript/
+- Шпаргалка для собеседования .Net https://habr.com/ru/post/541194/
+- Каверзные вопросы по C# https://habr.com/ru/post/275789/
+- Руководство по JavaScript, часть 1: первая программа, особенности языка, стандарты https://habr.com/ru/company/ruvds/blog/429552/
+- Основы JavaScript для начинающих разработчиков https://habr.com/ru/company/ruvds/blog/416375/
+- Шаблоны проектирования с человеческим лицом https://habr.com/ru/company/vk/blog/325492/
+- Шпаргалка по шаблонам проектирования https://habr.com/ru/post/210288/
+- Паттерны проектирования в JavaScript https://habr.com/ru/company/ruvds/blog/427293/
+- Понятнее о S.O.L.I.D https://habr.com/ru/post/508086/
+- Принципы SOLID, о которых должен знать каждый разработчик https://habr.com/ru/company/ruvds/blog/426413/
+- Kubernetes или с чего начать, чтобы понять что это и зачем он нужен https://habr.com/ru/company/otus/blog/537162/
+- Понимая Docker https://habr.com/ru/post/253877/
+- Docker. Начало https://habr.com/ru/post/353238/
+- Docker. Зачем и как https://habr.com/ru/post/309556/
+- Полное практическое руководство по Docker: с нуля до кластера на AWS https://habr.com/ru/post/310460/
+- Изучаем Docker, часть 1: основы https://habr.com/ru/company/ruvds/blog/438796/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
+- Краткая история JavaScript. Часть 1 https://habr.com/ru/company/livetyping/blog/324196/
+- Краткая история JavaScript. Часть 2 https://habr.com/ru/company/livetyping/blog/324506/
+- Краткая история JavaScript. Часть 3 https://habr.com/ru/company/livetyping/blog/324908/
