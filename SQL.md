@@ -20,9 +20,11 @@ https://www.jigsawacademy.com/blogs/cloud-computing/database-sharding
 > where COLUMN_NAME like '%COLUMN_NAME%' 
 > order by TABLE_NAME
 --------------------------------------------
-> SELECT *
-> FROM INFORMATION_SCHEMA.TABLES 
-> WHERE INFORMATION_SCHEMA.TABLES.TABLE_NAME like '%TABLE_NAME%'
+```
+SELECT *
+FROM INFORMATION_SCHEMA.TABLES 
+WHERE INFORMATION_SCHEMA.TABLES.TABLE_NAME like '%TABLE_NAME%'
+```
 --------------------------------------------
 > SELECT sys.schemas.name AS T2,
 >     t.NAME AS TableName,
@@ -41,22 +43,26 @@ https://www.jigsawacademy.com/blogs/cloud-computing/database-sharding
 > ORDER BY 
 >     t.Name
 --------------------------------------------
-> SELECT  K.TABLE_NAME ,
->     K.COLUMN_NAME ,
->     K.CONSTRAINT_NAME
-> FROM    INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS C
->         JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS K ON C.TABLE_NAME = K.TABLE_NAME
->                                                          AND C.CONSTRAINT_CATALOG = K.CONSTRAINT_CATALOG
->                                                          AND C.CONSTRAINT_SCHEMA = K.CONSTRAINT_SCHEMA
->                                                          AND C.CONSTRAINT_NAME = K.CONSTRAINT_NAME
-> WHERE   C.CONSTRAINT_TYPE = 'PRIMARY KEY'
->         AND K.COLUMN_NAME = 'COLUMN_NAME';
+```
+SELECT  K.TABLE_NAME,
+K.COLUMN_NAME ,
+K.CONSTRAINT_NAME
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS C
+JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS K ON C.TABLE_NAME = K.TABLE_NAME
+AND C.CONSTRAINT_CATALOG = K.CONSTRAINT_CATALOG
+AND C.CONSTRAINT_SCHEMA = K.CONSTRAINT_SCHEMA
+AND C.CONSTRAINT_NAME = K.CONSTRAINT_NAME
+WHERE C.CONSTRAINT_TYPE = 'PRIMARY KEY'
+AND K.COLUMN_NAME = 'COLUMN_NAME';
+```
 --------------------------------------------
-> DECLARE @xmltmp xml = (SELECT * FROM table FOR XML AUTO)
-> PRINT CONVERT(NVARCHAR(MAX), @xmltmp)
+```
+DECLARE @xmltmp xml = (SELECT * FROM table FOR XML AUTO)
+PRINT CONVERT(NVARCHAR(MAX), @xmltmp)
+```
 --------------------------------------------
-`CREATE TABLE A
-(
+```
+CREATE TABLE A (
 ID INT IDENTITY(1,1) PRIMARY KEY,
 ... Other Columns
 )
@@ -71,7 +77,9 @@ CREATE TABLE C
 (
 ID UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() PRIMARY KEY,
 ... Other Columns
-)`
+)
+```
 --------------------------------------------
-How to Create Login, User & Assign Permissions in SQL Server
-https://www.guru99.com/sql-server-create-user.html
+- How to Create Login, User & Assign Permissions in SQL Server: https://www.guru99.com/sql-server-create-user.html
+--------------------------------------------
+- Индексы создаются для столбцов таблиц и представлений. Индексы предоставляют путь для быстрого поиска данных на основе значений в этих столбцах.
