@@ -12,3 +12,5 @@
 - https://vc.ru/newtechaudit/303853-kak-vliyayut-argumenty-poiska-na-proizvoditelnost-zaprosov-sql-server
 - Задачи, микрозадачи, очереди и планы https://habr.com/ru/post/264993/
 - Микро таски: https://learn.javascript.ru/event-loop
+- 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
+- Создание индексов с включенными столбцами https://docs.microsoft.com/ru-ru/sql/relational-databases/indexes/create-indexes-with-included-columns?view=sql-server-ver15
