@@ -38,6 +38,20 @@
 - Изучаем Docker, часть 1: основы https://habr.com/ru/company/ruvds/blog/438796/
 - Современный CSS для динозавров https://habr.com/ru/post/348500/
 - CSS — это не чёрная магия https://habr.com/ru/company/ruvds/blog/333506/
+- https://habr.com/ru/post/483202/
+- https://habr.com/ru/post/351890/
+- https://habr.com/ru/company/piter/blog/511382/
+- https://habr.com/ru/post/447322/
+- https://habr.com/ru/post/269901/
+- https://habr.com/ru/post/236037/
+- https://habr.com/ru/company/otus/blog/500012/
+- https://habr.com/ru/company/microsoft/blog/245901/
+- https://habr.com/ru/post/312226/
+- https://habr.com/ru/company/microsoft/blog/325872/
+- https://habr.com/ru/post/437002/
+- https://habr.com/ru/company/nix/blog/260745/
+- https://habr.com/ru/post/263935/
+- https://habr.com/ru/post/313694/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
