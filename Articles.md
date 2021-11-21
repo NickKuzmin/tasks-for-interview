@@ -17,6 +17,9 @@
 - SASS против LESS https://habr.com/ru/post/144309/
 - 5 возможностей LESS, о которых вы могли не знать https://habr.com/ru/company/netcracker/blog/330874/
 - Несколько советов less-разработчику https://habr.com/ru/post/196190/
+- Post & Pre Processing CSS https://habr.com/ru/post/434098/
+- Паттерн: Сага https://habr.com/ru/post/427705/
+- Разбираемся в redux-saga: От генераторов действий к сагам https://habr.com/ru/post/351168/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
