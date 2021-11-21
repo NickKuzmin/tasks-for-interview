@@ -60,6 +60,20 @@
 - https://habr.com/ru/company/otus/blog/528692/
 - https://habr.com/ru/post/255463/
 - https://bool.dev/blog/detail/voprosy-na-sobesedovanii-dlya-senior-net-developer
+- https://bool.dev/blog/detail/dotnetcore-developer-roadmap
+- https://bool.dev/blog/detail/pattern-cqrs-i-event-sourcing
+- https://bool.dev/blog/detail/javascript-engine
+- https://bool.dev/blog/detail/hoisting-v-javascript
+- https://bool.dev/blog/detail/chto-takoe-pods-nodes-containers-i-clusters-v-kubernetes
+- https://bool.dev/blog/detail/obyasnenie-event-loop-v-javascript-s-pomoshchyu-vizualizatsii
+- https://bool.dev/blog/detail/vizualizatsiya-poleznykh-git-komand
+- https://bool.dev/blog/detail/checklist-dlya-deva-po-podgotovke-tech-interview
+- https://bool.dev/blog/detail/circuit-breaker-pattern
+- https://bool.dev/blog/detail/antipatterny-v-programmirovanii-i-proektirovanii-arkhitektury
+- https://bool.dev/blog/detail/grasp-printsipy
+- https://bool.dev/blog/detail/kak-pravilno-prokhodit-tekhnicheskie-intervyu
+- https://bool.dev/blog/detail/printsipy-obektno-orientirovannogo-proektirovaniya
+- https://bool.dev/blog/detail/shpargalka-po-linq-i-sql
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
