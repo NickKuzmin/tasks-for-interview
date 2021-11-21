@@ -13,6 +13,10 @@
 - Задачи, микрозадачи, очереди и планы https://habr.com/ru/post/264993/
 - Микро таски: https://learn.javascript.ru/event-loop
 - Создание индексов с включенными столбцами https://docs.microsoft.com/ru-ru/sql/relational-databases/indexes/create-indexes-with-included-columns?view=sql-server-ver15
+- LESS: программируемый язык стилей https://habr.com/ru/post/136525/
+- SASS против LESS https://habr.com/ru/post/144309/
+- 5 возможностей LESS, о которых вы могли не знать https://habr.com/ru/company/netcracker/blog/330874/
+- Несколько советов less-разработчику https://habr.com/ru/post/196190/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
