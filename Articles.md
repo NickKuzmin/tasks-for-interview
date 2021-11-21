@@ -74,6 +74,11 @@
 - https://bool.dev/blog/detail/kak-pravilno-prokhodit-tekhnicheskie-intervyu
 - https://bool.dev/blog/detail/printsipy-obektno-orientirovannogo-proektirovaniya
 - https://bool.dev/blog/detail/shpargalka-po-linq-i-sql
+- https://habr.com/ru/company/ruvds/blog/464295/
+- https://habr.com/ru/company/ruvds/blog/475244/
+- https://habr.com/ru/sandbox/139784/
+- https://habr.com/ru/company/ruvds/blog/510900/
+- https://radiant-escarpment-88463.herokuapp.com/ru/company/ruvds/blog/353446/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
