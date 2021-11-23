@@ -1,2 +1,3 @@
 - Merge vs Rebase
 - Squash
+- git reflog (for rebase)
