@@ -79,6 +79,11 @@
 - https://habr.com/ru/sandbox/139784/
 - https://habr.com/ru/company/ruvds/blog/510900/
 - https://radiant-escarpment-88463.herokuapp.com/ru/company/ruvds/blog/353446/
+-  https://code-maze.com/differences-between-net-framework-net-core-and-net-standard/    
+- https://gosha20777.github.io/code/2018/02/22/dotnetcore/    
+- https://habr.com/ru/company/microsoft/blog/343804/
+- https://andrewlock.net/understanding-net-core-netstandard-and-asp-net-core/
+- https://stackify.com/net-core-vs-net-framework/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
