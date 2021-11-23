@@ -1,3 +1,4 @@
 - Merge vs Rebase
 - Squash
 - git reflog (for rebase)
+- Pull vs Fetch
