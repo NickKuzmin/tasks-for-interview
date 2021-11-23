@@ -8,6 +8,7 @@
 - RabbitMq
 - Kafka
 - MongoDB
+- Cassandra
 
 - TeamCity
 - Gitlab
