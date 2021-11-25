@@ -1,2 +1,3 @@
 - CORS (Cross Origin Resource Sharing) - ...
 - `Access-Control-Allow-Origin заголовок` 
+- `Keep Alive`
