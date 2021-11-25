@@ -1,4 +1,6 @@
-- Kibana
+- DotTrace
+
+-   Kibana
 - Grafana
 - Prometheus
 
