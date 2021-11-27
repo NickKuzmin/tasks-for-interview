@@ -33,6 +33,12 @@
 
 - Alex Davies - Async in C# 5.0
 
+- John Arundel, Justin Domingus / Джон Арундел, Джастин Домингус - Cloud Native DevOps with Kubernetes / Kubernetes для DevOps: развертывание, запуск и масштабирование в облаке. 
+
+- Сайфан Д. - Осваиваем Kubernetes. Оркестрация контейнерных архитектур
+
+- Маркелов А.А. - Введение в технологии контейнеров и Kubernetes
+
 Чакон С. - Pro Git
 
 Patni S. - Pro RESTful APIs: Design, Build and Integrate with REST, JSON, XML and JAX-RS
