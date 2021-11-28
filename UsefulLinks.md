@@ -1,14 +1,14 @@
-- Event Loop: http://latentflip.com/loupe/
-- Test The Star Wars API: https://swapi.dev/
-- http://callbackhell.ru/
+- Event Loop: http://latentflip.com/loupe
+- Test The Star Wars API: https://swapi.dev
+- http://callbackhell.ru
 - https://babeljs.io/repl
 - Generating of git-ignore: https://www.toptal.com/developers/gitignore
-- Big-O Complexity Chart: https://www.bigocheatsheet.com/
+- Big-O Complexity Chart: https://www.bigocheatsheet.com
 - Compatibility tables for features in HTML5, CSS3: https://caniuse.com/
 - Autoprefixer: for automatic vendor prefix insertion: https://autoprefixer.github.io/ru/
-- Technology alternatives: https://alternativeto.net/
+- Technology alternatives: https://alternativeto.net
 - https://www.npmtrends.com/
 - https://ngrok.com
 - https://no-ip.com
 - CSS Comparison: https://csspre.com/compare/
-- Resume Constructor: app.enhancv.com
+- Resume Constructor: https://app.enhancv.com
