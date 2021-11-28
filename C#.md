@@ -296,6 +296,8 @@ class Test
 ------------------------
 - Asp .Net Identity - ...
 - Asp .Net Membership - ...    
-------------------------    
+------------------------  
+- Task<TResult> vs ValueTask<TResult>
+------------------------ 
 - Differences Between .NET Framework, .NET Core, and .NET Standard: https://code-maze.com/differences-between-net-framework-net-core-and-net-standard/    
 - https://gosha20777.github.io/code/2018/02/22/dotnetcore/    
