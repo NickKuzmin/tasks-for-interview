@@ -301,3 +301,5 @@ class Test
 ------------------------ 
 - Differences Between .NET Framework, .NET Core, and .NET Standard: https://code-maze.com/differences-between-net-framework-net-core-and-net-standard/    
 - https://gosha20777.github.io/code/2018/02/22/dotnetcore/    
+- Алгоритмическая сложность коллекций: https://docs.microsoft.com/ru-ru/dotnet/standard/collections/    
+- Runtime Complexity of .NET Generic Collection: http://c-sharp-snippets.blogspot.com/2010/03/runtime-complexity-of-net-generic.html
