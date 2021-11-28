@@ -274,6 +274,23 @@ class Test
 }
 ```
 ------------------------
+**Asymptotic complexity of .NET collection classes:**
+**Type of Search/Collection Types**           *8Complexity**  **Comments**
+Linear search Array/ArrayList/LinkedList  **O(N)**        Unsorted data.
+Binary search sorted Array/ArrayList/     **O(log N)**    Requires sorted data.
+Search Hashtable/Dictionary<T>            **O(1)**        Uses hash function.
+Binary search SortedDictionary/SortedKey  **O(log N)**    Sorting is automated.
+
+**Retrieval and Insertion:**
+
+Operation         Array/ArrayList  LinkedList  SortedDictionary  SortedList
+Access back       O(1)             O(1)        O(log N)          O(log N)
+Access front      O(1)             O(1)        N.A.              N.A.
+Access middle     O(1)             O(N)        N.A.              N.A.
+Insert at back    O(1)             O(1)        O(log N)          O(N)
+Insert at front   O(N)             O(1)        N.A.              N.A.
+Insert in middle  O(N)             O(1)        N.A.              N.A.
+------------------------
 **Интерфейс может включать в себя:**
 - Методы
 - Свойства
