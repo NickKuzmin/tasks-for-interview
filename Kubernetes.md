@@ -1,3 +1,5 @@
+- **Interview questions:** https://github.com/learning-zone/devops-interview-questions/blob/master/kubernetes.md
+--------------------------------------------------
 - https://habr.com/ru/post/258443/
 - https://habr.com/ru/company/otus/blog/537162/
 - https://eternalhost.net/blog/razrabotka/kubernetes-chto-eto
