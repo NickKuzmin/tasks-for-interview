@@ -23,8 +23,7 @@
 ```tsc -t ES5 --outDir js -m commonjs app.ts```
 - И чтобы посмотреть все доступные параметры и справку по ним, можно воспользоваться параметром -h:
 ```tsc -h```
-- 
----
+----------------------------------------------------------------
 ```
 class User {
     name: string;
@@ -35,6 +34,46 @@ class User {
 
 const tom : User = new User("Том");
 ```
----
+----------------------------------------------------------------
+- С помощью файла **tsconfig.json** можно настроить проект TypeScript. В частности, этот файл выполняет следующие задачи:
+устанавливает корневой каталог проекта TypeScript
+выполняет настройку параметров компиляции
+устанавливает файлы проекта
+
+```
+{
+    "compilerOptions": {
+        "target": "es5",
+        "removeComments": true,
+        "outDir": "js",
+        "sourceMap": true
+        "outFile": "main.js"
+    }
+}
+```
+
+- С помощью секции files можно установить набор включаемых в проект файлов:
+- Параметр exclude, наоборот, позволяет исключить при компиляции определенные файлы:
+```
+{
+    "compilerOptions": {
+        "target": "es5",
+        "removeComments": true,
+        "outFile": "../../built/local/tsc.js"
+    },
+    "files":[
+        "app.ts",
+        "interfaces.ts",
+        "classes.ts",
+    ],
+    "exclude":[
+        "wwwroot",
+        "node_modules"
+    ]
+}
+```
+- При этом следует учитывать, что если в файле одновременно будут заданы обе секции files и exclude, то секция exclude будет игнорироваться.
+- Параметр compileOnSave при значении true указывает используемой IDE сгенерировать все файлы js при каждом сохранении файлов TypeScript:
+----------------------------------------------------------------
 - Typescript style guide: https://github.com/ymaps/codestyle/blob/master/typescript.md
 - 
