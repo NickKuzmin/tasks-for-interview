@@ -1,6 +1,12 @@
+- **Docker Interview Questions:** https://github.com/collabnix/dockerlabs/blob/master/docker/docker-interview-questions.md
+- **Docker Interview Questions:** https://gist.github.com/bansalankit92/1b2a310a3e4686e5e31159dfbdcc1593
+- **Docker Interview Questions:** https://github.com/Devinterview-io/docker-interview-questions
+- **Docker Interview Questions:** https://habr.com/ru/company/southbridge/blog/528206/
+- **Docker Interview Questions:** https://www.edureka.co/blog/interview-questions/docker-interview-questions/
+-----------------------------------
 - Основные термины Docker: https://tproger.ru/translations/docker-terms/
 - Терминология Docker: https://docs.microsoft.com/ru-ru/dotnet/architecture/microservices/container-docker-introduction/docker-terminology
-
+-----------------------------------
 **Базовые термины**
 ```
 Docker-платформа — программа, запускающая приложение.
