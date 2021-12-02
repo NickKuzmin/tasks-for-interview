@@ -64,16 +64,16 @@ Monitor.pulseAll(): A thread notifies all other threads within a process
 - AutoResetEvent
 - ManualResetEvent
 - ManualResetEventSlim
-- Semaphore
-- SemaphoreSlim
-- Mutex
+- Semaphore - задающий начальное количество входов и максимальное количество одновременных входов. Ограничивает число потоков, которые могут одновременно обращаться к ресурсу или пулу ресурсов.
+- SemaphoreSlim - Представляет упрощенную альтернативу семафору Semaphore, ограничивающему количество потоков, которые могут параллельно обращаться к ресурсу или пулу ресурсов. SemaphoreSlim - также поддерживает использование токенов отмены, но не поддерживает именованные семафоры или использование дескриптора ожидания для синхронизации. The SemaphoreSlim class represents a lightweight, fast semaphore that can be used for waiting within a single process when wait times are expected to be very short.
+- Mutex - Основную работу по синхронизации выполняют методы WaitOne() и ReleaseMutex(). Метод mutexObj.WaitOne() приостанавливает выполнение потока до тех пор, пока не будет получен мьютекс mutexObj. После выполнения всех действий, когда мьютекс больше не нужен, поток освобождает его с помощью метода mutexObj.ReleaseMutex(). Таким образом, когда выполнение дойдет до вызова mutexObj.WaitOne(), поток будет ожидать, пока не освободится мьютекс. И после его получения продолжит выполнять свою работу.
 - Monitor
-- Lock
+- Lock - сокращенная версия Monitor. 
 - CountdownEvent
 - Barrier
 - Interlocked
 - Volatile
-- ReaderWriterLock
+- ReaderWriterLock - Определяет блокировку, которая поддерживает один пишущий поток и несколько читающих. ReaderWriterLock предоставляет отдельные методы для блокировки на чтение и на запись – AcquireReaderLock и AcquireWriterLock. Оба метода принимают аргумент-таймаут и генерируют исключение ApplicationException, если этот таймаут истекает (вместо возвращения false, как это делают остальные аналогичные методы, связанные с потоками). Таймаут может быть легко превышен, если ресурс пользуется популярностью. Блокировка снимается при помощи методов ReleaseReaderLock или ReleaseWriterLock. Эти методы поддерживают вложенные блокировки. Предоставляется также метод ReleaseLock, снимающий все вложенные блокировки за один вызов. (Далее можно вызвать RestoreLock для восстановления состояния всех блокировок, предшествовавшего вызову ReleaseLock – в подражание поведению Monitor.Wait).
 - ReaderWriterLockSlim
 - Concurrent Collections (ConcurrentQueue, ConcurrentStack, ConcurrentDictionary, ConcurrentBag)
 -------------------------
