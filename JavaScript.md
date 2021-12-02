@@ -1,3 +1,5 @@
+- JS Techincal tasks: https://github.com/bakugod/interview-tasks/blob/master/algorithmic-part.md
+---------------------------
 - Console API methods (assert, count, dir, group, time, trace):
 https://developer.mozilla.org/en-US/docs/Web/API/Console
 
