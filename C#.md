@@ -316,6 +316,23 @@ Insert in middle  O(N)             O(1)        N.A.              N.A.
 ------------------------  
 - Task<TResult> vs ValueTask<TResult>
 ------------------------ 
+ - Реализация с помощью лямбда-выражений
+С помощью лямбд можно сократить определение замыкания:
+```
+var outerFn = () =>
+{
+    int x = 10;
+    var innerFn = () => Console.WriteLine(++x);
+    return innerFn;
+};
+ 
+var fn = outerFn();   // fn = innerFn, так как outerFn возвращает innerFn
+// вызываем innerFn
+fn();   // 11
+fn();   // 12
+fn();   // 13
+```
+------------------------   
 - Differences Between .NET Framework, .NET Core, and .NET Standard: https://code-maze.com/differences-between-net-framework-net-core-and-net-standard/    
 - https://gosha20777.github.io/code/2018/02/22/dotnetcore/    
 - Алгоритмическая сложность коллекций: https://docs.microsoft.com/ru-ru/dotnet/standard/collections/    
