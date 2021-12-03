@@ -64,7 +64,14 @@
 
 *LEETCODE:*
 - https://github.com/jiajionline/LeetcodeSolutionWithMultipleLanguages
-
+- 
+----------------------------
+- Azure Functions
+- События и делегаты. Возможен ли вызов снаружи.
+- Antiforgery tokens.
+- GetHashCode/Equals.
+- Чем функции от процедур отличаются.
+- Как хранятся reference/value-типы
 ----------------------------
 **C#:**
 - Finalize vs Dispose
