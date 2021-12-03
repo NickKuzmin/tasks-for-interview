@@ -67,6 +67,7 @@
 - 
 ----------------------------
 - Azure Functions
+- Реальный пример SOLID
 - События и делегаты. Возможен ли вызов снаружи.
 - Antiforgery tokens.
 - GetHashCode/Equals.
