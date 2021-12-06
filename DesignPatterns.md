@@ -3,6 +3,18 @@
 - https://refactoring.guru/ru/design-patterns/catalog
 - https://javarush.ru/groups/posts/2267-patternih-proektirovanija-v-java
 ------------
+**DESIGN PATTERNS in .NET:**
+
+- **Abstract Factory** - pattern is used in the ADO.NET 2.0 infrastructure (DbProviderFactory class)
+- **Builder** - DbConnectionStringBuilder, UriBuilder
+- **Visitor Pattern** in **ExpressionVisitor** class (Syste.Linq.Expression namespace).
+- **Adapter Pattern** in System.Web.Abstractions - wrap up various Web classes (HttpRequest, HttpResponse) in a more unit testable way - i.e. HttpResponseBase.
+- **Factory Method** - **Activator.CreateInstance** - creates an instance of specified object.
+- **Iterator** - all implementations of **IEnumerable**.
+- **Prototype** - ICloneable interface with method Clone() is classic example of prototype.
+- **NullObject** - String.Empty, EventArgs.Empty
+
+------------
 - **Порождающие паттерны (creational patterns)** - эти паттерны решают проблемы обеспечения гибкости создания объектов
 - **Структурные паттерны (structural patterns)** - эти паттерны решают проблемы эффективного построения связей между объектами
 - **Поведенческие паттерны (behavioral patterns)** - эти паттерны решают проблемы эффективного взаимодействия между объектами
@@ -49,5 +61,3 @@
 - Event listener
 - Single-serving visitor pattern
 - Hierarchical visitor pattern 
-------------
-- Null Object Pattern
