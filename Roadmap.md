@@ -1,3 +1,6 @@
+- MediatR
+- AutoMapper
+
 - DotTrace
 
 -   Kibana
