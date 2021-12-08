@@ -87,6 +87,13 @@
 11. CTE
 12. REST, Идемпотентность, отсутствие Идемпотентности у POST
 ----------------------------
+1. Может ли быть ссылочный тип в стеке (возможно, слишком очевидный вопрос, но я подзадумался - может есть какой-то специфичный случай, помимо того, что в стеке просто хранится ссылка на объект в куче) - stackalloc: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/stackalloc
+2. const - когда происходит инициализация (const declares a value that is determined at compile time. In the compiled code, it appears simply as a literal, rather than a reference to some named identifier. Constants are not initialised at all, they are constant values that are substituted at compile time.)
+3. Как работает state machine для async/await
+4. 200/300/400/500 - классификация кодов
+5. Брокеры сообщений - каким принципам должны соответствовать
+6. Распределенные транзакции
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
