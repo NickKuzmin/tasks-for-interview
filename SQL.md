@@ -8,6 +8,8 @@
 - A PRIMARY KEY constraint creates a clustered index by default.
 - A UNIQUE constraint creates a non-clustered index by default.
 --------------------------------------------
+- **Кучей** является таблица без кластеризованного индекса. Для таблиц, сохраненных как куча, может быть создан один или несколько некластеризованных индексов. Данные хранятся в куче без указания порядка. 
+--------------------------------------------
 **The overview of Database Paradigms:**
 - https://tudip.com/blog-post/7-database-paradigms/
 - https://www.jigsawacademy.com/blogs/cloud-computing/database-sharding
