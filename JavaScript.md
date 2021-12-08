@@ -71,3 +71,8 @@ Object.createProperty
 - необязательный атрибут ```charset```, используемый вместе с src для указания используемой кодировки внешнего файла.
 - необязательный атрибут ```defer``` указывает, что получение скрипта происходит асинхронно, но выполнение следует отложить до тех пор, пока страница не будет загружена целиком.
 - необязательный атрибут ```async``` указывает, что получение скрипта происходит асинхронно, а выполнение будет произведено сразу по завершении скачивания. Очерёдность выполнения скриптов не гарантируется.
+---------------------------
+- **prototype** is a property of a Function object. It is the prototype of objects constructed by that function.
+
+- **__proto__** is an internal property of an object, pointing to its prototype. Current standards provide an equivalent Object.getPrototypeOf(obj) method, though the de facto standard __proto__ is quicker.You can find instanceof relationships by comparing a function's prototype to an object's __proto__ chain, and you can break these relationships by changing prototype.
+
