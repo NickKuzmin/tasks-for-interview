@@ -537,6 +537,13 @@ LinqSpecs
 - Queue - ...
 - Exchanges - ...
 ----------------
+- **Elasticsearch (ES)** – масштабируемая утилита полнотекстового поиска и аналитики, которая позволяет быстро в режиме реального времени хранить, искать и анализировать большие объемы данных. ES является ядром ELK-стека (Elastic Stack), в состав которого, помимо Elasticsearch, входят следующие продукты.
+
+**ELK-стека (Elastic Stack):**
+- **Logstash** – инструмент сбора, преобразования и сохранения в общем хранилище событий из различных источников (файлы, базы данных, логи и пр.) в реальном времени;
+- **Kibana** – веб-интерфейс для Elasticsearch, чтобы взаимодействовать с данными, которые хранятся в его индексах ES через динамические панели мониторинга, таблицы, графики и диаграммы, которые отображают изменения в ES-запросах в реальном времени;
+- **FileBeat** – агент на серверах для отправки различных типов оперативных данных в ES.
+----------------
 - DNS (англ. Domain Name System «система доменных имён») — компьютерная распределённая система для получения информации о доменах. Чаще всего используется для получения IP-адреса по имени хоста (компьютера или устройства), получения информации о маршрутизации почты и/или обслуживающих узлах для протоколов в домене (SRV-запись).
 - Handshake - is an automated process of negotiation between two participants (example "Alice and Bob") through the exchange of information that establishes the protocols of a communication link at the start of the communication, before full communication begins. The handshaking process usually takes place in order to establish rules for communication when a computer attempts to communicate with another device. Signals are usually exchanged between two devices to establish a communication link. For example, when a computer communicates with another device such as a modem, the two devices will signal each other that they are switched on and ready to work, as well as to agree to which protocols are being used.
 - CDN (Content Delivery Network) — это географически распределённая сетевая инфраструктура, обеспечивающая быструю доставку контента пользователям веб-сервисов и сайтов. Входящие в состав CDN cерверы географически располагаются таким образом, чтобы сделать время ответа для пользователей сайта/сервиса минимальным. Ориджин (origin) — сервер, на котором хранятся исходные файлы или данные, раздаваемые через CDN
