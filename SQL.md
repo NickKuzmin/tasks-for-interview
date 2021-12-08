@@ -5,9 +5,45 @@
 - Можно ли создать кластеризованный индекс на столбце, содержащем дубликаты?
 - Почему таблица не может иметь два кластеризованных индекса?
 --------------------------------------------
+- A PRIMARY KEY constraint creates a clustered index by default.
+- A UNIQUE constraint creates a non-clustered index by default.
+--------------------------------------------
 **The overview of Database Paradigms:**
 - https://tudip.com/blog-post/7-database-paradigms/
 - https://www.jigsawacademy.com/blogs/cloud-computing/database-sharding
+
+```
+/* Clustered index */
+ALTER TABLE MyTable
+    ADD CONSTRAINT PK_MyTable
+        PRIMARY KEY(WidgetId);
+ 
+/* Clustered index */  
+ALTER TABLE MyTable
+    ADD CONSTRAINT PK_MyTable
+        PRIMARY KEY CLUSTERED(WidgetId);
+ 
+/* Non-clustered index */  
+ALTER TABLE MyTable
+    ADD CONSTRAINT PK_MyTable
+        PRIMARY KEY NONCLUSTERED(WidgetId);
+ 
+ 
+/* Non-clustered index */  
+ALTER TABLE MyTable
+    ADD CONSTRAINT UC_MyTable_WidgetNumber
+        UNIQUE(WidgetNumber);
+ 
+/* Non-clustered index */  
+ALTER TABLE MyTable
+    ADD CONSTRAINT UC_MyTable_WidgetNumber
+        UNIQUE NONCLUSTERED(WidgetNumber);
+ 
+/* Clustered index */  
+ALTER TABLE MyTable
+    ADD CONSTRAINT UC_MyTable_WidgetNumber
+        UNIQUE CLUSTERED(WidgetNumber);
+```
 --------------------------------------------
 - mssql exection plan
 --------------------------------------------
