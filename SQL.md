@@ -5,8 +5,8 @@
 - Можно ли создать кластеризованный индекс на столбце, содержащем дубликаты?
 - Почему таблица не может иметь два кластеризованных индекса?
 --------------------------------------------
-- A PRIMARY KEY constraint creates a clustered index by default.
-- A UNIQUE constraint creates a non-clustered index by default.
+- **PRIMARY KEY** constraint creates a **clustered index by default**.
+- **UNIQUE** constraint creates a **non-clustered index by default**.
 --------------------------------------------
 - **Кучей** является таблица без кластеризованного индекса. Для таблиц, сохраненных как куча, может быть создан один или несколько некластеризованных индексов. Данные хранятся в куче без указания порядка.
 - Все индексы имеют одинаковую структуру (structure). Они состоят из:
