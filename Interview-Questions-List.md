@@ -99,6 +99,19 @@
 3) zabix
 4) Service Fabric
 ----------------------------
+1) Контекст синхронизации
+2) Slim версии синхронизации - чем отличается
+3) Пример однопоточной асинхронной работы
+4) ConfigureAwait в C#
+5) async void vs async Task
+6) ICollection vs IEnumerable
+7) Рекомендации Microsoft по использованию Struct/Class
+8) Finalizator vs IDisposable
+9) Почему нельзя подиспоузить строку
+10) z-index, position, display
+11)  как изначально подойти к разработке разметки, чтобы не было хаотичного вставления Z-9000 -
+12) VDOM vs DOM
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
