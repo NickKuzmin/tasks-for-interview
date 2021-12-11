@@ -46,7 +46,77 @@ Monitor.Pulse
 Monitor.PulseAll
 ```
 -------------------------
+- **SemaphoreSlim** - это упрощенная альтернатива Semaphore, которую можно использовать для синхронизации в рамках одного процесса. SemaphoreSlim Класс представляет упрощенный, быстрый семафор, который можно использовать для ожидания внутри одного процесса, когда предполагается, что времена ожидания будут очень короткими.
+- **ReaderWriterLockSlim** 
+- **ManualResetEventSlim** - этот класс можно использовать для лучшей производительности, чем ManualResetEvent когда ожидается очень короткое время ожидания и когда событие не пересекает границу процесса.
+
+- One difference is that SemaphoreSlim does not permit named semaphores, which can be system-wide. This would mean that a SemaphoreSlim could not be used for cross-process synchronization.
+- The SemaphoreSlim class represents a lightweight, fast semaphore that can be used for waiting within a single process when wait times are expected to be very short.
+- ReaderWriterLockSlim is similar to ReaderWriterLock, but it has simplified rules for recursion and for upgrading and downgrading lock state. ReaderWriterLockSlim avoids many cases of potential deadlock. In addition, the performance of ReaderWriterLockSlim is significantly better than ReaderWriterLock. ReaderWriterLockSlim is recommended for all new development.
+- ReaderWriterLockSlim is not thread-abort safe. You should not use it in an environment where threads accessing it can be aborted, such as .NET Framework. If you're using .NET Core or .NET 5+, it should be fine. Abort is not supported in .NET Core and is obsolete in .NET 5 and later versions.
+-------------------------
 - Lookup vs Dictionary
+-------------------------
+```
+IEnumerable — единственное что нужно это пройти по всем элементам коллекции. Read-only доступ к коллекции
+ICollection — возможность изменять коллекцию и узнать ее размер
+IList — возможность изменение коллекции. В дополнении становится доступен порядок (индекс элементов)
+
+public interface IEnumerable
+{
+    IEnumerator GetEnumerator();
+}
+
+public interface IEnumerable<out T> : IEnumerable
+{
+    IEnumerator<T> GetEnumerator();
+}
+
+public interface ICollection : IEnumerable
+{
+    int Count { get; }  
+    bool IsSynchronized { get; }
+    Object SyncRoot { get; }
+ 
+    void CopyTo(Array array, int index);
+}
+
+public interface ICollection<T> : IEnumerable<T>, IEnumerable
+{
+    int Count { get; }
+    bool IsReadOnly { get; }
+ 
+    void Add(T item);
+    void Clear();
+    bool Contains(T item);
+    void CopyTo(T[] array, int arrayIndex);
+    bool Remove(T item);
+}
+
+public interface IList : ICollection, IEnumerable
+{
+    bool IsFixedSize { get; }
+    bool IsReadOnly { get; }
+    Object this[int index] { get; set; }
+ 
+    int Add(Object value);
+    void Clear();
+    bool Contains(Object value);
+    int IndexOf(Object value);
+    void Insert(int index, Object value);
+    void Remove(Object value);
+    void RemoveAt(int index);
+}
+
+public interface IList<T> : ICollection<T>, IEnumerable<T>, IEnumerable
+{
+    T this[int index] { get; set; }
+ 
+    int IndexOf(T item);
+    void Insert(int index, T item);
+    void RemoveAt(int index);
+}
+```
 -------------------------
 ```
 [AttributeUsage(AttributeTargets.Class)]
