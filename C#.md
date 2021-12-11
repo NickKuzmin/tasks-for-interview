@@ -34,6 +34,18 @@ Singleton - сервис создается при первом запросе (
 2) LOH только растет и никогда не уменьшается (т.е. если объект собран сборщиком мусора, размер LOH все равно остается неизменным)
 3) Хип LOH освобождается только тогда, когда LOH полностью пуст
 -------------------------
+**Monitor vs Lock:**
+- Monitor is no different from lock but the monitor class provides more control over the synchronization of various threads trying to access the same lock of code.
+
+```
+Monitor.Enter 
+Monitor.TryEnter
+Monitor.Exit
+Monitor.Wait
+Monitor.Pulse
+Monitor.PulseAll
+```
+-------------------------
 - Lookup vs Dictionary
 -------------------------
 ```
