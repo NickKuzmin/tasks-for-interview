@@ -55,6 +55,17 @@ Monitor.PulseAll
 - ReaderWriterLockSlim is similar to ReaderWriterLock, but it has simplified rules for recursion and for upgrading and downgrading lock state. ReaderWriterLockSlim avoids many cases of potential deadlock. In addition, the performance of ReaderWriterLockSlim is significantly better than ReaderWriterLock. ReaderWriterLockSlim is recommended for all new development.
 - ReaderWriterLockSlim is not thread-abort safe. You should not use it in an environment where threads accessing it can be aborted, such as .NET Framework. If you're using .NET Core or .NET 5+, it should be fine. Abort is not supported in .NET Core and is obsolete in .NET 5 and later versions.
 -------------------------
+- System.Threading.SynchronizationContext “Обеспечивает базовую функциональность для распространения контекста синхронизации в различных моделях синхронизации”
+-------------------------
+- ConfigureAwait(continueOnCapturedContext: false) используется для предотвращения принудительного вызова коллбэка в исходном контексте или планировщике. Это дает нам несколько преимуществ:
+1) Улучшение производительности. Существуют накладные расходы постановки обратного вызова в очередь, в отличие просто от вызова, так как для этого требуется дополнительная работа (и, как правило, дополнительная аллокация).
+2) Предотвращение дедлоков.
+
+- Если вы пишете код уровня приложения, не используйте ConfigureAwait(false)
+- Это приводит нас к следующему: если вы пишете код библиотеки общего назначения, используйте ConfigureAwait(false)
+-------------------------
+- TaskScheduler
+-------------------------
 - Lookup vs Dictionary
 ------------------------
 Ключевое слово yield используется для создания генераторов последовательностей элементов. Эти генераторы не создают коллекции - вместо этого хранится лишь текущее состояние, а по команде производится переход к следующему. Таким образом, объём требуемой памяти оказывается минимальным и напрямую не зависит от количества элементов. Нетрудно догадаться, что генерируемые последовательности могут быть бесконечными.
