@@ -63,6 +63,8 @@ Monitor.PulseAll
 
 - Если вы пишете код уровня приложения, не используйте ConfigureAwait(false)
 - Это приводит нас к следующему: если вы пишете код библиотеки общего назначения, используйте ConfigureAwait(false)
+
+- ASP.NET Core does not have a SynchronizationContext. If you are on ASP.NET Core, it does not matter whether you use ConfigureAwait(false) or not. For ASP.NET "Full" or "Classic" or whatever, the rest of this answer still applies.
 -------------------------
 - TaskScheduler
 -------------------------
