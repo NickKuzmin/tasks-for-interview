@@ -1,4 +1,5 @@
 - MediatR
+- Dapper
 - AutoMapper
 
 - DotTrace
