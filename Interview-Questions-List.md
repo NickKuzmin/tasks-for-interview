@@ -1,3 +1,14 @@
+**Полезные ресурсы для подготовки Ozon:**
+- https://docs.microsoft.com/ru-ru/dotnet/standard/threading
+- https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/async
+- https://microservices.io/patterns/microservices.html
+- https://www.postgresql.org/docs/13/index.html
+- Вернон Вон «Предметно-ориентированное проектирование. Самое основное»
+- Нархид Ния, Гвен Шапира «Apache Kafka. Потоковая обработка и анализ данных»
+- Джеффри Рихтер «CLR via C#»
+- Ганс-Юрген Шениг «PostgreSQL 11. Мастерство разработки»
+- Задачи на ресурсе https://leetcode.com уровня easy и middle
+--------------------------------------------
 *Common:*
 - https://github.com/senthil338/Software-Engineer-Interview
 
