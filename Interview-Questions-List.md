@@ -123,6 +123,17 @@
 11)  как изначально подойти к разработке разметки, чтобы не было хаотичного вставления Z-9000 -
 12) VDOM vs DOM
 ----------------------------
+Озон:
+1) Roslyn vs Reflection
+2) Event consistency/Event-driven programming 
+3) CAP
+4) async void, exception
+5) await lock/Monitor/Mutex vs await Semaphore
+6) uint
+7) QuickSort
+8) async/await - StateMachine
+9) Задача - передан отсортированный целочисленный массив. Вернуть - массив квадратов элементов массива за линейное время
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
