@@ -174,6 +174,38 @@ public interface IList<T> : ICollection<T>, IEnumerable<T>, IEnumerable
 ```
 -------------------------
 ```
+List:
+    
+public void Add(T item)
+{
+    if (this._size == this._items.Length)
+        this.EnsureCapacity(this._size + 1);
+    this._items[this._size++] = item;
+    ++this._version;
+}
+```
+-------------------------
+```
+IEnumerable:
+    
+IEnumerable<TResult> Select<TSource, TResult>(
+      this IEnumerable<TSource> source,
+      Func<TSource, TResult> selector)
+    
+IEnumerable<TSource> Where<TSource>(
+      this IEnumerable<TSource> source,
+      Func<TSource, bool> predicate)
+    
+IEnumerable<TSource> Take<TSource>(
+      this IEnumerable<TSource> source,
+      int count)
+    
+TSource First<TSource>(this IEnumerable<TSource> source)
+    
+TSource Single<TSource>(this IEnumerable<TSource> source)
+```
+-------------------------
+```
 [AttributeUsage(AttributeTargets.Class)]
 public class SomeNewAttribute : System.Attribute
 {
