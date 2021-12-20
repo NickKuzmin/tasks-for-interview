@@ -206,6 +206,24 @@ TSource Single<TSource>(this IEnumerable<TSource> source)
 ```
 -------------------------
 ```
+IQueryable:
+    
+IQueryable<TSource> Where<TSource>(
+      this IQueryable<TSource> source,
+      Expression<Func<TSource, bool>> predicate)
+    
+Queryable<TResult> Select<TSource, TResult>(
+      this IQueryable<TSource> source,
+      Expression<Func<TSource, TResult>> selector)
+    
+IQueryable<TSource> Take<TSource>(
+      this IQueryable<TSource> source,
+      int count)
+    
+TSource First<TSource>(this IQueryable<TSource> source)
+```
+-------------------------
+```
 [AttributeUsage(AttributeTargets.Class)]
 public class SomeNewAttribute : System.Attribute
 {
