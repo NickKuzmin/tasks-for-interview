@@ -157,7 +157,13 @@ Console.WriteLine(i);
 var item = result.First()
 Console.WriteLine(item, i);
 ```
-8) ```select count(1), sum(1) from departments```
+8)
+```
+select count(1), sum(1) from departments
+
+select MAX(Uid) from Employee
+select MAX(Salary) from Employee
+```
 ----------------------------
 **C#:**
 - Finalize vs Dispose
