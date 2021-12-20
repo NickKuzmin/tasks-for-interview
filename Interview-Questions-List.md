@@ -138,6 +138,27 @@
 2) Обходы деревьев
 3) Что может содержать интерфейс
 ----------------------------
+1) CI vs CD
+----------------------------
+1) Бинарное дерево vs B-tree в контексте MSSQL
+2) C# Select - детали реализации LINQ, yield
+3) List vs Array
+4) async task 150/100/50 - сколько будет потоков выделено, сколько суммарно займет времени. Вариант использования без async/await
+5) Bad Practice Singleton, какие принципы нарушаются в SOLID
+6) Singleton life-cycle. Нужен ли интерфейс, как подтягиваются зависимости, как работает в DI - singleton
+7)
+```
+var i =0;
+list = [1, 3, 5, 7, 9]
+
+var result = list.Where(x => x > 3).Select(x => i++);
+Console.WriteLine(i);
+
+var item = result.First()
+Console.WriteLine(item, i);
+```
+8) ```select count(1), sum(1) from departments```
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
