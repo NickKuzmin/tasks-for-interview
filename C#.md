@@ -229,6 +229,17 @@ TSource First<TSource>(this IQueryable<TSource> source)
 ```
 -------------------------
 ```
+var i = 0;
+
+var list = new List<int> {3, 1, 5, 2, 7};
+var query = list.Where(x => x > 2).Select(x => i++);
+Console.WriteLine(i);
+
+var result = query.First();
+Console.WriteLine(i);
+```
+-------------------------
+```
 [AttributeUsage(AttributeTargets.Class)]
 public class SomeNewAttribute : System.Attribute
 {
