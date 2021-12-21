@@ -165,6 +165,13 @@ select MAX(Uid) from Employee
 select MAX(Salary) from Employee
 ```
 ----------------------------
+1) Конструктор без параметров. Вызов конструктора без параметра внутри конструктора с параметра.
+2) SQL: Batch, BulkCopy
+3) AsNoTracking, DisableChangeTracking
+4) lock(2) - lock от value типов
+5) SPA
+6) Как отключить рестарт IIS pool
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
