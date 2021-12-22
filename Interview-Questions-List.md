@@ -172,6 +172,18 @@ select MAX(Salary) from Employee
 5) SPA
 6) Как отключить рестарт IIS pool
 ----------------------------
+1) Grasp
+2) Луковая архитектура
+3) Merge vs Rebase
+4) Tslint, Solar Cube
+5) Интерфейсы по умолчанию в C#
+6) Новые фичи C#
+7) LOH
+8) IMemoryCache NetCore
+9) NetCore BackgroundService
+10) CORS
+11) FIFO RabbitMQ
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
