@@ -3,3 +3,4 @@
 2) Turns Windows features on or off -> IIS -> World Wide Web Services -> Application Development Features -> отметить ASP NET пункты
 3) Перезагрузиться.
 4) Если не поможет, то URL rewrite + перезагрузка
+--------------------------------
