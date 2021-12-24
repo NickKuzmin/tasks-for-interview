@@ -200,6 +200,22 @@ select MAX(Salary) from Employee
 14) Какое доступно количество потоков, как соотносится с RAM, количеством процессоров и тд
 15) ValueTask
 ----------------------------
+1) HashSet - конструктор с передачей компоратора, для сравнения ключей без учета регистра
+2) ConfigureAwait, TaskScheduler
+3) Await методы с WPF. Смена потока при выполнении таски
+4) Навигационные проперти EF, Include
+5) AsNotTracking
+6) Некластерный индекс - как организована структура 
+7) Сложность поиска по индексу
+8) DbContext относительно жизненного цикла Singleton/Scoped/Transient?
+9) Middleware vs HttpFilter
+10) Валидация MVC
+11) 400 vs 500. 503, отличия. Почему 500-ые не всегда необработанные ошибки
+12) Политики доставки сообщения месседж брокеров
+13) InMemory тесты
+14) Dependency Injection vs Dependency Inversion. Что значит стрелка инверсии в этом принципе
+15) MS Enqueue/ServiceBus
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
