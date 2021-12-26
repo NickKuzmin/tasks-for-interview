@@ -31,6 +31,8 @@
 -------------------------------------------------------------
 # Книги для прочтения:
 
+- CSS Visual Dictionary. Flex Grid Transforms Animation SCSS / Наглядный CSS
+
 - Designing Data-Intensive Applications / Высоконагруженные приложения. Программирование, масштабирование, поддержка.
 
 - Alex Davies - Async in C# 5.0
