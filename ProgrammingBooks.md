@@ -31,6 +31,8 @@
 -------------------------------------------------------------
 # Книги для прочтения:
 
+- Designing Data-Intensive Applications / Высоконагруженные приложения. Программирование, масштабирование, поддержка.
+
 - Alex Davies - Async in C# 5.0
 
 - John Arundel, Justin Domingus / Джон Арундел, Джастин Домингус - Cloud Native DevOps with Kubernetes / Kubernetes для DevOps: развертывание, запуск и масштабирование в облаке. 
