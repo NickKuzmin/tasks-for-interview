@@ -1,3 +1,7 @@
 - AngularJS vs Angular-2: https://angularjs.org vs https://angular.io
 -------------------------------
+- https://angdev.ru/guide/intro/start/
+- https://angdev.ru/doc/setup-and-configuration/
+- https://angdev.ru/cheatsheet/
+-------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
