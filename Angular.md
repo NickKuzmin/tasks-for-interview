@@ -1,5 +1,6 @@
 - AngularJS vs Angular-2: https://angularjs.org vs https://angular.io
 -------------------------------
+- Angular Roadmap: https://vladilen.ru/Angular
 - https://angdev.ru/guide/intro/start/
 - https://angdev.ru/doc/setup-and-configuration/
 - https://angdev.ru/cheatsheet/
