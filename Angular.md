@@ -4,4 +4,7 @@
 - https://angdev.ru/doc/setup-and-configuration/
 - https://angdev.ru/cheatsheet/
 -------------------------------
+- RxJS
+- 
+-------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
