@@ -10,10 +10,14 @@
 - dependency vs devDependency
 - Интерполяция
 - Рендеринг поля типа Array (array.join)
+- Pipe (AsyncPipe, CurrencyPipe, DatePipe, UpperCasePipe and etc...)
 - ```{{ obj | json }}``` - pipe
 - ```<pre>{{ obj | json }}</pre>```
 - double binding
 - ```[src] = "imgUrl"```
-- ```(click) = 
+- ```(click)```
+- Директивы: структурные директивы, ...
+- Интерфейсы для моделей
+- Декораторы
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
