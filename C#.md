@@ -598,6 +598,44 @@ fn();   // 12
 fn();   // 13
 ```
 ------------------------
+В .NET есть **3 шаблона для выполнения асинхронных операций**:
+
+```
+public class MyClass  
+{  
+    public int Read(byte [] buffer, int offset, int count);  
+}  
+```
+    
+- **Асинхронный шаблон на основе задач (TAP)**, который использует один метод для запуска и завершения асинхронной операции. Шаблон TAP был реализован в .NET Framework 4. Именно его рекомендуется использовать для асинхронного программирования в .NET. Ключевые слова async и await в C#, а также операторы Async и Await в Visual Basic добавляют для TAP поддержку языка. Дополнительные сведения см. в разделе Асинхронный шаблон, основанный на задачах (TAP).
+
+```
+public class MyClass  
+{  
+    public Task<int> ReadAsync(byte [] buffer, int offset, int count);  
+}
+```
+    
+- **Асинхронная модель на основе событий (EAP)**. Это устаревшая модель на основе событий, обеспечивающая работу в асинхронном режиме. Для нее требуется метод с суффиксом Async, одно или несколько событий, типы делегатов обработчика событий и производные типы EventArg. Модель EAP была реализована в .NET Framework 2.0. Ее не рекомендуется использовать для новых разработок. Дополнительные сведения см. в разделе Асинхронная модель на основе событий (EAP).
+
+```
+public class MyClass  
+{  
+    public void ReadAsync(byte [] buffer, int offset, int count);  
+    public event ReadCompletedEventHandler ReadCompleted;  
+}  
+```
+    
+- **Модель асинхронного программирования (APM) (также называется шаблоном IAsyncResult)**. Это устаревшая модель, в которой для реализации асинхронного поведения используется интерфейс IAsyncResult. В этом шаблоне для синхронных операций требуются методы Begin и End (например, BeginWrite и EndWrite позволяют реализовать асинхронную операцию записи). Этот шаблон не рекомендуется использовать для разработки новых приложений. Дополнительные сведения см. в статье Асинхронная модель программирования (APM).
+    
+```
+public class MyClass  
+{  
+    public IAsyncResult BeginRead(byte [] buffer, int offset, int count, AsyncCallback callback, object state);  
+    public int EndRead(IAsyncResult asyncResult);  
+}  
+```
+------------------------
 - Callback Model
 - Wait-until-done
 - Polling
