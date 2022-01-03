@@ -600,6 +600,10 @@ fn();   // 13
 ------------------------
 В .NET есть **3 шаблона для выполнения асинхронных операций**:
 
+1) Task-based Asynchronous Pattern (TAP)
+2) Event-based Asynchronous Pattern (EAP)
+3) Asynchronous Programming Model (APM)
+    
 ```
 public class MyClass  
 {  
