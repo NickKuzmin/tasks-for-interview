@@ -31,6 +31,8 @@
 -------------------------------------------------------------
 # Книги для прочтения:
 
+- Паттерны проектирования для C# и платформы .NET Core Арораа Г., Чилберто Дж.
+
 - Designing Event-Driven Systems. Concepts and Patterns for Streaming Services with Apache Kafka / Проектирование событийно-ориентированных систем. Концепции и шаблоны проектирования сервисов потоковой обработки данных с использованием Apache Kafka -  Ben Stopford / Бен Стопфорд
 
 - Monolith to Microservices. Evolutionary Patterns to Transform Your Monolith / От монолита к микросервисам. Эволюционные шаблоны для трансформации монолитной системы
