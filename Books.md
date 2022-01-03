@@ -31,6 +31,14 @@
 -------------------------------------------------------------
 # Книги для прочтения:
 
+- Designing Event-Driven Systems. Concepts and Patterns for Streaming Services with Apache Kafka / Проектирование событийно-ориентированных систем. Концепции и шаблоны проектирования сервисов потоковой обработки данных с использованием Apache Kafka -  Ben Stopford / Бен Стопфорд
+
+- Monolith to Microservices. Evolutionary Patterns to Transform Your Monolith / От монолита к микросервисам. Эволюционные шаблоны для трансформации монолитной системы
+
+- Библиотека программиста - Ричардсон Крис - Микросервисы. Паттерны разработки и рефакторинга [2019, PDF, RUS]
+
+- Кристиан Хорсдал - Микросервисы на платформе .NET [2018, PDF, RUS]
+
 - CSS Visual Dictionary. Flex Grid Transforms Animation SCSS / Наглядный CSS
 
 - Designing Data-Intensive Applications / Высоконагруженные приложения. Программирование, масштабирование, поддержка.
