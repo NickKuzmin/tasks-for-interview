@@ -6,7 +6,7 @@
 **DESIGN PATTERNS in .NET:**
 
 - **Abstract Factory** - pattern is used in the ADO.NET 2.0 infrastructure (DbProviderFactory class)
-- **Builder** - DbConnectionStringBuilder, UriBuilder
+- **Builder** - StringBuilder, DbConnectionStringBuilder, UriBuilder
 - **Visitor Pattern** in **ExpressionVisitor** class (Syste.Linq.Expression namespace).
 - **Adapter Pattern** in System.Web.Abstractions - wrap up various Web classes (HttpRequest, HttpResponse) in a more unit testable way - i.e. HttpResponseBase.
 - **Factory Method** - **Activator.CreateInstance** - creates an instance of specified object.
