@@ -9,7 +9,7 @@
 - **Builder** - StringBuilder, DbConnectionStringBuilder, UriBuilder
 - **Visitor Pattern** in **ExpressionVisitor** class (Syste.Linq.Expression namespace).
 - **Adapter Pattern** in System.Web.Abstractions - wrap up various Web classes (HttpRequest, HttpResponse) in a more unit testable way - i.e. HttpResponseBase.
-- **Factory Method** - **Activator.CreateInstance** - creates an instance of specified object.
+- **Factory Method** - **Activator.CreateInstance** - creates an instance of specified object. ```Task.Factory.Start```
 - **Iterator** - all implementations of **IEnumerable**.
 - **Prototype** - ICloneable interface with method Clone() is classic example of prototype.
 - **NullObject** - String.Empty, EventArgs.Empty
