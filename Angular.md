@@ -491,6 +491,60 @@ export class PostComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+export class PostComponent implements
+  OnInit,
+  OnChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy
+{
+
+  @Input() post: Post
+  @Output() onRemove = new EventEmitter<number>()
+  @ContentChild('info', {static: true}) infoRef: ElementRef
+
+  removePost() {
+    this.onRemove.emit(this.post.id)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges', changes)
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit')
+  }
+
+  ngDoCheck(): void {
+    console.log('ngDoCheck')
+  }
+
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit')
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked')
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit')
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked')
+  }
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy')
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
