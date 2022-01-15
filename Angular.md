@@ -342,6 +342,8 @@ export class PostComponent implements OnInit {
 }
 ```
 -------------------------------
+
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -353,6 +355,9 @@ export class PostComponent implements OnInit {
 2. Structural directives
 3. Attribute directives
 4. Custom Directive
+-------------------------------
+- ```@Input() (```@Input() post: Post```)
+- ```@Output()``` (```@Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>()```)
 -------------------------------
 - ```lorem20``` (+ tab) = <PLACEHOLDER>
 - ```npm``` tab в WebStorm
