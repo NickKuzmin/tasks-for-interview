@@ -273,6 +273,40 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+<ul style="list-style: none">
+  <li *ngFor="let post of objs">
+    <p>{{post.title}} <b>{{post.author}}</b></p>
+    <ul>
+      <li *ngFor="let comment of post.comments">
+        <div>
+          <small>{{comment.name}}</small>
+          <p>{{comment.text}}</p>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+```
+
+```
+export class AppComponent {
+  arr = [1, 1, 2, 3, 5, 8, 13]
+  objs = [
+    {title: 'Post 1', author: 'Vladilen', comments: [
+        {name: 'Max', text: 'lorem 1'},
+        {name: 'Max', text: 'lorem 2'},
+        {name: 'Max', text: 'lorem 3'},
+      ]},
+    {title: 'Post 2', author: 'Vladilen 2', comments: [
+        {name: 'Max 2', text: 'lorem 1'},
+        {name: 'Max 2', text: 'lorem 2'},
+        {name: 'Max 2', text: 'lorem 3'},
+      ]}
+  ]
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
