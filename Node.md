@@ -1,4 +1,8 @@
 - ```node --version```
 - ```node -v```
 - ```npm --version```
-- ```node -v```
+- ```npm -v```
+- ```npm install -g n```
+- ```npm install -g npm@8.3.1```
+- ```npm install -g npm```
+- ```npm install npm@latest -g```
