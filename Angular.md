@@ -119,6 +119,24 @@ export class Post4Component {
 }
 ```
 -------------------------------
+```
+export class AppComponent {
+  title = 'Dynamic title'
+  number = 42
+  arr = [1, 2, 3]
+  obj = { a: 1, b: {c: 2} }
+}
+
+<p>{{ title }}</p>
+
+<p><strong>{{number - 2}}</strong></p>
+<p><strong>{{arr}}</strong></p>
+<p><strong>{{obj.b.c}}</strong></p>
+
+<p><strong>{{ 40 + 2 }}</strong></p>
+<p><strong>{{ 'Hello' + ' World' }}</strong></p>
+```
+-------------------------------
 - ```lorem20``` (+ tab) = <PLACEHOLDER> 
 -------------------------------
 - RxJS
