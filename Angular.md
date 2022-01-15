@@ -319,6 +319,29 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+<app-post
+    *ngFor="let p of posts"
+    [post]="p"
+  ></app-post>
+```
+
+```
+<div class="card">
+  <h2>{{post.title}}</h2>
+  <p>{{post.text}}</p>
+</div>
+```
+
+```
+export class PostComponent implements OnInit {
+  @Input() post: Post
+  constructor() { }
+  ngOnInit() {
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
