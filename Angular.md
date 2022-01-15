@@ -256,6 +256,23 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+<button (click)="toggle = !toggle">Toggle</button>
+<button (click)="toggle = 111">Set 111</button>
+
+<div [ngSwitch]="toggle">
+  <p *ngSwitchCase="true" class="red">Lorem ipsum.</p>
+  <p *ngSwitchCase="false" class="blue">Lorem ipsum. Lorem ipsum.</p>
+  <p *ngSwitchDefault>Lorem ipsum.</p>
+</div>
+```
+
+```
+export class AppComponent {
+  toggle: any = false
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
