@@ -545,6 +545,15 @@ export class PostComponent implements
 }
 ```
 -------------------------------
+```
+@Component({
+  selector: 'app-post',
+  templateUrl: './post.component.html',
+  styleUrls: ['./post.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -567,6 +576,11 @@ export class PostComponent implements
 - **AfterViewInit** - инициализируются компоненты, которые входят в шаблон текущего компонента;
 - **AfterViewChecked**- аналогичен DoCheck(), только используется для дочерних компонентов;
 - **OnDestroy** - компонент "умирает", т. е. удаляется из DOM-дерева
+-------------------------------
+В Angular есть два варианта работы алгоритма отслеживания изменений:
+
+- **OnPush**
+- **Default (используется по умолчанию)**
 -------------------------------
 - ```@Input() (```@Input() post: Post```)
 - ```@Output()``` (```@Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>()```)
