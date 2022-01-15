@@ -240,11 +240,33 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+<button (click)="toggle = !toggle">Toggle</button>
+
+<p *ngIf="toggle; else blueP" class="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, ratione.</p>
+
+<ng-template #blueP>
+  <p class="blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, in?</p>
+</ng-template>
+```
+
+```
+export class AppComponent {
+  toggle = false
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
 3. Event Binding: ```Syntax: (eventname)" (```<img [src]="imgUrl" />```)
 4. Two Way Data Binding: ```Syntax: [(ngModel)] = "[property of your component]"```
+-------------------------------
+**4 типа директив:**
+1. Components directives
+2. Structural directives
+3. Attribute directives
+4. Custom Directive
 -------------------------------
 - ```lorem20``` (+ tab) = <PLACEHOLDER>
 - ```npm``` tab в WebStorm
