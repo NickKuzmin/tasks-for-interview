@@ -5,6 +5,9 @@
 - https://angdev.ru/doc/setup-and-configuration/
 - https://angdev.ru/cheatsheet/
 -------------------------------
+- ```npm install -g @angular/cli```
+- ```ng new my-app```
+-------------------------------
 - RxJS
 - angular.json
 - browserlist.json
