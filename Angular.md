@@ -452,6 +452,18 @@ export class PostFormComponent {
 <button class="btn" (click)="focusTitle()">Focus title</button>
 ```
 -------------------------------
+```
+<app-post
+    *ngFor="let p of posts"
+    [post]="p">
+    
+<small *ngIf="p.text.length > 10; else short">Пост длинный</small>
+<ng-template #short>
+  <small>Пост короткий</small>
+</ng-template>
+</app-post>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
