@@ -126,7 +126,9 @@ export class AppComponent {
   arr = [1, 2, 3]
   obj = { a: 1, b: {c: 2} }
 }
+```
 
+```
 <p>{{ title }}</p>
 
 <p><strong>{{number - 2}}</strong></p>
@@ -135,6 +137,18 @@ export class AppComponent {
 
 <p><strong>{{ 40 + 2 }}</strong></p>
 <p><strong>{{ 'Hello' + ' World' }}</strong></p>
+
+<img [src]="img" alt="">
+```
+
+```
+export class AppComponent {
+  img = 'https://google.com/image.png'
+}
+```
+
+```
+<img [src]="img" alt="">
 ```
 -------------------------------
 - ```lorem20``` (+ tab) = <PLACEHOLDER> 
@@ -154,5 +168,6 @@ export class AppComponent {
 - Директивы: структурные директивы, ...
 - Интерфейсы для моделей
 - Декораторы
+- Односторонний биндинг, Event Binding
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
