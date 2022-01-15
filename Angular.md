@@ -547,10 +547,17 @@ export class PostComponent implements
 -------------------------------
 ```
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss'],
+  ...,
+  ...,
   changeDetection: ChangeDetectionStrategy.OnPush
+})
+```
+-------------------------------
+```
+@Component({
+  ...,
+  ...,
+  encapsulation: ViewEncapsulation.None
 })
 ```
 -------------------------------
@@ -581,6 +588,14 @@ export class PostComponent implements
 
 - **OnPush**
 - **Default (используется по умолчанию)**
+-------------------------------
+**ViewEncapsulation**:
+
+- **Emulated: 0**. Emulates a native Shadow DOM encapsulation behavior by adding a specific attribute to the component's host element and applying the same attribute to all the CSS selectors provided via styles or styleUrls. This is the default option.
+
+- **None: 2**. Doesn't provide any sort of CSS style encapsulation, meaning that all the styles provided via styles or styleUrls are applicable to any HTML element of the application regardless of their host Component.
+
+- **ShadowDom: 3**. Uses the browser's native Shadow DOM API to encapsulate CSS styles, meaning that it creates a ShadowRoot for the component's host element which is then used to encapsulate all the Component's styling.
 -------------------------------
 - ```@Input() (```@Input() post: Post```)
 - ```@Output()``` (```@Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>()```)
