@@ -1,3 +1,5 @@
+- ```.gitkeep``` - файл, чтобы не удалялась директория
+--------------------------------
 - Merge vs Rebase
 - Squash
 - git reflog (for rebase)
