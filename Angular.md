@@ -11,6 +11,7 @@
 - ```npm start```
 -------------------------------
 - ```ng generate component post2``` (```post2``` - имя компонента)
+- - ```ng generate component post2 --skipTests``` (```post2``` - имя компонента)
 - ```ng g c post2``` (```post2``` - имя компонента)
 -------------------------------
 - ```.editorconfig```
