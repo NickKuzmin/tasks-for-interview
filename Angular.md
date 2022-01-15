@@ -180,6 +180,21 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+<input type="text" [(ngModel)]="title">
+
+<p>{{title}}</p>
+```
+
+```
+export class AppComponent {
+  title = 'Initial'
+  onInput(event: any) {
+    this.title = event.target.value
+  }
+}
+```
+-------------------------------
 - ```lorem20``` (+ tab) = <PLACEHOLDER>
 - ```npm``` tab в WebStorm
 -------------------------------
