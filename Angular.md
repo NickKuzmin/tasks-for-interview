@@ -196,10 +196,10 @@ export class AppComponent {
 ```
 -------------------------------
 **Data Binding Types:**
-1. String Interpolation
-2. Property Binding
-3. Event Binding
-4. Two Way Data Binding
+1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
+2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
+3. Event Binding: ```Syntax: (eventname)" (```<img [src]="imgUrl" />```)
+4. Two Way Data Binding: ```Syntax: [(ngModel)] = "[property of your component]"```
 -------------------------------
 - ```lorem20``` (+ tab) = <PLACEHOLDER>
 - ```npm``` tab в WebStorm
