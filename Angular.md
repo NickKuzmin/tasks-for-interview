@@ -464,6 +464,32 @@ export class PostFormComponent {
 </app-post>
 ```
 -------------------------------
+```
+<app-post
+    *ngFor="let p of posts"
+    [post]="p">
+    <div #info>
+      <small *ngIf="p.text.length > 10; else short">Пост длинный</small>
+      <ng-template #short>
+        <small>Пост короткий</small>
+      </ng-template>
+    </div>
+</app-post>
+````
+
+```
+export class PostComponent implements OnInit {
+  @Input() post: Post
+  @ContentChild('info', {static: true}) infoRef: ElementRef
+
+  constructor() { }
+
+  ngOnInit() {
+    console.log(this.infoRef.nativeElement)
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
