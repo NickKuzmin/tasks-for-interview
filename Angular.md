@@ -425,6 +425,33 @@ export class AppComponent {
 </app-post>
 ```
 -------------------------------
+export class PostFormComponent {
+  @ViewChild('titleInput', {static: false}) inputRef: ElementRef
+
+  focusTitle() {
+    this.inputRef.nativeElement.focus()
+  }
+}
+```
+
+```
+<input
+    type="text"
+    class="form-control"
+    placeholder="Title..."
+    [(ngModel)]="title"
+    #titleInput>
+
+<input
+    type="text"
+    class="form-control"
+    placeholder="Text..."
+    [(ngModel)]="text">
+
+<button class="btn" (click)="addPost()">Добавить пост</button>
+<button class="btn" (click)="focusTitle()">Focus title</button>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
