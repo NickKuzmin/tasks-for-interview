@@ -6,7 +6,8 @@
 - https://angdev.ru/cheatsheet/
 -------------------------------
 - ```npm install -g @angular/cli```
-- ```ng new my-app```
+- ```ng new angular-basics``` (`<angular-basics` - application name-folder)
+- ```cd angular-basics``` (`<angular-basics>` - application name-folder)
 - ```npm start```
 -------------------------------
 - RxJS
