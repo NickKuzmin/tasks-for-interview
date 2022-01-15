@@ -11,6 +11,19 @@
 - ```npm start```
 -------------------------------
 - ```.editorconfig```
+- ```.browserslistrc```
+- ```karma.conf```
+- ```package.json```
+```
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+}
+```
+
 - ```angular.json```
 
 ```
