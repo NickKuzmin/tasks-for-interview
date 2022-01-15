@@ -10,6 +10,22 @@
 - ```cd angular-basics``` (`<angular-basics>` - application name-folder)
 - ```npm start```
 -------------------------------
+- ```.editorconfig```
+- ```angular.json```
+
+```
+"configurations": {
+    "production": {
+      "fileReplacements": [
+        {
+          "replace": "src/environments/environment.ts",
+          "with": "src/environments/environment.prod.ts"
+        }
+      ]
+    }
+}
+```
+-------------------------------
 - RxJS
 - angular.json
 - browserlist.json
