@@ -213,6 +213,19 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+<p
+  [class.blue]="!backgroundToggle"
+  [class.red]="backgroundToggle"
+>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ratione.</p>
+```
+
+```
+export class AppComponent {
+  backgroundToggle = false
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
