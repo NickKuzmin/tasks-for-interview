@@ -38,6 +38,9 @@
     }
 }
 ```
+
+- ```tsconfig.app.json```
+```"extends": "./tsconfig.json",```
 -------------------------------
 - RxJS
 - angular.json
