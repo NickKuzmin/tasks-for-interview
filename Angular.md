@@ -79,7 +79,8 @@ export class AppComponent {
   title = 'angular-basics';
 }
 ```
-
+-------------------------------
+- ```lorem20``` (+ tab) = <PLACEHOLDER> 
 -------------------------------
 - RxJS
 - angular.json
