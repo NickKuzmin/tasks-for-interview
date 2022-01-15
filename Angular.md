@@ -345,8 +345,8 @@ export class PostComponent implements OnInit {
 ```
 <app-post
     *ngFor="let p of posts"
-    [post]="p"
-  ></app-post>
+    [post]="p">
+</app-post>
 ```
 
 ```
@@ -425,6 +425,7 @@ export class AppComponent {
 </app-post>
 ```
 -------------------------------
+```
 export class PostFormComponent {
   @ViewChild('titleInput', {static: false}) inputRef: ElementRef
 
