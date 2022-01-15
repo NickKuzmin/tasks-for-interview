@@ -7,6 +7,7 @@
 -------------------------------
 - ```npm install -g @angular/cli```
 - ```ng new my-app```
+- ```npm start```
 -------------------------------
 - RxJS
 - angular.json
