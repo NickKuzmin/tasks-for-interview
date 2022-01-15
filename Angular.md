@@ -342,7 +342,88 @@ export class PostComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+<app-post
+    *ngFor="let p of posts"
+    [post]="p"
+  ></app-post>
+```
 
+```
+export class PostFormComponent implements OnInit {
+  @Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>()
+  title = ''
+  text = ''
+
+  constructor() { }
+  ngOnInit() { }
+
+  addPost() {
+    if (this.text.trim() && this.title.trim()) {
+      const post: Post = {
+        title: this.title,
+        text: this.text
+      }
+      this.onAdd.emit(post)
+      this.title = this.text = ''
+    }
+  }
+}
+```
+
+```
+<div>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Title..."
+    [(ngModel)]="title"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Text..."
+    [(ngModel)]="text"
+  >
+
+  <button class="btn" (click)="addPost()">Добавить пост</button>
+</div>
+```
+
+```
+export class PostComponent implements OnInit {
+  @Input() post: Post
+  constructor() { }
+  ngOnInit() {  }
+
+}
+```
+
+```
+export class AppComponent {
+  posts: Post[] = [
+    {title: 'Хочу выучить Angular компоненты', text: 'Я все еще учу компоненты', id: 1},
+    {title: 'Следующий блок', text: 'Будет про директивы и еще про пайпы', id: 2}
+  ]
+
+  updatePosts(post: Post) {
+    this.posts.unshift(post)
+  }
+}
+```
+
+```
+<app-post-form
+    (onAdd)="updatePosts($event)">
+</app-post-form>
+
+<hr />
+
+<app-post
+    *ngFor="let p of posts"
+    [post]="p">
+</app-post>
+```
 -------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
