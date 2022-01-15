@@ -475,7 +475,7 @@ export class PostFormComponent {
       </ng-template>
     </div>
 </app-post>
-````
+```
 
 ```
 export class PostComponent implements OnInit {
