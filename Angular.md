@@ -151,7 +151,37 @@ export class AppComponent {
 <img [src]="img" alt="">
 ```
 -------------------------------
-- ```lorem20``` (+ tab) = <PLACEHOLDER> 
+```
+<button (click)="onClick()">Click me!</button>
+
+
+<input
+  type="text"
+  (keyup.enter)="onInput($event)"
+  (blur)="onBlur(myInput.value)"
+  #myInput
+>
+<p><strong>{{inputValue}}</strong></p>
+```
+
+```
+export class AppComponent {
+  onInput(event: KeyboardEvent) {
+    this.inputValue = (<HTMLInputElement>event.target).value
+  }
+
+  onBlur(str: string) {
+    this.inputValue = str
+  }
+
+  onClick() {
+    console.log('Click!')
+  }
+}
+```
+-------------------------------
+- ```lorem20``` (+ tab) = <PLACEHOLDER>
+- ```npm``` tab в WebStorm
 -------------------------------
 - RxJS
 - angular.json
