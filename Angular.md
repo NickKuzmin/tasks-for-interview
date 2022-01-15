@@ -221,6 +221,20 @@ export class AppComponent {
 ```
 
 ```
+.red {
+  background: red;
+  font-weight: bold;
+  color: #fff;
+}
+
+.blue {
+  background: blue;
+  font-size: 1.5rem;
+  color: #fff;
+}
+```
+
+```
 export class AppComponent {
   backgroundToggle = false
 }
