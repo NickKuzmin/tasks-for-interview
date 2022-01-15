@@ -41,6 +41,7 @@
 
 - ```tsconfig.app.json```
 ```"extends": "./tsconfig.json",```
+- ```tsconfig.spec.json```
 -------------------------------
 - RxJS
 - angular.json
