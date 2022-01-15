@@ -43,6 +43,27 @@
 ```"extends": "./tsconfig.json",```
 - ```tsconfig.spec.json```
 -------------------------------
+**src/main.ts:**
+```
+import { AppModule } from './app/app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+```
+
+**src/app/app.component.ts:**
+```
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'angular-basics';
+}
+```
+
+-------------------------------
 - RxJS
 - angular.json
 - browserlist.json
