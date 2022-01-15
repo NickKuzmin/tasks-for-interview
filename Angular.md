@@ -195,6 +195,24 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>
+
+<div [ngStyle]="{
+  width: '200px',
+  height: '200px',
+  borderRadius: '5px',
+  border: '1px solid #ccc',
+  background: backgroundToggle ? 'red' : 'blue'
+}">
+```
+
+```
+export class AppComponent {
+  backgroundToggle = false
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
