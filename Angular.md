@@ -307,6 +307,18 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+<p>
+  {{ now | date:'long' | uppercase | lowercase }}
+</p>
+```
+
+```
+export class AppComponent {
+  now: Date = new Date()
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
