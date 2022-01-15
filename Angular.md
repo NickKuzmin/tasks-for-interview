@@ -11,7 +11,7 @@
 - ```npm start```
 -------------------------------
 - ```ng generate component post2``` (```post2``` - имя компонента)
-- - ```ng generate component post2 --skipTests``` (```post2``` - имя компонента)
+- ```ng generate component post2 --skipTests``` (```post2``` - имя компонента)
 - ```ng g c post2``` (```post2``` - имя компонента)
 -------------------------------
 - ```.editorconfig```
@@ -195,6 +195,12 @@ export class AppComponent {
 }
 ```
 -------------------------------
+**Data Binding Types:**
+1. String Interpolation
+2. Property Binding
+3. Event Binding
+4. Two Way Data Binding
+-------------------------------
 - ```lorem20``` (+ tab) = <PLACEHOLDER>
 - ```npm``` tab в WebStorm
 -------------------------------
@@ -213,6 +219,6 @@ export class AppComponent {
 - Директивы: структурные директивы, ...
 - Интерфейсы для моделей
 - Декораторы
-- Односторонний биндинг, Event Binding
+- Односторонний биндинг, Event Binding    
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
