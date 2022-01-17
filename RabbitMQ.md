@@ -25,7 +25,7 @@ rabbitmq-plugins enable rabbitmq_management
 1) Default Exchange
 2) Direct Exchange
 3) Topic Exchange
-
+4) Fanout Exchange
 ------------------------------
 **Routing pattern matching examples:**
 1) ```health.*``` – health as the first word followed by one word (```health.education```, ```health.sports```, ```health.anything```)
@@ -208,32 +208,7 @@ using (var channel = connection.CreateModel())
 }
 ```
 ------------------------------
-**Default Exchange:**
-
-*Producer:*
-```
-var factory = new ConnectionFactory() { HostName = "localhost" };
-using (var connection = factory.CreateConnection())
-using (var channel = connection.CreateModel())
-{
-    channel.QueueDeclare(queue: "dev-queue",
-                         durable: false,
-                         exclusive: false,
-                         autoDelete: false,
-                         arguments: null);
-
-    string message = $"Message from publisher N {counter}";
-
-    var body = Encoding.UTF8.GetBytes(message);
-
-    channel.BasicPublish(exchange: "",
-                        routingKey: "dev-queue",
-                        basicProperties: null,
-                        body: body);
-
-    Console.WriteLine($"Message is sent into Default Exchange [N:{counter++}]");
-}
-```
+**Topic Exchange:**
 
 *Consumer Ecological:*
 ```
@@ -324,6 +299,108 @@ private static readonly Random random = new Random();
 private static string GenerateRoutingKey()
 {
     return $"{cars[random.Next(0, 3)]}.{colors[random.Next(0, 2)]}";
+}
+```
+------------------------------
+**Fanout Exchange:**
+
+*Producer:*
+```
+var factory = new ConnectionFactory() { HostName = "localhost" };
+using (var connection = factory.CreateConnection())
+using (var channel = connection.CreateModel())
+{
+    channel.ExchangeDeclare(exchange: "notifier", type: ExchangeType.Fanout);
+
+    var moneyCount = random.Next(1000, 10_000);
+    string message = $"Payment received for the amount of {moneyCount}";
+
+    var body = Encoding.UTF8.GetBytes(message);
+
+    channel.BasicPublish(exchange: "notifier",
+                        routingKey: "",
+                        basicProperties: null,
+                        body: body);
+
+    Console.WriteLine($"Payment received for amount of {moneyCount}.\nNotifying by 'notifier' Exchange");
+}
+```
+
+*Consumer:*
+```
+var factory = new ConnectionFactory() { HostName = "localhost" };
+using (var connection = factory.CreateConnection())
+using (var channel = connection.CreateModel())
+{
+    channel.ExchangeDeclare(exchange: "notifier", type: ExchangeType.Fanout);
+
+    var queueName = channel.QueueDeclare().QueueName;
+    channel.QueueBind(queue: queueName,
+                      exchange: "notifier",
+                      routingKey: string.Empty);
+
+    var consumer = new EventingBasicConsumer(channel);
+
+    consumer.Received += (sender, e) =>
+    {
+        var body = e.Body;
+        var message = Encoding.UTF8.GetString(body.ToArray());
+
+        var payment = GetPayment(message);
+        _totalHold += payment;
+
+        Console.WriteLine($"Payment received for the amount of {payment}");
+        Console.WriteLine($"${_totalHold} held from this person");
+    };
+
+    channel.BasicConsume(queue: queueName,
+                         autoAck: true,
+                         consumer: consumer);
+
+    Console.WriteLine($"Subscribed to the queue {queueName}");
+    Console.WriteLine("Listening . . .");
+
+    Console.ReadLine();
+}
+```
+
+*Consumer Tax:*
+```
+var factory = new ConnectionFactory() { HostName = "localhost" };
+using (var connection = factory.CreateConnection())
+using (var channel = connection.CreateModel())
+{
+    channel.ExchangeDeclare(exchange: "notifier", type: ExchangeType.Fanout);
+
+    var queueName = channel.QueueDeclare().QueueName;
+    channel.QueueBind(queue: queueName,
+                      exchange: "notifier",
+                      routingKey: string.Empty);
+
+    Console.WriteLine("Waiting for payments . . .");
+
+    var consumer = new EventingBasicConsumer(channel);
+
+    consumer.Received += (sender, e) =>
+    {
+        var body = e.Body;
+        var message = Encoding.UTF8.GetString(body.ToArray());
+
+        var payment = GetPayment(message);
+        _totalHold += payment * 0.01;
+
+        Console.WriteLine($"Payment received for the amount of {payment}");
+        Console.WriteLine($"${_totalHold} held from this person");
+    };
+
+    channel.BasicConsume(queue: queueName,
+                         autoAck: true,
+                         consumer: consumer);
+
+    Console.WriteLine($"Subscribed to the queue {queueName}");
+    Console.WriteLine("Listening . . .");
+
+    Console.ReadLine();
 }
 ```
 ------------------------------
