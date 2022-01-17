@@ -5,6 +5,7 @@
 - Management: https://www.rabbitmq.com/management.html
 - Installation: https://www.rabbitmq.com/install-windows.html
 - AMQP: https://www.rabbitmq.com/tutorials/amqp-concepts.html
+- Tutorials: https://www.rabbitmq.com/getstarted.html
 ------------------------------
 - ```localhost:15672 (guest - guest)```
 - Management:
