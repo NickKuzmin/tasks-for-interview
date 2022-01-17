@@ -26,6 +26,64 @@ rabbitmq-plugins enable rabbitmq_management
 2) Direct Exchange
 3) 
 ------------------------------
+**Default Exchange:**
+
+*Producer:*
+```
+var factory = new ConnectionFactory() { HostName = "localhost" };
+using (var connection = factory.CreateConnection())
+using (var channel = connection.CreateModel())
+{
+    channel.QueueDeclare(queue: "dev-queue",
+                         durable: false,
+                         exclusive: false,
+                         autoDelete: false,
+                         arguments: null);
+
+    string message = $"Message from publisher N {counter}";
+
+    var body = Encoding.UTF8.GetBytes(message);
+
+    channel.BasicPublish(exchange: "",
+                        routingKey: "dev-queue",
+                        basicProperties: null,
+                        body: body);
+
+    Console.WriteLine($"Message is sent into Default Exchange [N:{counter++}]");
+}
+```
+
+*Consumer:*
+```
+var factory = new ConnectionFactory() { HostName = "localhost" };
+using (var connection = factory.CreateConnection())
+using (var channel = connection.CreateModel())
+{
+    channel.QueueDeclare(queue: "dev-queue",
+                         durable: false,
+                         exclusive: false,
+                         autoDelete: false,
+                         arguments: null);
+
+    var consumer = new EventingBasicConsumer(channel);
+
+    consumer.Received += (sender, e) =>
+    {
+        var body = e.Body;
+        var message = Encoding.UTF8.GetString(body.ToArray());
+        Console.WriteLine(" Received message: {0}", message);
+    };
+
+    channel.BasicConsume(queue: "dev-queue",
+                         autoAck: true,
+                         consumer: consumer);
+
+    Console.WriteLine("Subscribed to the queue 'dev-queue'");
+
+    Console.ReadLine();
+}
+```
+------------------------------
 **Issues:**
 1. ```The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text='PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'dev-queue' in vhost '/': received 'false' but current is 'true'', classId=50, methodId=10```
 
