@@ -84,6 +84,83 @@ using (var channel = connection.CreateModel())
 }
 ```
 ------------------------------
+**Direct Exchange:**
+
+*Producer:*
+```
+static void Main(string[] args)
+{
+    Task.Run(CreateTask(12000, "error"));
+    Task.Run(CreateTask(10000, "info"));
+    Task.Run(CreateTask(8000, "warning"));
+
+    Console.ReadKey();
+}
+
+    static Func<Task> CreateTask(int timeToSleepTo, string routingKey)
+    {
+        return () =>
+        {
+            var counter = 0;
+            do
+            {
+                int timeToSleep = new Random().Next(1000, timeToSleepTo);
+                Thread.Sleep(timeToSleep);
+
+                var factory = new ConnectionFactory() { HostName = "localhost" };
+                using (var connection = factory.CreateConnection())
+                using (var channel = connection.CreateModel())
+                {
+                    channel.ExchangeDeclare(exchange: "direct_logs", type: ExchangeType.Direct);
+
+                    string message = $"Message type [{routingKey}] from publisher N {counter}";
+
+                    var body = Encoding.UTF8.GetBytes(message);
+
+                    channel.BasicPublish(exchange: "direct_logs",
+                                        routingKey: routingKey,
+                                        basicProperties: null,
+                                        body: body);
+
+                    Console.WriteLine($"Message type [{routingKey}] is sent into Direct Exchange [N:{counter++}]");
+                }
+            } while (true);
+        };
+    }
+}
+```
+
+*Consumer:*
+```
+var factory = new ConnectionFactory() { HostName = "localhost" };
+using (var connection = factory.CreateConnection())
+using (var channel = connection.CreateModel())
+{
+    channel.QueueDeclare(queue: "dev-queue",
+                         durable: false,
+                         exclusive: false,
+                         autoDelete: false,
+                         arguments: null);
+
+    var consumer = new EventingBasicConsumer(channel);
+
+    consumer.Received += (sender, e) =>
+    {
+        var body = e.Body;
+        var message = Encoding.UTF8.GetString(body.ToArray());
+        Console.WriteLine(" Received message: {0}", message);
+    };
+
+    channel.BasicConsume(queue: "dev-queue",
+                         autoAck: true,
+                         consumer: consumer);
+
+    Console.WriteLine("Subscribed to the queue 'dev-queue'");
+
+    Console.ReadLine();
+}
+```
+------------------------------
 **Issues:**
 1. ```The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text='PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'dev-queue' in vhost '/': received 'false' but current is 'true'', classId=50, methodId=10```
 
