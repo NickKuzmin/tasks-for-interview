@@ -6,4 +6,8 @@
 - Installation: https://www.rabbitmq.com/install-windows.html
 ------------------------------
 - ```localhost:15672```
-- Management: ```rabbitmq-plugins enable rabbitmq_management```
+- Management:
+```
+cd C:\Program Files\RabbitMQ Server\rabbitmq_server-3.9.12\sbin
+rabbitmq-plugins enable rabbitmq_management
+```
