@@ -1,0 +1,2 @@
+- www.erlang.org
+- www.rabbitmq.com
