@@ -14,3 +14,4 @@ rabbitmq-plugins enable rabbitmq_management
 ------------------------------
 - RabbitMQ Management -> Exchanges -> Add a new Exchanges -> Name = "dev-exchange" + Type = "Fanout"
 - RabbitMQ Management -> Queue -> Add a new Queue -> Name = "dev-queue"
+- RabbitMQ Management -> Exchanges -> ```Exchange Instance``` -> Bindings -> To Queue = "dev-queue" (После добавления - появится Binding в Exchanges + Queue)
