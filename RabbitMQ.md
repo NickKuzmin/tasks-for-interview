@@ -16,4 +16,4 @@ rabbitmq-plugins enable rabbitmq_management
 - RabbitMQ Management -> Queue -> Add a new Queue -> Name = "dev-queue"
 - RabbitMQ Management -> Exchanges -> ```Exchange Instance``` -> Bindings -> To Queue = "dev-queue" (После добавления - появится Binding в Exchanges + Queue)
 - RabbitMQ Management -> Exchanges -> ```Exchange Instance``` -> Publish Message -> Payload = "First message-broker message" -> Publish Message
-- RabbitMQ Management -> Exchanges -> ```Queue Instance``` -> Get Messages -> Get Message(s) button
+- RabbitMQ Management -> Exchanges -> ```Queue Instance``` -> Get Messages (+ Ack mode, Encoding, ...) -> Get Message(s) button
