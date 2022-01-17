@@ -4,6 +4,7 @@
 **RabbitMQ Documentation:**
 - Management: https://www.rabbitmq.com/management.html
 - Installation: https://www.rabbitmq.com/install-windows.html
+- AMQP: https://www.rabbitmq.com/tutorials/amqp-concepts.html
 ------------------------------
 - ```localhost:15672 (guest - guest)```
 - Management:
@@ -17,3 +18,4 @@ rabbitmq-plugins enable rabbitmq_management
 - RabbitMQ Management -> Exchanges -> ```Exchange Instance``` -> Bindings -> To Queue = "dev-queue" (После добавления - появится Binding в Exchanges + Queue)
 - RabbitMQ Management -> Exchanges -> ```Exchange Instance``` -> Publish Message -> Payload = "First message-broker message" -> Publish Message
 - RabbitMQ Management -> Exchanges -> ```Queue Instance``` -> Get Messages (+ Ack mode, Encoding, ...) -> Get Message(s) button
+------------------------------
