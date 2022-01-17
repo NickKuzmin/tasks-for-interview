@@ -24,7 +24,13 @@ rabbitmq-plugins enable rabbitmq_management
 **Exchange types:**
 1) Default Exchange
 2) Direct Exchange
-3) 
+3) Topic Exchange
+
+------------------------------
+**Routing pattern matching examples:**
+1) ```health.*``` – health as the first word followed by one word (```health.education```, ```health.sports```, ```health.anything```)
+2) ```#.sports.*``` – Zero or more words, then sports, after that exactly one word (```sports.education```, ```sports.sports.sports```, ```sports.sports```)
+3) ```#.education``` – Zero or more words followed by the word education (```health.education```, ```education.education```, ```education```)
 ------------------------------
 **Default Exchange:**
 
