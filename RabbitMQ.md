@@ -11,3 +11,6 @@
 cd C:\Program Files\RabbitMQ Server\rabbitmq_server-3.9.12\sbin
 rabbitmq-plugins enable rabbitmq_management
 ```
+------------------------------
+- RabbitMQ Management -> Exchanges -> Add a new Exchanges -> Name = "dev-exchange" + Type = "Fanout"
+- RabbitMQ Management -> Queue -> Add a new Queue -> Name = "dev-queue"
