@@ -21,6 +21,11 @@ rabbitmq-plugins enable rabbitmq_management
 - RabbitMQ Management -> Exchanges -> ```Exchange Instance``` -> Publish Message -> Payload = "First message-broker message" -> Publish Message
 - RabbitMQ Management -> Exchanges -> ```Queue Instance``` -> Get Messages (+ Ack mode, Encoding, ...) -> Get Message(s) button
 ------------------------------
+**Exchange types:**
+1) Default Exchange
+2) Direct Exchange
+3) 
+------------------------------
 **Issues:**
 1. ```The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text='PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'dev-queue' in vhost '/': received 'false' but current is 'true'', classId=50, methodId=10```
 
