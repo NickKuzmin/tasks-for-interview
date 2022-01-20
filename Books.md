@@ -34,6 +34,8 @@
 -------------------------------------------------------------
 # Книги для прочтения:
 
+- Gammelgaard Ch.H. - Microservices in .NET Core [2017, PDF/EPUB, ENG]
+
 - Паттерны проектирования для C# и платформы .NET Core Арораа Г., Чилберто Дж.
 
 - Designing Event-Driven Systems. Concepts and Patterns for Streaming Services with Apache Kafka / Проектирование событийно-ориентированных систем. Концепции и шаблоны проектирования сервисов потоковой обработки данных с использованием Apache Kafka -  Ben Stopford / Бен Стопфорд
