@@ -61,3 +61,10 @@ a.Print2();
 a.Print1();
 c.Print2();
 ```
+
+```
+object a = new int?();
+object b = new int?();
+
+Console.WriteLine(a == b);
+```
