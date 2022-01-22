@@ -13,6 +13,9 @@
 - ```ng generate component post2``` (```post2``` - имя компонента)
 - ```ng generate component post2 --skipTests``` (```post2``` - имя компонента)
 - ```ng g c post2``` (```post2``` - имя компонента)
+
+- ```ng g d style2 --skipTests```
+- - ```ng generate directive style2 --skipTests```
 -------------------------------
 - ```.editorconfig```
 - ```.browserslistrc```
@@ -561,6 +564,23 @@ export class PostComponent implements
 })
 ```
 -------------------------------
+```
+import {Directive, ElementRef, Renderer2} from '@angular/core'
+
+@Directive({
+  selector: '[appStyle]'
+})
+export class StyleDirective {
+  constructor(private el: ElementRef, private r: Renderer2) {
+    this.r.setStyle(this.el.nativeElement, 'color', 'blue')
+  }
+}
+```
+
+```
+<p appStyle>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, laborum!</p>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -618,6 +638,6 @@ export class PostComponent implements
 - Директивы: структурные директивы, ...
 - Интерфейсы для моделей
 - Декораторы
-- Односторонний биндинг, Event Binding    
+- Односторонний биндинг, Event Binding 
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
