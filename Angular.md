@@ -754,6 +754,37 @@ export class IfnotDirective {
 </div>
 ```
 -------------------------------
+```
+import {Component} from '@angular/core'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  e: number = Math.E
+}
+```
+
+```
+<p>
+    {{ e | number:'1.1-5' }}
+</p>
+<p>
+    {{ e | number:'3.1-2' }}
+</p>
+<p>
+    {{ e | number:'1.0-0' }}
+</p>
+```
+-------------------------------
+```
+```
+
+```
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
