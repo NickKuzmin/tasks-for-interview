@@ -660,6 +660,51 @@ export class StyleDirective {
 </div>
 ```
 -------------------------------
+```
+import {Directive, ElementRef, HostBinding, HostListener, Input, Renderer2} from '@angular/core'
+
+@Directive({
+  selector: '[appStyle]'
+})
+export class StyleDirective {
+  @Input('appStyle') color: string = 'blue'
+  @Input() dStyles: {border?: string, fontWeight?: string, borderRadius?: string}
+
+  @HostBinding('style.color') elColor = null
+
+  constructor(private el: ElementRef, private r: Renderer2) {
+  }
+
+  @HostListener('click', ['$event.target']) onClick(event: Element) {
+    console.log(event)
+  }
+
+  @HostListener('mouseenter') onEnter() {
+    this.elColor = this.color
+  }
+
+  @HostListener('mouseleave') onLeave() {
+    this.elColor = null
+  }
+}
+
+```
+
+```
+<div class="container">
+  <h1>Angular Directives</h1>
+
+
+  <p [appStyle]="'red'" [dStyles]="{border: '1px solid blue', borderRadius: '5px'}">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, laborum!
+  </p>
+
+  <p [appStyle]="'blue'" [dStyles]="{border: '1px solid red', borderRadius: '15px'}">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, laborum!
+  </p>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
