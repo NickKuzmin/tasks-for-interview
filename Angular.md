@@ -581,6 +581,85 @@ export class StyleDirective {
 <p appStyle>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, laborum!</p>
 ```
 -------------------------------
+```
+import {Directive, ElementRef, HostListener, Renderer2} from '@angular/core'
+
+@Directive({
+  selector: '[appStyle]'
+})
+export class StyleDirective {
+  constructor(private el: ElementRef, private r: Renderer2) {
+
+  }
+
+  @HostListener('click', ['$event.target']) onClick(event: Event) {
+    console.log(event)
+  }
+
+  @HostListener('mouseenter') onEnter() {
+    this.r.setStyle(this.el.nativeElement, 'color', 'blue')
+  }
+
+  @HostListener('mouseleave') onLeave() {
+    this.r.setStyle(this.el.nativeElement, 'color', null)
+  }
+}
+
+```
+
+```
+<p appStyle>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, laborum!</p>
+```
+-------------------------------
+```
+import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core'
+
+@Directive({
+  selector: '[appStyle]'
+})
+export class StyleDirective {
+  @Input('appStyle') color: string = 'blue'
+  @Input() dStyles: {border?: string, fontWeight?: string, borderRadius?: string}
+
+  constructor(private el: ElementRef, private r: Renderer2) {
+
+  }
+
+  @HostListener('click', ['$event.target']) onClick(event: Element) {
+    console.log(event)
+  }
+
+  @HostListener('mouseenter') onEnter() {
+    this.r.setStyle(this.el.nativeElement, 'color', this.color)
+    this.r.setStyle(this.el.nativeElement, 'fontWeight', this.dStyles.fontWeight)
+    this.r.setStyle(this.el.nativeElement, 'border', this.dStyles.border)
+    this.r.setStyle(this.el.nativeElement, 'borderRadius', this.dStyles.borderRadius)
+  }
+
+  @HostListener('mouseleave') onLeave() {
+    this.r.setStyle(this.el.nativeElement, 'color', null)
+    this.r.setStyle(this.el.nativeElement, 'fontWeight', null)
+    this.r.setStyle(this.el.nativeElement, 'border', null)
+    this.r.setStyle(this.el.nativeElement, 'borderRadius', null)
+  }
+}
+```
+
+```
+<div class="container">
+  <h1>Angular Directives</h1>
+
+
+  <p [appStyle]="'red'" [dStyles]="{border: '1px solid blue', borderRadius: '5px'}">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, laborum!
+  </p>
+
+  <p [appStyle]="'blue'" [dStyles]="{border: '1px solid red', borderRadius: '15px'}">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, laborum!
+  </p>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
