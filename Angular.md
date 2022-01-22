@@ -780,16 +780,12 @@ export class AppComponent {
 ```
 -------------------------------
 ```
-import {Component} from '@angular/core'
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
+...
 export class AppComponent {
   str = 'hello world'
+  date: Date = new Date()
 }
+...
 ```
 
 ```
@@ -798,6 +794,9 @@ export class AppComponent {
 </p>
 <p>
 	{{ str | titlecase | slice:1:-2 }}
+</p>
+<p>
+	{{ date | date:'MMMM dd, yyy, HH:mm:ss' }}
 </p>
 ```
 -------------------------------
