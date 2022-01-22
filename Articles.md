@@ -1,3 +1,4 @@
+- Расставим точки над .NET Core и .NET Standard: https://gosha20777.github.io/code/2018/02/22/dotnetcore/
 - Преодоление сложности в CQRS https://habr.com/ru/post/588803/
 - Продвинутое руководство по nullable reference types https://habr.com/ru/company/jugru/blog/571728/
 - Размеры CLR-объектов. Точное определение https://habr.com/ru/post/136609/
