@@ -705,6 +705,55 @@ export class StyleDirective {
 </div>
 ```
 -------------------------------
+```
+import {Directive, Input, TemplateRef, ViewContainerRef} from '@angular/core'
+
+@Directive({
+  selector: '[appIfnot]'
+})
+export class IfnotDirective {
+
+  @Input('appIfnot') set ifNot(condition: boolean) {
+    if (!condition) {
+      // Показать элементы
+      this.viewContainer.createEmbeddedView(this.templateRef)
+    } else {
+      // Скрыть
+      this.viewContainer.clear()
+    }
+  }
+
+  constructor(private templateRef: TemplateRef<any>,
+              private viewContainer: ViewContainerRef) { }
+}
+```
+
+```
+<div class="container">
+  <button class="btn" (click)="isVisible = !isVisible">Toggle</button>
+
+<!--  <div *ngIf="isVisible" class="wrap">-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum ea et ex hic incidunt itaque maiores quos sint veritatis!</p>-->
+<!--  </div>-->
+
+<!--  <ng-template [ngIf]="isVisible">-->
+<!--    <div class="wrap">-->
+<!--      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum ea et ex hic incidunt itaque maiores quos sint veritatis!</p>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+<!--  <div class="wrap" *appIfnot="!isVisible">-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum ea et ex hic incidunt itaque maiores quos sint veritatis!</p>-->
+<!--  </div>-->
+
+  <ng-template [appIfnot]="!isVisible">
+    <div class="wrap">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum ea et ex hic incidunt itaque maiores quos sint veritatis!</p>
+    </div>
+  </ng-template>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
