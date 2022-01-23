@@ -784,6 +784,18 @@ export class AppComponent {
 export class AppComponent {
   str = 'hello world'
   date: Date = new Date()
+  float = 0.42
+
+  obj = {
+    a: 1,
+    b: {
+      c: 2,
+      d: {
+        e: 3,
+        f: 4
+      }
+    }
+  }
 }
 ...
 ```
@@ -798,6 +810,10 @@ export class AppComponent {
 <p>
 	{{ date | date:'MMMM dd, yyy, HH:mm:ss' }}
 </p>
+<p>{{ float }}</p>
+<p>{{ float | currency }}</p>
+<p>{{ float | percent: '2.0-0' }}</p>
+<pre>{{ obj | json }}</pre>
 ```
 -------------------------------
 **Data Binding Types:**
