@@ -1160,6 +1160,88 @@ export class AppModule {
 </div>
 ```
 -------------------------------
+```
+import {Component, OnInit} from '@angular/core'
+import {FormControl, FormGroup, Validators} from '@angular/forms'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+  form: FormGroup
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      email: new FormControl('', [
+        Validators.email,
+        Validators.required
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6)
+      ])
+    })
+  }
+
+  submit() {
+    if (this.form.valid) {
+      console.log('Form: ', this.form)
+      const formData = {...this.form.value}
+
+      console.log('Form Data:', formData)
+    }
+  }
+}
+```
+
+```
+<button class="btn" type="submit" [disabled]="form.invalid">Отправить</button>
+```
+-------------------------------
+- Встроенные CSS-классы:
+`ng-untouched`, `ng-touched`, `ng-pristine`, `ng-invalid`, `ng-valid`, `ng-dirty`
+-------------------------------
+```
+<div class="form-control">
+  <label>Email</label>
+  <input type="text" placeholder="Email" formControlName="email">
+
+  <div
+	*ngIf="form.get('email').invalid && form.get('email').touched"
+	class="validation"
+  >
+	<small *ngIf="form.get('email').errors.required">
+	  Поле email не может быть пустым
+	</small>
+
+	<small *ngIf="form.get('email').errors.email">
+	  Введите корректный email
+	</small>
+  </div>
+</div>
+
+<div class="form-control">
+  <label>Пароль</label>
+  <input type="password" placeholder="Пароль" formControlName="password">
+
+  <div
+	*ngIf="form.get('password').invalid && form.get('password').touched"
+	class="validation"
+  >
+	<small *ngIf="form.get('password').errors.required">
+	  Пароль не может быть пустым
+	</small>
+
+	<small *ngIf="form.get('password').errors.minlength">
+	  Длинна должна быть не менее {{form.get('password').errors.minlength.requiredLength}}.
+	  Сейчас количество символов {{form.get('password').errors.minlength.actualLength}}
+	</small>
+  </div>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
