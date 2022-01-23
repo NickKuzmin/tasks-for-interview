@@ -14,8 +14,11 @@
 - ```ng generate component post2 --skipTests``` (```post2``` - имя компонента)
 - ```ng g c post2``` (```post2``` - имя компонента)
 
-- ```ng g d style2 --skipTests```
+- ```ng g d style2 --skipTests``` (```style2``` - имя директивы)
 - - ```ng generate directive style2 --skipTests```
+
+- ```ng g s localservice --skipTests``` (```localservice``` - имя директивы)
+- - ```ng generate service localservice --skipTests```
 -------------------------------
 - ```.editorconfig```
 - ```.browserslistrc```
@@ -985,6 +988,43 @@ export class AppModule {
 <h2>App Counter: {{appCounterService.counter}}</h2>
 <button class="btn" (click)="appCounterService.increase()">+</button>
 <button class="btn" (click)="appCounterService.decrease()">-</button>
+```
+-------------------------------
+```
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class LocalCounterService {
+  counter = 0
+
+  increase() {
+    this.counter++
+  }
+
+  decrease() {
+    this.counter--
+  }
+}
+```
+
+(Без регистрации в app.module)
+```
+import {Component} from '@angular/core'
+import {AppCounterService} from './services/app-counter.service'
+import {LocalCounterService} from './services/local-counter.service'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  providers: [LocalCounterService]
+})
+export class AppComponent {
+  constructor(
+    private appCounterService: AppCounterService,
+    private localCounterService: LocalCounterService
+  ) {}
+}
 ```
 -------------------------------
 **Data Binding Types:**
