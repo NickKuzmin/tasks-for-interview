@@ -1299,6 +1299,29 @@ export class AppComponent implements OnInit {
 <button class="btn" type="button" (click)="setCapital()">Выбрать столицу</button>
 ```
 -------------------------------
+```
+<div class="card" formGroupName="skills">
+  <h2>Ваши навыки</h2>
+  <button class="btn" type="button" (click)="addSkill()">Добавить умение</button>
+
+  <div
+	class="form-control"
+	*ngFor="let control of form.get('skills').controls; let idx = index"
+  >
+	<label>Умение {{idx + 1}}</label>
+	<input type="text" [formControlName]="idx">
+  </div>
+</div>
+```
+
+```
+addSkill() {
+    const control = new FormControl('', Validators.required);
+    // (<FormArray>this.form.get('skills'))
+    (this.form.get('skills') as FormArray).push(control)
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
