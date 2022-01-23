@@ -1084,6 +1084,7 @@ export class AppComponent {
 - Директивы: структурные директивы, ...
 - Интерфейсы для моделей
 - Декораторы
-- Односторонний биндинг, Event Binding 
+- Односторонний биндинг, Event Binding
+- Область видимости сервисов и локальных сервисов в рамках компонента
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
