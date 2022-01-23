@@ -939,6 +939,54 @@ export class AppComponent implements OnInit {
 <p>Date: {{ date$ | async | date:'HH:mm:ss yyyy' }}</p>
 ```
 -------------------------------
+```
+import {Injectable} from '@angular/core'
+
+@Injectable({providedIn: 'root'})
+export class AppCounterService {
+  counter = 0
+
+  increase() {
+    this.counter++
+  }
+
+  decrease() {
+    this.counter--
+  }
+}
+```
+
+```
+import {BrowserModule} from '@angular/platform-browser'
+import {NgModule} from '@angular/core'
+
+import {AppComponent} from './app.component'
+import {FormsModule} from '@angular/forms';
+import {AppCounterService} from './services/app-counter.service'
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  providers: [
+    AppCounterService
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+
+```
+<h2>App Counter: {{appCounterService.counter}}</h2>
+<button class="btn" (click)="appCounterService.increase()">+</button>
+<button class="btn" (click)="appCounterService.decrease()">-</button>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
