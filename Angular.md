@@ -1063,6 +1063,103 @@ export class AppCounterService {
 }
 ```
 -------------------------------
+```
+import {Component, OnInit} from '@angular/core'
+import {FormGroup} from '@angular/forms'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+  form: FormGroup
+
+  ngOnInit() {
+    this.form = new FormGroup({})
+  }
+
+  submit() {
+    console.log('Form submitted: ', this.form)
+  }
+}
+```
+
+(Импорт ReactiveFormsModule)
+```
+import {BrowserModule} from '@angular/platform-browser'
+import {NgModule} from '@angular/core'
+
+import {AppComponent} from './app.component'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+
+```
+<div class="container">
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Angular Forms</h1>
+
+    <div class="form-control">
+      <label>Email</label>
+      <input type="text" placeholder="Email">
+      <div class="validation"></div>
+    </div>
+
+    <div class="form-control">
+      <label>Пароль</label>
+      <input type="password" placeholder="Пароль">
+      <div class="validation"></div>
+    </div>
+
+    <div class="card">
+      <h2>Адрес</h2>
+
+      <div class="form-control">
+        <label>Страна</label>
+
+        <select>
+          <option value="ru">Россия</option>
+          <option value="ua">Украина</option>
+          <option value="by">Беларусь</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <input type="text">
+      </div>
+
+      <button class="btn" type="button">Выбрать столицу</button>
+    </div>
+
+    <div class="card">
+      <h2>Ваши навыки</h2>
+      <button class="btn" type="button">Добавить умение</button>
+      <div class="form-control">
+        <label></label>
+        <input type="text">
+      </div>
+    </div>
+
+    <button class="btn" type="submit">Отправить</button>
+  </form>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -1122,5 +1219,6 @@ export class AppCounterService {
 - Декораторы
 - Односторонний биндинг, Event Binding
 - Область видимости сервисов и локальных сервисов в рамках компонента
+- Реактивные формы
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
