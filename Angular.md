@@ -816,6 +816,28 @@ export class AppComponent {
 <pre>{{ obj | json }}</pre>
 ```
 -------------------------------
+```
+import {Pipe, PipeTransform} from '@angular/core'
+
+@Pipe({
+  name: 'mult'
+})
+export class MultByPipe implements PipeTransform {
+  transform(num: number, pow: number = 2): number {
+    return num * pow
+  }
+}
+```
+
+```
+<p>{{ 10 | mult }}</p>
+<p>{{ 10 | mult:2 }}</p>
+<p>{{ 10 | mult:3 }}</p>
+<p>{{ 10 | mult:5 }}</p>
+<p>{{ 10 | mult:8 }}</p>
+<p>{{ 10 | mult:13 }}</p>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
