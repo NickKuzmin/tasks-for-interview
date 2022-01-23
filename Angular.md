@@ -1027,6 +1027,42 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LogService {
+  log(text) {
+    console.log(`Log: ${text}`)
+  }
+}
+```
+
+```
+import {Injectable} from '@angular/core'
+import {LogService} from './log.service'
+
+@Injectable({providedIn: 'root'})
+export class AppCounterService {
+  counter = 0
+
+  constructor(private logService: LogService) {
+  }
+  
+  increase() {
+    this.logService.log('increase counter...')
+    this.counter++
+  }
+
+  decrease() {
+    this.logService.log('decrease counter...')
+    this.counter--
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
