@@ -838,6 +838,23 @@ export class MultByPipe implements PipeTransform {
 <p>{{ 10 | mult:13 }}</p>
 ```
 -------------------------------
+```
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'exMarks'
+})
+export class ExMarksPipe implements PipeTransform {
+  transform(str: string): string {
+    return `${str.trim()}!!!!`;
+  }
+}
+```
+
+```
+<p>{{ 'Hello World     ' | exMarks }}</p>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
