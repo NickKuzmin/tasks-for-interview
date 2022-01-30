@@ -1,4 +1,5 @@
 - Event Loop: http://latentflip.com/loupe
+- Test API: https://jsonplaceholder.typicode.com/
 - Test The Star Wars API: https://swapi.dev
 - http://callbackhell.ru
 - https://babeljs.io/repl
