@@ -1322,6 +1322,45 @@ addSkill() {
 }
 ```
 -------------------------------
+```
+import {FormControl} from '@angular/forms'
+
+export class MyValidators {
+  static restrictedEmails(control: FormControl): {[key: string]: boolean} {
+    if (['v@mail.ru', 'test@mail.ru'].includes(control.value)) {
+      return {restrictedEmail: true}
+    }
+	
+    return null
+  }
+}
+```
+
+```
+export class AppComponent implements OnInit {
+  form: FormGroup
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      email: new FormControl('', [
+        Validators.email,
+        Validators.required,
+        MyValidators.restrictedEmails
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6)
+      ]),
+      address: new FormGroup({
+        country: new FormControl('by'),
+        city: new FormControl('Минск', Validators.required)
+      }),
+      skills: new FormArray([])
+    })
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
