@@ -1437,6 +1437,58 @@ export class AppComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+import {Component, forwardRef, Provider} from '@angular/core'
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms'
+
+const VALUE_ACCESSOR: Provider = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => SwitchComponent),
+  multi: true
+}
+
+@Component({
+  selector: 'app-switch',
+  templateUrl: './switch.component.html',
+  styleUrls: ['./switch.component.scss'],
+  providers: [VALUE_ACCESSOR]
+})
+export class SwitchComponent implements ControlValueAccessor {
+
+  state = 'off'
+
+  private onChange = (value: any) => {}
+
+  setState(state: string) {
+    this.state = state
+
+    this.onChange(this.state)
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn
+  }
+
+  registerOnTouched(fn: any): void {
+
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+  }
+
+  writeValue(state: string): void {
+    this.state = state
+  }
+}
+```
+
+```
+<div>
+  <button [class.active]="state === 'on'" (click)="setState('on')">On</button>
+  <button [class.active]="state === 'off'" (click)="setState('off')">Off</button>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
