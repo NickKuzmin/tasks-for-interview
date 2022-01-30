@@ -1743,6 +1743,32 @@ export class AppComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+export class AppComponent implements OnInit {
+  todos: Todo[] = []
+  loading = false
+  todoTitle = ''
+  error = ''
+
+  constructor(private todosService: TodosService) {}
+
+  ngOnInit() {
+    this.fetchTodos()
+  }
+
+  fetchTodos() {
+    this.loading = true
+    this.todosService.fetchTodos()
+      .subscribe(todos => {
+        this.todos = todos
+        this.loading = false
+      }, error => {
+        this.error = error.message
+      })
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
