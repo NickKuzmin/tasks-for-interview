@@ -1909,6 +1909,63 @@ export class AuthInterceptor implements HttpInterceptor {
 }
 ```
 -------------------------------
+```
+import {NgModule} from '@angular/core'
+import {RouterModule, Routes} from '@angular/router'
+import {HomeComponent} from './home/home.component'
+import {AboutComponent} from './about/about.component'
+import {PostsComponent} from './posts/posts.component'
+
+// http://localhost:4200/ -> HomeComponent
+// http://localhost:4200/about -> AboutComponent
+// http://localhost:4200/posts -> PostsComponent
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'posts', component: PostsComponent}
+]
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {
+}
+```
+
+```
+import {AppRoutingModule} from './app-routing.module'
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    AboutComponent,
+    HomeComponent,
+    PostsComponent,
+    PostComponent,
+    AboutExtraComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+
+```
+<div class="container">
+  <div class="card">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
