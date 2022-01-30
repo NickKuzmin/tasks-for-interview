@@ -1976,6 +1976,30 @@ export class AppModule {
 </nav>
 ```
 -------------------------------
+```
+import {Component} from '@angular/core'
+import {Router} from '@angular/router'
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent {
+  constructor(private router: Router) {}
+
+  goToPostsPage() {
+    this.router.navigate(['/posts'])
+  }
+}
+```
+
+```
+<div>
+  <button class="btn" (click)="goToPostsPage()">Go to Posts</button>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -2039,6 +2063,7 @@ export class AppModule {
 - Интерсептор
 - routerLink
 - routerLinkActive
+- routerLinkActiveOptions
 - router-outlet
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
