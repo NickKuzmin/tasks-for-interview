@@ -1421,6 +1421,22 @@ export class AppComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+export class AppComponent implements OnInit {
+  form: FormGroup
+
+  submit() {
+    if (this.form.valid) {
+      console.log('Form: ', this.form)
+      const formData = {...this.form.value}
+      console.log('Form Data:', formData)
+
+      this.form.reset()
+    }
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
