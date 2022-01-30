@@ -1594,6 +1594,64 @@ export class AppComponent implements OnInit {
   </div>
 ```
 -------------------------------
+```
+import {Component, OnInit} from '@angular/core'
+import {HttpClient} from '@angular/common/http'
+import {delay} from 'rxjs/operators'
+
+export interface Todo {
+  completed: boolean
+  title: string
+  id?: number
+}
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+  todos: Todo[] = []
+  loading = false
+  todoTitle = ''
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.fetchTodos()
+  }
+
+  fetchTodos() {
+    this.loading = true
+    this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
+      .pipe(delay(1500))
+      .subscribe(todos => {
+        this.todos = todos
+        this.loading = false
+      })
+  }
+}
+
+
+```
+<div *ngIf="!loading; else loadingBlock">
+    <div class="card" *ngFor="let todo of todos">
+      <p>
+        <span [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
+        <span>
+          <button class="btn btn-danger">Удалить</button>
+          <button class="btn" [disabled]="todo.completed">Завершить</button>
+        </span>
+      </p>
+    </div>
+</div>
+
+<ng-template #loadingBlock>
+	<p>Loading...</p>
+</ng-template>
+```
+
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
