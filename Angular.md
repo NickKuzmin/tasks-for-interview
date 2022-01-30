@@ -1959,6 +1959,21 @@ export class AppModule {
 ```
 
 ```
+<nav class="navbar">
+  <h1>
+    <a [routerLink]="['/']">Angular Routing</a>
+  </h1>
+  <ul>
+    <li class="active">
+      <a [routerLink]="['/']">Home</a>
+    </li>
+    <li><a routerLink="/posts">Posts</a></li>
+    <li><a [routerLink]="['/about']">About</a></li>
+    <li><button class="btn">Login</button></li>
+    <li><button class="btn">Logout</button></li>
+  </ul>
+</nav>
+
 <div class="container">
   <div class="card">
     <router-outlet></router-outlet>
@@ -2027,5 +2042,7 @@ export class AppModule {
 - Область видимости сервисов и локальных сервисов в рамках компонента
 - Реактивные формы
 - Интерсептор
+- routerLink
+- router-outlet
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
