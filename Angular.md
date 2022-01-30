@@ -1544,6 +1544,56 @@ export class AppModule {
 }
 ```
 -------------------------------
+```
+import {Component, OnInit} from '@angular/core'
+import {HttpClient} from '@angular/common/http'
+
+export interface Todo {
+  completed: boolean
+  title: string
+  id?: number
+}
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+
+  todos: Todo[] = []
+  todoTitle = ''
+  constructor(private http: HttpClient) {}
+
+  addTodo() {
+    if (!this.todoTitle.trim()) {
+      return
+    }
+
+    const newTodo: Todo = {
+      title: this.todoTitle,
+      completed: false
+    }
+
+    this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', newTodo)
+      .subscribe(todo => {
+        this.todos.push(todo)
+        this.todoTitle = ''
+      })
+  }
+}
+```
+
+```
+<div class="card">
+    <div class="form-control">
+      <input type="text" placeholder="Название" [(ngModel)]="todoTitle">
+    </div>
+    <button class="btn" (click)="addTodo()">Добавить</button>
+    <button class="btn">Загрузить</button>
+  </div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
