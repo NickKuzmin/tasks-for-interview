@@ -1361,6 +1361,66 @@ export class AppComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+import {FormControl} from '@angular/forms'
+import {Observable} from 'rxjs'
+
+export class MyValidators {
+  static restrictedEmails(control: FormControl): {[key: string]: boolean} {
+    if (['v@mail.ru', 'test@mail.ru'].includes(control.value)) {
+      return {restrictedEmail: true}
+    }
+    return null
+  }
+
+  static uniqEmail(control: FormControl): Promise<any> | Observable<any> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        if (control.value === 'async@mail.ru') {
+          resolve({uniqEmail: true})
+        } else {
+          resolve(null)
+        }
+      }, 1000)
+    })
+  }
+}
+```
+
+```
+import {Component, OnInit} from '@angular/core'
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms'
+import {MyValidators} from './my.validators'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+  form: FormGroup
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      email: new FormControl('', [
+        Validators.email,
+        Validators.required,
+        MyValidators.restrictedEmails
+      ], [MyValidators.uniqEmail]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6)
+      ]),
+      address: new FormGroup({
+        country: new FormControl('by'),
+        city: new FormControl('Минск', Validators.required)
+      }),
+      skills: new FormArray([])
+    })
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
