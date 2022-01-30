@@ -1489,6 +1489,61 @@ export class SwitchComponent implements ControlValueAccessor {
 </div>
 ```
 -------------------------------
+```
+import {Component, OnInit} from '@angular/core'
+import {HttpClient} from '@angular/common/http'
+
+export interface Todo {
+  completed: boolean
+  title: string
+  id?: number
+}
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+
+  todos: Todo[] = []
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
+      .subscribe(todos => {
+        console.log('Response', todos)
+        this.todos = todos
+      })
+  }
+}
+```
+
+```
+import {BrowserModule} from '@angular/platform-browser'
+import {NgModule} from '@angular/core'
+
+import {AppComponent} from './app.component'
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
