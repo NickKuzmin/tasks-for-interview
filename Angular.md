@@ -1847,6 +1847,44 @@ return this.http.put<Todo>(`https://jsonplaceholder.typicode.com/todos/${id}`, {
 }
 ```
 -------------------------------
+```
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http'
+import {Observable} from 'rxjs'
+
+export class AuthInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('Intercept request', req)
+    return next.handle(req)
+  }
+}
+```
+
+```
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
+import {AuthInterceptor} from './auth.interceptor'
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true
+}
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
+  ],
+  providers: [INTERCEPTOR_PROVIDER],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -1907,5 +1945,6 @@ return this.http.put<Todo>(`https://jsonplaceholder.typicode.com/todos/${id}`, {
 - Односторонний биндинг, Event Binding
 - Область видимости сервисов и локальных сервисов в рамках компонента
 - Реактивные формы
+- Интерсептор
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
