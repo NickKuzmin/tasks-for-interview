@@ -1769,6 +1769,36 @@ export class AppComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+const headers = new HttpHeaders({
+  'MyCustomHeader': Math.random().toString(),
+})
+
+return this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo, {
+  headers
+})
+```
+-------------------------------
+```
+fetchTodos(): Observable<Todo[]> {
+let params = new HttpParams()
+params = params.append('_limit', '4')
+params = params.append('custom', 'anything')
+
+return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos', {
+  // params: new HttpParams().set('_limit', '3')
+  params
+})
+  .pipe(
+	delay(500),
+	catchError(error => {
+	  console.log('Error: ', error.message)
+	  return throwError(error)
+	})
+  )
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
