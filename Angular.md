@@ -1630,7 +1630,7 @@ export class AppComponent implements OnInit {
       })
   }
 }
-
+```
 
 ```
 <div *ngIf="!loading; else loadingBlock">
@@ -1649,7 +1649,14 @@ export class AppComponent implements OnInit {
 	<p>Loading...</p>
 </ng-template>
 ```
-
+-------------------------------
+```
+removeTodo(id: number) {
+    this.http.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .subscribe(() => {
+        this.todos = this.todos.filter(t => t.id !== id)
+      })
+}
 ```
 -------------------------------
 **Data Binding Types:**
