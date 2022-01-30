@@ -1964,21 +1964,16 @@ export class AppModule {
     <a [routerLink]="['/']">Angular Routing</a>
   </h1>
   <ul>
-    <li class="active">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <a [routerLink]="['/']">Home</a>
     </li>
-    <li><a routerLink="/posts">Posts</a></li>
-    <li><a [routerLink]="['/about']">About</a></li>
+    <li routerLinkActive="active"><a routerLink="/posts">Posts</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/about']">About</a></li>
+
     <li><button class="btn">Login</button></li>
     <li><button class="btn">Logout</button></li>
   </ul>
 </nav>
-
-<div class="container">
-  <div class="card">
-    <router-outlet></router-outlet>
-  </div>
-</div>
 ```
 -------------------------------
 **Data Binding Types:**
@@ -2043,6 +2038,7 @@ export class AppModule {
 - Реактивные формы
 - Интерсептор
 - routerLink
+- routerLinkActive
 - router-outlet
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
