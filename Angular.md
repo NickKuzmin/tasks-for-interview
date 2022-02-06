@@ -2269,6 +2269,100 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 }
 ```
 -------------------------------
+```
+import {NgModule} from '@angular/core'
+import {AboutPageComponent} from './about-page.component'
+import {AboutExtraPageComponent} from './about-extra-page/about-extra-page.component'
+import {SharedModule} from '../shared/shared.module'
+import {CommonModule} from '@angular/common'
+import {RouterModule} from '@angular/router'
+
+@NgModule({
+  declarations: [
+    AboutPageComponent,
+    AboutExtraPageComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule.forChild([
+      {
+        path: 'about', component: AboutPageComponent, children: [
+          {path: 'extra', component: AboutExtraPageComponent}
+        ]
+      }
+    ])
+  ],
+  exports: [RouterModule]
+})
+export class AboutPageModule {
+}
+```
+
+```
+import {NgModule} from '@angular/core'
+import {ColorDirective} from './color.directive'
+import {PageNamePipe} from './page-name.pipe'
+
+@NgModule({
+  declarations: [
+    ColorDirective,
+    PageNamePipe
+  ],
+  exports: [
+    ColorDirective,
+    PageNamePipe
+  ]
+})
+export class SharedModule {
+}
+```
+
+```
+import {NgModule} from '@angular/core'
+import {RouterModule} from '@angular/router'
+import {HomePageComponent} from './home-page/home-page.component'
+
+@NgModule({
+  imports: [RouterModule.forRoot([
+    {path: '', component: HomePageComponent, pathMatch: 'full'}
+  ])],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {
+}
+```
+
+```
+import {BrowserModule} from '@angular/platform-browser'
+import {NgModule} from '@angular/core'
+
+import {AppComponent} from './app.component'
+import {FormsModule} from '@angular/forms'
+import {HomePageComponent} from './home-page/home-page.component'
+import {AppRoutingModule} from './app-routing.module'
+import {AboutPageModule} from './about-page/about-page.module'
+import {SharedModule} from './shared/shared.module'
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomePageComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    AboutPageModule,
+    SharedModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
