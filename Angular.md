@@ -2375,6 +2375,57 @@ export class AppRoutingModule {
 }
 ```
 -------------------------------
+```
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
+
+@Component({
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss']
+})
+export class ModalComponent implements OnInit {
+
+  @Input() title = 'Default title'
+  @Output() close = new EventEmitter<void>()
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+}
+```
+
+```
+<div class="modal">
+  <nav class="navbar">
+    <h1>{{ title }}</h1>
+  </nav>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, sint.
+  </p>
+
+  <button class="btn" (click)="close.emit()">Close</button>
+</div>
+```
+
+```
+<div class="container">
+  <div class="card">
+
+    <h1>Some content</h1>
+
+    <button class="btn" (click)="modal = true">Show modal</button>
+
+    <app-modal
+      *ngIf="modal"
+      title="Modal window"
+      (close)="modal = false"
+    ></app-modal>
+  </div>
+</div>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
