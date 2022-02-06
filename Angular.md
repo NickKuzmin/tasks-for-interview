@@ -2234,6 +2234,41 @@ export class AuthService {
 <li><button class="btn" (click)="auth.logout()">Logout</button></li>
 ```
 -------------------------------
+```
+@Injectable({providedIn: 'root'})
+export class AuthGuard implements CanActivate, CanActivateChild {
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    return this.authService.isAuthenticated().then(isAuth => {
+      if (isAuth) {
+        return true
+      } else {
+        this.router.navigate(['/'], {
+          queryParams: {
+            auth: false
+          }
+        })
+      }
+    })
+  }
+
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean  {
+    return this.canActivate(route, state)
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
