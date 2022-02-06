@@ -2158,6 +2158,19 @@ export class AppRoutingModule {
 <router-outlet></router-outlet>
 ```
 -------------------------------
+```
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent, children: [
+      {path: 'extra', component: AboutExtraComponent}
+    ]},
+  {path: 'posts', component: PostsComponent},
+  {path: 'posts/:id', component: PostComponent},
+  {path: 'error', component: ErrorPageComponent},
+  {path: '**', redirectTo: '/error'}
+]
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
