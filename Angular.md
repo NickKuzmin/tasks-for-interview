@@ -2066,6 +2066,68 @@ export class PostComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+<button
+  class="btn"
+  [routerLink]="['/posts']"
+  [queryParams]="{showIds: true}"
+  fragment="fragment"
+>
+  Show Ids
+</button>
+
+<button class="btn" (click)="showIdsProgram()">
+  Show Ids (program)
+</button>
+
+<div class="card" *ngFor="let post of postsService.posts">
+  <h4>
+    <a [routerLink]="['/posts', post.id]">
+      <strong *ngIf="showIds">(ID {{post.id}})</strong>
+      {{post.title}}
+    </a>
+  </h4>
+</div>
+```
+
+```
+import {ActivatedRoute, Params, Router} from '@angular/router'
+
+@Component({
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.scss']
+})
+export class PostsComponent implements OnInit {
+  showIds = false
+
+  constructor(
+    private postsService: PostsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params: Params) => {
+      this.showIds = !!params.showIds
+    })
+
+    this.route.fragment.subscribe(fragment => {
+      console.log('Fragment', fragment)
+    })
+  }
+
+  showIdsProgram() {
+    this.router.navigate(['/posts'], {
+      queryParams: {
+        showIds: true
+      },
+      fragment: 'program-fragment'
+    })
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
