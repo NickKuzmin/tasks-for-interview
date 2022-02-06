@@ -2000,6 +2000,41 @@ export class HomeComponent {
 </div>
 ```
 -------------------------------
+```
+<div class="card" *ngFor="let post of postsService.posts">
+  <h4>
+    <a [routerLink]="['/posts', post.id]">
+      <strong>(ID {{post.id}})</strong>
+      {{post.title}}
+    </a>
+  </h4>
+</div>
+```
+
+```
+import {Injectable} from '@angular/core'
+
+export interface Post {
+  title: string
+  text: string
+  id: number
+}
+
+@Injectable({providedIn: 'root'})
+export class PostsService {
+  posts: Post[] = [
+    {title: 'Post 1', text: 'Sample text for post 1', id: 11},
+    {title: 'Post 2', text: 'Sample text for post 2', id: 22},
+    {title: 'Post 3', text: 'Sample text for post 3', id: 33},
+    {title: 'Post 4', text: 'Sample text for post 4', id: 44},
+  ]
+
+  getById(id: number) {
+    return this.posts.find(p => p.id === id)
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
