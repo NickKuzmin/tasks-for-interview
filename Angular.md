@@ -2518,6 +2518,30 @@ export class AppComponent {
 }
 ```
 -------------------------------
+`PWA: 'ngsw-worker.js'`
+
+`Angular PWA/Angular ServiceWorker (ngsw)`
+
+```
+@NgModule({
+  declarations: [
+    AppComponent,
+    ModalComponent,
+    RefDirective
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+  ],
+  providers: [],
+  entryComponents: [ModalComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -2589,5 +2613,6 @@ export class AppComponent {
 - `Preloading Strategy` for imports
 - `ng-template`
 - `@ViewChild`
+- Angular PWA
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
