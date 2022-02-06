@@ -2443,5 +2443,6 @@ export class AppRoutingModule {
 - `implements CanActivate, CanActivateChild`
 - Routing Resolver
 - Lazy Load Module
+- `Preloading Strategy` for imports
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
