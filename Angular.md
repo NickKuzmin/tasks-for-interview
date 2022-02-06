@@ -2363,6 +2363,18 @@ export class AppModule {
 }
 ```
 -------------------------------
+```
+@NgModule({
+  imports: [RouterModule.forRoot([
+    {path: '', component: HomePageComponent, pathMatch: 'full'},
+    {path: 'about', loadChildren: './about-page/about-page.module#AboutPageModule'}
+  ])],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -2430,5 +2442,6 @@ export class AppModule {
 - router-outlet
 - `implements CanActivate, CanActivateChild`
 - Routing Resolver
+- Lazy Load Module
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
