@@ -2426,6 +2426,75 @@ export class ModalComponent implements OnInit {
 </div>
 ```
 -------------------------------
+```
+import {Component, ComponentFactoryResolver, ViewChild} from '@angular/core'
+import {ModalComponent} from './modal/modal.component'
+import {RefDirective} from './ref.directive'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+
+  @ViewChild(RefDirective, {static: false}) refDir: RefDirective
+
+  constructor(private resolver: ComponentFactoryResolver) {}
+
+  showModal() {
+    const modalFactory = this.resolver.resolveComponentFactory(ModalComponent)
+    this.refDir.containerRef.clear()
+
+    const component = this.refDir.containerRef.createComponent(modalFactory)
+
+    component.instance.title = 'Dynamic title'
+    component.instance.close.subscribe(() => {
+      this.refDir.containerRef.clear()
+    })
+  }
+}
+```
+
+```
+import {Directive, ViewContainerRef} from '@angular/core'
+
+@Directive({
+  selector: '[appRef]'
+})
+export class RefDirective {
+  constructor(public containerRef: ViewContainerRef) {
+  }
+}
+```
+
+```
+import {BrowserModule} from '@angular/platform-browser'
+import {NgModule} from '@angular/core'
+
+import {AppComponent} from './app.component'
+import {FormsModule} from '@angular/forms'
+import {ModalComponent} from './modal/modal.component'
+import {RefDirective} from './ref.directive'
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ModalComponent,
+    RefDirective
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+  ],
+  providers: [],
+  entryComponents: [ModalComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -2495,5 +2564,7 @@ export class ModalComponent implements OnInit {
 - Routing Resolver
 - Lazy Load Module
 - `Preloading Strategy` for imports
+- `ng-template`
+- `@ViewChild`
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
