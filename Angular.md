@@ -2334,5 +2334,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 - routerLinkActive
 - routerLinkActiveOptions
 - router-outlet
+- `implements CanActivate, CanActivateChild`
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
