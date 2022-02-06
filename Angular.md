@@ -2495,6 +2495,29 @@ export class AppModule {
 }
 ```
 -------------------------------
+```
+import {Meta, Title} from '@angular/platform-browser'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  constructor(
+    private resolver: ComponentFactoryResolver,
+    private title: Title,
+    private meta: Meta
+  ) {
+    this.title.setTitle('App Component Page!')
+    this.meta.addTags([
+      {name: 'keywords', content: 'angular,google,appcomponent'},
+      {name: 'description', content: 'this is app component'}
+    ])
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
