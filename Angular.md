@@ -2128,6 +2128,36 @@ export class PostsComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+// http://localhost:4200/ -> HomeComponent
+// http://localhost:4200/about -> AboutComponent
+// http://localhost:4200/posts -> PostsComponent
+// http://localhost:4200/about/extra -> PostsComponent
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent, children: [
+      {path: 'extra', component: AboutExtraComponent}
+    ]},
+  {path: 'posts', component: PostsComponent},
+  {path: 'posts/:id', component: PostComponent}
+]
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {
+
+}
+```
+
+```
+<p><a [routerLink]="['/about', 'extra']">Show Extra</a></p>
+
+<router-outlet></router-outlet>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
