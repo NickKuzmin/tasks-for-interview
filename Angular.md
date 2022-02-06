@@ -2171,6 +2171,69 @@ const routes: Routes = [
 ]
 ```
 -------------------------------
+```
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router'
+import {Observable} from 'rxjs'
+import {Injectable} from '@angular/core'
+import {AuthService} from './auth.service'
+
+@Injectable({providedIn: 'root'})
+export class AuthGuard implements CanActivate {
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    return this.authService.isAuthenticated().then(isAuth => {
+      if (isAuth) {
+        return true
+      } else {
+        this.router.navigate(['/'], {
+          queryParams: {
+            auth: false
+          }
+        })
+      }
+    })
+  }
+}
+```
+
+```
+import {Injectable} from '@angular/core'
+
+@Injectable({providedIn: 'root'})
+export class AuthService {
+  private isAuth = false
+
+  login() {
+    this.isAuth = true
+  }
+
+  logout() {
+    this.isAuth = false
+  }
+
+  isAuthenticated(): Promise<boolean> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.isAuth)
+      }, 1000)
+    })
+  }
+}
+```
+
+```
+<li><button class="btn" (click)="auth.login()">Login</button></li>
+<li><button class="btn" (click)="auth.logout()">Logout</button></li>
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
