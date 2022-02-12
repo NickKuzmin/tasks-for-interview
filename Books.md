@@ -34,6 +34,10 @@
 -------------------------------------------------------------
 # Книги для прочтения:
 
+- Бестселлеры O'Reilly - Boris Cherny / Борис Черный - Programming TypeScript. Making Your JavaScript Applications Scale / Профессиональный TypeScript. Разработка масштабируемых JavaScript-приложений [2021, PDF, RUS]
+
+- Дэн Вандеркам - Эффективный TypeScript [2020, PDF, RUS]
+
 - Gammelgaard Ch.H. - Microservices in .NET Core [2017, PDF/EPUB, ENG]
 
 - Паттерны проектирования для C# и платформы .NET Core Арораа Г., Чилберто Дж.
