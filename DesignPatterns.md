@@ -61,3 +61,6 @@
 - Event listener
 - Single-serving visitor pattern
 - Hierarchical visitor pattern 
+-------------
+*CQRS:*
+- Выделение IReadOnlyDataContext/IReadOnlyService
