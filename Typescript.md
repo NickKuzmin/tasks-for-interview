@@ -197,3 +197,7 @@ let e: number = 100;
 let f: 3.14 = 3.14;
 let g: 3.14 = 6; // Error
 ```
+
+```
+let oneMillion = 1_000_000;
+```
