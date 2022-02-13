@@ -205,3 +205,9 @@ let oneMillion = 1_000_000;
 ```
 let g: 'john' = 'zoe'; // Error
 ```
+
+```
+let a = Symbol('a')
+const f: unique symbol = Symbol('f');
+let g: unique symbol = Symbol('f');  // Error. Should be 'const'
+```
