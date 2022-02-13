@@ -75,4 +75,18 @@ Object.createProperty
 - **prototype** is a property of a Function object. It is the prototype of objects constructed by that function.
 
 - **__proto__** is an internal property of an object, pointing to its prototype. Current standards provide an equivalent Object.getPrototypeOf(obj) method, though the de facto standard __proto__ is quicker.You can find instanceof relationships by comparing a function's prototype to an object's __proto__ chain, and you can break these relationships by changing prototype.
+---------------------------
+```
+var result = 3 + []; // '3'
+```
 
+```
+let obj = {};
+obj.foo; //undefined
+```
+
+```
+function a(b) { return b/2; }
+
+a('z'); // NaN
+```
