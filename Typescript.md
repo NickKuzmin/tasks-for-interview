@@ -175,3 +175,9 @@ console.log(x); // 10
 ```
 let p = {...o, k: 3}
 ```
+
+```
+let a: any = 100;
+let b: any = ['danger'];
+let c = a + b; // any
+```
