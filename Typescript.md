@@ -183,3 +183,9 @@ let a: any = 100;
 let b: any = ['danger'];
 let c = a + b; // any
 ```
+
+```
+let d: boolean = true;
+let e: true = true;
+let f: true = false; // Error
+```
