@@ -201,3 +201,7 @@ let g: 3.14 = 6; // Error
 ```
 let oneMillion = 1_000_000;
 ```
+
+```
+let g: 'john' = 'zoe'; // Error
+```
