@@ -47,6 +47,7 @@
 - **TSLint** is an extensible static analysis tool that checks TypeScript code for readability, maintainability, and functionality errors. It is widely supported across modern editors & build systems and can be customized with your own lint rules, configurations, and formatters. 
 ----------------------------------------------------------------
 - **Аннотация типов** и **автоматическое выведение типов**
+- **Литерал типа** - ...
 ----------------------------------------------------------------
 Типы:
 
@@ -188,4 +189,11 @@ let c = a + b; // any
 let d: boolean = true;
 let e: true = true;
 let f: true = false; // Error
+```
+
+```
+const c = 100;
+let e: number = 100;
+let f: 3.14 = 3.14;
+let g: 3.14 = 6; // Error
 ```
