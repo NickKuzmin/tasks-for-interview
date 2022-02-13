@@ -1,5 +1,6 @@
 - **Описание атрибутом tsconfig.json:** https://gist.github.com/KRostyslav/82a25c469ffa6652825d58537ac6bc22
 - **Typescript style guide:** https://github.com/ymaps/codestyle/blob/master/typescript.md
+- **tsconfig:** https://www.typescriptlang.org/tsconfig
 ----------------------------------------------------------------
 - **Typescript interview questions:** https://github.com/aershov24/typescript-interview-questions
 - **Typescript interview questions:** https://github.com/FedorovAlexander/typescript-interview-questions-ru
