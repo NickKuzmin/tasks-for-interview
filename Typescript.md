@@ -46,6 +46,28 @@
 ----------------------------------------------------------------
 - **Аннотация типов** и **автоматическое выведение типов**
 ----------------------------------------------------------------
+Типы:
+
+- Unknown
+- Any
+- Void
+- Undefined
+- Null
+- Number
+- BigInt
+- Boolean
+- String
+- Symbol
+- Object
+- Number Enum
+- String Enum
+- Unique Enum
+- Array
+- Function
+- Constructor
+- Tuple
+- Never
+----------------------------------------------------------------
 ```
 class User {
     name: string;
