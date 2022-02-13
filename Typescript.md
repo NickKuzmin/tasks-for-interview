@@ -211,3 +211,33 @@ let a = Symbol('a')
 const f: unique symbol = Symbol('f');
 let g: unique symbol = Symbol('f');  // Error. Should be 'const'
 ```
+
+```
+let b = {
+    c: {
+        d: 'f'
+    }
+}; // {c: {d: string}}
+```
+
+```
+let a : {b: number} = {
+    b: 12
+};
+```
+
+```
+let c : { firstName: string, lastName: string} = {
+    firstName: 'a',
+    lastName: 'b'
+}
+```
+
+```
+class Person {
+    constructor(
+        public  firstName: string, // аналог: this.firstName  = firstName
+        public  secondName: string 
+    ) {}
+}
+```
