@@ -3428,4 +3428,13 @@ export class PostsService {
 - Angular PWA
 - test-file-name: `***.spec.ts`
 -------------------------------
+**Unit/Integration-тестирование:**
+- Тестирование html-шаблонов компонента
+- Тестирование свойств компонента
+- DI конструктора компонента
+- Генерация тестов
+- Тестирование роутинга
+- Тестирование директив
+- Тестирование асинхронных операций
+-------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
