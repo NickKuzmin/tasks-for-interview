@@ -2542,6 +2542,22 @@ export class AppModule {
 }
 ```
 -------------------------------
+```
+import {compute} from './compute'
+
+describe('compute', () => {
+  it('should return 0 if negative input', () => {
+    const result = compute(-1)
+    expect(result).toBe(0)
+  })
+
+  it('should increment input if positive', () => {
+    const result = compute(1)
+    expect(result).toBe(2)
+  })
+})
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -2614,5 +2630,6 @@ export class AppModule {
 - `ng-template`
 - `@ViewChild`
 - Angular PWA
+- test-file-name: `***.spec.ts`
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
