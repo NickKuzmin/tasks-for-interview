@@ -2768,6 +2768,100 @@ describe('CounterComponent', () => {
 })
 ```
 -------------------------------
+```
+import {Component, OnInit} from '@angular/core';
+import {PostsService} from './posts.service';
+
+@Component({
+  template: `Posts component`,
+  selector: 'app-posts'
+})
+export class PostsComponent implements OnInit {
+  posts = []
+  message: string
+
+  constructor(private service: PostsService) {
+  }
+
+  ngOnInit(): void {
+    this.service.fetch().subscribe(p => {
+      this.posts = p
+    })
+  }
+
+  add(title: string) {
+    const post = { title }
+    this.service.create(post).subscribe(() => {
+      this.posts.push(post)
+    }, err => this.message = err)
+  }
+
+  delete(id) {
+    if (window.confirm('Are you sure?')) {
+      this.service.remove(id).subscribe()
+    }
+  }
+}
+```
+
+```
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+@Injectable({providedIn: 'root'})
+export class PostsService {
+  constructor(private http: HttpClient) {}
+
+  create(post): Observable<any> {
+    return this.http.post(``, post);
+  }
+
+  fetch(): Observable<any[]> {
+    return this.http.get<any[]>(``)
+  }
+
+  remove(id: number): Observable<any> {
+    return this.http.delete<void>(`${id}`)
+  }
+}
+```
+
+```
+import {PostsComponent} from "./posts.component";
+import {PostsService} from "./posts.service";
+import {EMPTY, of} from "rxjs";
+
+describe('PostsComponent', () => {
+  let component: PostsComponent
+  let service: PostsService
+
+  beforeEach(() => {
+    service = new PostsService(null)
+    component = new PostsComponent(service)
+  })
+
+  it('should call fetch when ngOnInit', () => {
+    const spy = spyOn(service, 'fetch').and.callFake(() => {
+      return EMPTY
+    })
+
+    component.ngOnInit()
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('should update posts length after ngOnInit', () => {
+    const posts = [1, 2, 3, 4]
+    spyOn(service, 'fetch').and.returnValue(of(posts))
+
+    component.ngOnInit()
+
+    expect(component.posts.length).toBe(posts.length)
+  })
+})
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
