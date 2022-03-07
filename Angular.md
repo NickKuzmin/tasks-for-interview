@@ -2689,6 +2689,85 @@ export class CounterComponent {
 }
 ```
 -------------------------------
+```
+import {Component, EventEmitter, Output} from "@angular/core";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+
+@Component({
+  selector: 'app-counter',
+  template: `Counter: {{counter}}`
+})
+export class CounterComponent {
+  counter = 0
+  public form: FormGroup
+
+  constructor(private fb: FormBuilder) {
+    this.form = fb.group({
+      login: ['', Validators.required],
+      email: ['']
+    })
+  }
+
+  @Output() counterEmitter = new EventEmitter<number>()
+
+  increment() {
+    this.counter++
+    this.counterEmitter.emit(this.counter)
+  }
+
+  decrement() {
+    this.counter--
+  }
+}
+```
+
+```
+import {CounterComponent} from "./counter.component";
+import {FormBuilder} from "@angular/forms";
+
+describe('CounterComponent', () => {
+  let component: CounterComponent
+
+  beforeEach(() => {
+    component = new CounterComponent(new FormBuilder())
+  })
+
+  // beforeAll, afterEach, afterAll
+
+  it('should increment counter by 1', () => {
+    component.increment()
+    expect(component.counter).toBe(1)
+  })
+
+  it('should decrement counter by 1', () => {
+    component.decrement()
+    expect(component.counter).toBe(-1)
+  })
+
+  it('should increment value by event emitter', () => {
+    let result = null
+    component.counterEmitter.subscribe(v => result = v)
+
+    component.increment()
+
+    expect(result).toBe(1)
+  })
+
+  it('should create form with 2 controls', () => {
+    expect(component.form.contains('login')).toBeTruthy()
+    expect(component.form.contains('email')).toBeTruthy()
+  })
+
+  it('should mark login as invalid if empty value', () => {
+    const control = component.form.get('login')
+
+    control.setValue('')
+
+    expect(control.valid).toBeFalsy()
+  })
+})
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
