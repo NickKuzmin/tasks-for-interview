@@ -2791,8 +2791,8 @@ export class PostsComponent implements OnInit {
 
   add(title: string) {
     const post = { title }
-    this.service.create(post).subscribe(() => {
-      this.posts.push(post)
+    this.service.create(post).subscribe(p => {
+      this.posts.push(p)
     }, err => this.message = err)
   }
 
@@ -2859,6 +2859,25 @@ describe('PostsComponent', () => {
 
     expect(component.posts.length).toBe(posts.length)
   })
+  
+  **it('should add new post', () => {
+    const post = {title: 'test'}
+    const spy = spyOn(service, 'create').and.returnValue(of(post))
+
+    component.add(post.title)
+
+    expect(spy).toHaveBeenCalled()
+    expect(component.posts.includes(post)).toBeTruthy()
+  })
+
+  it('should set message to error message', () => {
+    const error = 'Error message'
+    spyOn(service, 'create').and.returnValue(throwError(error))
+
+    component.add('Post title')
+
+    expect(component.message).toBe(error)
+  })**
 })
 ```
 -------------------------------
