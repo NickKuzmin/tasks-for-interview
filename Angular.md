@@ -2557,6 +2557,37 @@ describe('compute', () => {
   })
 })
 ```
+
+```
+import {compute} from './compute'
+
+describe('compute', () => {
+  it('should return 0 if negative input', () => {
+    const result = compute(-1)
+    expect(result).toBe(0)
+  })
+
+  it('should increment input if positive', () => {
+    const result = compute(1)
+    expect(result).toBe(2)
+  })
+})
+```
+
+```
+import {countries} from './countries'
+
+describe('countries', () => {
+
+  it('should contain countries codes', () => {
+    const result = countries()
+
+    expect(result).toContain('RU')
+    expect(result).toContain('UA')
+    expect(result).toContain('BY')
+  })
+})
+```
 -------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
