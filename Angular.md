@@ -2951,6 +2951,73 @@ export class PostsComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+import {ComponentFixture, TestBed} from '@angular/core/testing'
+import {CounterComponent} from "./counter.component";
+import {By} from "@angular/platform-browser";
+
+describe('CounterComponent', () => {
+  let component: CounterComponent
+  let fixture: ComponentFixture<CounterComponent>
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CounterComponent ]
+    })
+
+    fixture = TestBed.createComponent(CounterComponent)
+    component = fixture.componentInstance
+    // fixture.debugElement
+    // fixture.nativeElement
+  })
+
+  it('should be created', () => {
+    expect(component).toBeDefined()
+  })
+
+  it('should render counter property', () => {
+    let num = 42
+    component.counter = num
+
+    fixture.detectChanges()
+
+    let de = fixture.debugElement.query(By.css('.counter'))
+    let el: HTMLElement = de.nativeElement
+
+    expect(el.textContent).toContain(num.toString())
+  })
+})
+```
+
+```
+<h1 class="counter" [class.green]="counter % 2 === 0">
+  {{counter}}
+</h1>
+
+<button id="increment" (click)="increment()">Increment</button>
+<button (click)="decrement()">Decrement</button>
+```
+
+```
+import {Component} from "@angular/core";
+
+@Component({
+  selector: 'app-counter',
+  templateUrl: './counter.component.html'
+})
+export class CounterComponent {
+  counter = 0
+
+  increment() {
+    this.counter++
+  }
+
+  decrement() {
+    this.counter--
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
