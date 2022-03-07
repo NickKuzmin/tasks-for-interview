@@ -2881,6 +2881,76 @@ describe('PostsComponent', () => {
 })
 ```
 -------------------------------
+```
+import {PostsComponent} from "./posts.component";
+import {PostsService} from "./posts.service";
+import {EMPTY, of, throwError} from "rxjs";
+
+describe('PostsComponent', () => {
+  let component: PostsComponent
+  let service: PostsService
+
+  beforeEach(() => {
+    service = new PostsService(null)
+    component = new PostsComponent(service)
+  })
+
+  it('should remove post if user confirms', () => {
+    const spy = spyOn(service, 'remove').and.returnValue(EMPTY)
+    spyOn(window, 'confirm').and.returnValue(true)
+
+    component.delete(10)
+
+    expect(spy).toHaveBeenCalledWith(10)
+  })
+
+  it('should NOT remove post if user doesnt confirm', () => {
+    const spy = spyOn(service, 'remove').and.returnValue(EMPTY)
+    spyOn(window, 'confirm').and.returnValue(false)
+
+    component.delete(10)
+
+    expect(spy).not.toHaveBeenCalled()
+  })
+})
+```
+
+```
+import {Component, OnInit} from '@angular/core';
+import {PostsService} from './posts.service';
+
+@Component({
+  template: `Posts component`,
+  selector: 'app-posts'
+})
+export class PostsComponent implements OnInit {
+  posts = []
+  message: string
+
+  constructor(private service: PostsService) {
+  }
+
+  ngOnInit(): void {
+    this.service.fetch().subscribe(p => {
+      this.posts = p
+    })
+  }
+
+  add(title: string) {
+    const post = { title }
+    this.service.create(post).subscribe(p => {
+      this.posts.push(p)
+    }, err => this.message = err)
+  }
+
+  delete(id) {
+    if (window.confirm('Are you sure?')) {
+      this.service.remove(id).subscribe()
+    }
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
