@@ -3275,6 +3275,85 @@ describe('NavbarComponent', () => {
 </nav>
 ```
 -------------------------------
+```
+import {PostsComponent} from "./posts.component";
+import {PostsService} from "./posts.service";
+import {ComponentFixture, TestBed, async, fakeAsync, tick} from "@angular/core/testing";
+import {HttpClientModule} from "@angular/common/http";
+import {of} from "rxjs";
+
+describe('PostsComponent', () => {
+  let fixture: ComponentFixture<PostsComponent>
+  let component: PostsComponent
+  let service: PostsService
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ PostsComponent ],
+      providers: [ PostsService ],
+      imports: [ HttpClientModule ]
+    })
+
+    fixture = TestBed.createComponent(PostsComponent)
+    component = fixture.componentInstance
+    // service = fixture.debugElement.injector.get(PostsService)
+    service = TestBed.get(PostsService)
+  })
+
+  xit('should fetch posts on ngOnInit', () => {
+    const posts = [1, 2, 3]
+    spyOn(service, 'fetch').and.returnValue(of(posts))
+
+    fixture.detectChanges()
+
+    expect(component.posts).toEqual(posts)
+  })
+
+  it('should fetch posts on ngOnInit (promise)', fakeAsync(() => {
+    const posts = [1, 2, 3]
+    spyOn(service, 'fetchPromise').and.returnValue(Promise.resolve(posts))
+
+    fixture.detectChanges()
+
+    tick()
+
+    expect(component.posts.length).toBe(posts.length)
+
+    // fixture.whenStable().then(() => {
+    //   expect(component.posts.length).toBe(posts.length)
+    //   console.log('EXPECT CALLED')
+    // })
+  }))
+})
+```
+
+```
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+@Injectable({providedIn: 'root'})
+export class PostsService {
+  constructor(private http: HttpClient) {}
+
+  create(post): Observable<any> {
+    return this.http.post(``, post);
+  }
+
+  fetch(): Observable<any[]> {
+    return this.http.get<any[]>(``)
+  }
+
+  fetchPromise(): Promise<any[]> {
+    return this.http.get<any[]>(``).toPromise()
+  }
+
+  remove(id: number): Observable<any> {
+    return this.http.delete<void>(`${id}`)
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
