@@ -666,6 +666,7 @@ jagged[2] = new int[10];
 ```
 int[,] array = new int[5,10]; 
 ```
+- Доступ к элементу массива по индексу - имеет константное время, потому что зная размер элемента массива и начальный адрес массива - можно вычислить его адрес в памяти (`0x004 + (3-ий элемент * 4 байта) = 0x0C`)
 ------------------------
 - Differences Between .NET Framework, .NET Core, and .NET Standard: https://code-maze.com/differences-between-net-framework-net-core-and-net-standard/    
 - https://gosha20777.github.io/code/2018/02/22/dotnetcore/    
