@@ -3419,6 +3419,70 @@ export class ColorDirective implements OnChanges {
 }
 ```
 -------------------------------
+*BrowserAnimationsModule:*
+
+```
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+-------------------------------
+*"Animations" component's metadata field:*
+
+```
+<button (click)="animate()">Animate</button>
+<hr />
+<div class="wrap">
+  <div
+    class="box"
+    [@box]="boxState"
+  ></div>
+</div>
+```
+
+```
+import { Component } from '@angular/core';
+import {state, style, trigger} from "@angular/animations";
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('box', [
+      state('start', style({ background: 'blue' })),
+      state('end', style({
+        background: 'red',
+        transform: 'scale(1.2)'
+      }))
+    ])
+  ]
+})
+export class AppComponent {
+  boxState = 'end'
+
+  animate() {
+    this.boxState = this.boxState === 'end' ? 'start' : 'end'
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -3493,6 +3557,7 @@ export class ColorDirective implements OnChanges {
 - Angular PWA
 - test-file-name: `***.spec.ts`
 - Angular Animations: Web Animations API
+- BrowserAnimationsModule
 -------------------------------
 **Unit/Integration-тестирование:**
 - Тестирование html-шаблонов компонента
