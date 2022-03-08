@@ -3492,6 +3492,7 @@ export class ColorDirective implements OnChanges {
 - `@ViewChild`
 - Angular PWA
 - test-file-name: `***.spec.ts`
+- Angular Animations: Web Animations API
 -------------------------------
 **Unit/Integration-тестирование:**
 - Тестирование html-шаблонов компонента
