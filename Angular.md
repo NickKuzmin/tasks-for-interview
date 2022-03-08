@@ -3630,6 +3630,21 @@ transition('special <=> *', [
 ])
 ```
 -------------------------------
+*Key frames animations:*
+
+```
+transition(':enter', [
+	animate('4s', keyframes([
+	  style({ background: 'red', offset: 0 }),
+	  style({ background: 'black', offset: 0.2 }),
+	  style({ background: 'orange', offset: 0.3 }),
+	  style({ background: 'blue', offset: 1 }),
+	]))
+	// style({ opacity: 0 }),
+	// animate('850ms ease-out')
+  ])
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
