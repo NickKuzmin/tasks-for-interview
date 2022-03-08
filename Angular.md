@@ -3645,6 +3645,36 @@ transition(':enter', [
   ])
 ```
 -------------------------------
+```
+<div
+class="box"
+*ngIf="visible"
+[@box]="boxState"
+(@box.start)="animationStarted($event)"
+(@box.done)="animationDone($event)">
+	<h4>{{ boxState | uppercase }}</h4>
+</div>
+```
+
+```
+export class AppComponent {
+  boxState = 'start'
+  visible = true
+
+  animate() {
+    this.boxState = this.boxState === 'end' ? 'start' : 'end'
+  }
+
+  animationStarted(event: AnimationEvent) {
+    console.log('animationStarted', event)
+  }
+
+  animationDone(event: AnimationEvent) {
+    console.log('animationDone', event)
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
@@ -3725,6 +3755,12 @@ transition(':enter', [
 - Группировка анимаций (`group`) и последовательный запуск анимаций (`sequence`)
 - Применение анимаций по селектору
 - Шаги анимации key-frames
+- Подписка на события анимации:
+```
+[@box]="boxState"
+(@box.start)="animationStarted($event)"
+(@box.done)="animationDone($event)"
+```
 -------------------------------
 **Unit/Integration-тестирование:**
 - Тестирование html-шаблонов компонента
