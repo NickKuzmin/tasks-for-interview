@@ -11,7 +11,7 @@
 ```
 public static void BubbleSort(int[] array)
 {
-    for (int partIndex = array.Length-1; partIndex > 0; partIndex--)
+    for (int partIndex = array.Length - 1; partIndex > 0; partIndex--)
     {
         for (int i = 0; i < partIndex; i++)
         {
