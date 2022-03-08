@@ -3614,6 +3614,22 @@ export class AppComponent {
 }
 ```
 -------------------------------
+```
+transition('special <=> *', [
+	group([
+	  query('h4', animate(1500, style({
+		fontSize: '.5rem',
+		color: 'red'
+	  }))),
+	  style({ background: 'green' }),
+	  animate('1s', style({
+		background: 'pink'
+	  })),
+	  animate(750)
+	])
+])
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
