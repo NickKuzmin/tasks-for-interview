@@ -3805,6 +3805,7 @@ export class AnimateComponent implements OnInit {
 (@box.done)="animationDone($event)"
 ```
 - Библиотека `ng-animate`: https://github.com/jiayihu/ng-animate
+- Вынесение анимации в отдельный файл для импорта через свойства метаданных компонента
 -------------------------------
 **Unit/Integration-тестирование:**
 - Тестирование html-шаблонов компонента
