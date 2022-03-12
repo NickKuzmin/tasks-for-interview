@@ -567,3 +567,216 @@ public class LinkedStack<T> : IEnumerable<T>
 	}
 }
 ```
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+**Queue (Очередь):**
+
+```
+public class ArrayQueue<T> : IEnumerable<T>
+{
+	private T[] _queue;
+	private int _head;
+	private int _tail;
+
+	public ArrayQueue()
+	{
+		const int defaultCapacity = 4;
+		_queue = new T[defaultCapacity];
+	}
+
+	public ArrayQueue(int capacity)
+	{
+		_queue = new T[capacity];
+	}
+
+	public void Enqueue(T item)
+	{
+		if (_queue.Length == _tail)            
+		{
+			T[] largerArray = new T[Count * 2];
+			Array.Copy(_queue, largerArray, Count);
+			_queue = largerArray;
+		}
+
+		_queue[_tail++] = item;
+	}
+
+	public void Dequeue()
+	{
+		if (IsEmpty)
+			throw new InvalidOperationException();
+
+		_queue[_head++] = default(T);
+
+		if (IsEmpty)
+			_head = _tail = 0;
+	}
+
+	public T Peek()
+	{
+		if (IsEmpty)
+			throw new InvalidOperationException();
+		return _queue[_head];
+	}
+
+	public bool IsEmpty => Count == 0;
+
+	public int Count => _tail - _head;
+	public int Capacity => _queue.Length;
+
+	public IEnumerator<T> GetEnumerator()
+	{
+		for (int i = _head; i < _tail; i++)
+		{
+			yield return _queue[i];
+		}
+	}
+
+	IEnumerator IEnumerable.GetEnumerator()
+	{
+		return GetEnumerator();
+	}
+}
+```
+
+```
+public class CircularQueue<T> : IEnumerable<T>
+{
+	private T[] _queue;
+
+	public CircularQueue()
+	{
+		const int defaultCapacity = 4;
+		_queue = new T[defaultCapacity];
+	}
+	public CircularQueue(int capacity)
+	{
+		_queue = new T[capacity];
+	}
+
+	public void Enqueue(T item)
+	{
+		if (Count == _queue.Length - 1)
+		{
+			int countPriorResize = Count;
+			T[] newArray = new T[2*_queue.Length];
+
+			Array.Copy(_queue, _head, newArray, 0, _queue.Length - _head);
+			Array.Copy(_queue, 0, newArray, _queue.Length - _head, _tail);
+
+			_queue = newArray;
+
+			_head = 0;
+			_tail = countPriorResize;
+		}
+
+		_queue[_tail] = item;
+		if (_tail < _queue.Length - 1)
+		{
+			_tail++;
+		}
+		else
+		{
+			_tail = 0;
+		}
+	}
+
+	public void Dequeue()
+	{
+		if (IsEmpty)
+			throw new InvalidOperationException();
+		_queue[_head++] = default(T);
+
+		if (IsEmpty)
+			_head = _tail = 0;
+		else if(_head == _queue.Length)
+		{
+			_head = 0;
+		}
+	}
+
+	public T Peek()
+	{
+		if (IsEmpty)
+			throw new InvalidOperationException();
+		return _queue[_head];
+	}
+
+	public bool IsEmpty => Count == 0;
+
+	private int _head;
+	private int _tail;
+	public int Count => _head <= _tail 
+		? _tail - _head 
+		: _tail - _head + _queue.Length;
+
+	public int Capacity => _queue.Length;
+
+	public IEnumerator<T> GetEnumerator()
+	{
+		if (_head <= _tail)
+		{
+			for (int i = _head; i < _tail; i++)
+			{
+				yield return _queue[i];
+			}
+		}
+		else
+		{
+			for (int i = _head; i < _queue.Length; i++)
+			{
+				yield return _queue[i];
+			}
+
+			for (int i = 0; i < _tail; i++)
+			{
+				yield return _queue[i];
+			}
+		}
+	}
+
+	IEnumerator IEnumerable.GetEnumerator()
+	{
+		return GetEnumerator();
+	}
+}
+```
+
+```
+public class LinkedQueue<T> : IEnumerable<T>
+{
+	private readonly SinglyLinkedList<T> _list = new SinglyLinkedList<T>();
+
+	public void Enqueue(T item)
+	{
+		_list.AddLast(item);
+	}
+
+	public void Dequeue()
+	{
+		_list.RemoveFirst();
+	}
+
+
+
+	public T Peek()
+	{
+		if(IsEmpty)
+			throw new InvalidOperationException();
+		return _list.Head.Value;
+	}
+
+	public int Count => _list.Count;
+	public bool IsEmpty => Count == 0;
+
+	public IEnumerator<T> GetEnumerator()
+	{
+		return _list.GetEnumerator();
+	}
+
+	IEnumerator IEnumerable.GetEnumerator()
+	{
+		return GetEnumerator();
+	}
+}
+```
