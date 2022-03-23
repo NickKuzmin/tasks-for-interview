@@ -3718,6 +3718,21 @@ export class AnimateComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+getAll(): Observable<Post[]> {
+    return this.http.get(`${environment.fbDbUrl}/posts.json`)
+      .pipe(map((response: {[key: string]: any}) => {
+        return Object
+          .keys(response)
+          .map(key => ({
+            ...response[key],
+            id: key,
+            date: new Date(response[key].date)
+          }))
+      }))
+  }
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
