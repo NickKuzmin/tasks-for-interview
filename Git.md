@@ -10,6 +10,7 @@
 - `git status`
 - `git add`
 - `git commit -m "Message"`
+- `git commit -a -m "Message"` (= `git add` + `git commit`)
 - `git log`
 - `git diff --staged`
 - `git diff <COMMITID>`
