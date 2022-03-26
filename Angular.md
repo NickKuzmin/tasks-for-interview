@@ -4030,6 +4030,7 @@ registerLocaleData(ruLocale, 'ru')
 ```
 - Библиотека `ng-animate`: https://github.com/jiayihu/ng-animate
 - Вынесение анимации в отдельный файл для импорта через свойства метаданных компонента
+- Angular Service Worker
 -------------------------------
 **Unit/Integration-тестирование:**
 - Тестирование html-шаблонов компонента
