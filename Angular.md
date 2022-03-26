@@ -4140,6 +4140,9 @@ export class AppComponent {
 - Библиотека `ng-animate`: https://github.com/jiayihu/ng-animate
 - Вынесение анимации в отдельный файл для импорта через свойства метаданных компонента
 - Angular Service Worker
+- Движок рендеринга Ivy
+- Динамические импорты vs строчный импорт
+- AOT компиляция (Ahead of Time компиляция)
 -------------------------------
 **Unit/Integration-тестирование:**
 - Тестирование html-шаблонов компонента
