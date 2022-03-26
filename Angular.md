@@ -4,6 +4,7 @@
 - https://angdev.ru/guide/intro/start/
 - https://angdev.ru/doc/setup-and-configuration/
 - https://angdev.ru/cheatsheet/
+- https://blog.angular.io/version-9-of-angular-now-available-project-ivy-has-arrived-23c97b63cfa3
 -------------------------------
 - ```npm install -g @angular/cli```
 - ```ng new angular-basics``` (`<angular-basics` - application name-folder)
