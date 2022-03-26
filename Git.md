@@ -5,6 +5,9 @@
 - git reflog (for rebase)
 - Pull vs Fetch
 --------------------------------
+- `Fast-forward merge` - ...
+- 
+--------------------------------
 **Commands:**
 - `git init`
 - `git status`
@@ -29,3 +32,6 @@
 - `git push origin master`
 - `git pull`
 - `git clone <address>`
+- `git branch <branch name>`
+- `git branch -d <branch name>`
+- `git merge <branch name>`
