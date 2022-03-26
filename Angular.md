@@ -3934,6 +3934,12 @@ export class CreatePageComponent implements OnInit {
 }
 ```
 -------------------------------
+```
+import {registerLocaleData} from '@angular/common';
+import ruLocale from '@angular/common/locales/ru';
+registerLocaleData(ruLocale, 'ru')
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
