@@ -19,6 +19,8 @@
 
 - ```ng g s localservice --skipTests``` (```localservice``` - имя директивы)
 - - ```ng generate service localservice --skipTests```
+
+- ```ng add @angular/pwa```
 -------------------------------
 - ```.editorconfig```
 - ```.browserslistrc```
