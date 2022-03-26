@@ -15,3 +15,4 @@
 - `git diff <COMMITID>`
 - `git reset`
 - `git reset [--soft | --mixed| --hard] [commit]`
+- `git reset --hard HEAD^`
