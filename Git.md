@@ -26,3 +26,6 @@
 - `git remote -v`
 - `git remote add <name repository> <address repository>`
 - `git remote remove <name repository>`
+- `git push origin master`
+- `git pull`
+- `git clone <address>`
