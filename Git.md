@@ -31,8 +31,14 @@
 - `git remote remove <name repository>`
 - `git push origin master`
 - `git pull`
+- `git fetch`
 - `git clone <address>`
 - `git branch <branch name>`
 - `git branch -d <branch name>`
 - `git merge <branch name>`
 - `git push --delete origin <branch name>`
+- `git rebase master`
+- `git rebase master -i`
+- `git cherry-pick <commit hash>`
+- `git cherry-pick --edit <commit hash>`
+- `git cherry-pick --no-commit <commit hash>`
