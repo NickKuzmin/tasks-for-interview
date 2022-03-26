@@ -8,4 +8,4 @@
 `https://www.udemy.com/certificate/UC-f76ea0fd-fe9a-48d2-b50e-bf5dccb67883/` (23.03.2022)
 -----------------------------------------------
 **Without certificates:**
-- ...
+- **"Git: Полный курс для начинающих и не только" - 5ч:** `https://www.udemy.com/course/git-alishev/` (27.03.2022)
