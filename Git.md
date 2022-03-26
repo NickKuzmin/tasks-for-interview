@@ -10,3 +10,8 @@
 - `git status`
 - `git add`
 - `git commit -m "Message"`
+- `git log`
+- `git diff --staged`
+- `git diff <COMMITID>`
+- `git reset`
+- `git reset [--soft | --mixed| --hard] [commit]`
