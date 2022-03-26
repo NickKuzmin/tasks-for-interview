@@ -23,3 +23,6 @@
 - `git checkout HEAD~2`
 - `git clean -n`
 - `git clean -f`
+- `git remote -v`
+- `git remote add <name repository> <address repository>`
+- `git remote remove <name repository>`
