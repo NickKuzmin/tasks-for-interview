@@ -3799,6 +3799,141 @@ export class EditPageComponent implements OnInit, OnDestroy {
 }
 ```
 -------------------------------
+```
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
+
+export type AlertType = 'success' | 'warning' | 'danger'
+
+export interface Alert {
+  type: AlertType
+  text: string
+}
+
+@Injectable()
+export class AlertService {
+  public alert$ = new Subject<Alert>()
+
+  success(text: string) {
+    this.alert$.next({type: 'success', text})
+  }
+
+  warning(text: string) {
+    this.alert$.next({type: 'warning', text})
+  }
+
+  danger(text: string) {
+    this.alert$.next({type: 'danger', text})
+  }
+}
+```
+
+```
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AlertService} from '../../services/alert.service';
+import {Subscription} from 'rxjs';
+
+@Component({
+  selector: 'app-alert',
+  templateUrl: './alert.component.html',
+  styleUrls: ['./alert.component.scss']
+})
+export class AlertComponent implements OnInit, OnDestroy {
+
+  @Input() delay = 5000
+
+  public text: string
+  public type = 'success'
+
+  aSub: Subscription
+
+  constructor(private alertService: AlertService) { }
+
+  ngOnInit() {
+    this.aSub = this.alertService.alert$.subscribe(alert => {
+      this.text = alert.text
+      this.type = alert.type
+
+      const timeout = setTimeout(() => {
+        clearTimeout(timeout)
+        this.text = ''
+      }, this.delay)
+    })
+  }
+
+  ngOnDestroy(): void {
+    if (this.aSub) {
+      this.aSub.unsubscribe()
+    }
+  }
+}
+```
+
+```
+<div class="alert-wrap" *ngIf="text">
+  <div
+    class="alert"
+    [ngClass]="{
+      'alert-success': type === 'success',
+      'alert-warning': type === 'warning',
+      'alert-danger': type === 'danger'
+    }"
+  >
+    <p>{{ text }}</p>
+  </div>
+</div>
+```
+
+```
+<app-alert></app-alert>
+```
+
+```
+import {AlertService} from '../shared/services/alert.service';
+
+@Component({
+  selector: 'app-create-page',
+  templateUrl: './create-page.component.html',
+  styleUrls: ['./create-page.component.scss']
+})
+export class CreatePageComponent implements OnInit {
+
+  form: FormGroup;
+
+  constructor(
+    private postsService: PostsService,
+    private alert: AlertService
+  ) {
+  }
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      title: new FormControl(null, Validators.required),
+      text: new FormControl(null, Validators.required),
+      author: new FormControl(null, Validators.required)
+    })
+  }
+
+  submit() {
+    if (this.form.invalid) {
+      return
+    }
+
+    const post: Post = {
+      title: this.form.value.title,
+      author: this.form.value.author,
+      text: this.form.value.text,
+      date: new Date()
+    }
+
+    this.postsService.create(post).subscribe(() => {
+      this.form.reset()
+      this.alert.success('Пост был создан')
+    })
+  }
+}
+```
+-------------------------------
 **Data Binding Types:**
 1. String Interpolation: ```Syntax: {{propertyname}}``` (```{{product.title}}```)
 2. Property Binding: ```Syntax: property[value]``` (```[value]='myBlog'```)
