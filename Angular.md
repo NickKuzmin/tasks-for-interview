@@ -4043,5 +4043,6 @@ registerLocaleData(ruLocale, 'ru')
 -------------------------------
 - **Angular Service Worker** это скрипт, который исполняется в браузере и управляет кэшированием приложения. Через скрипт проходят абсолютно все HTTP-запросы, включая запросы на получение статического контента. Если запрос выполняется впервые, Service Worker дает ему дойти до сервера и сохраняет полученный ответ. При последующем таком запросе скрипт уже сам отдаст данные из кэша. Причем данные остаются в кэше даже после того как пользователь закроет вкладку браузера.
 - **RxJS** - это библиотека для реактивного программирования, которая позволит удобно организовать работу с событиями и асинхронным кодом, писать сложную логику декларативно.
+- `Notice we used the name count$ for the stream of current counter values. The dollar sign $ suffixed to a name is a soft convention to indicate that the variable is a stream. It is a naming helper to indicate types.`
 -------------------------------
 - **Angular-interview-questions-RU:** https://github.com/FedorovAlexander/Angular-interview-questions-RU
