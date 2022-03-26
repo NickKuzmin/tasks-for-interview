@@ -16,3 +16,6 @@
 - `git reset`
 - `git reset [--soft | --mixed| --hard] [commit]`
 - `git reset --hard HEAD^`
+- `git checkout <commit hash>`
+- `git checkout HEAD^^`
+- `git checkout HEAD~2`
