@@ -35,3 +35,4 @@
 - `git branch <branch name>`
 - `git branch -d <branch name>`
 - `git merge <branch name>`
+- `git push --delete origin <branch name>`
