@@ -4,3 +4,9 @@
 - Squash
 - git reflog (for rebase)
 - Pull vs Fetch
+--------------------------------
+**Commands:**
+- `git init`
+- `git status`
+- `git add`
+- `git commit -m "Message"`
