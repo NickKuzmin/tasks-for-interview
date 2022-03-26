@@ -21,3 +21,5 @@
 - `git checkout <commit hash>`
 - `git checkout HEAD^^`
 - `git checkout HEAD~2`
+- `git clean -n`
+- `git clean -f`
