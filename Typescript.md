@@ -300,3 +300,14 @@ enum StatusCode {
     InProgress
 }
 ```
+
+```
+function compute() {
+    return 3;
+}
+
+enum Roles {
+    Admin = 2,
+    User = compute()
+}
+```
