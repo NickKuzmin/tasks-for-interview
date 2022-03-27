@@ -57,6 +57,7 @@ type Person = {
     age: Age
 }
 ```
+- **Гетерогенный Enum** - ...
 ----------------------------------------------------------------
 Типы:
 
@@ -280,4 +281,22 @@ skill[0] = [2, "Dev2"]; // Error
 ```
 const skill: ReadonlyArray<string> = ["1", "Dev"];
 skill.push("2"); // Error
+```
+----------------------------------------------------------------
+**Enum:**
+
+```
+enum StatusCode {
+    Success,
+    Failed,
+    InProgress
+}
+```
+
+```
+enum StatusCode {
+    Success = 1,
+    Failed = 5,
+    InProgress
+}
 ```
