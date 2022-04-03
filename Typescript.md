@@ -69,6 +69,7 @@ type Person = {
 - **Never** - ...
 - **Null** - ...
 - **Type Guard** - ...
+- **Индексное свойство** - ...
 ----------------------------------------------------------------
 Типы:
 
@@ -404,4 +405,49 @@ let userWithRole: UserWithRole = {
     age: 18,
     roleId: 10
 };
+```
+
+**Interface:**
+```
+interface User {
+    name: string,
+    age: number
+}
+
+interface UserWithRole extends User {
+    roleId: number;
+};
+
+let userWithRole: UserWithRole = {
+    name: 'user',
+    age: 18,
+    roleId: 10
+};
+```
+
+```
+interface User {
+    name: string,
+    age: number
+}
+
+interface Role {
+   roleId: number;
+}
+
+interface UserWithRole extends User, Role {
+};
+
+let userWithRole: UserWithRole = {
+    name: 'user',
+    age: 18,
+    roleId: 10
+};
+```
+
+```
+interface User {
+    name: string,
+    log: (id: number) => string;
+}
 ```
