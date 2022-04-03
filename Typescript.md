@@ -451,3 +451,16 @@ interface User {
     log: (id: number) => string;
 }
 ```
+
+**Индексные свойство:**
+```
+interface UserDic {
+    [index: number]: User
+}
+
+type UserDic2 = {
+    [index: number]: User
+}
+
+type ud = Record<number, User>
+```
