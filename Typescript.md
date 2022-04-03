@@ -531,4 +531,12 @@ function log(user: User) {
 function log2(user: User) {
     const t = user.password!.type;
 }
+
+function log3(user: User) {
+    const t = user.password ? user.password.type : undefined;
+}
+
+function test(param?: string) {
+    const t = param ?? multiply(5);
+}
 ```
