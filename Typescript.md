@@ -555,3 +555,23 @@ const f2: voidFunc = () => {
     return 10; // Correct! Возвращаемое значение будет игнорироваться
 };
 ```
+
+**Unknown:**
+```
+let input: Unknown;
+
+input = 3;
+input = ['some', 'any'];
+```
+
+```
+let input: Unknown;
+
+let result: string = input; // compile error
+```
+
+```
+let input: any;
+
+let result: string = input; // compile okay
+```
