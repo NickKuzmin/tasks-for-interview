@@ -371,3 +371,27 @@ function fetchWithAuth(url: string, method: 'post' | 'get'): 1 | -1 {
     return 3; // error
 }
 ```
+
+**Type alias:**
+```
+type httpMethod = 'post' | 'get';
+type myStringAlias = string;
+```
+
+```
+type User = {
+    name: string,
+    age: number
+};
+
+type Role = {
+    roleId: number
+};
+
+type UserWithRole = User & Role;
+let userWithRole: UserWithRole = {
+    name: 'user',
+    age: 18,
+    roleId: 10
+};
+```
