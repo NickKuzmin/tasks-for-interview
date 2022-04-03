@@ -72,6 +72,7 @@ type Person = {
 - **Индексное свойство** - ...
 - **Type vs Interface** - ...
 - **Optional chain** - ...
+- **Void vs undefined**  - ...
 ----------------------------------------------------------------
 Типы:
 
@@ -539,4 +540,18 @@ function log3(user: User) {
 function test(param?: string) {
     const t = param ?? multiply(5);
 }
+```
+
+**Void:**
+```
+type voidFunc = () => void;
+
+const f1: voidFunc = () => {
+    console.log('f1');
+};
+
+const f2: voidFunc = () => {
+    console.log('f2');
+    return 10; // Correct! Возвращаемое значение будет игнорироваться
+};
 ```
