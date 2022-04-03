@@ -71,6 +71,7 @@ type Person = {
 - **Type Guard** - ...
 - **Индексное свойство** - ...
 - **Type vs Interface** - ...
+- **Optional chain** - ...
 ----------------------------------------------------------------
 Типы:
 
@@ -514,4 +515,20 @@ function multiply(first: number, second?: number = 5) {
 }
 
 multiply(10);
+```
+
+```
+interface User {
+    password?: {
+        type: 'primary' | 'secondary'
+    }
+}
+
+function log(user: User) {
+    const t = user.password?.type;
+}
+
+function log2(user: User) {
+    const t = user.password!.type;
+}
 ```
