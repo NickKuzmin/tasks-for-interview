@@ -477,3 +477,25 @@ const user: User = {
     login: 'userlogin'
 };
 ```
+
+```
+type User = {
+    login: string;
+    password?: string
+}
+
+const user: User = {
+    login: 'userlogin'
+};
+```
+
+```
+type User = {
+    login: string;
+    password: string | undefined
+}
+
+const user: User = {
+    login: 'userlogin' // error: should be password = string | undefined
+};
+```
