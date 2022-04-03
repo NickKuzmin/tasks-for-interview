@@ -575,3 +575,8 @@ let input: any;
 
 let result: string = input; // compile okay
 ```
+
+```
+type U1 = unknown | number;
+type U2 = unknown & number;
+```
