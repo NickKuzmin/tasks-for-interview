@@ -499,3 +499,19 @@ const user: User = {
     login: 'userlogin' // error: should be password = string | undefined
 };
 ```
+
+```
+function multiply(first: number, second: number = 5) {
+    return first * number;
+}
+
+multiply(10);
+```
+
+```
+function multiply(first: number, second?: number = 5) {
+    return first * number;
+}
+
+multiply(10);
+```
