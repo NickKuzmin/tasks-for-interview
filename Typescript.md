@@ -605,9 +605,15 @@ const a: never = 1; // compile error
 const b: void = undefined; // compile OK
 ```
 
-
 **Приведение типов:**
 ```
 let stringValue: string = new String('some'); // compile error
 let stringValue2: string = new String('some').valueOf(); // compile OK
+```
+
+**Type Guard:**
+```
+function isAdmin(user: User | Admin): user is Admin {
+    return (user as Admin).role !== undfined;
+}
 ```
