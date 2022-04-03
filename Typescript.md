@@ -70,6 +70,7 @@ type Person = {
 - **Null** - ...
 - **Type Guard** - ...
 - **Индексное свойство** - ...
+- **Type vs Interface** - ...
 ----------------------------------------------------------------
 Типы:
 
@@ -463,4 +464,16 @@ type UserDic2 = {
 }
 
 type ud = Record<number, User>
+```
+
+**Optional:**
+```
+interface User {
+    login: string;
+    password?: string
+}
+
+const user: User = {
+    login: 'userlogin'
+};
 ```
