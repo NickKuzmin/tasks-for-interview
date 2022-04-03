@@ -580,3 +580,27 @@ let result: string = input; // compile okay
 type U1 = unknown | number;
 type U2 = unknown & number;
 ```
+
+**Never:**
+```
+function generateError(message: string) : never {
+    throw new Error(message);
+}
+```
+
+```
+function dumpError() : never {
+    while(true) {}
+}
+```
+
+```
+function recursive() : never {
+    return recursive();
+}
+```
+
+```
+const a: never = 1; // compile error
+const b: void = undefined; // compile OK
+```
