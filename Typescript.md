@@ -1271,3 +1271,19 @@ const a2: ReponseT = {
 	result: 'httpSuccess'
 }
 ```
+------------------------------------------------------------------------------------------
+**Partial/Required/Readonyl:**
+
+```
+interface User {
+	name: string;
+	age?: number;
+}
+
+type partial = Partial<User>;
+const p: partial = {};
+
+type required = Required<User>;
+type readonly = Readonly<User>;
+type readonlyAndRequired = Readonly<Required<User>>;
+```
