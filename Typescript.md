@@ -1128,3 +1128,32 @@ const userName = getValue(user, 'name');
 const userAge = getValue(user, 'age');
 const result = getValue(user, 'name2'); // Compile error
 ```
+------------------------------------------------------------------------------------------
+**Индексное свойство:**
+
+```
+interface Role {
+	name: string;
+}
+
+interface User {
+	name: string;
+	roles: Role[];
+}
+
+const user: User = {
+	name: 'Ivan',
+	roles: []
+}
+
+const nameUser = user['name'];
+let roleNames: 'roles' = 'roles';
+
+type roleType = User['roles'];
+type roleType = User2[typeof roleNames];
+
+type roleType = User['roles'][number];
+
+const roles = ['admin', 'user', 'super-user'] as const;
+type roleTypes = typeof roles[number];
+```
