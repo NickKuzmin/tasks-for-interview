@@ -617,3 +617,514 @@ function isAdmin(user: User | Admin): user is Admin {
     return (user as Admin).role !== undfined;
 }
 ```
+----------------------------------------------------------------
+```
+class User {
+	name: string;
+	
+	constructor(name: string) {
+		this.name = name;
+	}
+}
+```
+
+```
+class User {
+	name!: string;
+}
+```
+
+```
+class User {
+	name: string;
+	
+	constructor();
+	constructor(name: string);
+	constructor(name?: string) {
+		if (typeof name === 'string') {
+			this.name = name;
+		}
+	}
+}
+
+var user1 = new User('Ivan');
+var user2 = new User();
+```
+
+```
+class User {
+	name: string;
+	
+	constructor();
+	constructor(name: string);
+	constructor(age: number);
+	constructor(ageOrName?: string | number) {
+		if (typeof ageOrName === 'string') {
+			this.name = ageOrName;
+		} else if (typeof ageOrName === 'string') {
+			this.age = ageOrName;
+		}
+	}
+}
+
+var user1 = new User('Ivan');
+var user2 = new User();
+var user3 = new User(33);
+```
+
+
+```
+strictPropertyInitialization
+```
+------------------------------------------------------------------------------------------
+```
+enum PaymentStatus {
+	Holded,
+	Processed
+}
+
+class Payment {
+	id: number;
+	status: PaymentStatus;
+	createdAt: Date;
+	updatedAt: Date;
+	
+	constructor(id: number) {
+		this.id = id;
+		this.createdAt = new Date();
+		this.status = PaymentStatus.Holded;
+	}
+	
+	getPaymentLifeTime(): number {
+		return new Date().getTime() - this.createdAt.getTime();
+	}
+	
+	unholdPayment() {
+		this.status = PaymentStatus.Processed;
+	}
+	
+	unholdPayment2(): void {
+		this.status = PaymentStatus.Processed;
+	}
+}
+```
+
+```
+enum PaymentStatus {
+	Holded,
+	Processed
+}
+
+class Payment {
+	id: number;
+	status: PaymentStatus = PaymentStatus.Holded;
+	createdAt: Date = new Date();
+	updatedAt: Date;
+	
+	constructor(id: number) {
+		this.id = id;
+	}
+}
+```
+------------------------------------------------------------------------------------------
+**Перегрузки методов:**
+
+```
+class User {
+	skills: string[];
+	
+	addSkills(skills: string): void;
+	addSkills(skills: string[]): void;
+	addSkills(skills: string | string[]): void {
+		if (typeof skills === 'string') {
+			this.skills.push(skills);
+		} else {
+			this.skills.concat(skills);
+		}
+	} 
+}
+```
+
+```
+function run(distance: string): string;
+function run(distance: number): number;
+function run(distance: number | string): number | string {
+	if (typeof distance === 'string') {
+		return 1;
+	} else {
+		return '';
+	}
+}
+```
+------------------------------------------------------------------------------------------
+**Setter/Getter:**
+
+```
+class User {
+	_login: string;
+	
+	set login(loginValue: string) {
+		this._login = 'user-' + loginValue;
+	}
+	
+	get login() {
+		return this._login;
+	}
+}
+
+const user = new User();
+user.login = 'Ivan';
+```
+
+```
+class User {
+	_login: string;
+	
+	set login(loginValue: string | number) {
+		this._login = 'user-' + loginValue;
+	}
+	
+	get login() {
+		return this._login;
+	}
+}
+```
+
+```
+Сеттеры/Геттеры не могут быть асинхронными.
+```
+------------------------------------------------------------------------------------------
+**Extends:**
+
+```
+class Payment {
+	id: number;
+	statis: string;
+	
+	constructor(id: number) {
+		this.id = id;
+	}
+	
+	pay() {
+		this.status = 'paid';
+	}
+}
+
+class PersistedPayment extends Payment {
+	databaseId: number;
+	paidAt: Date;
+	
+	constructor() {
+		const id = Math.random();
+		super(id);
+	}
+	
+	save() {
+		// ...
+	}
+	
+	pay(date?: Date) {
+		// this.status = 'paid';
+		super.pay();
+		if (date) {
+			this.paidAt = date;
+		}
+	}
+}
+```
+
+```
+class Payment {
+	id: number;
+	statis: string;
+	
+	constructor(id: number) {
+		this.id = id;
+	}
+	
+	pay() {
+		this.status = 'paid';
+	}
+}
+
+class PersistedPayment extends Payment {
+	databaseId: number;
+	paidAt: Date;
+	
+	constructor() {
+		const id = Math.random();
+		super(id);
+	}
+	
+	save() {
+		// ...
+	}
+	
+	override pay(date?: Date) {
+		// this.status = 'paid';
+		super.pay();
+		if (date) {
+			this.paidAt = date;
+		}
+	}
+}
+```
+
+- Переопределяемый конструктор необязательно должен совпапдать с конструктором наследуемого класса.
+- Конструкторы производного класса должны вызывать конструктор базового класса через super.
+- Override - дополнительная проверка на этапе компиляции, если в базовом классе метод будет удален.
+------------------------------------------------------------------------------------------
+**Порядок вызова в конструкторе и наследовании:**
+
+- Обращения к параметрам класса в классе наследние перед super.
+- Сначала вызывается inline-инициализация поля класса, а потом уже инициализация в конструкторе.
+
+```
+class User {
+	name: string = 'user';
+	
+	constructor() {
+		console.log(this.name);
+	}
+}
+
+class Admin extends User {
+	name: string = 'admin';
+	
+	constructor() {
+		console.log(this.name);
+		super(); // Запрещено вызывать super после обращения к полям
+	}
+}
+```
+------------------------------------------------------------------------------------------
+**Видимость свойств:**
+
+```
+class Venicle {
+	private make: string;
+	protected run: number;
+	#price: number;
+	
+	set model(m: string) {
+		this.#price = 100;
+	}
+}
+
+class EuroVenicle extends Venicle {
+	setRun(km: number) {
+		this.run = km / 0.62;
+	}
+}
+```
+------------------------------------------------------------------------------------------
+**Статическое свойство:**
+
+```
+class UserService {
+	static db: any;
+}
+```
+
+```
+class UserService {
+	private static db: any;
+	
+	static getUser(id: number) {
+		return this.db.findById(id);
+	}
+}
+```
+------------------------------------------------------------------------------------------
+**Контекст this:**
+
+```
+class Payment {
+	private date: Date = new Date();
+
+	getDate(this: Payment) {
+		return this.date;
+	}
+	
+	getArrowDate = () => {
+		return this.date;
+	}
+}
+
+const payment = new Payment();
+const user = {
+	id: 1,
+	paymentDate: p.getDate.bind(payment),
+	paymentArrowDate: p.getArrowDate
+};
+
+class PaymentPersistent extends Payment {
+	save() {
+		var result = super.getDate(); // OK
+		return this.getArrowDate(); // NOT: super.getArrowDate();
+	}
+}
+```
+------------------------------------------------------------------------------------------
+**Типизация this:**
+
+```
+class UserBuilder {
+	name: string;
+	
+	setName(name: string): this { // this for inherited builders
+		this.name = name;
+		return this;
+	}
+	
+	isAdmin(): this is AdminBuilder {
+		return this is instanceof AdminBuilder;
+	}
+}
+
+class AdminBuilder {
+	roles: string[];
+}
+
+const result = new UserBuilder().setName('Ivan');
+const result2 = new AdminBuilder().setName('Ivan');
+```
+------------------------------------------------------------------------------------------
+**Абстрактный класс:**
+
+```
+abstract class Controller {
+	abstract handle(req: any): void;
+	
+	handleWithLogs(req: any) {
+		console.log('before');
+		handle(req);
+		console.log('after');
+	}
+}
+
+class UserController extends Controller {
+	handle(req: any): void {
+		console.log(req);
+	}
+}
+```
+------------------------------------------------------------------------------------------
+**Архитектура Typescript:**
+
+- Language Service
+- TSC (Standalone component)
+- Core Typescript Compiler
+
+**ts.config:**
+- `files`
+- `include`
+- `exclude`
+- `extends`
+- `allowjs`
+- `outdir`
+- `removeComments`
+- `noEmit`
+- `importsNotUsedAsValues`
+- `sourceMap`
+- `declaration` (d.ts-файлы)
+- `stringInternal` (убирает код, помеченный `@internal`)
+- `nonUsedLocals`
+- `nonUsedParameters`
+- `@ts-ignore`
+- `allowUnreachableCode`
+------------------------------------------------------------------------------------------
+**Generic:**
+
+```
+function logMiddleware<T>(data: T) {
+	console.log(data);
+	return data;
+}
+
+const result = logMiddleware('1');
+const result2 = logMiddleware<string>('1');
+```
+
+```
+function logMiddleware<TValue>(data: TValue) {
+	console.log(data);
+	return data;
+}
+```
+
+```
+interface IVenicle {
+	run: number;
+}
+
+interface IVenicleAdvanced extends IVenicle {
+	capacity: number;
+}
+
+function kmToMiles<T extends IVenicle>(venicle: T): T {
+	venicle.run = venicle.run / 0.62;
+	return venicle;
+}
+```
+------------------------------------------------------------------------------------------
+**Mixins:**
+
+```
+type Constructor = new (...args: any[]) => {}
+type GConstructor<T = {}> = new (...args: any[]) => T
+
+class List {
+	constructor(public items: string[]) { }
+}
+
+class Accordion {
+	isOpened: boolean;
+}
+
+type ListType = GConstructor<List>;
+type AccordionType = GConstructor<Accordion>;
+
+class ExtendedListClass extends List {
+	first() {
+		return this.items[0];
+	}
+}
+
+class ExtendedListClass<TBase extends ListType & AccordionType>(Base: TBase) {
+	return class ExtendedListClass extends Base {
+		first() {
+			return this.items[0];
+		}
+	}
+}
+
+class AccordionList {
+	isOpened: boolean;
+	constructor(public items: string[]) { }
+}
+```
+------------------------------------------------------------------------------------------
+**Манипуляция с типами:**
+
+```
+interface IUser {
+	name: string;
+	age: number;
+}
+
+type KeysOfUser = keyof User;
+
+function getValue<T, K extends keyof T>(obj: T, key: K) {
+	return obj[key];
+}
+
+const user: IUser = {
+	name: 'Ivan',
+	age: 30
+};
+
+const userName = getValue(user, 'name');
+const userAge = getValue(user, 'age');
+const result = getValue(user, 'name2'); // Compile error
+```
