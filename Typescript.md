@@ -1249,3 +1249,25 @@ type UserAccess1 = {
 	adminPanel?: boolean;
 }
 ```
+------------------------------------------------------------------------------------------
+**Template Literal Types:**
+
+```
+type ReadOrWrite = 'read' | 'write';
+
+type Access = `can${Capitalize<ReadOrWrite>}`;
+
+type ReadOrWriteBulk<T> = T extends `can${infer R}` ? R : never;
+
+type T = ReadOrWriteBulk<Access>;
+
+type ErrorOrSuccess = 'error' | 'success';
+
+type ReponseT = {
+	result: `http${Capitalize<ErrorOrSuccess>}`
+}
+
+const a2: ReponseT = {
+	result: 'httpSuccess'
+}
+```
