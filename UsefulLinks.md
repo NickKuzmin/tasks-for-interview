@@ -13,3 +13,6 @@
 - https://no-ip.com
 - CSS Comparison: https://csspre.com/compare/
 - Resume Constructor: https://app.enhancv.com
+- Miro board: https://miro.com/
+- Ninja Mock: https://ninjamock.com/
+- Mockups: https://wireframe.cc/
