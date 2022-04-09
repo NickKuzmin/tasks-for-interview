@@ -1327,3 +1327,25 @@ type PT2 = Parameters<typeof getdata>[0];
 type CP = ConstructorParameters<typeof User>;
 type IT = InstanceType<typeof User>;
 ```
+------------------------------------------------------------------------------------------
+**Awaited:**
+
+```
+type A = Awaited<Promise<string>>; // string
+type A2 = Awaited<Promise<Promise<<string>>>; // string
+
+interface IMenu {
+	name: string;
+	url: string;
+}
+
+async function getMenu(): Promise<IMenu[]> {
+	return [{ name: 'Analytics', url: 'analytics' }];
+}
+
+type R = Awaited<ReturnType<typeof getMenu>>; // IMenu[]
+
+async function getArray<T>(x: T): Promise<Awaited<T>>[]> {
+	return [await x];
+}
+```
