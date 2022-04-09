@@ -1207,3 +1207,21 @@ function getUser2<T extends string| number>(id: T): UserOrUserPersistend<T> {
 	}
 }
 ```
+------------------------------------------------------------------------------------------
+**Infer:**
+
+```
+function runTransaction(transaction: {
+	from: [string, string]
+}) {
+	console.log(transaction);
+}
+
+const transaction: GetFirstArg<typeof runTransaction> = {
+	from: ['1', '2']
+}
+
+runTransaction(transaction);
+
+type GetFirstArg<T> = T extends (first: infer First, ...args: any[]) => any ? First : never;
+```
