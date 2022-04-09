@@ -1225,3 +1225,27 @@ runTransaction(transaction);
 
 type GetFirstArg<T> = T extends (first: infer First, ...args: any[]) => any ? First : never;
 ```
+------------------------------------------------------------------------------------------
+**Mapped types:**
+
+```
+type Modified = 'read' | 'update' | 'create';
+
+type UserRoles = {
+	customers?: Modified,
+	projects?: Modified,
+	adminPanel?: Modified,
+}
+
+type ModifierToAccess<Type> = {
+	[Property in keyof Type]: boolean;
+}
+
+type UserAccess2 = ModifierToAccess<UserRoles>;
+
+type UserAccess1 = {
+	customers?: boolean;
+	projects?: boolean;
+	adminPanel?: boolean;
+}
+```
