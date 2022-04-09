@@ -1272,7 +1272,7 @@ const a2: ReponseT = {
 }
 ```
 ------------------------------------------------------------------------------------------
-**Partial/Required/Readonyl:**
+**Partial/Required/Readonly:**
 
 ```
 interface User {
@@ -1286,4 +1286,21 @@ const p: partial = {};
 type required = Required<User>;
 type readonly = Readonly<User>;
 type readonlyAndRequired = Readonly<Required<User>>;
+```
+------------------------------------------------------------------------------------------
+**Partial/Required/Readonly:**
+
+```
+interface PaymentPersistent {
+	id: number;
+	sum: number;
+	from: string;
+	to: string;
+}
+
+type PaymentOmitType = Omit<PaymentPersistent, 'id'>;
+type PaymentPickType = Pick<PaymentPersistent, 'from' | 'to'>;
+
+type ExtractPaymentType = Extract<'from' | 'to' | Payment, string>;
+type ExcludePaymentType = Exclude<'from' | 'to' | Payment, string>;
 ```
