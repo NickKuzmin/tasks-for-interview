@@ -88,6 +88,7 @@
 - https://russianblogs.com/article/58331088274/
 - https://blog.byndyu.ru/2014/07/command-and-query-responsibility.html
 - https://habr.com/ru/post/488054/
+- https://habr.com/ru/company/tuturu/blog/326716/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
