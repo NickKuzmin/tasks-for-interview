@@ -87,6 +87,7 @@
 - https://stackify.com/net-core-vs-net-framework/
 - https://russianblogs.com/article/58331088274/
 - https://blog.byndyu.ru/2014/07/command-and-query-responsibility.html
+- https://habr.com/ru/post/488054/
 ------------------------------
 **Прочитанное:**
 - 14 вопросов об индексах в SQL Server, которые вы стеснялись задать https://habr.com/ru/post/247373/
