@@ -16,6 +16,10 @@
 --------------------------------------------
 - **Идентификатор объекта (Object Identifier, OID)** используется внутри Postgres Pro в качестве первичного ключа различных системных таблиц. В пользовательские таблицы столбец OID добавляется, только если при создании таблицы указывается WITH OIDS или включён параметр конфигурации default_with_oids. Идентификатор объекта представляется в типе oid. 
 --------------------------------------------
+**Отношения таблиц:**
+
+- `Один ко многим` - 
+--------------------------------------------
 - Составной vs Покрывающий индекс
 - Индекс представления (VIEW)
 - Плюсы создания ластеризованного индекса не по первичному ключу
@@ -170,10 +174,20 @@ ID UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() PRIMARY KEY,
 ```
 CREATE TABLE Book
 (
-	Id integer NOT NULL,
+	Id INT NOT NULL,
 	Title NVARCHAR(MAX) NOT NULL,
 	CONSTRAINT PK_Book_Id PRIMARY KEY (Id)
 );
+
+INSERT INTO Book
+VALUES
+(1, 'Title #1'),
+(2, 'Title #2'),
+(3, 'Title #3'),
+(4, 'Title #4')
+
+ALTER TABLE Book
+ADD PublisherId INT NOT NULL;
 ```
 --------------------------------------------
 - How to Create Login, User & Assign Permissions in SQL Server: https://www.guru99.com/sql-server-create-user.html
