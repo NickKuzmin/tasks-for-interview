@@ -1,3 +1,3 @@
 ```
-DROP TABLE book IF EXISTS;
+DROP TABLE IF EXISTS books;
 ```
