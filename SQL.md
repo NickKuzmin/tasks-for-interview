@@ -1,3 +1,8 @@
+- **DDL (Data Definition Language)** - `CREATE`, `ALTER`, `DROP`
+- **DML (Data Manipulation Language)** - `SELECT`, `INSERT`, `UPDATE`, `DELETE`
+- **TCL (Transaction Control Language)** - `COMMIT`, `ROLLBACK`, `SAVEPOINT`
+- **DCL (Data Control Language)** - `GRANT`, `REVOKE`, `DENY`
+--------------------------------------------
 - Составной vs Покрывающий индекс
 - Индекс представления (VIEW)
 - Плюсы создания ластеризованного индекса не по первичному ключу
