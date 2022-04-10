@@ -194,6 +194,11 @@ VALUES
 ALTER TABLE Book
 ADD PublisherId INT NOT NULL;
 ```
+
+```
+SELECT DISTINCT CountryCode
+FROM Address
+```
 --------------------------------------------
 - How to Create Login, User & Assign Permissions in SQL Server: https://www.guru99.com/sql-server-create-user.html
 --------------------------------------------
