@@ -3,6 +3,11 @@
 - **TCL (Transaction Control Language)** - `COMMIT`, `ROLLBACK`, `SAVEPOINT`
 - **DCL (Data Control Language)** - `GRANT`, `REVOKE`, `DENY`
 --------------------------------------------
+- `nchar` and `nvarchar` can store Unicode characters.
+- `char` and `varchar` cannot store Unicode characters.
+- `char` and `nchar` are fixed-length which will reserve storage space for number of characters you specify even if you don't use up all that space.
+- `varchar` and `nvarchar` are variable-length which will only use up spaces for the characters you store. It will not reserve storage like char or nchar.
+--------------------------------------------
 - Составной vs Покрывающий индекс
 - Индекс представления (VIEW)
 - Плюсы создания ластеризованного индекса не по первичному ключу
