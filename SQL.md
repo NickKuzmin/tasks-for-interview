@@ -211,6 +211,28 @@ FROM Address
 SELECT DISTINCT City, CountryCode
 FROM Address
 ```
+
+```
+SELECT *
+FROM Book
+WHERE Code <> 'ISBN 4003'
+```
+
+```
+SELECT *
+FROM Book
+WHERE Id BETWEEN 20 AND 40
+
+SELECT *
+FROM Book
+WHERE CreatedAt BETWEEN '2022-01-01 10:10:00' AND '2023-01-01 10:10:00'
+```
+
+```
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 10
+```
 --------------------------------------------
 - How to Create Login, User & Assign Permissions in SQL Server: https://www.guru99.com/sql-server-create-user.html
 --------------------------------------------
