@@ -233,6 +233,46 @@ SELECT TOP 10 *
 FROM Book
 WHERE Id > 10
 ```
+
+```
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 10
+UNION
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 20
+```
+
+```
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 10
+UNION ALL
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 20
+```
+
+```
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 10
+INTERSECT
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 20
+```
+
+```
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 10
+EXCEPT
+SELECT TOP 10 *
+FROM Book
+WHERE Id > 20
+```
 --------------------------------------------
 - How to Create Login, User & Assign Permissions in SQL Server: https://www.guru99.com/sql-server-create-user.html
 --------------------------------------------
