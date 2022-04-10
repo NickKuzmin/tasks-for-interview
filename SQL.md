@@ -207,6 +207,9 @@ WHERE CountryCode = 'USA'
 
 SELECT COUNT(DISTINCT CountryCode)
 FROM Address
+
+SELECT DISTINCT City, CountryCode
+FROM Address
 ```
 --------------------------------------------
 - How to Create Login, User & Assign Permissions in SQL Server: https://www.guru99.com/sql-server-create-user.html
