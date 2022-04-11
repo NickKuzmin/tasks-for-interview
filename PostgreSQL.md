@@ -41,3 +41,53 @@ SELECT *
 FROM orders
 NATURAL JOIN employees
 ```
+---------------------------------------------- 
+```
+CREATE SEQUENCE seq1;
+
+SELECT nextval('seq1');
+SELECT currval('seq1');
+SELECT lastval();
+
+SELECT setval('seq1', 16, true);
+```
+
+```
+CREATE SEQUENCE IF NOT EXISTS seq2 INCREMENT 16;
+```
+
+```
+CREATE SEQUENCE IF NOT EXISTS seq3
+INCREMENT 16
+MINVALUE 0
+MAXVALUE 128
+START WITH 0;
+```
+
+```
+CREATE TABLE book
+(
+	book_id INT NOT NULL
+);
+
+CREATE SEQUENCE IF NOT EXISTS book_book_id_seq
+START WITH 1 OWNED 1 BY book.book_id;
+
+ALTER TABLE book
+ALTER COLUMN book_id SET DEFAULT nextval('book_book_id_seq');
+```	
+----------------------------------------------
+**Запрет на самостоятельное указание идентификатора:**
+
+```
+CREATE Table book
+(
+	book_id int GENERATED ALWAYS AS IDENTITY NOT NULL
+);
+
+-- INSERT INTO book VALUES(1);
+INSERT INTO book
+OVERRIDING SYSTEM VALUE
+VALUES(1);
+```
+----------------------------------------------
