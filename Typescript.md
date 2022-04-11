@@ -1349,3 +1349,222 @@ async function getArray<T>(x: T): Promise<Awaited<T>>[]> {
 	return [await x];
 }
 ```
+------------------------------------------------------------------------------------------
+- Декораторы:
+1) Декораторы класса
+2) Декораторы метода
+3) Декораторы свойств
+
+- Инициализация идет в порядке сверху вниз. Исполняется - в обратном порядке (снизу вверх). Порядок влияет. Имеет смысл для логирования ошибок и др.
+
+```
+@nullUser
+@threeUserAdvanced
+class UserService {
+	users: number = 1000;
+	
+	getUsersInDatabase(): number {
+		return this.users;
+	}
+}
+
+function nullUser(target: Function) {
+	target.prototype.users = 0;
+}
+
+function threeUserAdvanced<T extends { new(..args: any[]): {} }>(constructor: T) {
+	return class extends constructor {
+		users = 3;
+	};
+}
+```
+-----------------------------------------
+**Фабрика декораторов:**
+
+```
+@setUsers(2)
+@setUsersAdvanced(4)
+class UserService {
+	users: number = 1000;
+	
+	getUsersInDatabase(): number {
+		return this.users;
+	}
+}
+
+function setUsers(users: number) {
+	return (target: Function) => {
+		target.prototype.users = users;
+	};
+}
+
+function setUsersAdvanced<T extends { new(..args: any[]): {} }>(constructor: T) {
+	return <T extends { new(..args: any[]): {} }>(constructor: T) {
+		return class extends constructor {
+			users = 3;
+		};
+	}
+}
+```
+-----------------------------------------
+**Декоратор метода:**
+
+```
+class UserService {
+	users: number = 1000;
+	
+	@Catch({ rethrow: true })
+	getUsersInDatabase(): number {
+		throw new Error('Error Message');
+	}
+}
+
+function Catch({ rethrow }: { rethrow: boolean } = { rethrow: true }) {
+	return (
+		target: Object,
+		_: string | symbol,
+		descriptor: TypedPropertyDescriptor<(...args: any[]) => any>
+	): TypedPropertyDescriptor<(...args: any[]) => any | void => {
+		const method = descriptor.value;
+		descriptor.value = (..args: any[]) => {
+			try {
+				return method?.apply(target, args);
+			} catch(e) {
+				if (e instanceof Error) {
+					console.log(e.message);
+					if (rethrow) {
+						throw e;
+					}
+				}
+			}
+		}
+	}
+}
+```
+-----------------------------------------
+**Декоратор свойств:**
+
+```
+class UserService {
+	@Max(100)
+	users: number = 10;
+}
+
+function Max(max: number) {
+	return (
+		target: Object,
+		propertyKey: string | symbol
+	) => {
+		let value: number;
+		const setter = function(newValue: number) {
+			if (newValue > max) {
+				console.log(`Can not set value greater than ${max}`);
+			} else {
+				value = newValue;
+			}
+		}
+		
+		const getter = function() {
+			return value;
+		}
+		
+		Object.defineProperty(target, propertyKey, {
+			set: setter,
+			get: getter
+		});
+	}
+}
+```
+-----------------------------------------
+**Декоратор accessor:**
+
+```
+class UserService {
+	private _users: number;
+	
+	@Log()
+	set users(num: number) {
+		this._users = num;
+	}
+	
+	get users() {
+		return this._users;
+	}
+}
+
+function Log() {
+	return (
+		target: Object,
+		_: string | symbol,
+		descriptor: PropertyDescriptor
+	) => {
+		const set = descriptor.set;
+		descriptor.set = (...args: any) => {
+			console.log(args);
+			set?.apply(target, args);
+		}
+	}
+}
+```
+-----------------------------------------
+**Декоратор параметра:**
+
+```
+class UserService {
+	private _users: number;
+	
+	
+	setUsersInDatabase(@Positive() num: number, @Positive() num2: number): void {
+		return this._users;
+	}
+}
+
+function Positive() {
+	return (
+		target: Object,
+		propertyKey: string | symbol,
+		parameterIndex: number
+	) => {
+		console.log(Reflect.getOwnMetadata('design:type', target, propertyKey);
+		console.log(Reflect.getOwnMetadata('design:paramtypes', target, propertyKey);
+		console.log(Reflect.getOwnMetadata('design:returntype', target, propertyKey);
+	}
+}
+```
+-----------------------------------------
+**Namespaces:**
+
+```
+namespace A {
+	export cons a = 5;
+	
+	export interface B {
+		c: number;
+	}
+}
+```
+
+```
+import { A } from './module/app2'
+
+console.log(A.a);
+```
+
+```
+import run, { a, type MyType2 } from './module/app2'
+import running from './module/app2'
+import * as all from './module/app2'
+import { Test as CL } from './module/app2'
+import { type MyType } from './module/app2'
+
+console.log(all.a);
+```
+-----------------------------------------
+**D.ts:**
+
+```
+declare module 'really-relaxed-json' {
+	export function toJson(rjsonString: string, compact?: boolean): string;
+}
+```
+-----------------------------------------
