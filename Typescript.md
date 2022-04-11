@@ -1729,3 +1729,66 @@ var result = new ImageBuilder()
 	.build();
 ```
 -----------------------------------------
+**Bridge:**
+
+```
+interface IProvider {
+	sendMessage(message: string): void;
+	connect(config: string): void;
+	disconnect(): void;
+}
+
+class TelegramProvider implements IProvider {
+	sendMessage(message: string): void {
+		// Telegram specific
+	}
+	
+	connect(message: string): void {
+		// Telegram specific
+	}
+	
+	disconnect(): void {
+		// Telegram specific
+	}
+}
+
+class WhatsUpProvider implements IProvider {
+	sendMessage(message: string): void {
+		// WhatsUp specific
+	}
+	
+	connect(message: string): void {
+		// WhatsUp specific
+	}
+	
+	disconnect(): void {
+		// WhatsUp specific
+	}
+}
+
+class NotificationSender {
+	constructor(private provider: IProvider) {}
+	
+	send(): void {
+		this.provider.connect('connect');
+		this.provider.sendMessage('connect');
+		this.provider.disconnect();
+	}
+}
+
+class DelayedNotificationSender extends NotificationSender {
+	constructor(private provider: IProvider) {
+		super(provider);
+	}
+	
+	send(): void {
+		// Delayed sending
+	}
+}
+
+const sender = new NotificationSender(new TelegramProvider());
+sender.send();
+
+const sender2 = new NotificationSender(new WhatsUpProvider());
+sender2.send();
+```
