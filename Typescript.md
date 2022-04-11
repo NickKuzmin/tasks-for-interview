@@ -1792,3 +1792,52 @@ sender.send();
 const sender2 = new NotificationSender(new WhatsUpProvider());
 sender2.send();
 ```
+-----------------------------------------
+**Facade:**
+
+```
+class NotificationService {
+	send(template: string, to: string): void {
+		console.log(`Send ${template}: ${to}`);
+	}
+}
+
+class LogService {
+	log(message: string): void {
+		console.log(message);
+	}
+}
+
+console TemplateService {
+	private templates = [
+		{ name: 'other', template: '<div>Info:</div>'
+	];
+	
+	getByName(name: string): void {
+		return this.templates.find(t => t.name === name);
+	}
+}
+
+class NotificationFacade {
+	private notificationService: NotificationService;
+	private logger: LogService;
+	private templateService: TemplateService;
+	
+	constructor() {
+		this.notificationService = new NotificationService();
+		this.logger = new LogService();
+		this.templateService = new TemplateService();
+	}
+	
+	send(to: string, templateName: string) {
+		const data = this.templateService.getByName(templateName);
+		if (!data) {
+			this.logger.log('Not found');
+			return;
+		}
+		
+		this.notificationService.send(data.template, to);
+		this.logger.log('Sent');
+	}
+}
+```
