@@ -91,3 +91,15 @@ OVERRIDING SYSTEM VALUE
 VALUES(1);
 ```
 ----------------------------------------------
+**RETURNING:**
+```
+INSERT INTO book (title)
+VALUES ('Title #1')
+RETURNING book_id;
+```
+
+```
+INSERT INTO book (title)
+VALUES ('Title #1')
+RETURNING *;
+```
