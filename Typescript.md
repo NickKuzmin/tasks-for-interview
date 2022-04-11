@@ -1567,4 +1567,61 @@ declare module 'really-relaxed-json' {
 	export function toJson(rjsonString: string, compact?: boolean): string;
 }
 ```
------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+**Factory:**
+
+```
+interface IInsurance {
+	id: number;
+	status: string;
+	submit(): Promise<boolean>;
+}
+
+class TFInsurance implements IInsurance {
+	id: number;
+	status: string;
+	
+	async submit(): Promise<boolean> {
+		const response = await fetch('TF-url', {
+			method: 'POST',
+			body: JSON.stringify({ id: this.id })
+		});
+		
+		const data = await res.json();
+		return data.isSuccess;
+	}
+}
+
+class ABInsurance implements IInsurance {
+	id: number;
+	status: string;
+	
+	async submit(): Promise<boolean> {
+		const response = await fetch('AB-url', {
+			method: 'POST',
+			body: JSON.stringify({ id: this.id })
+		});
+		
+		const data = await res.json();
+		return data.isSuccess;
+	}
+}
+
+abstract class InsuranceFactory {
+	abstract createInstance(): IInsurance;
+}
+
+class TFInsuranceFactory extends InsuranceFactory {
+	createInstance(): TFInsurance {
+		return new TFInsurance();
+	}
+}
+
+class ABInsuranceFactory extends InsuranceFactory {
+	createInstance(): TFInsurance {
+		return new ABInsurance();
+	}
+}
+```
