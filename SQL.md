@@ -313,7 +313,169 @@ FROM authors
 WHERE rating >= 4.5
 ```
 --------------------------------------------
+--------------
+```
+ALTER TABLE exam
+DROP CONSTRAINT exam_unique_id;
 
+ALTER TABLE exam
+ADD PRIMARY KEY(exam_id);
+```
+
+```
+CREATE TABLE book
+(
+	book_id int,
+	CONSTRAINT pk_book_book_id PRIMARY KEY(book_id),
+	CONSTRAINT fk_book_publisher FOREIGN KEY(publisher_id) REFERENCES publisher(publisher_id)
+);
+```
+
+```
+ALTER TABLE book
+ADD COLUMN weight decimal CONSTRAINT chk_book_weight CHECK (weight > 0 AND weight < 100);
+```
+
+```
+ALTER TABLE book
+ADD CONSTRAINT chk_book_weight CHECK (weight > 0 AND weight < 100);
+```
+
+```
+CREATE TABLE book
+(
+	book_id int,
+	grade int DEFAULT 1
+);
+```
+
+```
+ALTER TABLE book
+ALTER COLUMN grade DROP DEFAULT
+```
+--------------
+- **Нормальная форма** - свойство отношения, характеризующее его с точки зрения избыточности.
+- **Нормализация** - процесс минимизации избыточности отношения (приведение к НФ).
+
+- **1-ая нормальная форма:**
+1) Нет строк-дубликатов
+2) Все атрибуты простых типов данных
+3) Все значения - скалярные
+
+- **2-ая нормальная форма:**
+1) Удовлетворяет 1-ой НФ
+2) Есть первичный ключ
+3) Все атрибуты (поля) описывают первичный ключ целиком, а не лишь его частью
+
+- **3-ья нормальная форма:**
+1) Удовлетворяет 2-ой НФ
+2) Нет зависимостей одних неключевых атрибутов от других (все атрибуты зависят только от первичных ключей)
+--------------
+- **View (Представление)** - сохраненный запрос в виде объекта БД (виртуальная таблица)
+- Типы представлений:
+1) Временные
+2) Рекурсивные
+3) Обновляемые
+4) Материализуемые
+
+```
+CREATE VIEW view_name AS
+SELECT select_statement;
+```
+
+```
+CREATE OR REPLACE VIEW view_name AS
+SELECT select_statement;
+```
+
+```
+ALTER VIEW view_name RENAME to new_view_name;
+
+DROP VIEW IF EXISTS view_name;
+```
+
+```
+DELETE FROM view_name
+WHERE where_statement;
+
+INSERT INTO view_name
+VALUES (...);
+```
+
+```
+CREATE VIEW view_name AS
+SELECT select_statement
+WHERE where_statement
+WITH LOCAL CHECK OPTION;
+
+-- Insert не отработает, если вставляется запись, не удовлетрворяющая WHERE данной View
+```
+
+```
+CREATE VIEW view_name AS
+SELECT select_statement
+WHERE where_statement
+WITH CASCADE CHECK OPTION;
+
+-- Insert не отработает каскадно через другие View, если вставляется запись, не удовлетрворяющая WHERE данной View
+```
+--------------
+```
+CASE
+	WHEN condition1 THEN result1
+	WHEN condition2 THEN result2
+	WHEN condition3 THEN result3
+	ELSE resultn
+```
+
+```
+SELECT order_id, order_description,
+	CASE WHEN unit_part > 30 THEN 'Expensive'
+	CASE WHEN unit_part < 30 THEN 'Not Expensive'
+	ELSE 'normal'
+FROM orders
+```
+--------------
+```
+COALESCE(arg1, arg2, ...)
+```
+
+```
+NULLIF(arg1, arg2)
+```
+
+```
+SELECT order_id, COALESCE(ship_region, 'Unknown') as ship_region
+FROM orders
+```
+
+```
+SELECT order_id, COALESCE(NULLIF(city, '')) as city
+FROM orders
+```
+
+```
+SELECT order_id, COALESCE(order_id::text, 'no orders') as order_id
+FROM orders
+```
+
+```
+SELECT CONCUT(last_name, ' ', first_name)
+FROM orders
+```
+--------------
+- **Функции** - объект БД, принимающий аргументы и возвращающий результат.
+- Функции (хранимые процедуры) - компилируемы и хранятся на стороне БД, вызов стоит дешево.
+- Могут содержать SELECT, INSERT, UPDATE, DELETE (CRUD)
+- НЕ могут содержать COMMIT, SAVEPOINT, VACUUM.
+
+```
+CREATE FUNCTION func_name(arg1, arg2, ..., argn) RETURNS data_type AS $$
+
+--.. logic
+
+$$ LANGUAGE lang
+```
 --------------------------------------------
 - How to Create Login, User & Assign Permissions in SQL Server: https://www.guru99.com/sql-server-create-user.html
 --------------------------------------------
