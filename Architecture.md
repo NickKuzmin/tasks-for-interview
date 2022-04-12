@@ -1,2 +1,3 @@
 - API First
 - Chaos Engineering
+- Hype driven development
