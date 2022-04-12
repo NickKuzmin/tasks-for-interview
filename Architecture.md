@@ -16,3 +16,6 @@
 5.	Event-Driven
 6.	Microservices
 ---------------------------------------------
+- WSDL
+- SOAP
+- REST
