@@ -1876,3 +1876,624 @@ function run(base: KeyValueDatabase) {
 
 run(new PersistentDatabaseAdapter(new PersistentDatabase()));
 ```
+---------------------------------------------------------
+**Proxy:**
+
+```
+inteface IPaymentApi {
+	getPaymentDetail(id: number): IPaymentDetail | undefined;
+}
+
+interface IPaymentDetail {
+	id: number;
+	sum: number;
+}
+
+class PaymentApi implements IPaymentApi {
+	private data = [{ id: 1, sum: 1000 }];
+	
+	getPaymentDetail(id: number): IPaymentDetail | undefined {
+		return this.data.find(d => d.id === id);
+	}
+}
+
+class PaymentAccessProxy implements IPaymentApi {
+	constructor(private api: IPaymentApi, private userId: number) {}
+	
+	getPaymentDetail(id: number): IPaymentDetail | undefined {
+		if (this.userId === 1) {
+			return this.api.getPaymentDetail(id);
+		}
+		
+		console.log('Attempt to get access');
+		return undefined;
+	}
+}
+
+const proxy = new PaymentAccessProxy(new PaymentApi(), 1);
+console.log(proxy.getPaymentDetail(1));
+
+const proxy2 = new PaymentAccessProxy(new PaymentApi(), 2);
+console.log(proxy2.getPaymentDetail(2));
+```
+---------------------------------------------------------
+**Composite:**
+
+```
+abstract class DeliveryItem {
+	items: DeliveryItem[];
+	
+	addItem(item: DeliveryItem) {
+		this.items.push(item);
+	}
+	
+	getItemPrices(): number {
+		return this.items.reduce((acc: number, i: DeliveryItem) => acc + i.getPrice(), 0);
+	}
+	
+	abstract getPrice(): number;
+}
+
+export class DeliveryShop extends DeliveryItem {
+	constructor(private deliveryFee: number) {
+		super();
+	}
+	
+	getPrice(): number {
+		return this.getItemPrices() + this.deliveryFee;
+	}
+}
+
+export class Package extends DeliveryItem {	
+	getPrice(): number {
+		return this.getItemPrices() + this.deliveryFee;
+	}
+}
+
+export class Product extends DeliveryItem {
+	constructor(private price: number) {
+		super();
+	}
+	
+	getPrice(): number {
+		return this.price;
+	}
+}
+```
+
+---------------------------------------------------------
+**Chain of Command:**
+
+```
+interface IMiddleware {
+	next(middleware: IMiddleware): IMiddleware;
+	handle(request: any): any;
+}
+
+abstract class AbstractMiddleware implements IMiddleware {
+	private nextMiddleware: IMiddleware;
+	
+	next(middleware: IMiddleware) : IMiddleware {
+		this.nextMiddleware = middleware;
+		return middleware;
+	}
+	
+	handle(request: any) {
+		if (this.middleware) {
+			return this.middleware.handle(request);
+		}
+		
+		return;
+	}
+}
+
+class AuthMiddleware implements AbstractMiddleware {	
+	override handle(request: any) {
+		if (request.userId === 1) {
+			return this.middleware.handle(request);
+		}
+		
+		return { error: 'Not authorized' };
+	}
+}
+
+class ValidateMiddleware implements AbstractMiddleware {	
+	override handle(request: any) {
+		if (request.body) {
+			return this.middleware.handle(request);
+		}
+		
+		return { error: 'No body' };
+	}
+}
+
+class ControllerMiddleware implements AbstractMiddleware {	
+	override handle(request: any) {
+		return { sucess: true };
+	}
+}
+
+const controllerMiddleware = new ControllerMiddleware();
+const validateMiddleware = new ValidateMiddleware();
+const authMiddleware = new AuthMiddleware();
+
+authMiddleware.next(validateMiddleware).next(controllerMiddleware);
+```
+---------------------------------------------------------
+**Mediator:**
+
+```
+interface Mediator {
+	notify(sender: string, event: string): void;
+}
+
+class NotificationService {
+	send() {
+		console.log('Send notification');
+	}
+}
+
+class Logger {
+	log() {
+		console.log('Logging');
+	}
+}
+
+abstract class Mediated {
+	mediator: Mediator;
+	setMediator(mediator: Mediator) {
+		this.mediator = mediator;
+	}
+}
+
+class EventHandler {
+	myEvent() {
+		this.mediator.notify('EventHandler', 'myEvent');
+	}
+}
+
+class NotificatationMediator extends Mediator {
+	constructor(
+		public notificationService: NotificationService,
+		public logger: Logger,
+		public eventHandler: EventHandler
+	) {}
+	
+	notify(_: string, event: string): void {
+		switch (event):
+			case 'myEvent':
+				this.notificationService.send();
+				this.logger.log('Sent');
+				break;
+	}
+}
+
+const eventHandler = new EventHandler();
+const logger = new Logger();
+const notificationService = new NotificationService();
+
+const notificatationMediator = new NotificatationMediator(notificationService, logger, eventHandler);
+eventHandler.setMediator(notificatationMediator);
+eventHandler.myEvent(); 
+```
+---------------------------------------------------------
+**Command:**
+
+```
+class User {
+	constructor(public userId: number) {}
+}
+
+class CommandHistory {
+	public commands: Command[] = [];
+	
+	push(command: Command) {
+		this.commands.push(command);
+	}
+	
+	remove(command: Command) {
+		this.commands = this.commands.filter(c => c.commandId !== command.commandId);
+	}
+}
+
+abstract class Command {
+	public commandId: number;
+	
+	abstract execute(): void;
+	
+	constructor(public history: CommandHistory) {
+		this.commandId = Math.random();
+	}
+}
+
+class AddUserCommand extends Command {	
+	constructor(
+		private user: User,
+		private receiver: UserService,
+		history: CommandHistory
+	) {
+		super(history);
+	}
+	
+	execute: void {
+		this.receiver.saveUser(this.user);
+		this.history.push(this);
+	}
+	
+	undo: void {
+		this.receiver.deleteUser(this.user);
+		this.history.remove(this);
+	}
+}
+
+class UserService {
+	saveUser(user: User) {
+		console.log(`Saving user with id ${user.userId}`);
+	}
+	
+	deleteUser(user: User) {
+		console.log(`Deleting user with id ${user.userId}`);
+	}
+}
+
+class Controller {
+	receiver: UserService;
+	history: CommandHistory = new CommandHistory();
+	
+	addReceiver(receiver: UserService) {
+		this.receiver = receiver;
+	}
+
+	run() {
+		const addUserCommand = new AddUserCommand(
+			new User(1),
+			this.receiver,
+			this.history
+		);
+		
+		addUserCommand.execute();
+		console.log(addUserCommand.history);
+		addUserCommand.undo();
+		console.log(addUserCommand.history);
+	}
+}
+
+const controller = new Controller();
+controller.addReceiver(new UserService());
+controller.run();
+```
+---------------------------------------------------------
+**State:**
+
+```
+class DocumentItem {
+	public text: string;
+	public state: DocumentItemState;
+	
+	constructor() {
+		this.setState(new DraftDocumentItemState());
+	}
+	
+	getState() {
+		return this.state;
+	}
+	
+	setState(state: DocumentItemState) {
+		this.state = state;
+		this.state.setContext(this);
+	}
+	
+	publishDoc() {}
+	
+	deleteDoc() {}
+}
+
+abstract class DocumentItemState {
+	public name: string;
+	public item: DocumentItem;
+	
+	public setContext(item: DocumentItem) {
+		this.item = item;
+	}
+	
+	public abstract publish(): void;
+	public abstract delete(): void;
+}
+
+class DraftDocumentItemState extends DocumentItemState {
+	constructor() {
+		super();
+		this.name = 'DraftDocument';
+	}
+	
+	public publish(): void {
+		console.log('Text was sent');
+		this.item.setState(new PublishDocumentItemState());
+	}
+	
+	public delete(): void {
+		console.log('Document was removed');
+	}
+}
+
+class PublishDocumentItemState extends DocumentItemState {
+	constructor() {
+		super();
+		this.name = 'PublishDocument';
+	}
+	
+	public publish(): void {
+		console.log('Published document could not be published');
+	}
+
+	public delete(): void {
+		console.log('Status was changed to Draft');
+		this.item.setState(new DraftDocumentItemState());
+	}
+}
+
+const documentItem = new DocumentItem();
+item.text = 'My post';
+console.log(item.getState());
+item.publish();
+console.log(item.getState());
+item.delete();
+```
+---------------------------------------------------------
+**Strategy:**
+
+```
+class User {
+	githubToken: string;
+	jwnToken: string;
+}
+
+interface AuthStrategy {
+	auth(user: User): boolean;
+}
+
+class Auth {
+	constructor(private strategy: AuthStrategy) {}
+	
+	setStrategy(strategy: AuthStrategy) {
+		this.strategy = strategy;
+	}
+	
+	public authUser(user: User): boolean {
+		return this.strategy.auth(user);
+	}
+}
+
+class JWTStrategy implements AuthStrategy {
+	auth(user: User): boolean {
+		if (user.jwnToken) {
+			return true;
+		}
+		
+		return false;
+	}
+}
+
+class GithubStrategy implements AuthStrategy {
+	auth(user: User): boolean {
+		if (user.githubToken) {
+			return true;
+		}
+		
+		return false;
+	}
+}
+
+const user = new User();
+user.jwnToken = 'jwnToken';
+const auth = new Auth(new JWTStrategy());
+console.log(auth.authUser(user));
+auth.setStrategy(new GithubStrategy());
+console.log(auth.authUser(user));
+```
+---------------------------------------------------------
+**Iterator:**
+
+```
+class Task {
+	constructor(public priority: number) {}
+}
+
+class TaskList {
+	private task: Task[];
+	
+	public sortByPriority {
+		this.tasks = this.tasks.sort((a, b) => {
+			if (a.priority > b.priority) {
+				return 1;
+			} else if (a.priority == b.priority) {
+				return 0;
+			} else {
+				return -1;
+			}
+		});
+	}
+	
+	public addTask(task: Task) {
+		this.tasks.push(task);
+	}
+	
+	public getTasks() {
+		return this.tasks;
+	}
+	
+	public count() {
+		return this.tasks.length;
+	}
+	
+	public getIterator() {
+		return new PriorityTaskIterator(this);
+	}
+}
+
+interface IIterator<T> {
+	current(): T | undefined;
+	next(): T | undefined;
+	previous(): T | undefined;
+	index(): number;
+}
+
+class PriorityTaskIterator implements IIterator<Task> {
+	private position: number = 0;
+	private taskList: TaskList;
+	
+	constructor(taskList: TaskList) {
+		taskList.sortByPriority();
+		this.taskList = taskList;
+	}
+	
+	current(): Task | undefined {
+		return this.taskList.getTasks()[this.position];
+	}
+	
+	next(): Task | undefined {
+		this.position += 1;
+		return this.taskList.getTasks()[this.position];
+	}
+	
+	previous(): Task | undefined {
+		this.position -= 1;
+		return this.taskList.getTasks()[this.position];
+	}
+	
+	index: number {
+		return this.position;
+	}
+}
+
+const taskList = new TaskList();
+taskList.addTask(new Task(8));
+taskList.addTask(new Task(1));
+taskList.addTask(new Task(3));
+const iterator = taskList.getIterator();
+console.log(iterator.current());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.previous());
+console.log(iterator.index());
+```
+---------------------------------------------------------
+**Template method:**
+
+```
+class Form {
+	constructor(public name: string) {}
+}
+
+abstract class SaveForm<T> {
+	public save(form: Form) {
+		const result = this.fill(form);
+		this.log(result);
+		this.send(result);
+	}
+	
+	protected abstract fill(form: Form): T;
+	
+	protected log(data: T): void {
+		console.log(data);
+	}
+	
+	protected abstract send(form: Form): void;
+}
+
+class FirstApi extends SaveForm<string> {
+	protected fill(name: string): string {
+		return form.name;
+	}
+	
+	protected send(data: string): void {
+		console.log(`Sending ${data}`);
+	}
+}
+
+class SecondApi extends SaveForm<{ fullName: string}> {
+	protected fill(name: string): { fullName: string} {
+		return form.name;
+	}
+	
+	protected send(data: { fullName: string}): void {
+		console.log(`Sending ${data}`);
+	}
+}
+
+const firstApi = new FirstApi();
+firstApi.save(new Form('Ivan'));
+
+const secondApi = new SecondApi();
+secondApi.save(new Form('Ivan'));
+```
+---------------------------------------------------------
+**Observer:**
+
+```
+inteface Observer {
+	update(subject: Subject): void;
+}
+
+interface Subject {
+	attach(observer: Observer): void;
+	detach(observer: Observer): void;
+	notify: void;
+}
+
+class Lead {
+	constructor(public name: string, public phone: string) {}
+}
+class NewLead implements Subject {
+	private observers: Observer[] = [];
+	
+	attach(observer: Observer): void {
+		if (this.observers.includes(observer)) {
+			return;
+		}
+		
+		this.observers.push(observer);
+	}
+	
+	detach(observer: Observer): void {
+		const observerIndex = this.observers.indexOf(observer);
+		if (observerIndex === -1) {
+			return;
+		}
+		
+		this.observers.splice(observerIndex, 1);
+	}
+	
+	notify(): void {
+		for (const observer of this.observers) {
+			observer.update(this);
+		}
+	}
+}
+
+class NotificationService implements Observer {
+	update(subject: Subject): void {
+		console.log('NotificationService got notification');
+		console.log(subject);
+	}
+}
+
+class LeadService implements Observer {
+	update(subject: Subject): void {
+		console.log('LeadService got notification');
+		console.log(subject);
+	}
+}
+
+const subject = new NewLead();
+subject.state = new Lead('Ivan', '1000');
+const notificationService = new NotificationService();
+const leadService = new LeadService();
+
+subject.attach(notificationService);
+subject.attach(leadService);
+subject.notify();
+subject.detach(notificationService);
+subject.detach(leadService);
+subject.notify();
+```
