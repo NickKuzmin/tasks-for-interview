@@ -37,3 +37,7 @@
 - ACID
 - CAP
 - BASE (Basic availability, soft state, eventual consistency)
+---------------------------------------------
+- Распределенные транзакции:
+1) Внутренние
+2) Гетерогенные
