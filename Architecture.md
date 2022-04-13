@@ -34,4 +34,6 @@
 6) Source IP hash
 7) Accurate load distribution
 ---------------------------------------------
-
+- ACID
+- CAP
+- BASE (Basic availability, soft state, eventual consistency)
