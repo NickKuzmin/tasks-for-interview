@@ -1,6 +1,7 @@
 - API First
 - Chaos Engineering
 - MVP (minimum viable product) - ...
+- Zero tolerance
 - Hype driven development
 ---------------------------------------------
 **Durability:**
