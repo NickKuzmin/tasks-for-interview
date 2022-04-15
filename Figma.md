@@ -3,3 +3,4 @@
 - Library
 ----------------------------------------------
 - Show version history
+- Share
