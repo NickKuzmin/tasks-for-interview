@@ -68,3 +68,6 @@ https://temofeev.ru/info/articles/strategii-deploya-v-kubernetes-rolling-recreat
 ---------------------------------------------
 **Архитектура Docker:**
 https://docs.docker.com/get-started/overview/
+
+**Файловая система Docker:**
+https://docs.docker.com/storage/storagedriver/overlayfs-driver/
