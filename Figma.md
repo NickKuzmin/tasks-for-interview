@@ -10,7 +10,7 @@
 - Move tool
 - Shape tool
 ----------------------------------------------
-- Design tab: `Align bottom`, `Align top`, `Rotation`, `Corner radius`, `Independent radius`
+- Design tab: `Align bottom`, `Align top`, `Rotation`, `Corner radius`, `Independent radius`, `Cornet smoothing`
 ----------------------------------------------
 **Short cuts:**
 - `R` - rectangle
