@@ -9,6 +9,7 @@
 ----------------------------------------------
 - Move tool
 - Shape tool
+- Кривые Безье
 ----------------------------------------------
 - Design tab: `Align bottom`, `Align top`, `Rotation`, `Corner radius`, `Independent radius`, `Cornet smoothing`
 ----------------------------------------------
