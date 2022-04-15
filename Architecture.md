@@ -67,10 +67,10 @@ https://temofeev.ru/info/articles/strategii-deploya-v-kubernetes-rolling-recreat
 - Dark (скрытые) или А/В-развертывания
 ---------------------------------------------
 **Архитектура Docker:**
-https://docs.docker.com/get-started/overview/
+- https://docs.docker.com/get-started/overview/
 
 **Файловая система Docker:**
-https://docs.docker.com/storage/storagedriver/overlayfs-driver/
+- https://docs.docker.com/storage/storagedriver/overlayfs-driver/
 ---------------------------------------------
 - **Time series database (TSDB)** - ...
 ---------------------------------------------
