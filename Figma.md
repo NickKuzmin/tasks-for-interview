@@ -10,6 +10,7 @@
 - Move tool
 - Shape tool
 - Кривые Безье
+- Режимы наложения слоев
 ----------------------------------------------
 - Design tab: `Align bottom`, `Align top`, `Rotation`, `Corner radius`, `Independent radius`, `Cornet smoothing`
 ----------------------------------------------
@@ -18,3 +19,4 @@
 - `Shift+R`
 - `<arrow up>`/`<arrow down>` - увеличивать или уменьшать ширину или численные значения
 - `ALT` + move single corner
+- `CTRL+D` 
