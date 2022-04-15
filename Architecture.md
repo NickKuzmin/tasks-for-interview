@@ -1,3 +1,4 @@
+- Time to market 
 - API First
 - Chaos Engineering
 - MVP (minimum viable product) - ...
