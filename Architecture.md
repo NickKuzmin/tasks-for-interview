@@ -64,3 +64,6 @@ https://temofeev.ru/info/articles/strategii-deploya-v-kubernetes-rolling-recreat
 - Blue/Green (сине-зеленые развертывания)
 - Canary (канареечные развертывания)
 - Dark (скрытые) или А/В-развертывания
+---------------------------------------------
+**Архитектура Docker:**
+https://docs.docker.com/get-started/overview/
