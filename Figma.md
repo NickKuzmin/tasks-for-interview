@@ -5,3 +5,4 @@
 - Show version history
 - Share
 - Inspect (Code)
+- Keyboards shortcut
