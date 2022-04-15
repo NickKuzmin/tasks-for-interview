@@ -55,3 +55,12 @@
 - Kubernetes
 - Openshift
 - Apache Mesos
+---------------------------------------------
+**Стратегии деплоя:**
+https://temofeev.ru/info/articles/strategii-deploya-v-kubernetes-rolling-recreate-blue-green-canary-dark-a-b-testirovanie/
+
+- Rolling (постепенный, «накатываемый» деплой)
+- Recreate (повторное создание)
+- Blue/Green (сине-зеленые развертывания)
+- Canary (канареечные развертывания)
+- Dark (скрытые) или А/В-развертывания
