@@ -4,3 +4,4 @@
 ----------------------------------------------
 - Show version history
 - Share
+- Inspect (Code)
