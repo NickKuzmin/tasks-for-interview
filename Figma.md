@@ -10,9 +10,10 @@
 - Move tool
 - Shape tool
 ----------------------------------------------
-- Design: `Align bottom`, `Align top`
+- Design tab: `Align bottom`, `Align top`, `Rotation`, `Corner radius`, `Independent radius`
 ----------------------------------------------
 **Short cuts:**
 - `R` - rectangle
 - `Shift+R`
 - `<arrow up>`/`<arrow down>` - увеличивать или уменьшать ширину или численные значения
+- `ALT` + move single corner
