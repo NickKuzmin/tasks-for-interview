@@ -6,3 +6,5 @@
 - Share
 - Inspect (Code)
 - Keyboards shortcut
+----------------------------------------------
+- Shape tool
