@@ -13,6 +13,7 @@
 - Режимы наложения слоев
 - Fill (`Solid`, `Linear`, `Radial`, `Angular`, `Diamond`)
 - Stroke
+- Pen + `Shift`
 ----------------------------------------------
 - Design tab: `Align bottom`, `Align top`, `Rotation`, `Corner radius`, `Independent radius`, `Cornet smoothing`
 ----------------------------------------------
