@@ -103,3 +103,17 @@ INSERT INTO book (title)
 VALUES ('Title #1')
 RETURNING *;
 ```
+----------------------------------------------
+**Functions:**
+
+```
+CREATE OR REPLACE FUNCTION fix_customer_region() RETURNS void AS $$
+	UPDATE tmp_customers
+	SET region = 'unknown'
+	WHERE region IS NULL
+$$ LANGUAGE SQL;
+```
+
+```
+SELECT fix_customer_region();
+```
