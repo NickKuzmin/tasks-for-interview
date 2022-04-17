@@ -568,3 +568,17 @@ CREATE INDEX <index_name> ON <table_name> USING HASH (column_name))
 - `GIN (обобщенный обратный)`
 - `SP-GiST (GiST с двоичным разбиением пространства)`
 - `BRIN (блочный-диапазонный)`
+----------------------------------------------
+**Explain:**
+
+```
+EXPLAIN query
+```
+
+```
+EXPLAIN ANALYZE query
+```
+
+```
+ANALYZE [table_name[(column1, columne2, ...)]]
+```
