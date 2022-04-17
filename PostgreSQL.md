@@ -591,7 +591,7 @@ CREATE INDEX idx_performance_test_annotation ON performance_test(annotation));
 EXPLAIN
 SELECT *
 FROM performance_test
-WHERE annotation LIKE '%AB%'
+WHERE annotation LIKE 'AB%'
 ```
 
 ```
@@ -600,5 +600,6 @@ CREATE INDEX idx_performance_test_annotation ON performance_test(LOWER(annotatio
 EXPLAIN
 SELECT *
 FROM performance_test
-WHERE LOWER(annotation) LIKE '%ab%'
+WHERE LOWER(annotation) LIKE 'ab%'
 ```
+----------------------------------------------
