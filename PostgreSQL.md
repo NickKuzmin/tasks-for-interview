@@ -582,3 +582,23 @@ EXPLAIN ANALYZE query
 ```
 ANALYZE [table_name[(column1, columne2, ...)]]
 ```
+----------------------------------------------
+**Индекс по выражению:**
+
+```
+CREATE INDEX idx_performance_test_annotation ON performance_test(annotation));
+
+EXPLAIN
+SELECT *
+FROM performance_test
+WHERE annotation LIKE '%AB%'
+```
+
+```
+CREATE INDEX idx_performance_test_annotation ON performance_test(LOWER(annotation)));
+
+EXPLAIN
+SELECT *
+FROM performance_test
+WHERE LOWER(annotation) LIKE '%ab%'
+```
