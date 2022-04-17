@@ -434,3 +434,32 @@ BEGIN
 END$$;
 ```
 ----------------------------------------------
+**RETURN NEXT:**
+
+```
+CREATE OR REPLACE FUNCTION returns_int(n int) RETURNS SETOF int AS $$
+BEGIN
+	RETURN NEXT 1;
+	RETURN NEXT 2;
+	RETURN NEXT 3;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+```
+CREATE OR REPLACE FUNCTION after_christmas_sale() RETURNS SETOF products AS $$
+BEGIN
+	FOR product in SELECT * FROM products
+	LOOP
+		IF product.category_id in (1, 4, 8) THEN
+			product.unit_price = product.unit_price * 0.8;
+		ELSE
+			product.unit_price = product.unit_price * 1.1;
+		END IF;
+		
+		RETURN NEXT product;
+	END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+```
+----------------------------------------------
