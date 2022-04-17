@@ -34,6 +34,10 @@
 -------------------------------------------------------------
 # Книги для прочтения:
 
+- Price M.J. - C# 10 and .NET 6 [2021, PDF, ENG]
+
+- J. Albahari / Дж. Албахари - C# 10 in a Nutshell: The Definitive Reference [2022, EPUB, ENG]
+
 - Бестселлеры O'Reilly - Boris Cherny / Борис Черный - Programming TypeScript. Making Your JavaScript Applications Scale / Профессиональный TypeScript. Разработка масштабируемых JavaScript-приложений [2021, PDF, RUS]
 
 - Дэн Вандеркам - Эффективный TypeScript [2020, PDF, RUS]
