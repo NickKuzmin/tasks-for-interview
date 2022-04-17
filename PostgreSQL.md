@@ -511,3 +511,37 @@ $$ LANGUAGE plpgsql;
 SELECT get_season_caller(15);
 ```
 ----------------------------------------------
+**Приведение типов:**
+
+```
+CREATE OR REPLACE FUNCTION type_testing(money_val float8) RETURNS void AS $$
+BEGIN
+	RAISE NOTICE 'ran %', money_val
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT type_testing(0.5);
+SELECT type_testing(0.5::float4);
+SELECT type_testing(1);
+```
+
+```
+CREATE OR REPLACE FUNCTION type_testing(money_val int) RETURNS void AS $$
+BEGIN
+	RAISE NOTICE 'ran %', money_val
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT type_testing(1);
+SELECT type_testing(0.5::int);
+SELECT type_testing(0.4::int);
+SELECT type_testing(CAST(0.5 as int)));
+
+--SELECT type_testing('1.5');
+--SELECT type_testing('1.5'::int);
+SELECT type_testing('1.5'::numeric::int);
+
+SELECT 'abc' || 1;
+SELECT ' 10 ' == 10;
+```
+----------------------------------------------
