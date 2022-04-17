@@ -142,3 +142,51 @@ $$ LANGUAGE SQL;
 SELECT get_avg_price();
 ```
 ----------------------------------------------
+- `IN` - входящие аргументы
+- `OUT` - исходящие аргументы
+- `INOUT` - и входящие, и исходящие аргументы
+- `VARIADIC` - массив входящих параметров
+- `DEFAULT` value
+
+```
+CREATE OR REPLACE FUNCTION get_product_by_name(prod_name varchar) RETURNS real AS $$
+	SELECT unit_price
+	FROM products
+	WHERE product_name = prod_name
+$$ LANGUAGE SQL;
+
+SELECT get_product_by_name('Chocolate') as price;
+```
+
+```
+CREATE OR REPLACE FUNCTION get_price_bounderies(OUT max_price real, OUT min_price real) RETURNS real AS $$
+	SELECT MAX(unit_price), MIN(unit_price)
+	FROM products
+$$ LANGUAGE SQL;
+
+SELECT get_price_bounderies();
+SELECT * FROM get_price_bounderies();
+```
+
+```
+CREATE OR REPLACE FUNCTION get_price_bounderies_by_discontinuity(IN fs_discontinued int, OUT max_price real, OUT min_price real) RETURNS real AS $$
+	SELECT MAX(unit_price), MIN(unit_price)
+	FROM products
+	WHERE discontinued = fs_discontinued
+$$ LANGUAGE SQL;
+
+SELECT get_price_bounderies_by_discontinuity(100);
+SELECT * FROM get_price_bounderies_by_discontinuity(100);
+```
+
+```
+CREATE OR REPLACE FUNCTION get_price_bounderies_by_discontinuity(IN fs_discontinued int DEFAULT 1, OUT max_price real, OUT min_price real) RETURNS real AS $$
+	SELECT MAX(unit_price), MIN(unit_price)
+	FROM products
+	WHERE discontinued = fs_discontinued
+$$ LANGUAGE SQL;
+
+SELECT get_price_bounderies_by_discontinuity();
+SELECT * FROM get_price_bounderies_by_discontinuity();
+```
+----------------------------------------------
