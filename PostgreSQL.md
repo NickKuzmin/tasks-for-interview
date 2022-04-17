@@ -117,3 +117,28 @@ $$ LANGUAGE SQL;
 ```
 SELECT fix_customer_region();
 ```
+----------------------------------------------
+**Scalar functions:**
+
+```
+CREATE OR REPLACE FUNCTION get_total_number_of_goods() RETURNS bigint AS $$
+	SELECT SUM(unit_price)
+	FROM products
+$$ LANGUAGE SQL;
+```
+
+```
+SELECT get_total_number_of_goods();
+```
+
+```
+CREATE OR REPLACE FUNCTION get_avg_price() RETURNS float8 AS $$
+	SELECT AVG(unit_price)
+	FROM products
+$$ LANGUAGE SQL;
+```
+
+```
+SELECT get_avg_price();
+```
+----------------------------------------------
