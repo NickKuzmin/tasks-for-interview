@@ -249,3 +249,65 @@ SELECT * FROM get_customers_by_country('USA');
 SELECT contact_name, company_name FROM get_customers_by_country('USA');
 ```
 ----------------------------------------------
+**Возврат и присвоение:**
+
+```
+CREATE OR REPLACE FUNCTION get_max_price_from_disk() RETURNS real AS $$
+BEGIN
+	RETURN max(init_price)
+	FROM products
+	WHERE discontinued = 1;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT get_max_price_from_disk();
+```
+
+```
+CREATE OR REPLACE FUNCTION get_price_bounderies(OUT max_price real, OUT min_price real) AS $$
+BEGIN
+	max_price := MAX(unit_price) FROM products;
+	min_price := MIN(unit_price) FROM products;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT get_price_bounderies();
+```
+
+```
+CREATE OR REPLACE FUNCTION get_price_bounderies(OUT max_price real, OUT min_price real) AS $$
+BEGIN
+	SELECT MAX(unit_price), MIN(unit_price)
+	INTO max_price, min_price
+	FROM products;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT get_price_bounderies();
+SELECT * FROM get_price_bounderies();
+```
+
+```
+CREATE OR REPLACE FUNCTION get_sum(x int, y int, out result int) AS $$
+BEGIN
+	result := x + y;
+	RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_sum(2, 3);
+```
+
+```
+CREATE OR REPLACE FUNCTION get_customers_by_country(customer_country varchar) RETURNS SETOF customers AS $$
+BEGIN
+	RETURN QUERY
+	SELECT *
+	FROM customers
+	WHERE  country = customer_country;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_customers_by_country('USA');
+```
+----------------------------------------------
