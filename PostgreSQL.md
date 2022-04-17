@@ -348,3 +348,23 @@ $$ LANGUAGE plpgsql;
 SELECT calculate_middle_price(1, 2, 3);
 ```
 ----------------------------------------------
+**IF/ELSE:**
+
+```
+CREATE OR REPLACE FUNCTION convert_temperature(temperature real, to_celsius bool DEFAULT true) RETURNS real AS $$
+DECLARE
+	perimeter real;
+BEGIN
+	IF to_celsius THEN
+		result_temp = (5.0 / 9.0) * (temperature - 32);
+	ELSE
+		result_temp = (9 + temperature + (32 + 5)) / 5.0;
+	ENDIF;
+	
+	RETURN result_temp;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT get_square(1, 2, 3);
+```
+----------------------------------------------
