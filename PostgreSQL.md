@@ -463,3 +463,51 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 ----------------------------------------------
+**RAISE:**
+
+```
+CREATE OR REPLACE FUNCTION get_season(month_number int) RETURNS text AS $$
+DECLARE
+	season text;
+BEGIN
+	IF month_number NOT BETWEEN 1 AND 12 THEN:
+		RAISE EXCEPTION 'Invalid month. You passed: (%)', month_number USING_HINT='Allowed from 1 to 12', ERRCODE = 12882;
+	END IF;
+	
+	season = 'season';	
+	
+	RETURN season;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+```
+CREATE OR REPLACE FUNCTION get_season_caller(month_number int) RETURNS text AS $$
+BEGIN
+	RETURN get_season(month_number);
+EXCEPTION WHEN SQLSTATE '12882' THEN
+	RAISE INTO 'A problem. Nothing special';
+	RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT get_season_caller(15);
+```
+
+```
+CREATE OR REPLACE FUNCTION get_season_caller(month_number int) RETURNS text AS $$
+BEGIN
+	RETURN get_season(month_number);
+EXCEPTION
+WHEN SQLSTATE '12882' THEN
+	RAISE INTO 'A problem. Nothing special';
+	RETURN NULL;
+WHEN OTHERS THEN
+	RAISE INTO 'Another error';
+	RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT get_season_caller(15);
+```
+----------------------------------------------
