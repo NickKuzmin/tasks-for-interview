@@ -16,3 +16,4 @@
 - Miro board: https://miro.com/
 - Ninja Mock: https://ninjamock.com/
 - Mockups: https://wireframe.cc/
+- Datasets (CSV): https://www.kaggle.com/datasets
