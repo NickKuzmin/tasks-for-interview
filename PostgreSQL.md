@@ -718,3 +718,42 @@ ALTER DOMAIN text_no_space_null ADD CONSTRAINT text_no_space_null_length32 CHECK
 ALTER DOMAIN text_no_space_null VALIDATE CONSTRAINT text_no_space_null_length32;
 ```
 ----------------------------------------------
+**Композитный тип:**
+
+```
+CREATE TYPE price_bounds AS (
+	max_price real,
+	min_price real
+);
+
+CREATE FUNCTION get_price_bounderies() RETURNS SETOF price_bounds AS $$
+	SELECT MAX(unit_price), MIN(unit_price)
+	FROM products
+$$ LANGUAGE SQL;
+```
+
+```
+CREATE TYPE complex AS (
+	r float8,
+	i float8
+);
+
+CREATE TABLE math_calcs (
+	math_id serial,
+	val complex
+);
+
+INSERT INTO math_calcs
+VALUES
+(ROW(3.0, 4.0)),
+(ROW(3.0, 4.0));
+
+SELECT * FROM math_calcs;
+
+SELECT (val).* FROM math_calcs;
+SELECT (math_calcs.val).r FROM math_calcs;
+
+UPDATE math_calcs
+SET val = ROW(5.0, 4.0);
+```
+----------------------------------------------
