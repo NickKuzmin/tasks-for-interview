@@ -757,3 +757,18 @@ UPDATE math_calcs
 SET val = ROW(5.0, 4.0);
 ```
 ----------------------------------------------
+**Перечисления:**
+
+```
+CREATE TYPE game_type AS ENUM
+('Football', 'Hockey', 'Box');
+
+ALTER TYPE game_type
+ADD VALUE 'Volleyball' AFTER 'Box';
+
+CREATE TABLE game (
+	id serial PRIMARY KEY,
+	gametype game_type
+);
+```
+----------------------------------------------
