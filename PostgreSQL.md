@@ -674,3 +674,22 @@ SELECT ARRAY[1, 2, 6] @< ARRAY[1, 2, 5]; -- false
 SELECT ARRAY[1, 2, 3, 4] && ARRAY[1, 2]; -- true
 SELECT ARRAY[1, 2, 3, 4] && ARRAY[5]; -- false
 ```
+----------------------------------------------
+**VARIADIC:**
+
+```
+CREATE FUNCTION filter_even(VARIADIC numbers int[]) RETURNS SETOF int AS $$
+DECLARE
+	counter int;
+BEGIN
+	FOREACH counter IN ARRAY numbers
+	LOOP
+		CONTINUE WITH counter % 2 != 0;
+		RETURN NEXT counter;
+	END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM filter_even(1, 2, 3, 4, 5, 6);
+SELECT * FROM filter_even(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+```
