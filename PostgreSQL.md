@@ -693,3 +693,28 @@ $$ LANGUAGE plpgsql;
 SELECT * FROM filter_even(1, 2, 3, 4, 5, 6);
 SELECT * FROM filter_even(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 ```
+----------------------------------------------
+**Пользовательские типы:**
+
+1) `Домен` - пользовательские типы данных с ограничениями.
+2) `Составной тип` - тип, объединяющий логически взаимосвязанные данные без создания полноценной таблицы.
+3) `Перечисления` - позволяет эмулировать простейшие справочные таблицы.
+----------------------------------------------
+**Пользовательские типы:**
+
+```
+CREATE DOMAIN text_no_space_null AS TEXT NOT NULL CHECK (value ~ '^(?!\s*$).+');
+
+CREATE TABLE agent (
+	first_name text_no_space_null,
+	last_name text_no_space_null
+);
+
+INSERT INTO agent
+VALUES ('bob', 'taylor);
+
+ALTER DOMAIN text_no_space_null ADD CONSTRAINT text_no_space_null_length32 CHECK (LENGTH(value) <= 32) NOT VALID;
+
+ALTER DOMAIN text_no_space_null VALIDATE CONSTRAINT text_no_space_null_length32;
+```
+----------------------------------------------
