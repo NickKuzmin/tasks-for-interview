@@ -822,3 +822,9 @@ ORDER BY supplier_id, category_id NULLS FIRST;
 - `\i <filename>` - выполнить команду из файла
 - `\?` - список команд psql
 - `\q` - выйти из psql
+----------------------------------------------
+**CSV:**
+
+```
+\copy databasename FROM 'C:\database.csv' DELIMITER ',' CSV HEADER;
+```
