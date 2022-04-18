@@ -656,3 +656,21 @@ UPDATE chess_game
 SET moves[4] = 'g6';
 ```
 ----------------------------------------------
+**Операторы массивов:**
+
+```
+SELECT ARRAY[1, 2, 3, 4] = ARRAY[1, 2, 3, 4]; -- true
+SELECT ARRAY[1, 2, 4, 3] = ARRAY[1, 2, 3, 4]; -- false
+
+SELECT ARRAY[1, 2, 4, 3] > ARRAY[1, 2, 3, 4]; -- true
+SELECT ARRAY[1, 2, 4, 3] > ARRAY[1, 2, 5, 4]; -- false
+
+SELECT ARRAY[1, 2, 4, 3] @> ARRAY[1, 2]; -- true
+SELECT ARRAY[1, 2, 4, 3] @> ARRAY[1, 2, 5]; -- false
+
+SELECT ARRAY[1, 2] @< ARRAY[1, 2, 5]; -- true
+SELECT ARRAY[1, 2, 6] @< ARRAY[1, 2, 5]; -- false
+
+SELECT ARRAY[1, 2, 3, 4] && ARRAY[1, 2]; -- true
+SELECT ARRAY[1, 2, 3, 4] && ARRAY[5]; -- false
+```
