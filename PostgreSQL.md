@@ -603,3 +603,56 @@ FROM performance_test
 WHERE LOWER(annotation) LIKE 'ab%'
 ```
 ----------------------------------------------
+**Массивы:**
+
+```
+CREATE TABLE chess_game
+(
+	white_player text,
+	black_player text,
+	moves text[],
+	final_state text[][]
+);
+
+INSERT INTO chess_game
+VALUES ('Ivan', 'Andrew', '{ "d4", "d5", "c4", "c6" },
+	'{{ "Ra8", "Qe8", "x", "x", "x" },
+	{{ "a7", "A1", "x", "x", "x" },
+	{{ "b5", "B4", "x", "x", "x", "x", "x", "x" }}');
+	
+
+INSERT INTO chess_game
+VALUES ('Ivan', 'Andrew',
+	ARRAY['d4', 'd5', 'x', 'x'],
+	ARRAY[
+		['d4', 'd5', 'x', 'x'],
+		['d5', 'd5', 'x', 'x'],
+		['d6', 'd5', 'x', 'x']
+	]
+);
+```
+
+```
+SELECT moves[2:3]
+FROM chess_game;
+
+SELECT moves[:3]
+FROM chess_game;
+
+SELECT moves[2:]
+FROM chess_game;
+```
+
+```
+SELECT array_dims(final_state), array_dims(moves, 1)
+FROM chess_game;
+```
+
+```
+UPDATE chess_game
+SET moves = ARRAY['d4', 'd5', 'x', 'x'];
+
+UPDATE chess_game
+SET moves[4] = 'g6';
+```
+----------------------------------------------
