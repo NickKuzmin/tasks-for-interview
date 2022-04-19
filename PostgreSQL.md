@@ -1037,4 +1037,11 @@ GRANT CONNECT ON DATABASE northwind TO sales_stuff;
 GRANT USAGE ON SCHEMA public TO sales_stuff;
 GRANT CREATE ON SCHEMA public TO sales_stuff;
 GRANT USAGE ON DATABASE public TO sales_stuff;
+GRANT sales_stuff TO john_smith;
+```
+
+```
+SELECT grantee, privilege_type
+FROM information_schema.role_table_grants
+WHERE table_name = 'admin_demo2'
 ```
