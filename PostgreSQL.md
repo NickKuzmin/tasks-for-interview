@@ -868,3 +868,62 @@ SELECT * FROM submission;
 
 - **Агрегатные функции:** `SUM`, `AVG`, `MIN`, `MAX`, `COUNT`
 - **Ранжирование:** `ROW_NUMBER`, `RANK`, `LAG`, `LEAD`
+
+```
+SELECT category_id, AVG(unit_price) AS avg_price --, category_name
+FROM products
+GROUP BY category_id; --, category_name
+```
+
+```
+SELECT category_id, category_name, product_name, unit_price, AVG(unit_price)
+OVER (PARTITION BY category_id) AS avg_price,
+FROM products
+JOIN categories USING(category_id);
+```
+
+```
+SELECT product_name, units_in_stock,
+	RANK() OVER(ORDER BY product_id)
+FROM products;
+```
+
+```
+SELECT product_name, units_in_stock,
+	RANK() OVER(ORDER BY units_in_stock)
+FROM products;
+```
+
+```
+SELECT product_name, units_in_stock,
+	DENSE_RANK() OVER(ORDER BY units_in_stock)
+FROM products;
+```
+
+```
+SELECT product_name, units_in_stock,
+	DENSE_RANK() OVER(
+		ORDER BY
+			CASE
+				WHEN unit_price > 80 THEN 1
+				WHEN unit_price > 30 AND unit_price < 80 THEN 2
+				ELSE 3
+			END
+	)
+	AS ranking
+FROM products;
+```
+
+```
+SELECT product_name, units_in_stock,
+	LAG(unit_price) OVER(ORDER BY unit_price DESC) - unit_price AS price_lag
+FROM products
+ORDER BY unit_price DESC;
+```
+
+```
+SELECT product_name, units_in_stock,
+	LEAD(unit_price) OVER(ORDER BY unit_price DESC) - unit_price AS price_lag
+FROM products
+ORDER BY unit_price DESC;
+```
