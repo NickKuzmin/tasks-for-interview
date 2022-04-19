@@ -8,6 +8,9 @@
 - Component based framework
 - jsx-синтаксис
 ---------------------------------------------------------
+- `npm install -g create-react-app`
+- `create-react-app <react-app-name>`
+---------------------------------------------------------
 ```
 <div id="root"></div>
 
