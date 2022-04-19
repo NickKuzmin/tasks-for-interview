@@ -91,3 +91,28 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+**Не разрешено:**
+
+```
+return (
+  <div className="App">
+	<h1>Hello world!</h1>
+  </div>
+  <p>Hello</p>
+);
+```
+
+**Должно быть обернуто в корневой div:**
+
+```
+return (
+  <div>
+	<div className="App">
+		<h1>Hello world!</h1>
+		</div>
+	<p>Hello</p>
+  </div>
+);
+```
+---------------------------------------------------------
