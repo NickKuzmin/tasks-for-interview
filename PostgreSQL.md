@@ -1033,4 +1033,8 @@ CREATE ROLE sales_stuff;
 CREATE USER john_smith WITH PASSWORD 'qwerty';
 REVOKE CREATE ON SCHEMA public FROM public;
 REVOKE ALL ON DATABASE northwind FROM public;
+GRANT CONNECT ON DATABASE northwind TO sales_stuff;
+GRANT USAGE ON SCHEMA public TO sales_stuff;
+GRANT CREATE ON SCHEMA public TO sales_stuff;
+GRANT USAGE ON DATABASE public TO sales_stuff;
 ```
