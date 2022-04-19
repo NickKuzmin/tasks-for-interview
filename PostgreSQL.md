@@ -1027,3 +1027,10 @@ CREATE ROLE <rolename> LOGIN
 ```
 CREATE USER <username>
 ```
+
+```
+CREATE ROLE sales_stuff;
+CREATE USER john_smith WITH PASSWORD 'qwerty';
+REVOKE CREATE ON SCHEMA public FROM public;
+REVOKE ALL ON DATABASE northwind FROM public;
+```
