@@ -927,3 +927,16 @@ SELECT product_name, units_in_stock,
 FROM products
 ORDER BY unit_price DESC;
 ```
+
+```
+SELECT *
+FROM (SELECT product_id, product_name, category_id, unit_price, units_in_stock,
+	ROW_NUMBER() OVER (ORDER BY unit_price DESC) AS nth
+	FROM products
+	) AS sorted_prices
+WHERE nth < 4
+ORDER BY unit_price;
+```
+----------------------------------------------
+**Транзакции:**
+
