@@ -940,3 +940,10 @@ ORDER BY unit_price;
 ----------------------------------------------
 **Транзакции:**
 
+- `READ UNCOMMITED`
+- `READ COMMITED`
+- `REPEATABLE READ`
+- `SERIALIZABLE`
+
+- В начале транзакций: `BEGIN ISOLATION LEVEL <level>`
+- Внутри транзакции: `SET TRANSACTION ISOLATION LEVEL <level>`
