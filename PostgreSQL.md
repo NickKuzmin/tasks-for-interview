@@ -1045,3 +1045,56 @@ SELECT grantee, privilege_type
 FROM information_schema.role_table_grants
 WHERE table_name = 'admin_demo2'
 ```
+----------------------------------------------
+**Права на уровне таблицы:**
+
+```
+SELECT grantee, privilege_type
+FROM information_schema.role_table_grants
+WHERE table_name = 'admin_demo2'
+```
+
+```
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE
+public.orders,
+public.order_details
+TO sales_stuff;
+GRANT SELECT ON TABLE public.employees to sales_stuff;
+
+GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES, TRIGGER ON ALL TABLES
+IN SCHEMA public
+TO northwind_admins;
+```
+
+**Права на уровне колонок:**
+
+```
+GRANT SELECT (employee_id, last_name) ON employees TO sales_stuff;
+
+REVOKE SELECT ON employees ON sales_stuff;
+```
+
+**Права на уровне строк:**
+
+```
+ALTER TABLE products
+ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY active_products_for_sales_stuff ON products
+FOR SELECT
+TO sales_stuff
+USING (reorder_level > 10);
+```
+
+**Изъятие привилегий:**
+
+```
+REVOKE ALL PRIVILEGES ON employees, orders, order_details, products FROM sales_stuff;
+REVOKE ALL ON DATABASE northwind FROM sales_stuff;
+REVOKE ALL ON SCHEMA public FROM sales_stuff;
+```
+
+```
+DROP ROLE sales_stuff;
+DROP USER john_smith;
+```
