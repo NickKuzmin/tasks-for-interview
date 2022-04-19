@@ -971,6 +971,10 @@ ROOLBACK TO backup;
 ----------------------------------------------
 **Triggers:**
 
+- **Построчные триггеры**
+- **Триггеры на утверждение**
+
+**Построчные триггеры:**
 ```
 CREATE OR REPLACE FUNCTION track_changes_on_customers() RETURNS trigger AS $$
 BEGIN
@@ -983,6 +987,7 @@ CREATE TRIGGER customers_timestamp BEFORE INSERT OR UPDATE ON customers
 	FOR EACH ROW EXECUTE PROCEDURE track_changes_on_customers();
 ```
 
+**Триггеры на утверждение:**
 ```
 CREATE OR REPLACE FUNCTION build_audit_products() RETURNS trigger AS $$
 BEGIN
