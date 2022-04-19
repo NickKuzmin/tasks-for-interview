@@ -947,3 +947,25 @@ ORDER BY unit_price;
 
 - В начале транзакций: `BEGIN ISOLATION LEVEL <level>`
 - Внутри транзакции: `SET TRANSACTION ISOLATION LEVEL <level>`
+
+```
+BEGIN;
+
+UPDATE employee SET Name = 'name';
+DELETE FROM employee;
+
+COMMIT;
+```
+
+```
+BEGIN;
+
+UPDATE employee SET Name = 'name';
+
+SAVEPOINT backup;
+
+DELETE FROM employee;
+
+ROOLBACK TO backup;
+```
+----------------------------------------------
