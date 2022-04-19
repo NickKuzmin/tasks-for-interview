@@ -1018,3 +1018,12 @@ REFERENCING OLD TABLE AS old_table
 FOR EACH STATEMENT EXECUTE PROCEDURE build_audit_products();
 ```
 ----------------------------------------------
+**Roles:**
+
+```
+CREATE ROLE <rolename> LOGIN
+```
+	
+```
+CREATE USER <username>
+```
