@@ -969,3 +969,47 @@ DELETE FROM employee;
 ROOLBACK TO backup;
 ```
 ----------------------------------------------
+**Triggers:**
+
+```
+CREATE OR REPLACE FUNCTION track_changes_on_customers() RETURNS trigger AS $$
+BEGIN
+	NEW.last_updated = now();
+	RETURN NEW;
+END
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER customers_timestamp BEFORE INSERT OR UPDATE ON customers
+	FOR EACH ROW EXECUTE PROCEDURE track_changes_on_customers();
+```
+
+```
+CREATE OR REPLACE FUNCTION build_audit_products() RETURNS trigger AS $$
+BEGIN
+	IF TG_OP = 'INSERT' THEN
+		INSERT INTO products_audit
+		SELECT 'I', session_user, now(), nt.* FROM new_table nt;
+	ELSEIF TG_OP = 'UPDATE' THEN
+		INSERT INTO products_audit
+		SELECT 'U', session_user, now(), nt.* FROM new_table nt;
+	ELSEIF TG_OP = 'DELETE' THEN
+		INSERT INTO products_audit
+		SELECT 'D', session_user, now(), nt.* FROM new_table nt;
+	ENDIF;
+	RETURN NULL;
+END
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER audit_products_insert AFTER INSERT ON customers
+REFERENCING OLD TABLE AS old_table
+FOR EACH STATEMENT EXECUTE PROCEDURE build_audit_products();
+
+CREATE TRIGGER audit_products_update AFTER UPDATE ON customers
+REFERENCING OLD TABLE AS old_table
+FOR EACH STATEMENT EXECUTE PROCEDURE build_audit_products();
+
+CREATE TRIGGER audit_products_delete AFTER DELETE ON customers
+REFERENCING OLD TABLE AS old_table
+FOR EACH STATEMENT EXECUTE PROCEDURE build_audit_products();
+```
+----------------------------------------------
