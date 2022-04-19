@@ -118,6 +118,8 @@ return (
 ---------------------------------------------------------
 **Inline styles:**
 
+`'font-size' = fontSize`
+
 ```
 class App extends Component {
   render() {
@@ -128,6 +130,22 @@ class App extends Component {
     return (
       <div style={divStyle}>
         <h1 style={{color: 'blue', fontSize: '20px'}}>Hello world!</h1>
+      </div>
+    );
+  }
+}
+```
+
+```
+class App extends Component {
+  render() {
+    const divStyle = {
+      'text-align': 'center'
+    }
+
+    return (
+      <div style={divStyle}>
+        <h1 style={{color: 'blue', 'font-size': '20px'}}>Hello world!</h1>
       </div>
     );
   }
