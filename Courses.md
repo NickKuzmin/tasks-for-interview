@@ -18,3 +18,5 @@
 - **"TypeScript с нуля - полный курс и паттерны проектирования" - 18.5ч:** `https://www.udemy.com/course/typescript-full/` (12.04.2022)
 
 - **"Профессия Архитектор ПО" - 14ч:** `https://skillbox.ru/course/software-architect-trial/` (15.04.2022)
+
+- **"Практический курс для новичков по SQL и PostgreSQL" - 21.5ч:** `https://www.udemy.com/course/bestpostgres/` (19.04.2022)
