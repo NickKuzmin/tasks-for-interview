@@ -151,3 +151,55 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+```
+import React from 'react'
+
+// function car() {
+//   return (
+//     <div>This is car component</div>
+//   )
+// }
+
+// const car = () => {
+//   return (
+//     <div>This is car component</div>
+//   )
+// }
+
+// const car = () => (
+//   <div>
+//     This is car component
+//     <strong>test</strong>
+//   </div>
+// )
+
+export default () => (
+  <div>
+    This is car component
+    <strong>test</strong>
+  </div>
+)
+```
+
+```
+import React, { Component } from 'react';
+import './App.css';
+import Car from './Car/Car'
+
+class App extends Component {
+  render() {
+    const divStyle = {
+      textAlign: 'center'
+    }
+
+    return (
+      <div style={divStyle}>
+        <h1>Hello world!</h1>
+
+        <Car />
+      </div>
+    );
+  }
+}
+```
