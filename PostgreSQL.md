@@ -828,3 +828,16 @@ ORDER BY supplier_id, category_id NULLS FIRST;
 ```
 \copy databasename FROM 'C:\database.csv' DELIMITER ',' CSV HEADER;
 ```
+----------------------------------------------
+**CTE:**
+
+```
+WITH customer_countries AS
+(
+	SELECT country FROM customers
+)
+SELECT company_name
+FROM suppliers
+WHERE country IN (SELECT * FROM customer_countries)
+```
+----------------------------------------------
