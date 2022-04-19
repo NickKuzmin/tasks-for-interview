@@ -855,3 +855,10 @@ WITH RECURSIVE submission(sub_line, employee_id) AS
 SELECT * FROM submission;
 ```
 ----------------------------------------------
+**Оконные функции:**
+
+- **Оконные функции** - позволяют обрабатывать группу строк без образования группировок в результирующем наборе.
+- Отрабатывают после JOIN, WHERE, GROUP BY, HAVING, но перед ORDER BY
+
+- **Агрегатные функции:** `SUM`, `AVG`, `MIN`, `MAX`, `COUNT`
+- **Ранжирование:** `ROW_NUMBER`, `RANK`, `LAG`, `LEAD`
