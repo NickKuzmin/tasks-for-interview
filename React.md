@@ -402,3 +402,34 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+**Работа со списками:**
+
+```
+class App extends Component {
+  state = {
+    cars: [
+      {name: 'Ford', year: 2018},
+      {name: 'Audi', year: 2016},
+      {name: 'Mazda', year: 2010}
+    ]
+  }
+
+  render() {
+    return (
+      <div>
+        { this.state.cars.map((car, index) => {
+          return (
+            <Car
+              key={index}
+              name={car.name}
+              year={car.year}
+              onChangeTitle={() => this.changeTitleHandler(car.name)}
+            />
+          )
+        }) }
+      </div>
+    );
+  }
+}
+```
