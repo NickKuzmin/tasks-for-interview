@@ -368,7 +368,12 @@ changeTitleHandler: function() {
 
 **Необходимо через setState:**
 ```
-this.setState({
-      pageTitle: newTitle
-})
+changeTitleHandler: function() {
+	const oldTitle = this.state.pageTitle;
+	const newTitle = oldTitle + ' (changed)';
+	
+	this.setState({
+		pageTitle: newTitle
+	});
+}
 ```
