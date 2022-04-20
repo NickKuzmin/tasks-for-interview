@@ -554,6 +554,28 @@ class App extends Component {
 **Контекст в хендлерах:**
 
 ```
-onDelete={this.deleteHandler.bind(this, index)}
-onChangeName={event => this.onChangeName(event.target.value, index)}
+deleteHandler() {
+    const cars = this.state.cars.concat()
+    cars.splice(index, 1)
+
+    this.setState({cars})
+}
+
+<Car key={index}
+    onDelete={this.deleteHandler.bind(this)}
+    onChangeName={event => this.onChangeName(event.target.value, index)} />
+```
+
+**Либо использование стрелочной функции:**
+```
+deleteHandler = () => {
+    const cars = this.state.cars.concat()
+    cars.splice(index, 1)
+
+    this.setState({cars})
+}
+
+<Car key={index}
+    onDelete={this.deleteHandler}
+    onChangeName={event => this.onChangeName(event.target.value, index)} />
 ```
