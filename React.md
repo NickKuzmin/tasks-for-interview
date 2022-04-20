@@ -356,3 +356,19 @@ changeTitleHandler = () => {
     console.log(this.name);
 }
 ```
+---------------------------------------------------------
+**Изменение State:**
+
+**Не изменять вручную:**
+```
+changeTitleHandler: function() {
+    this.state.pageTitle = 'Changed';
+}
+```
+
+**Необходимо через setState:**
+```
+this.setState({
+      pageTitle: newTitle
+})
+```
