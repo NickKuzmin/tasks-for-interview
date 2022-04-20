@@ -96,3 +96,35 @@ var a = list.Select(x => (x + i++).ToString());
 Console.WriteLine(string.Join(" ", a.ToArray())); // 0 2 4
 Console.WriteLine(string.Join(" ", a.ToArray())); // 3 5 7
 ```
+--------------------------------------------
+```
+class Program
+{
+	private static volatile int x;
+
+	static void ThreadFunc()
+	{
+		for (var i = 0; i < 10000; i++)
+		{
+			x++;
+		}
+	}
+
+	static void Main(string[] args)
+	{
+		var threads = Enumerable.Range(0, 50).Select(i => new Thread(ThreadFunc)).ToList();
+
+		foreach (var thread in threads)
+		{
+			thread.Start();
+		}
+
+		foreach (var thread in threads)
+		{
+			thread.Join();
+		}
+
+		Console.WriteLine(x);
+	}
+}
+```
