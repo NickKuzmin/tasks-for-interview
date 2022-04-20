@@ -249,7 +249,7 @@ export default props => (
 )
 ```
 ---------------------------------------------------------
-**Передача контента (children):**
+**State:**
 
 ```
 class App extends Component {
@@ -276,6 +276,61 @@ class App extends Component {
         <Car name={cars[0].name} year={cars[0].year} />
         <Car name={cars[1].name} year={cars[1].year} />
         <Car name={cars[2].name} year={cars[2].year} />
+      </div>
+    );
+  }
+}
+```
+---------------------------------------------------------
+**Изменение state:**
+
+```
+class App extends Component {
+  state = {
+    cars: [
+      {name: 'Ford', year: 2018},
+      {name: 'Audi', year: 2016},
+      {name: 'Mazda', year: 2010}
+    ],
+    pageTitle: 'React components'
+  }
+
+  changeTitleHandler = (newTitle) => {
+    this.setState({
+      pageTitle: newTitle
+    })
+  }
+
+  render() {
+    const divStyle = {
+      textAlign: 'center'
+    }
+
+    const cars = this.state.cars
+
+    return (
+      <div style={divStyle}>
+        <h1>{this.state.pageTitle}</h1>
+
+        <button
+          onClick={this.changeTitleHandler.bind(this, 'Changed!')}
+        >Change title</button>
+
+        <Car
+          name={cars[0].name}
+          year={cars[0].year}
+          onChangeTitle={this.changeTitleHandler.bind(this, cars[0].name)}
+        />
+        <Car
+          name={cars[1].name}
+          year={cars[1].year}
+          onChangeTitle={() => this.changeTitleHandler(cars[1].name)}
+        />
+        <Car
+          name={cars[2].name}
+          year={cars[2].year}
+          onChangeTitle={() => this.changeTitleHandler(cars[2].name)}
+        />
       </div>
     );
   }
