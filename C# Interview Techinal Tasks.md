@@ -124,7 +124,7 @@ class Program
 			thread.Join();
 		}
 
-		Console.WriteLine(x);
+		Console.WriteLine(x); // RANDOM VALUE ~483376, 497026, ..., WHATEVER
 	}
 }
 ```
