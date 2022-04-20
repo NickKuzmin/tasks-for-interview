@@ -78,3 +78,8 @@ Console.WriteLine(obj == s1); // true
 Console.WriteLine(s1 == s2); // true
 Console.WriteLine(obj == s2); // FALSE (!)
 ```
+--------------------------------------------
+```
+Console.WriteLine("A" + "B" + "C"); // "ABC"
+Console.WriteLine('A' + 'B' + 'C'); // 198
+```
