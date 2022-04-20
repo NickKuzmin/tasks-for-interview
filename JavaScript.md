@@ -110,3 +110,24 @@ a('z'); // NaN
 ```
 3 + [1]; // '31'
 ```
+---------------------------
+**Стрелочные функции:**
+
+```
+const test = {
+  name: 'test object',
+  createAnonFunction: function() {
+    return function() {
+      console.log(this.name);
+      console.log(arguments);
+    };
+  },
+
+  createArrowFunction: function() {
+    return () => {
+      console.log(this.name);
+      console.log(arguments);
+    };
+  }
+};
+```
