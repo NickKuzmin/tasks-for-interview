@@ -336,3 +336,29 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+**Синтаксис функций:**
+
+```
+changeTitleHandler: function() {
+    return function() {
+      console.log(this.name);
+      console.log(arguments);
+    };
+}
+```
+
+```
+changeTitleHandler() {
+	// ...
+}
+```
+
+```
+changeTitleHandler: function() {
+    return () => {
+      console.log(this.name);
+      console.log(arguments);
+    };
+}
+```
