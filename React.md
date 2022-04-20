@@ -377,3 +377,28 @@ changeTitleHandler: function() {
 	});
 }
 ```
+---------------------------------------------------------
+**Обработка Input:**
+
+```
+class App extends Component {
+
+  state = {
+    cars: [
+      {name: 'Ford', year: 2018}
+    ]
+  }
+
+  handleInput = (event) => {
+    this.setState({
+      pageTitle: event.target.value
+    })
+  }
+
+  render() {
+    return (
+       <input type="text" onChange={this.handleInput} />
+    );
+  }
+}
+```
