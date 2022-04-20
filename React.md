@@ -433,3 +433,53 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+**Работа с условными операторами:**
+
+```
+class App extends Component {
+  state = {
+    cars: [
+      {name: 'Ford', year: 2018},
+      {name: 'Audi', year: 2016},
+      {name: 'Mazda', year: 2010}
+    ],
+    showCars: false
+  }
+
+  toggleCarsHandler = () => {
+    this.setState({
+      showCars: !this.state.showCars
+    })
+  }
+
+  render() {
+    let cars = null
+
+    if (this.state.showCars) {
+      cars = this.state.cars.map((car, index) => {
+        return (
+          <Car
+            key={index}
+            name={car.name}
+            year={car.year}
+            onChangeTitle={() => this.changeTitleHandler(car.name)}
+          />
+        )
+      })
+    }
+
+    return (
+      <div>
+        <h1>{this.state.pageTitle}</h1>
+
+        <button
+          onClick={this.toggleCarsHandler}
+        >Toggle cars</button>
+
+        { cars }
+      </div>
+    );
+  }
+}
+```
