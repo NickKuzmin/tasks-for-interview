@@ -550,3 +550,10 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+**Контекст в хендлерах:**
+
+```
+onDelete={this.deleteHandler.bind(this, index)}
+onChangeName={event => this.onChangeName(event.target.value, index)}
+```
