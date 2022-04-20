@@ -24,7 +24,7 @@ obj2.Foo();
 A obj3 = new B();
 obj3.Foo();
 ```
-
+--------------------------------------------
 ```
 public class A
 {
@@ -61,10 +61,20 @@ a.Print2();
 a.Print1();
 c.Print2();
 ```
-
+--------------------------------------------
 ```
 object a = new int?();
 object b = new int?();
 
 Console.WriteLine(a == b);
+```
+--------------------------------------------
+```
+object obj = "Int32";
+string s1 = "Int32";
+string s2 = typeof(int).Name; // "Int32"
+
+Console.WriteLine(obj == s1); // true
+Console.WriteLine(s1 == s2); // true
+Console.WriteLine(obj == s2); // FALSE (!)
 ```
