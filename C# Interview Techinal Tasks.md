@@ -70,13 +70,17 @@ Console.WriteLine(a == b);
 ```
 --------------------------------------------
 ```
-object obj = "Int32";
-string s1 = "Int32";
-string s2 = typeof(int).Name; // "Int32"
+object objectString = "Int32";
+string @string = "Int32";
+string dynmaicStringInterned = string.Intern(typeof(int).Name);
+string dynmaicStringWithoutInterning = typeof(int).Name;
 
-Console.WriteLine(obj == s1); // true
-Console.WriteLine(s1 == s2); // true
-Console.WriteLine(obj == s2); // FALSE (!)
+Console.WriteLine(objectString == @string); // true
+Console.WriteLine(objectString == @string); // true
+Console.WriteLine(objectString == dynmaicStringInterned); // true
+Console.WriteLine(@string == dynmaicStringInterned); // true
+Console.WriteLine(@string == dynmaicStringWithoutInterning); // true
+Console.WriteLine(objectString == dynmaicStringWithoutInterning); // FALSE (!)
 ```
 --------------------------------------------
 ```
