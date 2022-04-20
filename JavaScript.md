@@ -39,6 +39,21 @@ function Car(maxSpeed) {
 
 Car.prototype = new Vehicle();
 ```
+
+```
+let animal = {
+  eats: true
+};
+
+let rabbit = {
+  jumps: true
+};
+
+rabbit.__proto__ = animal;
+
+rabbit.eats === true;
+rabbit.jumps === true;
+```
 ---------------------------
 ```
 Object.seal
