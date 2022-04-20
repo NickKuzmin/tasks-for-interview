@@ -87,3 +87,12 @@ Console.WriteLine(objectString == dynmaicStringWithoutInterning); // FALSE (!)
 Console.WriteLine("A" + "B" + "C"); // "ABC"
 Console.WriteLine('A' + 'B' + 'C'); // 198
 ```
+--------------------------------------------
+```
+var i = 0;
+var list = new[] {0, 1, 2};
+var a = list.Select(x => (x + i++).ToString());
+
+Console.WriteLine(string.Join(" ", a.ToArray())); // 0 2 4
+Console.WriteLine(string.Join(" ", a.ToArray())); // 3 5 7
+```
