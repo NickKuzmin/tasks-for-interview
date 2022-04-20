@@ -1,3 +1,4 @@
+- **JavaScript-задачи:** https://github.com/NickKuzmin/java-script-technical-tasks
 - JS Techincal tasks: https://github.com/bakugod/interview-tasks/blob/master/algorithmic-part.md
 ---------------------------
 - Console API methods (assert, count, dir, group, time, trace):
