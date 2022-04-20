@@ -341,24 +341,18 @@ class App extends Component {
 
 ```
 changeTitleHandler: function() {
-    return function() {
-      console.log(this.name);
-      console.log(arguments);
-    };
+    console.log(this.name);
 }
 ```
 
 ```
 changeTitleHandler() {
-	// ...
+	console.log(this.name);
 }
 ```
 
 ```
-changeTitleHandler: function() {
-    return () => {
-      console.log(this.name);
-      console.log(arguments);
-    };
+changeTitleHandler = () => {
+    console.log(this.name);
 }
 ```
