@@ -725,6 +725,20 @@ acc.Put(20);
 - В ASP.NET Core Microsoft покончила с SynchronizationContext, поэтому теоретически вам это не нужно. Но если вы пишете библиотечный код, который потенциально может быть повторно использован в других приложениях (например, UI App, Legacy ASP.NET, Xamarin Forms), это остается наилучшей практикой.
 	
 - Методам асинхронной библиотеки стоит использовать Task.ConfigureAwait(false) для повышения производительности
+	
+```
+async Task MyMethodAsync()
+{
+  // Code here runs in the ORIGINAL CONTEXT.
+  await Task.Delay(1000);
+  // Code here runs in the ORIGINAL CONTEXT.
+	
+  await Task.Delay(1000)
+	.ConfigureAwait(continueOnCapturedContext: false);
+
+  // Code here runs NOT THE ORIGINAL CONTEXT (in this case, on the thread pool).
+}
+```
 ------------------------
 - Создание массива, который начинается с индекса 1, а не 0
 - **Зубчатые массива (Jagged arrays)** - позволяют экономить излишюю аллокацию памяти:
