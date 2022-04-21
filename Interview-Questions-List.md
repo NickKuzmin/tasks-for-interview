@@ -272,6 +272,7 @@ long -> int
 - Throw vs Throw ex
 - Ленивая и жадная загрузка EF
 ----------------------------
+- dynamic vs object
 - Nullable<T> vs Nullable reference type (string?)
 - Nullable - это value или reference type
 - GC - параллельно ли идет работа сборка мусора с работой приложения
