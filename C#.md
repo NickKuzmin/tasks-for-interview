@@ -687,6 +687,24 @@ class Account
     }
 }
 ```
+	
+```
+Account account = new Account(100);
+account.Notify += DisplayMessage;
+account.Notify += DisplayRedMessage;
+account.Put(20);
+account.Notify -= DisplayRedMessage;
+account.Put(50);    // добавляем на счет 50
+```
+	
+```
+Account acc = new Account(100);
+acc.Notify += delegate (string mes)
+{
+    Console.WriteLine(mes);
+};
+acc.Put(20);
+```
 ------------------------
 - Создание массива, который начинается с индекса 1, а не 0
 - **Зубчатые массива (Jagged arrays)** - позволяют экономить излишюю аллокацию памяти:
