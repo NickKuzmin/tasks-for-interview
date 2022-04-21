@@ -593,3 +593,18 @@ render() {
 	);
 }
 ```
+---------------------------------------------------------
+**Подключение стилей:**
+
+```
+import React from 'react'
+import './car.css'
+
+export default props => (
+  <div className="car-container">
+    <h3>Сar name: {props.name}</h3>
+  </div>
+)
+```
+---------------------------------------------------------
+**:**
