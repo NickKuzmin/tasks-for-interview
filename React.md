@@ -664,3 +664,22 @@ const Car = props => {
 
 export default Radium(Car)
 ``
+---------------------------------------------------------
+**Передача параметров в компонент:**
+
+```
+ReactDOM.render(<App title={'I am from props!'} />, document.getElementById('root'));
+```
+
+```
+class App extends Component {
+  render() {
+    return (
+      <div style={divStyle}>
+        {/*<h1>{this.state.pageTitle}</h1>*/}
+        <h1>{this.props.title}</h1>
+      </div>
+    );
+  }
+}
+```
