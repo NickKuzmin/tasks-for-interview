@@ -746,3 +746,36 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+**Stateful component:**
+
+```
+class Car extends React.Component {
+  componentWillReceiveProps(nextProps) {
+    console.log('Car componentWillReceiveProps', nextProps)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Car shouldComponentUpdate', nextProps, nextState)
+    return nextProps.name.trim() !== this.props.name.trim()
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('Car componentWillUpdate', nextProps, nextState)
+  }
+
+  componentDidUpdate() {
+    console.log('Car componentDidUpdate')
+  }
+
+  render() {
+    console.log('Car render')
+
+    return (
+      <div>
+        <h3>Сar name: {this.props.name}</h3>
+      </div>
+    )
+  }
+}
+```
