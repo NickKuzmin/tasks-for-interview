@@ -23,9 +23,11 @@ rabbitmq-plugins enable rabbitmq_management
 ------------------------------
 **Exchange types:**
 1) Default Exchange
-2) Direct Exchange
+2) Direct Exchange - укажите указанную очередь, соответствующую ключу RouteKey.
 3) Topic Exchange
-4) Fanout Exchange
+4) Fanout Exchange - Когда вам нужно отправить сообщения в несколько очередей одновременно, вам нужно использовать этот режим. A fanout exchange copies and routes a received message to all queues that are bound to it regardless of routing keys or patterns. The keys provided will simply be ignored.
+
+- Если число маршрутов стремится к бесконечности, то стоит обратить внимание на topic exchange или, если шаблон не нужен, то можно выбрать direct exchnge, т.к. он быстрее topic exchange.
 ------------------------------
 **Routing pattern matching examples:**
 1) ```health.*``` – health as the first word followed by one word (```health.education```, ```health.sports```, ```health.anything```)
