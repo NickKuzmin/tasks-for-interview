@@ -709,3 +709,40 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+**Жизненный цикл:**
+
+```
+class App extends Component {
+  constructor(props) {
+    console.log('App constructor')
+    super(props)
+
+    this.state = {
+      cars: [
+        {name: 'Ford', year: 2018}
+      ],
+      pageTitle: 'React components',
+      showCars: false
+    }
+  }
+
+  componentWillMount() {
+    console.log('App componentWillMount')
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount')
+  }
+
+  render() {
+    console.log('App render');
+
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+      </div>
+    );
+  }
+}
+```
