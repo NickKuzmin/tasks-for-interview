@@ -579,3 +579,17 @@ deleteHandler = () => {
     onDelete={this.deleteHandler}
     onChangeName={event => this.onChangeName(event.target.value, index)} />
 ```
+---------------------------------------------------------
+**Inline styles:**
+
+```
+render() {
+	return (
+	  <div style={{
+		  width: 400,
+		  margin: 'auto',
+		  paddingTop: '20px'
+		}}>
+	);
+}
+```
