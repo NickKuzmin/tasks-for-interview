@@ -246,6 +246,27 @@ long -> int
 24) Примеры реализации ACID принципов
 25) Unique vs PK
 ----------------------------
+**СМП:**
+
+- JWT (синтаксис, видиы токенов, как использовать)
+- Open API (Swagger) - описание контрактов yaml, генерация API
+- Protobuf
+- gRPC
+- fanout vs topic vs другие типы в RabbitMQ
+- Redis - сколько можно создать баз
+- EF Core vs EF
+- Database First/Code First/Model First (EDMX)
+- Key, ForeignKey attributes
+- FluentAPI EF
+- Hangfire - режим работы, стратегии повторного запуска
+- SelectMany для случая пустой коллекции в проперти
+- async void - зачем нужен
+- Aggregation exception - в каких случая. В контексте асинхронного кода
+- configureAwait - синхронизация потоков
+- Task vs ThreadPool vs Thread
+- Parallel LINQ (PLINQ)
+- Moq (loose-режим)
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
