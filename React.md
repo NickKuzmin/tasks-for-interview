@@ -607,4 +607,34 @@ export default props => (
 )
 ```
 ---------------------------------------------------------
-**:**
+**Динамические классы:**
+
+```
+import React from 'react'
+import './car.css'
+
+export default props => {
+  const inputClasses = ['input']
+
+  if (props.name !== '') {
+    inputClasses.push('green')
+  } else {
+    inputClasses.push('red')
+  }
+
+  if (props.name.length > 4) {
+    inputClasses.push('bold')
+  }
+
+  return (
+    <div className="car-container">
+      <input
+        type="text"
+        onChange={props.onChangeName}
+        value={props.name}
+        className={inputClasses.join(' ')}
+      />
+    </div>
+  )
+}
+```
