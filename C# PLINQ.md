@@ -39,3 +39,26 @@ foreach (var n in query)
  
 int Square(int n) => n * n;
 ```
+---------------------------------------------------------------
+**AggregateException:**
+
+```
+int Square(int n) => n * n;
+
+object[] numbers = new object[] { 1, 2, 3, 4, 5, "6" };
+ 
+var squares = from n in numbers.AsParallel()
+                 let x = (int)n
+                 select Square(x);
+try
+{
+    squares.ForAll(n => Console.WriteLine(n));
+}
+catch (AggregateException ex)
+{
+    foreach (var e in ex.InnerExceptions)
+    {
+        Console.WriteLine(e.Message);
+    }
+}
+```
