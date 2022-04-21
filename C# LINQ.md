@@ -39,3 +39,10 @@ double average = numbers1.Average();
 // Query #5.
 IEnumerable<int> concatenationQuery = numbers1.Concat(numbers2);
 ```
+
+```
+var innerJoinQuery =
+    from cust in customers
+    join dist in distributors on cust.City equals dist.City
+    select new { CustomerName = cust.Name, DistributorName = dist.Name };
+```
