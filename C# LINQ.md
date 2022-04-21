@@ -16,6 +16,7 @@ IEnumerable<int> orderingQuery =
     select num;
 ```
 
+**GroupBy:**
 ```
 string[] groupingQuery = { "carrots", "cabbage", "broccoli", "beans", "barley" };
 IEnumerable<IGrouping<char, string>> queryFoodGroups =
@@ -23,12 +24,14 @@ IEnumerable<IGrouping<char, string>> queryFoodGroups =
     group item by item[0];
 ```
 
+**GroupBy:**
 ```
 var queryCustomersByCity =
       from cust in customers
       group cust by cust.City;
 ```
 
+**Average/Concat:**
 ```
 List<int> numbers1 = new() { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 List<int> numbers2 = new() { 15, 14, 11, 13, 19, 18, 16, 17, 12, 10 };
@@ -40,9 +43,19 @@ double average = numbers1.Average();
 IEnumerable<int> concatenationQuery = numbers1.Concat(numbers2);
 ```
 
+**join:**
 ```
 var innerJoinQuery =
     from cust in customers
     join dist in distributors on cust.City equals dist.City
     select new { CustomerName = cust.Name, DistributorName = dist.Name };
+```
+
+**let:**
+```
+string[] names = { "Svetlana Omelchenko", "Claire O'Donnell", "Sven Mortensen", "Cesar Garcia" };
+IEnumerable<string> queryFirstNames =
+    from name in names
+    let firstName = name.Split(' ')[0]
+    select firstName;
 ```
