@@ -747,7 +747,7 @@ class App extends Component {
 }
 ```
 ---------------------------------------------------------
-**Stateful component:**
+**Stateful component / Жизненный цикл изменения:**
 
 ```
 class Car extends React.Component {
