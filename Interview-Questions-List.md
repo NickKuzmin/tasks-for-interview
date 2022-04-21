@@ -267,6 +267,46 @@ long -> int
 - Parallel LINQ (PLINQ)
 - Moq (loose-режим)
 ----------------------------
+- Stub vs Fake
+- Moq - как сделать, чтобы кидался Exception, если не за-setup'или метод сервиса
+- Throw vs Throw ex
+- Ленивая и жадная загрузка EF
+----------------------------
+- Nullable<T> vs Nullable reference type (string?)
+- Nullable - это value или reference type
+- GC - параллельно ли идет работа сборка мусора с работой приложения
+- финализатор - что такое? Можно ли вызвать вручную
+- try/finally - если return в try и return в finally - откуда вернется значение
+- HashSet
+- Статический конструктор, сколько раз вызывается? Только в статическом классе может быть или не в статическом так же?
+- ThreadStatic-атрибут
+- ISerializable
+- Процесс/домен/поток
+- SQL: взять 5ое значение из сортированногого select'a
+- CTE
+- View vs CTE
+- JOIN with `NO LOCK`
+- PK != Clustered Index? Можно ли создать таблице без PK? Без класстерного индекса? Будет ли класстерный индекс, если не будет PK?
+- Include - покрывающий индекса. Как работает? (хранятся вместе с ссылками)
+- Временная таблица. Отличия `#` и '##' и `@` и `@@` (скорость)
+- OUTER APPLY
+- Типы триггеров. Тригеры на создание таблиц
+- Index seek vs Scan
+- RabbitMQ: Consumer Prefetch — prefetch_count 
+- Последовательная обработка пакета в RabbitMQ
+- gPRC, Web Sockets
+- let vs const в JS
+- React - проблема использования порядкового целочисленного номера (при удалении 2-го из 100)
+- props в дочернем компоненте
+- изменение родительского state в React
+- react context
+- стрелочные функции (не имеют своего контекста)
+- super props в конструкторе компонента
+- setTimeout/debounce для блокировки запросов
+- как реализована бесконечная лента постов в соц. сетях, что нет задержек
+- webpack - chunk bundle'ы
+- LocaleStorage - браузер, SessionStorage - вкладка
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
