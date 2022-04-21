@@ -59,3 +59,18 @@ IEnumerable<string> queryFirstNames =
     let firstName = name.Split(' ')[0]
     select firstName;
 ```
+
+**Subquery:**
+```
+var queryGroupMax =
+    from student in students
+    group student by student.Year into studentGroup
+    select new
+    {
+        Level = studentGroup.Key,
+        HighestScore = (
+            from student2 in studentGroup
+            select student2.ExamScores.Average()
+        ).Max()
+    };
+```
