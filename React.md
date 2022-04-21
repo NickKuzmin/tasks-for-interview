@@ -683,3 +683,29 @@ class App extends Component {
   }
 }
 ```
+---------------------------------------------------------
+**Инициализация state:**
+
+```
+class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      cars: [
+        {name: 'Ford', year: 2018}
+      ],
+      pageTitle: 'React components',
+      showCars: false
+    }
+  }
+  
+  render() {
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+      </div>
+    );
+  }
+}
+```
