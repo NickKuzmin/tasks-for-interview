@@ -7,3 +7,35 @@
 - **LINQ to XML**: применяется при работе с файлами XML
 - **LINQ to DataSet**: применяется при работе с объектом DataSet
 - **Parallel LINQ (PLINQ)**: используется для выполнения параллельных запросов
+--------------------------------------------------------
+```
+IEnumerable<int> orderingQuery =
+    from num in numbers
+    where num < 3 || num > 7
+    orderby num ascending
+    select num;
+```
+
+```
+string[] groupingQuery = { "carrots", "cabbage", "broccoli", "beans", "barley" };
+IEnumerable<IGrouping<char, string>> queryFoodGroups =
+    from item in groupingQuery
+    group item by item[0];
+```
+
+```
+var queryCustomersByCity =
+      from cust in customers
+      group cust by cust.City;
+```
+
+```
+List<int> numbers1 = new() { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+List<int> numbers2 = new() { 15, 14, 11, 13, 19, 18, 16, 17, 12, 10 };
+
+// Query #4.
+double average = numbers1.Average();
+
+// Query #5.
+IEnumerable<int> concatenationQuery = numbers1.Concat(numbers2);
+```
