@@ -310,6 +310,23 @@ long -> int
 - webpack - chunk bundle'ы
 - LocaleStorage - браузер, SessionStorage - вкладка
 ----------------------------
+- Неизменяемые типы в C#. Record
+- GC.SuppressFinalize(this)
+- АОП (postsharp)
+- Task - не всегда выделяется отдельный поток
+- TaskScheduler
+- TaskCreationOptions
+- CancellationToken
+- volatile 
+- Parallel.ForEach
+- EF Core: Single vs Split Queries
+- NetCore: ErrorHandling, Middleware
+- Custom Exceptions
+- Domain events
+- Hangifre/quartz
+- Websocket - сколько ограничение
+- MassTransit
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
