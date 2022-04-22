@@ -1,2 +1,5 @@
 - PUT, GET, OPTIONS, DELETE, HEAD — идемпотентные.
 - POST, PATCH — неидемпотентные.
+------------------------------------------
+- `Safe` method doesn't change anything internally (resources). Safe methods are methods that can be cached, prefetched without any repercussions to the resource.
+- `Idempotent` method doesn't change anything externally (response). Idempotent HTTP method is a HTTP method that can be called many times without different outcomes.
