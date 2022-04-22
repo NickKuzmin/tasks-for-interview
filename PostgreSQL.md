@@ -1098,3 +1098,15 @@ REVOKE ALL ON SCHEMA public FROM sales_stuff;
 DROP ROLE sales_stuff;
 DROP USER john_smith;
 ```
+----------------------------------------------
+**Партицирование таблиц:**
+	
+```
+CREATE TABLE bigtable_y2021m03 (   
+    CHECK (created_at >= '2021-03-01'::DATE AND created_at < '2021-04-01'::DATE) 
+) INHERITS (bigtable);
+								    
+CREATE TABLE bigtable_y2021m04 (    
+    CHECK (created_at >= '2021-04-01'::DATE AND created_at < '2021-05-01'::DATE)  
+) INHERITS (bigtable);
+```
