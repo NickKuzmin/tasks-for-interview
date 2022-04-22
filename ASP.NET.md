@@ -13,5 +13,12 @@
 4) Controller action execution
 5) Result Execution
 6) View Rendering
+
+В ASP.NET Core у нас есть 4 метода, с помощью которых мы можем создавать свои middlewares.
+
+- `Use`
+- `Run`
+- `Map`
+- `MapWhen`
 ----------------------------------------
 - ASMX (https://docs.microsoft.com/ru-ru/xamarin/xamarin-forms/data-cloud/web-services/asmx)
