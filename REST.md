@@ -1,0 +1,2 @@
+- PUT, GET, OPTIONS, DELETE, HEAD — идемпотентные.
+- POST, PATCH — неидемпотентные.
