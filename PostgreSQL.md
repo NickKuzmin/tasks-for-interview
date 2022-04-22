@@ -1146,3 +1146,24 @@ END;
 $$
 LANGUAGE plpgsql;							    
 ```
+
+**Подключение функции к мастер-таблице:**
+```
+CREATE TRIGGER insert_bigtable    
+    BEFORE INSERT ON bigtable
+    FOR EACH ROW EXECUTE FUNCTION bigtable_insert_trigger();							    
+```
+			   
+**Разнесение данных из мастер-таблицы по партициям:**
+```
+WITH x AS (  
+    DELETE FROM ONLY bigtable      
+        WHERE created_at BETWEEN .. AND .. RETURNING *)
+INSERT INTO bigtable_y20XXmYY   
+    SELECT * FROM x;							    
+```
+			   
+**Очищение мастер-таблицы:**
+```
+TRUNCATE ONLY bigtable;					    
+```
