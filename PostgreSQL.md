@@ -1100,7 +1100,8 @@ DROP USER john_smith;
 ```
 ----------------------------------------------
 **Партицирование таблиц:**
-	
+
+**Создание таблицы-партиции с использованием ключевого слова INHERITS:**
 ```
 CREATE TABLE bigtable_y2021m03 (   
     CHECK (created_at >= '2021-03-01'::DATE AND created_at < '2021-04-01'::DATE) 
@@ -1109,4 +1110,39 @@ CREATE TABLE bigtable_y2021m03 (
 CREATE TABLE bigtable_y2021m04 (    
     CHECK (created_at >= '2021-04-01'::DATE AND created_at < '2021-05-01'::DATE)  
 ) INHERITS (bigtable);
+```
+
+**Добавление индексов, такие же, как в мастер-таблице:**
+```
+ALTER TABLE ONLY bigtable_y2021m03    
+    ADD CONSTRAINT bigtable_y2021m03__pkey PRIMARY KEY (id);
+								    
+CREATE INDEX bigtable_y2021m03__created_at ON bigtable_y2021m03 (created_at);
+								    
+ALTER TABLE ONLY bigtable_y2021m04  
+    ADD CONSTRAINT bigtable_y2021m04__pkey PRIMARY KEY (id);
+								    
+CREATE INDEX bigtable_y2021m04__created_at ON bigtable_y2021m04 (created_at);
+```
+								    
+**Добавление индексов, такие же, как в мастер-таблице:**
+```
+CREATE OR REPLACE FUNCTION     
+    bigtable_insert_trigger()
+RETURNS TRIGGER AS $$
+BEGIN
+IF ( NEW.created_at >= '2021-03-01'::DATE AND 
+    NEW.created_at < '2021-04-01'::DATE ) THEN    
+        INSERT INTO bigtable_y2021m03 VALUES (NEW.*);
+ELSIF ( NEW.created_at >= '2021-04-01'::DATE AND   
+    NEW.created_at < '2021-05-01'::DATE ) THEN  
+        INSERT INTO bigtable_y2021m04 VALUES (NEW.);
+ELSE
+    RAISE EXCEPTION 'Date out of range.   
+        Fix the bigtable_insert_trigger() function!';
+END IF;
+RETURN NULL;
+END;
+$$
+LANGUAGE plpgsql;							    
 ```
