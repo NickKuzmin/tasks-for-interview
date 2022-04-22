@@ -267,6 +267,7 @@ long -> int
 - Parallel LINQ (PLINQ)
 - Moq (loose-режим)
 ----------------------------
+- Жизненный цикл в ASP .Net
 - Stub vs Fake
 - Moq - как сделать, чтобы кидался Exception, если не за-setup'или метод сервиса
 - Throw vs Throw ex
