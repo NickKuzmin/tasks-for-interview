@@ -282,6 +282,17 @@ SELECT TOP 10 *
 FROM Book
 WHERE Id > 20
 ```
+
+**OUTER APPLY:**
+```
+SELECT G.ProductName, Sales.SaleDate
+   FROM Goods G
+   OUTER APPLY  (
+                 SELECT TOP 1 S.SaleDate
+                 FROM SaleGoods(G.ProductId) AS S
+                 ORDER BY S.SaleDate DESC
+                 ) AS Sales;
+```
 --------------------------------------------
 ```
 INSERT INTO book
@@ -463,7 +474,9 @@ FROM orders
 SELECT CONCUT(last_name, ' ', first_name)
 FROM orders
 ```
---------------
+--------------------------------------------
+
+
 - **Функции** - объект БД, принимающий аргументы и возвращающий результат.
 - Функции (хранимые процедуры) - компилируемы и хранятся на стороне БД, вызов стоит дешево.
 - Могут содержать SELECT, INSERT, UPDATE, DELETE (CRUD)
