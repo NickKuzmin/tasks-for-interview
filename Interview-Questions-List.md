@@ -327,6 +327,20 @@ long -> int
 - Websocket - сколько ограничение
 - MassTransit
 ----------------------------
+- 2 типа: Объект Observable и библиотека RxJS
+- Angular: FormControl/Reactive Forms/FormGroup
+- Коммуникация событий от родителя к ребенку в компонентах Angular
+- Обмен данными между компонентами Angular
+- ng-template, ng-container, ngTemplateOutlet, ng-content
+- жизненный цикл (Component Lifecycle)
+- Директивы
+- pipe
+- http-interceptor (аналог middleware)
+- Регистрация DI (3 уровня)
+- Injection
+- Akita | Reactive State Management
+- State Management
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
