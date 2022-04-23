@@ -14,6 +14,8 @@
 --------------------------------------------------------
 - Реактивная парадигма доступна для многих языков через реактивные расширения или Rx-библиотеки. Эти библиотеки представляют собой загружаемые API-интерфейсы, которые добавляют **поддержку основных реактивных инструментов, таких как наблюдатели и реактивные операторы**. 
 - RxJS — это, в частности, инструмент функционального реактивного программирования **с шаблоном наблюдателя и шаблоном итератора**. Он также включает **адаптированную форму функций массива JavaScript (сокращение, отображение и т. Д.)** Для обработки асинхронных событий как коллекций.
+
+- **Наблюдаемые** — это части нашей программы, которые генерируют данные с течением времени. **Данные наблюдаемого** — это поток значений, которые затем могут передаваться синхронно или асинхронно.
 --------------------------------------------------------
 ```
 of(1,2,3).pipe(
@@ -32,11 +34,43 @@ of(1, 2, 3).pipe(
   next: console.log
 });
 ```
-
+--------------------------------------------------------
 ```
 const observable = new Observable((observer) => {
   observer.next(1);
   observer.next(2);
   observer.complete();
 });
+```
+--------------------------------------------------------
+**Array with foreach as Observable:**
+
+```
+const {Observable} = require(‘rxjs’)
+const wrapArrayIntoObservable = arr => {
+    return new Observable(subscriber => {
+        for (let item of arr) {
+            subscriber.next(item);
+        }
+    });
+}
+const data = [1, 2, 3, 4, 5];
+const observable = wrapArrayIntoObservable(data);
+observable.subscribe(val => console.log(‘Subscriber 1: ‘ + val));
+observable.subscribe(val => console.log(‘Subscriber 2: ‘ + val));
+```
+
+```
+// Output:
+Subscriber1:1
+Subscriber1:2
+Subscriber1:3
+Subscriber1:4
+Subscriber1:5
+
+Subscriber2:1
+Subscriber2:2
+Subscriber2:3
+Subscriber2:4
+Subscriber2:5
 ```
