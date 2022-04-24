@@ -8,6 +8,28 @@
 - `\dt public.*`
 - `\dt dbo.*`
 - `C:\Program Files\PostgreSQL\14\data\pg_hba.conf`
+- Нейминг в нижнем регистре: 
+```
+[Table("person")]
+public class Person
+```
+- EntityFramework:
+```
+<entityFramework>
+    <providers>
+      <provider invariantName="Npgsql" type="Npgsql.NpgsqlServices, Npgsql.EntityFramework" />
+    </providers>
+  </entityFramework>
+  <system.data>
+    <DbProviderFactories>
+      <remove invariant="Npgsql"/>
+      <add name="Npgsql Data Provider" invariant="Npgsql" description=".Net Data Provider for PostgreSQL" type="Npgsql.NpgsqlFactory, Npgsql, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7" support="FF"/>
+    </DbProviderFactories>
+  </system.data>
+  <connectionStrings>
+    <add name="ArticleContext" connectionString="host=localhost;port=5432;database=entityframeworksamples;user id=postgres;password=<secretpassword>" providerName="Npgsql" />
+  </connectionStrings>
+```
 ---------------------------------------------- 
 - SQL - Any MSSQL/Postgres
 - SQL - ALL
