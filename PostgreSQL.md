@@ -1,6 +1,9 @@
 - `PgAdmin`
 - `cd C:\Program Files\PostgreSQL\14\bin`
 - `psql.exe -U postgres`
+- `\l`
+- `\c <databasename>
+- 
 ---------------------------------------------- 
 - SQL - Any MSSQL/Postgres
 - SQL - ALL
