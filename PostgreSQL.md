@@ -4,6 +4,7 @@
 - `\l`
 - `\c <databasename>`
 - `\dt`
+- `C:\Program Files\PostgreSQL\14\data\pg_hba.conf`
 ---------------------------------------------- 
 - SQL - Any MSSQL/Postgres
 - SQL - ALL
