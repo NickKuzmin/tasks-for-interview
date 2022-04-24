@@ -3,7 +3,7 @@
 - `psql.exe -U postgres`
 - `\l`
 - `\c <databasename>`
-- 
+- `\dt`
 ---------------------------------------------- 
 - SQL - Any MSSQL/Postgres
 - SQL - ALL
