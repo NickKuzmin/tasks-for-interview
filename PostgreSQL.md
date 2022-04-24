@@ -4,6 +4,9 @@
 - `\l`
 - `\c <databasename>`
 - `\dt`
+- `\dt *.*`
+- `\dt public.*`
+- `\dt dbo.*`
 - `C:\Program Files\PostgreSQL\14\data\pg_hba.conf`
 ---------------------------------------------- 
 - SQL - Any MSSQL/Postgres
