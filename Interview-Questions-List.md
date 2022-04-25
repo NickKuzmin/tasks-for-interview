@@ -341,6 +341,33 @@ long -> int
 - Akita | Reactive State Management
 - State Management
 ----------------------------
+- GAC
+- Агрегация vs Композиция
+- Иммутабельность (Strings are immutable. StringBuilder is a mutable type. Record)
+- const vs readonly
+- ковариантность (`interface IMessenger<out T>`), контрвариантность (`interface IMessenger<in T>`)
+- generic - все ли типы можно использовать
+- ecmascript
+- существующие типы JS
+- var, const, let
+- === и ==
+- когда == - уместен
+- rest, spread
+- JS - object destruction
+- Promise vs async
+- blop
+- web workers
+- typescript - что поддерживает из ООП, типы, перегрузки
+- websocket vs long pooling
+- js полифилы
+- жизненный цикл ангуляр
+- observable
+- constructor angular vs OnInit
+- Self join SQL
+- Trancate vs Delete
+- Command/Query, идемепотетность. Что в CQRS - команда, а что query
+- Clean Architecture/Onion/DDD
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
