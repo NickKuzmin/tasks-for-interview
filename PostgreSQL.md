@@ -45,6 +45,7 @@ public class Person
 - Default constraint
 - Postgres: sequences
 - Postgres: Как работает serial под копотом?
+- upsert postgresql
 ---------------------------------------------- 
 ```
 DROP TABLE IF EXISTS books;
