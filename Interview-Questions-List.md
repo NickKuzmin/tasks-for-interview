@@ -368,6 +368,24 @@ long -> int
 - Command/Query, идемепотетность. Что в CQRS - команда, а что query
 - Clean Architecture/Onion/DDD
 ----------------------------
+- `==` - сравнение по значению или ссылке для `string` (и для других типов)
+- HashSet, Dictionary - отличия
+- Связный список - сложность операций
+- LOH - отличия куча
+- Finalizator и GC
+- боксинг/анбоксинг
+- generic - как работает под капотом (свой класс генерируется)
+- event, delegate - как работает, синтаксис, публичность/приватность
+- ковариантность/контрвариантность (интерфейсов, делегатов)
+- Task.FromResult - плюсы/минусы
+- ValueTask (выделяется в стеке) - отличия от Task
+- DbContext - потокобезопасный или нет
+- FluentMigrator/DbApp
+- EntityFramework - execute raw SQL
+- NetCore: GetAllInstances (ICollection зависимостей)
+- IReadOnlyCollection - и другие немутабельные коллекции
+- Оконные функции
+----------------------------
 **C#:**
 - Finalize vs Dispose
 - Task vs Thread
