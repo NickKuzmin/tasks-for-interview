@@ -47,6 +47,7 @@ public class Person
 - Postgres: Как работает serial под копотом?
 - upsert postgresql
 - B-Tree индекс
+- Index Seek vs Index Scan
 ---------------------------------------------- 
 ```
 DROP TABLE IF EXISTS books;
