@@ -46,6 +46,7 @@ public class Person
 - Postgres: sequences
 - Postgres: Как работает serial под копотом?
 - upsert postgresql
+- B-Tree индекс
 ---------------------------------------------- 
 ```
 DROP TABLE IF EXISTS books;
