@@ -1,8 +1,8 @@
-- Команды:
-``
-dotnet --list-sdks
-``
+**Команды:**
 
+- `dotnet --list-sdks`
+- `dotnet --version`
+- `reg.exe query "HKLM\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0" /v MSBuildToolsPath`
 -------------------------
 **К ссылочным типам относятся:**
 
