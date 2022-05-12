@@ -3,6 +3,7 @@
 - `dotnet --list-sdks`
 - `dotnet --version`
 - `reg.exe query "HKLM\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0" /v MSBuildToolsPath`
+- Remove SDK: https://docs.microsoft.com/en-us/dotnet/core/install/remove-runtime-sdk-versions?pivots=os-windows
 -------------------------
 **К ссылочным типам относятся:**
 
