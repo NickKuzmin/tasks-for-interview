@@ -19,3 +19,4 @@
 - Datasets (CSV): https://www.kaggle.com/datasets
 - FreeCodeCamp: https://www.freecodecamp.org/news
 - CSS Layouts: https://csslayout.io/
+- AnyDesk (Free remote desktop): https://anydesk.com/ru/downloads/windows
