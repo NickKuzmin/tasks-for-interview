@@ -69,5 +69,13 @@ Task<int> task1 = Task.FromResult(3);
 Task<int> task2 = Task.FromResult(5);
 
 int[] results = await Task.WhenAll(task1, task2);
+```
 
+```
+Task<int> task1 = client.GetResultAsync();
+Task<int> task2 = client.GetResultAsync();
+
+Task<int> completedTask = await Task.WhenAny(task1, task2);
+
+int result = await completedTask;
 ```
