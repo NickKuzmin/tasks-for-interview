@@ -79,3 +79,19 @@ Task<int> completedTask = await Task.WhenAny(task1, task2);
 
 int result = await completedTask;
 ```
+-----------------------------------------------------------------------------------
+```
+async Task ResumeOnContextAsync()
+{
+  await Task.Delay(TimeSpan.FromSeconds(1));
+  
+  // Возобновляется в том же контексте
+}
+
+async Task ResumeWithoutContextAsync()
+{
+  await Task.Delay(TimeSpan.FromSeconds(1)).ConfigureAwait(false);
+  
+  // Теряет свой оригинальный контекст при возобновлении
+}
+```
