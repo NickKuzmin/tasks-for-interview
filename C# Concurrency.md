@@ -25,3 +25,5 @@ Obserable.Interval(TimeSpan.FromSeconds(1))
   .Subscribe(x => Trace.WriteLine(x),
     ex => Trace.WriteLine(ex));
 ```
+-----------------------------------------------------------------------------------
+- `Конкурентные коллекции` и `Неизменяемые коллекциию`
