@@ -56,3 +56,18 @@ progress.ProgressChanged += (sender, args) =>
 };
 await MyMethodAsync(progress);
 ```
+----------------------------------------------------------------------------------
+```
+Task task1 = Task.Delay(TimeSpan.FromSeconds(1));
+Task task2 = Task.Delay(TimeSpan.FromSeconds(2));
+
+await Task.WhenAll(task1, task2);
+```
+
+```
+Task<int> task1 = Task.FromResult(3);
+Task<int> task2 = Task.FromResult(5);
+
+int[] results = await Task.WhenAll(task1, task2);
+
+```
