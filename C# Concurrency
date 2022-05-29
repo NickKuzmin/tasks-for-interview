@@ -1,0 +1,13 @@
+- Linq to Events (System.Reactive) - "Push"-model
+- Linq to Object/Entities - "Pull"-model
+
+- 
+
+```
+Obserable.Interval(TimeSpan.FromSeconds(1))
+  .Timestamp()
+  .Where(x => x.Value % 2 == 0)
+  .Select(x => x.Timestamp)
+  .Subscribe(x => Trace.WriteLine(x),
+    ex => Trace.WriteLine(ex));
+```
