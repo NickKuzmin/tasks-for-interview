@@ -29,3 +29,30 @@ Obserable.Interval(TimeSpan.FromSeconds(1))
 - `Конкурентные коллекции` и `Неизменяемые коллекциию`
 - `Чистая функция` - не имеет побочных эффектов.
 - `System.Collections.Immutable`
+-----------------------------------------------------------------------------------
+```
+Task<T> NotImplementedAsync<T>()
+{
+  return Task.FromException<T>(new NotImplemenetedException());
+}
+```
+-----------------------------------------------------------------------------------
+```
+async Task MyMethodAsync(IProgress<double> progress)
+{
+  bool done = false;
+  double percentComplete = 0;
+  while (!done)
+  {
+    // ...
+    progress?.Report(percentComplete);
+  }
+}
+
+var progress = new Progress<double>();
+progress.ProgressChanged += (sender, args) =>
+{
+  // ...
+};
+await MyMethodAsync(progress);
+```
