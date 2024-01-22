@@ -1,92 +1,93 @@
-sudo apt-get update
-sudo apt-get install xde
+`sudo apt-get update`
+
+`sudo apt-get install xde`
 
 -------------------
-cd /
-cd ..
-ls
-ls ..
+`cd /`
+`cd ..`
+`ls`
+`ls ..`
 
-touch myfirstfile
-mkdir myfirstdir
-touch myseconddir/mysecondfile
+`touch myfirstfile`
+`mkdir myfirstdir`
+`touch myseconddir/mysecondfile`
 
-ls - понять файл или директория
-drwxr - директория
--rw - файл
+`ls - понять файл или директория`
+`drwxr - директория`
+`-rw - файл`
 
-tab - дополнить название файла
+`tab - дополнить название файла`
 
-ps - процессы
+`ps - процессы`
 
-сигналы:
-sigkill -- 9
-sigterm -- 15
-kill -9 PID (завершение процесса)
+`сигналы:`
+`sigkill -- 9`
+`sigterm -- 15`
+`kill -9 PID (завершение процесса)`
 
-ps -auxf
+`ps -auxf`
 
-whoami - получение текущего пользователя
+`whoami - получение текущего пользователя`
 
-rwx (read/write/execute)
+`rwx (read/write/execute)`
 
-chmod (user access/group access/other access/all access) + (+/-/=) + (read/write/execute) + filename
-chmod a+x myfirstfile
-chmod g-rwx myfirstdir
-chmod g=r,o=rwx myfirstdir
+`chmod (user access/group access/other access/all access) + (+/-/=) + (read/write/execute) + filename`
+`chmod a+x myfirstfile`
+`chmod g-rwx myfirstdir`
+`chmod g=r,o=rwx myfirstdir`
 
-rm myfirstfile
-rm myfirstdir/
-rm -r myfirstdir/
+`rm myfirstfile`
+`rm myfirstdir/`
+`rm -r myfirstdir/`
 
-/etc/passwd
+`/etc/passwd`
 
-useradd username -b /home/username -c "Username Usernamov" -g usergroup -p password
-adduser username
+`useradd username -b /home/username -c "Username Usernamov" -g usergroup -p password`
+`adduser username`
 
-usermod:
--l (поменять имя пользователя)
--d (поменять домашнюю директорию)
--m -d (поменять домашнюю директорию с созданием новой, если она ещё не существует)
--L (заблокировать или разблокировать пользователя)
+`usermod:`
+`-l (поменять имя пользователя)`
+`-d (поменять домашнюю директорию)`
+`-m -d (поменять домашнюю директорию с созданием новой, если она ещё не существует)`
+`-L (заблокировать или разблокировать пользователя)`
 
-/etc/shadow
+`/etc/shadow`
 
-passwd username (смена пароля)
-whereis passwd
+`passwd username (смена пароля)`
+`whereis passwd`
 
-SUID: chmod u+s file
-SGID: chmod g+s dir
-Sticky-bit: chmod +t dir
+`SUID: chmod u+s file`
+`SGID: chmod g+s dir`
+`Sticky-bit: chmod +t dir`
 
-/etc/group
+`/etc/group`
 
-groupadd groupname
+`groupadd groupname`
 
-usermod:
--g (задать основную группу для пользователя)
--G (задать дополнительную группу для пользователя)
--a (добавить группу для пользователя)
+`usermod:`
+`-g (задать основную группу для пользователя)`
+`-G (задать дополнительную группу для пользователя)`
+`-a (добавить группу для пользователя)`
 
-usermod -a -G devopsgroupname myusername
+`usermod -a -G devopsgroupname myusername`
 
-groupdel groupname
-userdel username
+`groupdel groupname`
+`userdel username`
 
-sudo -u username ls /tmp
+`sudo -u username ls /tmp`
 
 ------
-apt-get
-apt
-apt-cache
-dpkg
+`apt-get`
+`apt`
+`apt-cache`
+`dpkg`
 
-dpkg -s telegram-desktop
+`dpkg -s telegram-desktop`
 
-apt-get update
-apt-get install my-application-name
-apt-get remove --purge my-application-name
-apt-get changelog my-application-name
+`apt-get update`
+`apt-get install my-application-name`
+`apt-get remove --purge my-application-name`
+`apt-get changelog my-application-name`
 
 apt-cache pkgnames
 apt-cache search telegram
