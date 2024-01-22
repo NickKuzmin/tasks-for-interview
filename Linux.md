@@ -89,8 +89,8 @@
 `apt-get remove --purge my-application-name`
 `apt-get changelog my-application-name`
 
-apt-cache pkgnames
-apt-cache search telegram
-apt-cache policy telegram-desktop
-apt-get install telegram-desktop=0.2
+`apt-cache pkgnames`
+`apt-cache search telegram`
+`apt-cache policy telegram-desktop`
+`apt-get install telegram-desktop=0.2`
 
