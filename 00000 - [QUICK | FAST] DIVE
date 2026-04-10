@@ -26,6 +26,17 @@ Soft Skills и лидерство
 12. Обработка исключений: стек вызовов, ExceptionDispatchInfo, performance impact throw/catch
 13. Value Types vs Reference Types: boxing/unboxing, stack vs heap, оптимизации JIT
 
+Что такое yield return и как работает итератор под капотом?
+В чём разница между == и .Equals() для ссылочных и значимых типов?
+Как работает string.Intern() и когда это может быть полезно или опасно?
+Что такое readonly struct и какие ограничения он накладывает?
+Как работают ref и out параметры? В чём практическая разница?
+Что такое in-параметры и когда они дают выгоду по производительности?
+Как устроена система исключений в .NET: почему throw ex ломает стек?
+Что такое WeakReference и когда её уместно использовать?
+Как работает System.Text.Json vs Newtonsoft.Json: сериализация, полиморфизм, производительность?
+Что такое System.Runtime.CompilerServices.CallerMemberName и как это применяется в логировании/инструментации?
+
 В чём разница между class и struct? Когда лучше использовать значение, а когда ссылку?
 Что такое boxing/unboxing и почему это влияет на производительность?
 Как работает оператор is и pattern matching в C# 8–12?
@@ -54,6 +65,17 @@ Soft Skills и лидерство
 8. Async void vs async Task: почему async void опасен, обработка необработанных исключений
 9. IAsyncEnumerable: потоковая обработка, backpressure, реализация паттерна Producer/Consumer
 
+Что такое Task.WhenAll и Task.WhenAny? Когда какой использовать?
+Как реализовать асинхронный lock и почему обычного lock недостаточно?
+Что такое async-итераторы (IAsyncEnumerable<T>) и как их потреблять?
+Как обработать исключение в Task, если вы не делаете await сразу?
+Что такое ValueTask и в каких сценариях он снижает аллокации?
+Как правильно использовать CancellationToken в библиотеках, которые не поддерживают отмену?
+Что такое SynchronizationContext в контексте WinForms/WPF и почему в ASP.NET Core его нет?
+Как избежать ThreadPool starvation при большом количестве Task.Run?
+Что такое Interlocked и какие атомарные операции он предоставляет?
+Как реализовать простой producer/consumer на Channel<T>?
+
 В чём разница между Task.Run и Task.Factory.StartNew?
 Как отменить асинхронную операцию с помощью CancellationToken?
 Что такое deadlock и как его избежать при использовании async/await?
@@ -80,6 +102,17 @@ Soft Skills и лидерство
 13. Anti-patterns: Anemic Domain Model, God Class, Feature Envy, стратегии борьбы
 14. Архитектурные стили: Clean Architecture, Hexagonal, Onion, trade-offs и миграция
 15. Domain Events и Outbox: как гарантировать доставку, обработка идемпотентности
+
+Что такое паттерн Specification и как он помогает в фильтрации доменных объектов?
+В чём разница между паттернами Strategy и Policy?
+Что такое паттерн Chain of Responsibility и где он применяется в .NET (например, в middleware)?
+Как применить паттерн Factory Method без усложнения кода?
+Что такое паттерн Null Object и когда он уместен?
+В чём разница между Active Record и Data Mapper (EF Core — какой подход использует)?
+Что такое паттерн Caching Proxy и как его реализовать вручную?
+Как использовать паттерн Template Method в абстрактных сервисах?
+Что такое паттерн Bulkhead и как он изолирует сбои в микросервисах?
+Когда стоит применять паттерн Mediator, а когда это over-engineering?
 
 Объясните принцип единственной ответственности (SRP) на конкретном примере.
 Что такое паттерн Стратегия и когда его применять?
@@ -110,6 +143,17 @@ Soft Skills и лидерство
 16. Что такое шардирование, партиционирование и репликация? Как они влияют на консистентность, сложность разработки и операционные затраты?
 17. Как организуете миграции БД в CI/CD? Какие стратегии позволяют выполнять zero-downtime deploy при изменении схемы или типа данных?
 
+Что такое EXPLAIN / Execution Plan и как читать базовый план запроса?
+В чём разница между DELETE, TRUNCATE и DROP?
+Как работает UPDATE с JOIN в SQL Server / PostgreSQL?
+Что такое covering index и как он уменьшает I/O?
+Как избежать блокировок при массовом обновлении данных?
+Что такое ROW_NUMBER(), RANK(), DENSE_RANK() и когда их применять?
+Как работает TRY...CATCH в T-SQL / PL/pgSQL и как логировать ошибки?
+Что такое временные таблицы vs табличные переменные: плюсы и минусы?
+Как реализовать soft delete на уровне БД и как это влияет на индексы?
+Что такое CONCURRENTLY индекс в PostgreSQL и зачем он нужен в production?
+
 В чём разница между INNER JOIN, LEFT JOIN и RIGHT JOIN?
 Что такое нормализация базы данных и зачем она нужна?
 Как работает индекс и почему он ускоряет выборку?
@@ -137,6 +181,17 @@ Soft Skills и лидерство
 14. Resilience Patterns: Polly, Retry, Circuit Breaker, Bulkhead, Fallback, Timeout
 15. Деплой и конфигурация: appsettings, Environment Variables, Secret Manager, reload-on-change
 
+Что такое IHttpClientFactory и зачем он нужен вместо прямого создания HttpClient?
+Как правильно обрабатывать 429 Too Many Requests и 503 Service Unavailable?
+Что такое ETag / Last-Modified и как реализовать conditional requests?
+Как защитить API от overposting при модель-байдинге в ASP.NET Core?
+Что такое ProblemDetails и как стандартизировать ответы об ошибках?
+Как реализовать идемпотентный POST-запрос?
+Что такое WebSocket и когда его выбирать вместо long-polling?
+Как настроить Response Caching в ASP.NET Core и в чём разница с MemoryCache?
+Что такое minimal API и когда его стоит использовать вместо контроллеров?
+Как протестировать контроллер без запуска всего приложения (интеграционные тесты)?
+
 Что такое REST и какие основные принципы он включает?
 В чём разница между PUT, POST и PATCH в HTTP?
 Как работает аутентификация через JWT-токены?
@@ -158,6 +213,17 @@ Soft Skills и лидерство
 8. Service Mesh (Istio/Linkerd): mTLS, traffic splitting, observability, sidecar pattern
 9. Cloud-Native 12-Factor App: конфигурация, логи, statelessness, backing services
 10. Networking и Policies: CNI, NetworkPolicies, egress/ingress control, DNS resolution
+
+Что такое Pod и чем он отличается от контейнера?
+Как работает rolling update в Deployment и как откатиться?
+Что такое Resource Requests и Limits и почему их важно задавать?
+Как настроить graceful shutdown в .NET-приложении при получении SIGTERM?
+Что такое Init Container и когда его использовать?
+Как передать переменные окружения в под и перезагрузить конфигурацию без рестарта?
+Что такое PersistentVolume и PersistentVolumeClaim и в чём разница?
+Как посмотреть, почему под не запускается (kubectl describe, kubectl logs)?
+Что такое HorizontalPodAutoscaler и какие метрики он может использовать кроме CPU?
+Как организовать доступ к БД из пода: через Service, Connection String, Sidecar?
 
 Что такое контейнер и чем он отличается от виртуальной машины?
 Как описать приложение для запуска в Kubernetes (Deployment YAML)?
@@ -186,6 +252,17 @@ Soft Skills и лидерство
 14. Тестирование асинхронного кода: таймауты, race conditions, детерминированность
 15. Contract Testing: Pact, consumer-driven contracts, версионирование API, совместимость
 
+Как написать интеграционный тест для API с использованием WebApplicationFactory<T>?
+Что такое Theory / [InlineData] в xUnit и когда это удобнее обычных тестов?
+Как изолировать тесты, которые работают с файловой системой или сетью?
+Что такое global setup/teardown в тестовом проекте и как его реализовать?
+Как проверить, что метод был вызван с определёнными аргументами в моке?
+Что такое snapshot testing и когда он оправдан?
+Как настроить параллельный запуск тестов в xUnit и какие есть подводные камни?
+Что такое dotnet publish -c Release -r linux-x64 --self-contained false и зачем это нужно?
+Как кэшировать пакеты NuGet в GitHub Actions / Azure DevOps?
+Что такое environment-specific appsettings и как безопасно переключать их в пайплайне?
+
 В чём разница между unit-тестом и интеграционным тестом?
 Что такое моки и когда их использовать в тестах?
 Как написать тест для асинхронного метода в xUnit?
@@ -210,6 +287,17 @@ Sagas для распределённых транзакций: choreography vs 
 Backpressure и Flow Control: buffer limits, pause/resume, consumer lag monitoring
 Schema Registry и Contract Testing: central schema management, breaking change detection
 
+Что такое ack/nack в брокере и как это влияет на гарантию доставки?
+Как реализовать повторную обработку сообщения с экспоненциальной задержкой?
+Что такое consumer lag и как его мониторить?
+Как обработать сообщение, которое не соответствует ожидаемой схеме?
+Что такое transactional outbox и как он гарантирует атомарность записи события?
+Как организовать обработку сообщений в порядке поступления при параллельных потребителях?
+Что такое schema evolution и как избежать поломки старых потребителей?
+Как протестировать обработчик сообщений без реального брокера?
+Что такое poison message и как его изолировать для ручного разбора?
+Как масштабировать потребление: больше инстансов или больше партиций?
+
 В чём разница между очередью и топиком в брокере сообщений?
 Что такое потребитель (consumer) и как обрабатывать сообщения безопасно?
 Как гарантировать, что сообщение не потеряется при сбое?
@@ -231,6 +319,17 @@ Schema Registry и Contract Testing: central schema management, breaking change 
 8. Incident Management и Postmortems: blameless culture, runbooks, MTTR/MTBF
 9. Chaos Engineering: принципы, инструменты, эксперименты в staging/prod
 10. Capacity Planning и Forecasting: utilization vs saturation, trend analysis, auto-scaling triggers
+
+Как добавить пользовательские метрики в Prometheus через OpenTelemetry?
+Что такое log level и как динамически менять его в продакшене?
+Как коррелировать логи, метрики и трейсы по одному traceId?
+Что такое error budget и как он влияет на принятие решений о релизах?
+Как настроить sampling в трейсинге, чтобы не перегрузить хранилище?
+Что такое structured logging и как избежать утечки чувствительных данных в логах?
+Как проверить, что алерты работают, не вызывая реальный инцидент?
+Что такое runbook и как его использовать при реагировании на инциденты?
+Как собрать метрики бизнес-логики (например, «заказов в минуту») наряду с техническими?
+Что такое canary analysis и как автоматически откатить релиз при деградации метрик?
 
 Что такое структурированное логирование и чем оно лучше обычного Console.WriteLine?
 Как добавить корреляцию запросов через traceId в логах?
