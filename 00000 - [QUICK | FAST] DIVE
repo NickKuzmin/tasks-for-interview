@@ -19,6 +19,22 @@ Soft Skills и лидерство
 5. Почему async void запрещён вне обработчиков событий? Как безопасно запускать "забытые" фоновые задачи и обрабатывать в них исключения?
 6. Что такое SynchronizationContext и почему ConfigureAwait(false) обязателен в библиотечном коде? Как это влияет на ASP.NET Core vs UI-фреймворки?
 7. Сравните lock, Monitor, SemaphoreSlim, ReaderWriterLockSlim и Interlocked.
+8. Nullable Reference Types: как работают аннотации, [NotNullWhen], анализ потока компилятора
+9. Pattern Matching и Records: во что компилирует Roslyn, GetHashCode/Equals/with-оператор
+10. Делегаты, события и замыкания: генерация классов-состояний, утечки памяти, захват переменных
+11. Reflection vs Source Generators vs AOT: trade-offs, влияние на cold-start и runtime
+12. Обработка исключений: стек вызовов, ExceptionDispatchInfo, performance impact throw/catch
+13. Value Types vs Reference Types: boxing/unboxing, stack vs heap, оптимизации JIT
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+1. Async/await под капотом: машина состояний, захват SynchronizationContext, переключение потоков
+2. ConfigureAwait(false): когда и зачем использовать, влияние на ASP.NET и UI-фреймворки
+3. Task vs ValueTask: когда возвращать ValueTask, риски повторного ожидания, IValueTaskSource
+4. CancellationTokenSource: каскадная отмена, LinkedTokenSource, таймауты, отмена I/O
+5. Потокобезопасные коллекции: ConcurrentDictionary, Immutable collections, lock-free алгоритмы
+6. Семафоры, мьютексы и Monitor: разница, deadlocks, livelocks, priority inversion
+7. ThreadPool и Work Stealing: как работает пул, настройка min/max потоков, thread starvation
+8. Async void vs async Task: почему async void опасен, обработка необработанных исключений
+9. IAsyncEnumerable: потоковая обработка, backpressure, реализация паттерна Producer/Consumer
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 1. Как вы применяете SOLID на практике?
 2. В чём разница между Clean Architecture, Hexagonal и Onion?
@@ -27,29 +43,104 @@ Soft Skills и лидерство
 5. Какие проблемы решают Mediator и Pipeline-поведение?
 6. Что такое DDD на практике? Чётко разграничьте Entity, Value Object и Aggregate Root. Как проектировать границы агрегатов без чрезмерного дробления?
 7. Как организовывать конфигурацию, секреты и Feature Flags в микросервисной архитектуре?
+8. DDD: агрегаты, инварианты, граничные контексты, как проектировать доменную модель
+9. CQRS и разделение чтения/записи: когда оправдано, сложность синхронизации моделей
+10. Паттерны в .NET: Mediator, Specification, Strategy vs Policy, когда избыточны
+11. Dependency Inversion vs DI-контейнер: как не скатиться в Service Locator и God Container
+12. Композиция vs Наследование: когда использовать extension methods, mixins, делегирование
+13. Anti-patterns: Anemic Domain Model, God Class, Feature Envy, стратегии борьбы
+14. Архитектурные стили: Clean Architecture, Hexagonal, Onion, trade-offs и миграция
+15. Domain Events и Outbox: как гарантировать доставку, обработка идемпотентности
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-1. Как работает оптимизатор запросов в PostgreSQL/SQL Server? Как анализировать планы выполнения и бороться с index/key lookup и scan?
-2. Какие уровни изоляции транзакций вы знаете? Как они связаны с феноменами (dirty read, phantom, non-repeatable) и блокировками?
-3. Как оптимизировать EF Core для высоконагруженных сценариев? Объясните AsNoTracking, Compiled Queries, Split Queries и проблему N+1.
-4. Когда использовать Dapper вместо EF Core? Как безопасно комбинировать ORM и микр-ORM в одном контексте без дублирования логики?
-5. Как проектировать стратегию кэширования? Опишите cache invalidation, distributed cache (Redis), и проблемы thundering herd/stampede.
-6. Что такое шардирование, партиционирование и репликация? Как они влияют на консистентность, сложность разработки и операционные затраты?
-7. Как организуете миграции БД в CI/CD? Какие стратегии позволяют выполнять zero-downtime deploy при изменении схемы или типа данных?
+1. EF Core: tracking vs AsNoTracking, N+1 проблема, Explicit Loading, компиляция запросов
+2. Индексы в SQL: B-Tree, Clustered vs Non-Clustered, covering indexes, фрагментация
+3. Уровни изоляции транзакций: READ COMMITTED, SERIALIZABLE, phantom reads, deadlocks
+4. Connection Pooling в ADO.NET/EF Core: настройка, утечки, reset connection, max pool size
+5. Миграции в production: zero-downtime deploy, обратные совместимые изменения, rollback
+6. Raw SQL vs ORM: когда уместен Dapper, производительность, защита от SQL-инъекций
+7. Partitioning и Sharding: горизонтальное vs вертикальное, стратегия маршрутизации
+8. Кэширование на уровне БД: материализованные представления, Redis vs in-memory, invalidation
+9. Распределённые транзакции: Saga, 2PC, compensating transactions, консенсус
+10. Оптимизация сложных запросов: EXPLAIN/ANALYZE, статистика, hint'ы, переписывание под планы
+11. Как работает оптимизатор запросов в PostgreSQL/SQL Server? Как анализировать планы выполнения и бороться с index/key lookup и scan?
+12. Какие уровни изоляции транзакций вы знаете? Как они связаны с феноменами (dirty read, phantom, non-repeatable) и блокировками?
+13. Как оптимизировать EF Core для высоконагруженных сценариев? Объясните AsNoTracking, Compiled Queries, Split Queries и проблему N+1.
+14. Когда использовать Dapper вместо EF Core? Как безопасно комбинировать ORM и микр-ORM в одном контексте без дублирования логики?
+15. Как проектировать стратегию кэширования? Опишите cache invalidation, distributed cache (Redis), и проблемы thundering herd/stampede.
+16. Что такое шардирование, партиционирование и репликация? Как они влияют на консистентность, сложность разработки и операционные затраты?
+17. Как организуете миграции БД в CI/CD? Какие стратегии позволяют выполнять zero-downtime deploy при изменении схемы или типа данных?
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 1. Как устроен pipeline обработки запросов в ASP.NET Core? В чём разница между Middleware, Filters, Endpoint Routing и minimal API?
 2. Когда выбирать REST, gRPC или GraphQL для межсервисного и клиентского взаимодействия? Какие компромиссы по payload, latency и версионированию вы учитываете?
 3. Опишите жизненный цикл JWT и OAuth2/OpenID Connect. Как безопасно хранить токены, ротировать секреты и бороться с token theft/replay?
 4. Как реализуете отказоустойчивость в микросервисах? Объясните Circuit Breaker, Retry, Timeout и Bulkhead через Polly с учётом идемпотентности.
 5. Как работает API Gateway и BFF-паттерн? Когда их внедрение оправдано, а когда создаёт лишнюю сложность, latency и single point of failure?
+6. Middleware Pipeline в ASP.NET Core: порядок, короткое замыкание, регистрация, порядок исполнения
+7. Жизненный цикл запроса: Routing, Endpoint Routing, Model Binding, Action Filters
+8. REST vs gRPC vs GraphQL: когда что выбирать, производительность, контракты, клиентские библиотеки
+9. Аутентификация и авторизация: JWT, OAuth2/OIDC, policy-based, claims transformation
+10. Rate Limiting и Throttling: алгоритмы (Token Bucket, Sliding Window), реализация в .NET 8+
+11. API Versioning: URL, Header, Media Type, backward compatibility, deprecation strategy
+12. Фоновые задачи в веб-приложениях: BackgroundService, Hangfire, Quartz, graceful shutdown
+13. Health Checks и Ready/Liveness probes: интеграция с оркестраторами, кастомные проверки
+14. Resilience Patterns: Polly, Retry, Circuit Breaker, Bulkhead, Fallback, Timeout
+15. Деплой и конфигурация: appsettings, Environment Variables, Secret Manager, reload-on-change
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+1. Архитектура Kubernetes: Control Plane, Nodes, etcd, scheduler, kubelet
+2. Deployment vs StatefulSet vs DaemonSet: когда что использовать, rollout strategies
+3. Services и Ingress: ClusterIP, NodePort, LoadBalancer, routing, TLS termination
+4. ConfigMaps и Secrets: управление конфигурацией, шифрование, external secrets operator
+5. Probes: Liveness, Readiness, Startup, graceful shutdown, SIGTERM handling
+6. Autoscaling: HPA (CPU/mem/custom metrics), VPA, KEDA (event-driven scaling)
+7. Helm Charts: templating, values, dependencies, versioning, rollback
+8. Service Mesh (Istio/Linkerd): mTLS, traffic splitting, observability, sidecar pattern
+9. Cloud-Native 12-Factor App: конфигурация, логи, statelessness, backing services
+10. Networking и Policies: CNI, NetworkPolicies, egress/ingress control, DNS resolution
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 1. В чём разница между Mock, Stub, Fake и Spy? Когда использовать Testcontainers, а когда in-memory заглушки или WireMock?
 2. Как бороться с flaky tests в CI? Какие практики изоляции, детерминизма, seed'ов и параллельного запуска вы применяете?
 3. Какие стратегии деплоя (Blue/Green, Canary, Rolling, Shadow) вы использовали? Как обеспечить мгновенный rollback без потери данных?
 4. Как проводите нагрузочное тестирование? Какие метрики (p95, p99, throughput, error rate, saturation) критичны и как интерпретировать результаты k6?
 5. Как выстраиваете мониторинг и алертинг? В чём разница между техническими метриками, бизнес-метриками и SLO/SLI/SLA?
+6. Test Pyramid на практике: unit vs integration vs e2e, когда мокировать, а когда нет
+7. xUnit/NUnit: теория тестов, параллельный запуск, изоляция, custom attributes
+8. Mocking vs Fakes vs Stubs: NSubstitute/Moq, когда fake-реализации предпочтительнее
+9. Testcontainers: запуск БД/брокеров в Docker для интеграционных тестов, lifecycle
+10. Code Coverage: метрики, ложные позитивы, как интерпретировать, branch vs line coverage
+11. CI/CD Pipeline: stages, artifact management, caching, параллельные job'ы, security scanning
+12. Feature Flags и Progressive Delivery: rollout strategies, canary, blue-green, rollback
+13. Infrastructure as Code: Bicep/Terraform, state management, drift detection
+14. Тестирование асинхронного кода: таймауты, race conditions, детерминированность
+15. Contract Testing: Pact, consumer-driven contracts, версионирование API, совместимость
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 1. Как проектируете отказоустойчивую систему обмена сообщениями? Разница между RabbitMQ и Kafka, гарантии доставки и семантика exactly-once.
 2. Что такое распределённый кэш и как избежать cache stampede, thundering herd, cache stampede и проблем с консистентностью при инвалидации?
+RabbitMQ vs Kafka: архитектурные различия, pull vs push, гарантии доставки
+Гарантии доставки: at-least-once, at-most-once, exactly-once, idempotency
+Паттерн Outbox: транзакционная запись событий, CDC, де-дупликация
+Consumer Groups и Partitioning: rebalancing, sticky assignor, scaling consumers
+Retry Policies и Dead Letter Queues: backoff strategies, poison messages, reprocessing
+Event Schema и Versioning: Avro/Protobuf/JSON Schema, backward/forward compatibility
+Event Sourcing vs State-Based: projection, snapshotting, consistency models
+Sagas для распределённых транзакций: choreography vs orchestration, compensation
+Backpressure и Flow Control: buffer limits, pause/resume, consumer lag monitoring
+Schema Registry и Contract Testing: central schema management, breaking change detection
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+1. Three Pillars of Observability: логи, метрики, трейсы, корреляция через traceId
+2. OpenTelemetry в .NET: SDK, instrumentation, exporters, context propagation
+3. Структурированное логирование: Serilog, enrichers, sinks, sampling, retention
+4. Метрики: counters, gauges, histograms, percentiles, cardinality explosion
+5. Distributed Tracing: W3C TraceContext, baggage, sampling strategies, span attributes
+6. SLI, SLO, SLA и Error Budgets: как определять, измерять и управлять рисками
+7. Alerting Best Practices: actionable alerts, burn rate, suppression, routing
+8. Incident Management и Postmortems: blameless culture, runbooks, MTTR/MTBF
+9. Chaos Engineering: принципы, инструменты, эксперименты в staging/prod
+10. Capacity Planning и Forecasting: utilization vs saturation, trend analysis, auto-scaling triggers
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+1. API Gateway vs Service Mesh: routing, auth, rate limiting, mTLS, observability
+2. Кэширование в распределённых системах: cache invalidation, write-through/write-behind, CDN
+3. Идемпотентность и дубликаты: idempotency keys, deduplication stores, exactly-once delivery
+4. Fault Tolerance и Graceful Degradation: bulkheads, fallbacks, circuit breakers, retry storms
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 1. Как вы проводите технические ревью кода? На что обращаете внимание в первую очередь и как даёте конструктивную, не демотивирующую обратную связь?
 2. Как управляете техническим долгом? Как убеждаете бизнес и стейкхолдеров выделять квоту времени на рефакторинг и инфраструктуру?
