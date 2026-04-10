@@ -45,6 +45,7 @@ list.append() в Python / vector::push_back() в C++ → O(1) amortized, но O(
 12. Обработка исключений: стек вызовов, ExceptionDispatchInfo, performance impact throw/catch
 13. Value Types vs Reference Types: boxing/unboxing, stack vs heap, оптимизации JIT
 
+Динамический и статический полиморфизм в C#
 Что такое yield return и как работает итератор под капотом?
 В чём разница между == и .Equals() для ссылочных и значимых типов?
 Как работает string.Intern() и когда это может быть полезно или опасно?
