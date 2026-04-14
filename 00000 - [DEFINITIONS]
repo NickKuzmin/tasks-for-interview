@@ -235,6 +235,48 @@ Middleware Pipeline: Порядок важен! UseExceptionHandler → UseHttps
 Ключевые аспекты: K8s перезапускает под при failed liveness, исключает из балансировки при failed readiness. Проверяются БД, кэш, брокер, внешние зависимости.
 💡 В C#/.NET: Microsoft.Extensions.Diagnostics.HealthChecks, AddHealthChecks(), кастомные проверки через IHealthCheck. В продакшене разделяйте /health/liveness и /health/readiness.
 ------------------------------------------------------------------------------------------------------------------------------------------------
+🔹 Три столпа наблюдаемости (Logs, Metrics, Traces)
+Суть: Три взаимодополняющих источника данных для понимания состояния распределённой системы. Logs — дискретные события с контекстом (что произошло). Metrics — агрегированные числовые данные во времени (как меняется система). Traces — путь запроса через сервисы (где задержка/ошибка).
+Ключевые аспекты:
+Logs: структурированный формат (JSON), уровни (Info/Warning/Error), корреляция через TraceId, ротация и хранение.
+Metrics: типы (Counter, Gauge, Histogram, Summary), labels/tags для группировки, retention policy.
+Traces: spans, parent/child relationships, sampling strategy (head-based vs tail-based), context propagation.
+💡 В C#/.NET: Serilog + Structured Logging, OpenTelemetry.Instrumentation.* для авто-инструментации, Prometheus-net для метрик, ActivitySource + HttpClient/EF Core instrumentation для трейсов. Экспортируйте в OTLP формат для совместимости с Jaeger, Grafana Tempo, Azure Monitor.
+------------------------------------------------------------------------------------------------------------------------------------------------
+🔹 SLO / SLI / SLA и Error Budget
+Суть:
+SLI (Service Level Indicator) — измеряемый показатель доступности/качества (например, % успешных запросов, p99 latency).
+SLO (Service Level Objective) — целевое значение SLI (например, 99.9% успешных запросов за 30 дней).
+SLA (Service Level Agreement) — контракт с бизнесом/клиентом с финансовыми последствиями при нарушении.
+Error Budget — допустимое время/процент ошибок (100% - SLO), который можно «потратить» на релизы, эксперименты или техдолг.
+Ключевые аспекты: Окна измерения (rolling 7/30 дней), многооконные multi-burn-rate алерты, связь с feature velocity, freeze релизов при исчерпании бюджета.
+💡 В C#/.NET: Считайте SLI через Meter.CreateCounter + Prometheus queries (sum(rate(http_requests_total{status=~"2.."}[5m])) / sum(rate(http_requests_total[5m]))). Настройте алерты в Grafana/Prometheus Alertmanager. Документируйте SLO в README/ADR.
+------------------------------------------------------------------------------------------------------------------------------------------------
+🔹 Prometheus
+Суть: Open-source time-series база данных и система мониторинга с pull-моделью сбора метрик.
+Ключевые аспекты: Хранит данные как <metric_name>{labels} → value @ timestamp. Мощный язык запросов PromQL. Обнаружение сервисов через service_discovery (K8s, static, Consul). Не предназначен для долгосрочного хранения (обычно 15–30 дней) и не хранит логи/трейсы. Алертинг вынесен в Alertmanager.
+💡 В C#/.NET: Приложение экспозирует эндпоинт /metrics (prometheus-net или OpenTelemetry.Exporter.Prometheus.AspNetCore). Prometheus скрапит его каждые 15–60 сек. Для production используйте Pushgateway только для batch-задач, избегайте в веб-сервисах.
+------------------------------------------------------------------------------------------------------------------------------------------------
+🔹 Grafana
+Суть: Платформа визуализации и дашбординга. Не хранит данные самостоятельно, а агрегирует их из внешних источников.
+Ключевые аспекты: Поддержка 100+ data sources (Prometheus, Loki, Tempo, PostgreSQL, ClickHouse). Templating ($instance, $env), переменные, алертинг, role-based access, provisioning через YAML/JSON. Позволяет строить единый observability portal.
+💡 В C#/.NET: Не требует кода в приложении. Дашборды хранятся как код (grafana-dashboard-finder, Terraform, Jsonnet). Настройте Dashboard JSON один раз, деплойте через CI. Связывайте метрики, логи и трейсы через общие trace_id и labels.
+------------------------------------------------------------------------------------------------------------------------------------------------
+🔹 Jaeger
+Суть: Open-source система распределённой трассировки (CNCF Graduated). Изначально создана Uber для отладки микросервисов.
+Ключевые аспекты: Визуализация трейсов, span'ов, графа зависимостей, поиск по атрибутам/статусам/длительности. Поддерживает sampling (вероятностный, rate-limiting, tail-based). В современных версиях полностью перешёл на приём данных через OTLP, нативный jaeger-thrift exporter помечен как deprecated.
+💡 В C#/.NET: Экспортируйте трейсы через OpenTelemetry.Exporter.OpenTelemetryProtocol (OTLP) на http://jaeger:4318 (HTTP) или :4317 (gRPC). Избегайте пакета JaegerExporter (удалён в OTel 1.5+). Настройте ActivitySource с AddSource("YourApp.*") для бизнес-трейсов.
+------------------------------------------------------------------------------------------------------------------------------------------------
+🔹 OpenTelemetry Collector
+Суть: Vendor-agnostic прокси и процессор для телеметрии. Принимает, фильтрует, обогащает, сэмплирует, маршрутизирует и экспортирует логи, метрики и трейсы.
+Ключевые аспекты: Архитектура pipeline: Receivers → Processors → Exporters. Поддерживает batch, retry, filter, transform, tail-sampling. Единая точка входа для всей организации. Позволяет менять вендоров (Jaeger → Tempo, Prometheus → Datadog) без изменения кода приложения.
+💡 В C#/.NET: Приложение шлёт всё в Collector (OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317). Collector дальше роутит в Prometheus/Loki/Jaeger/Cloud. В config.yaml настройте memory_limiter и batch для защиты от backpressure. Запускайте как DaemonSet или Sidecar в K8s.
+------------------------------------------------------------------------------------------------------------------------------------------------
+🔸 ELK / EFK (Elasticsearch + Logstash/Fluent Bit + Kibana)
+Суть: Классический log-centric стек. Elasticsearch — хранение и полнотекстовый поиск, Logstash/Fluent Bit — сбор/парсинг, Kibana — визуализация.
+Когда использовать: Когда приоритет — сложные full-text поисковые запросы, SIEM-аналитика, compliance-аудит. Требует много RAM/CPU.
+💡 В C#/.NET: Serilog.Sinks.Elasticsearch или Fluent Bit DaemonSet в K8s. Индексы ротируйте по дню. Избегайте * в поиске для production.
+------------------------------------------------------------------------------------------------------------------------------------------------
 🔹 Exception Handling & ProblemDetails
 Суть: Централизованная обработка ошибок с возвратом стандартизированных ответов вместо 500 с stack trace. Соответствует RFC 7807.
 Ключевые аспекты: Разделение бизнес-ошибок (4xx) и системных (5xx), логирование контекста, маппинг исключений, скрытие деталей реализации от клиента.
