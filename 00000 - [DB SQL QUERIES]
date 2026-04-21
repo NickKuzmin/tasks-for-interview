@@ -1,0 +1,192 @@
+1. 📉 Таблицы с частыми последовательными сканами (кандидаты на индексы)
+Что ищет: Большие таблицы, где Seq Scan преобладает над Index Scan.
+
+SELECT 
+  schemaname, relname AS table_name,
+  seq_scan, idx_scan,
+  pg_size_pretty(pg_relation_size(relid)) AS table_size,
+  n_live_tup,
+  CASE WHEN seq_scan + idx_scan = 0 THEN 0
+       ELSE ROUND(100.0 * seq_scan / (seq_scan + idx_scan), 2) END AS seq_scan_pct
+FROM pg_stat_user_tables
+WHERE n_live_tup > 50000 
+  AND seq_scan > 500
+  AND seq_scan > COALESCE(idx_scan, 0) * 2
+ORDER BY seq_scan DESC
+LIMIT 20;
+
+🔍 Интерпретация: Высокий seq_scan_pct на таблице >50k строк → запросы не используют индексы.
+🛠 Действие: Взять топ-таблицы, запустить EXPLAIN (ANALYZE) на типичные SELECT/JOIN, создать B-Tree индексы по фильтрам/сортировкам.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+2. 🗑️ Раздутие таблиц (Dead Tuples & Autovacuum Lag)
+Что ищет: Таблицы, где autovacuum не успевает за UPDATE/DELETE.
+
+SELECT 
+  schemaname, relname,
+  n_live_tup, n_dead_tup,
+  ROUND(100.0 * n_dead_tup / NULLIF(n_live_tup + n_dead_tup, 0), 2) AS dead_pct,
+  last_vacuum, last_autovacuum,
+  pg_size_pretty(pg_relation_size(relid)) AS current_size
+FROM pg_stat_user_tables
+WHERE n_dead_tup > 10000
+  AND n_dead_tup > 0.15 * n_live_tup
+ORDER BY n_dead_tup DESC
+LIMIT 20;
+
+🔍 Интерпретация: dead_pct > 20% → таблицы раздуты, индексы тормозят, I/O растёт.
+🛠 Действие: VACUUM ANALYZE table; для разовой очистки. Настроить autovacuum_vacuum_scale_factor (например, 0.05) или использовать pg_repack для zero-downtime очистки.
+------------------------------------------------------------------------------------------------------------------------------------------
+3. ⏱️ Долго выполняющиеся активные запросы
+Что ищет: Запросы, висящие > 30 сек в состоянии active.
+
+SELECT 
+  pid, usename, datname,
+  now() - query_start AS duration,
+  wait_event_type, wait_event,
+  LEFT(query, 200) AS query
+FROM pg_stat_activity
+WHERE state = 'active'
+  AND now() - query_start > interval '30 seconds'
+  AND pid != pg_backend_pid()
+ORDER BY duration DESC
+LIMIT 20;
+
+🔍 Интерпретация: wait_event_type = 'IO' → проблема с диском/кэшем. 'Lock' → блокировки. NULL → CPU-bound или тяжёлые вычисления.
+🛠 Действие: pg_terminate_backend(pid) для аварийных запросов. Анализ EXPLAIN + оптимизация плана.
+------------------------------------------------------------------------------------------------------------------------------------------
+4. 🔒 Цепочки блокировок (кто кого держит)
+Что ищет: Активные блокировки и процессы, которые их ждут.
+
+SELECT 
+  blocked.pid AS blocked_pid,
+  blocked.usename AS blocked_user,
+  blocking.pid AS blocking_pid,
+  blocking.usename AS blocking_user,
+  blocking.state AS blocker_state,
+  blocked.query AS blocked_query,
+  blocking.query AS blocking_query
+FROM pg_stat_activity blocked
+JOIN pg_stat_activity blocking ON blocking.pid = ANY(pg_blocking_pids(blocked.pid))
+WHERE blocked.wait_event_type = 'Lock'
+  AND blocked.pid != pg_backend_pid();
+
+🔍 Интерпретация: Показывает прямую зависимость: процесс blocking держит lock, процесс blocked ждёт.
+🛠 Действие: Оптимизировать транзакции (короче, меньше строк). Рассмотреть SKIP LOCKED или NOWAIT. В крайних случаях pg_terminate_backend(blocking.pid).
+------------------------------------------------------------------------------------------------------------------------------------------
+5. 💾 Низкий Cache Hit Ratio (горячие таблицы на диске)
+Что ищет: Объекты, которые чаще читаются с диска, чем из shared_buffers.
+
+SELECT 
+  schemaname, relname,
+  heap_blks_read, heap_blks_hit,
+  ROUND(100.0 * heap_blks_hit / NULLIF(heap_blks_hit + heap_blks_read, 0), 2) AS hit_pct,
+  pg_size_pretty(pg_relation_size(relid)) AS size
+FROM pg_statio_user_tables
+WHERE heap_blks_hit + heap_blks_read > 10000
+  AND (100.0 * heap_blks_hit / NULLIF(heap_blks_hit + heap_blks_read, 0)) < 95
+ORDER BY heap_blks_read DESC
+LIMIT 20;
+
+🔍 Интерпретация: hit_pct < 95% на часто читаемой таблице → не хватает RAM или shared_buffers настроен слишком консервативно.
+🛠 Действие: Увеличить shared_buffers (до 25% RAM), проверить effective_cache_size, вынести таблицу в отдельный tablespace на SSD.
+------------------------------------------------------------------------------------------------------------------------------------------
+6. 🔗 Отсутствие индексов на Foreign Keys
+Что ищет: FK без индексов → источник seq-scan при JOIN и блокировок при DELETE/UPDATE родительской таблицы.
+
+SELECT 
+  n.nspname AS schema_name,
+  c.relname AS table_name,
+  a.attname AS fk_column,
+  cc.relname AS referenced_table,
+  pg_size_pretty(pg_relation_size(c.oid)) AS table_size
+FROM pg_constraint con
+JOIN pg_class c ON c.oid = con.conrelid
+JOIN pg_namespace n ON n.oid = c.relnamespace
+JOIN pg_attribute a ON a.attrelid = c.oid AND a.attnum = ANY(con.conkey)
+JOIN pg_class cc ON cc.oid = con.confrelid
+LEFT JOIN pg_index idx ON idx.indrelid = c.oid 
+  AND idx.indkey[0] = a.attnum
+WHERE con.contype = 'f'
+  AND idx.indexrelid IS NULL
+  AND n.nspname NOT IN ('pg_catalog', 'information_schema')
+ORDER BY c.relname, a.attname;
+
+🔍 Интерпретация: Каждая строка → потенциальное место Seq Scan при JOIN и ShareLock при каскадном удалении.
+🛠 Действие: CREATE INDEX CONCURRENTLY idx_table_fk ON table_name(fk_column);
+------------------------------------------------------------------------------------------------------------------------------------------
+7. ⏳ Риск Transaction ID Wraparound
+Что ищет: Таблицы, близкие к переполнению 32-битного счётчика транзакций (приводит к остановке БД).
+
+SELECT 
+  schemaname, relname,
+  age(relfrozenxid) AS xid_age,
+  pg_size_pretty(pg_relation_size(relid)) AS size,
+  last_autovacuum, last_vacuum
+FROM pg_stat_user_tables
+ORDER BY age(relfrozenxid) DESC
+LIMIT 10;
+
+🔍 Интерпретация:
+> 200 млн → autovacuum должен сработать автоматически.
+> 1.5 млрд → критично, БД может уйти в read-only.
+🛠 Действие: Если xid_age > 1 млрд, срочно VACUUM FREEZE table;. Настроить autovacuum_freeze_max_age (по умолчанию 200M).
+------------------------------------------------------------------------------------------------------------------------------------------
+8. 🚪 Утечки соединений: Idle in Transaction
+Что ищет: Сессии, которые не закрыли транзакцию и держат соединения/локи/snapshots.
+
+SELECT 
+  pid, usename, datname, client_addr,
+  now() - state_change AS idle_duration,
+  LEFT(query, 150) AS last_query
+FROM pg_stat_activity
+WHERE state = 'idle in transaction'
+  AND now() - state_change > interval '5 minutes'
+ORDER BY idle_duration DESC;
+
+🔍 Интерпретация: Такие сессии мешают autovacuum, держат старые MVCC-снимки (раздувают таблицы) и могут блокировать запись.
+🛠 Действие: Найти виновника в приложении (connection pool misconfiguration). Настроить idle_in_transaction_session_timeout = '10min'.
+------------------------------------------------------------------------------------------------------------------------------------------
+9. 📊 Неэффективные индексы (много чтений с диска на 1 скан)
+Что ищет: Индексы, которые используются, но требуют много блочных чтений → плохая селективность или маленький кэш.
+
+SELECT 
+  s.schemaname, s.relname, s.indexrelname,
+  s.idx_scan,
+  s.idx_blks_read, s.idx_blks_hit,
+  ROUND(s.idx_blks_read::numeric / NULLIF(s.idx_scan, 0), 2) AS blks_per_scan,
+  pg_size_pretty(pg_relation_size(i.indexrelid)) AS index_size
+FROM pg_stat_user_indexes s
+JOIN pg_index i ON i.indexrelid = s.indexrelid
+WHERE s.idx_scan > 100
+  AND s.idx_blks_read > 0
+  AND (s.idx_blks_read::numeric / s.idx_scan) > 15
+ORDER BY s.idx_blks_read DESC
+LIMIT 20;
+
+🔍 Интерпретация: blks_per_scan > 10 → индекс большой, но данные не попадают в кэш, либо индекс сканирует много страниц ради малого результата.
+🛠 Действие: Проверить correlation колонки, рассмотреть partial index, composite index с лучшей селективностью, или увеличить shared_buffers.
+------------------------------------------------------------------------------------------------------------------------------------------
+10. 🏆 Топ запросов по суммарному времени (pg_stat_statements)
+Что ищет: Запросы, которые суммарно съедают больше всего времени БД.
+sql
+
+SELECT 
+  queryid,
+  LEFT(query, 120) AS query_sample,
+  calls,
+  ROUND(total_exec_time::numeric / 1000, 2) AS total_sec,
+  ROUND(mean_exec_time::numeric, 2) AS mean_ms,
+  rows
+FROM pg_stat_statements
+WHERE dbid = (SELECT oid FROM pg_database WHERE datname = current_database())
+  AND query NOT LIKE '%pg_stat_statements%'
+ORDER BY total_exec_time DESC
+LIMIT 20;
+
+🔍 Интерпретация:
+high calls + low mean_ms → оптимизировать частоту вызовов (batching, caching).
+low calls + high mean_ms → оптимизировать план (индексы, rewrite query).
+🛠 Действие: EXPLAIN (ANALYZE, BUFFERS) для топ-3 запросов. Регулярно вызывать pg_stat_statements_reset() после анализа, чтобы не размывать статистику.
+------------------
+
